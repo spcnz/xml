@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+    <xs:element name="Zalba">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Naslov">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:maxLength value="200"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="Primaoc" type="TPrimaoc"/>
+                <xs:element name="Podnaslov">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:maxLength value="150"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:choice>
+                    <xs:element name="Pravno_lice" type="TPravno_lice"/>
+                    <xs:element name="Fizicko_lice" type="TFizicko_lice"/>
+                </xs:choice>
+                <xs:element name="Tekst_zalbe" type="TText_zalbe"/>
+                <xs:element name="Grad" type="xs:string"/>
+                <xs:element name="Datum" type="xs:date"/>
+                <xs:element name="Podnosilac" type="TPodnosilac"/>
+                <xs:element name="Napomena">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element maxOccurs="unbounded" minOccurs="1" name="Tacka">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute name="broj" type="xs:positiveInteger"
+                                                use="required"/>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Adresa">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Grad" type="xs:string"/>
+                <xs:element name="Ulica" type="xs:string"/>
+                <xs:element name="Broj" type="xs:positiveInteger"/>
+                <xs:element name="Postanski_broj">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:int">
+                            <xs:minInclusive value="11000"/>
+                            <xs:maxInclusive value="40000"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="TPravno_lice">
+        <xs:sequence>
+            <xs:element name="Naziv" type="xs:string"/>
+            <xs:element ref="Adresa"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="TFizicko_lice">
+        <xs:sequence>
+            <xs:element name="Ime" type="xs:string"/>
+            <xs:element name="Prezime" type="xs:string"/>
+            <xs:element ref="Adresa"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="TPodnosilac">
+        <xs:complexContent>
+            <xs:extension base="TFizicko_lice">
+                <xs:sequence>
+                    <xs:element name="Kontakt" type="xs:string"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="TPrimaoc">
+        <xs:sequence>
+            <xs:element name="Uloga">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="150"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element ref="Adresa"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType mixed="true" name="TText_zalbe">
+        <xs:sequence>
+            <xs:element name="Datum_podnosenja_zahteva" type="xs:date"/>
+            <xs:element name="Osnova_zalbe" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
