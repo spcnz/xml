@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
-    targetNamespace="http://www.junglegroove.com/zalbacutanje"
-    xmlns:res="http://www.junglegroove.com/zalbacutanje">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sh="http://www.shared.com"
+    targetNamespace="http://www.zalbacutanje.com" xmlns="http://www.zalbacutanje.com">
+    <xs:import namespace="http://www.shared.com" schemaLocation="shared.xsd"/>
 
     <xs:element name="zalba">
         <xs:complexType>
@@ -21,8 +21,8 @@
                                 </xs:simpleType>
                             </xs:element>
                             <xs:element name="podaci_o_zahtevu" type="xs:string"/>
-                            <xs:element name="podnosilac_zalbe_DODAJ_TOSOBA"/>
-                            <xs:element name="datum_vreme_DODAJ_Tdatum"/>
+                            <xs:element name="podnosilac_zalbe" type="sh:Ttrazilac_informacije"/>
+                            <xs:element name="datum_vreme" type="sh:Tdatum_vreme"/>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
