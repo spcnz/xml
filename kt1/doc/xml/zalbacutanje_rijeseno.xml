@@ -21,9 +21,9 @@
         <naziv_organa> </naziv_organa>
         због тога што орган власти: 
         <razlozi>
-            <prvi>није поступио</prvi>
-            <drugi>није поступио у целости</drugi>
-            <razlog>у законском року</razlog>
+            <opcija>није поступио</opcija>
+            <opcija>није поступио у целости</opcija>
+            <opcija>у законском року</opcija>
         </razlozi> 
         (подвући  због чега се изјављује жалба)
         
@@ -44,14 +44,10 @@
         
         <podnosilac_zalbe>
             <ime></ime>
-            <prezime></prezime>
-            <potpis></potpis>
+            <prezime></prezime>            
             <adresa></adresa>
             <drugi_podaci_za_kontakt></drugi_podaci_za_kontakt>
         </podnosilac_zalbe>
-        
-        
-        <potpis_sluzbenika></potpis_sluzbenika>
         
         
         <datum_i_vreme>
