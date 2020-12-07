@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<zahtev>
+<zahtev_dokument>
     <nadlezni_organ>
         <naziv></naziv>
         <sediste></sediste>      
@@ -43,8 +43,7 @@
             <ime></ime>
             <prezime></prezime>
             <adresa></adresa>
-            <drugi_podaci_za_kontakt></drugi_podaci_za_kontakt>
-            <potpis></potpis>            
+            <drugi_podaci_za_kontakt></drugi_podaci_za_kontakt>                       
         </trazilac_informacije>
         
         <datum_i_vreme>
@@ -58,12 +57,12 @@
     </sadrzaj>
     
     <fusnote>
-        * У кућици означити која законска права на приступ информацијама желите да остварите.
-        ** У кућици означити начин достављања копије докумената.
-        *** Када захтевате други начин достављања обавезно уписати који начин достављања захтевате.        
+        <fusnota>* У кућици означити која законска права на приступ информацијама желите да остварите.</fusnota>
+        <fusnota>** У кућици означити начин достављања копије докумената.</fusnota>
+        <fusnota>*** Када захтевате други начин достављања обавезно уписати који начин достављања захтевате.</fusnota>        
     </fusnote>
     
     
     
     
-</zahtev>
+</zahtev_dokument>

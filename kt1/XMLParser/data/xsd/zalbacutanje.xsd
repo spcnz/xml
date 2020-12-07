@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://www.junglegroove.com/zalbacutanje"
+    xmlns:res="http://www.junglegroove.com/zalbacutanje">
+
+    <xs:element name="zalba">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="naziv" type="xs:string"/>
+                <xs:element name="primaoc"/>
+                <xs:element name="sadrzaj">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="podnaslov" type="xs:string"/>
+                            <xs:element name="naziv_organa" type="xs:string"/>
+                            <xs:element name="datum">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:date">
+                                        <xs:pattern value="\d{1,2}\.\d{1,2}\.\d{4}"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="podaci_o_zahtevu" type="xs:string"/>
+                            <xs:element name="podnosilac_zalbe_DODAJ_TOSOBA"/>
+                            <xs:element name="datum_vreme_DODAJ_Tdatum"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="Trazlozi_zalbe">
+        <xs:choice>
+            <xs:element name="nije_postupio" type="xs:string"/>
+            <xs:element name="nije_postpupio_u_celosti" type="xs:string"/>
+            <xs:element name="u_zakonskom_roku" type="xs:string"/>
+        </xs:choice>
+    </xs:complexType>
+</xs:schema>
