@@ -45,13 +45,13 @@
             <drugi_podaci_za_kontakt></drugi_podaci_za_kontakt>                       
         </trazilac_informacije>
         
-        <datum_i_vreme>
+        <datum_vreme>
             <sat></sat>
             <minut></minut>
             <dan></dan>
             <mesec></mesec>
             <godina></godina>
-        </datum_i_vreme>
+        </datum_vreme>
         
     </sadrzaj>
     
