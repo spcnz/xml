@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema 
-    xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-    elementFormDefault="unqualified"
-    targetNamespace="http://www.shared.com" 
-    xmlns:sh="http://www.shared.com">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified"
+    targetNamespace="http://www.shared.com" xmlns:sh="http://www.shared.com">
 
     <xs:complexType name="TOsoba">
         <xs:sequence>
@@ -50,6 +47,41 @@
         <xs:sequence>
             <xs:element name="Naziv" type="xs:string"/>
             <xs:element ref="sh:Adresa"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Ttrazilac_informacije">
+        <xs:complexContent>
+            <xs:extension base="sh:TOsoba">
+                <xs:sequence>
+                    <xs:element ref="sh:Adresa"/>
+                    <xs:element name="drugi_podaci_za_kontakt" type="xs:string"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="Tdatum_vreme">
+        <xs:sequence>
+            <xs:element name="sat">
+                <xs:simpleType>
+                    <xs:restriction base="xs:positiveInteger">
+                        <xs:maxInclusive value="24"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="minut">
+                <xs:simpleType>
+                    <xs:restriction base="xs:positiveInteger">
+                        <xs:maxInclusive value="60"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="datum">
+                <xs:simpleType>
+                    <xs:restriction base="xs:date">
+                        <xs:pattern value="\d{1,2}\.\d{1,2}\.\d{4}"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
         </xs:sequence>
     </xs:complexType>
 </xs:schema>

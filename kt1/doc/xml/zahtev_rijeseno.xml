@@ -18,22 +18,21 @@
         <izbori_zahteva>
             <zahtev>обавештење да ли поседује тражену информацију</zahtev>
             <zahtev>увид у документ који садржи тражену информацију</zahtev>
-            <zahtev>копију документа који садржи тражену информацију</zahtev>
-            
-            <zahtev>
+            <zahtev>копију документа који садржи тражену информацију</zahtev>    
+        </izbori_zahteva>    
+        
                 достављање копије документа који садржи тражену информацију:**
-                <nacini_dostave>
-                    <nacin>поштом</nacin>
-                    <nacin>електронском поштом</nacin>
-                    <nacin>факсом</nacin>
-                    <nacin>
-                        на други начин:***
-                        <unos_nacina></unos_nacina>
-                    </nacin>
-                </nacini_dostave>
-            </zahtev>
+         <nacini_dostave>
+              <nacin>поштом</nacin>
+              <nacin>електронском поштом</nacin>
+              <nacin>факсом</nacin>
+              <nacin>
+                   на други начин:***
+                 <unos_nacina></unos_nacina>
+              </nacin>
+         </nacini_dostave>           
             
-        </izbori_zahteva>
+        
         
         Овај захтев се односи на следеће информације:
         
