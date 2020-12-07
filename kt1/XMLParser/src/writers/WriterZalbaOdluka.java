@@ -2,9 +2,13 @@ package writers;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.OutputStream;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.*;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -20,12 +24,16 @@ public class WriterZalbaOdluka extends DOMWriter {
 	private static DocumentBuilderFactory factory;
 	
 	private Document document;
+
+	private static TransformerFactory transformerFactory;
 	
 	/*
 	 * Factory initialization static-block
 	 */
 	static {
 		factory = DocumentBuilderFactory.newInstance();
+
+		transformerFactory = TransformerFactory.newInstance();
 	}
 	
 	/**
@@ -142,7 +150,11 @@ public class WriterZalbaOdluka extends DOMWriter {
 		napomena.appendChild(tacka2);
 	}
 
-	
+	@Override
+	public Document getDocument() {
+		return document;
+	}
+
 	public static void main(String args[]) {
 
 		String filePath = null;
@@ -168,7 +180,7 @@ public class WriterZalbaOdluka extends DOMWriter {
 		handler.generateDOM();
 
 		try {
-			handler.transform(new FileOutputStream("data/xml/zalbanaodluku_out.xml"), handler.document);
+			handler.transform(new FileOutputStream("data/xml/zalbanaodluku_out.xml"), handler.getDocument());
 		} catch ( FileNotFoundException e) {
 			System.out.println("[INFO] Can't find output file");
 			e.printStackTrace();

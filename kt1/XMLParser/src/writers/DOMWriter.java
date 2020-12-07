@@ -42,5 +42,6 @@ public abstract class DOMWriter {
         }
     }
 
+    public abstract Document getDocument();
 
 }
