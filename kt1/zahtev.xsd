@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://www.ftn.uns.ac.rs/zahtev" xmlns:zah="http://www.ftn.uns.ac.rs/zahtev">
+    <xs:element name="zahtev_dokument">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="nadlezni_organ" type="zah:TNadlezni_organ"/>
+                <xs:element name="naslov" type="xs:string"/>
+                <xs:element name="sadrzaj">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="izbori_zahteva" type="zah:Tizbori_zahteva"/>
+                            <xs:element name="nacin_dostave" type="zah:Tnacini_dostave"/>
+                            <xs:element name="opis_informacije" type="xs:string"/>
+                            <xs:element name="trazilac_informacije" type="zah:Ttrazilac_informacije"
+                            />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType abstract="false" name="TNadlezni_organ">
+        <xs:sequence>
+            <xs:element name="naziv" type="xs:string"/>
+            <xs:element name="sediste" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Tizbori_zahteva">
+        <xs:choice>
+            <xs:element name="obavestenje_o_posedu_informacije" type="xs:string"/>
+            <xs:element name="uvid_u_dokument" type="xs:string"/>
+            <xs:element name="kopija_dokumenta" type="xs:string"/>
+        </xs:choice>
+    </xs:complexType>
+    <xs:complexType name="Tnacini_dostave">
+        <xs:choice>
+            <xs:element name="posta" type="xs:string"/>
+            <xs:element name="elektronska_posta" type="xs:string"/>
+            <xs:element name="faks" type="xs:string"/>
+            <xs:element name="drugi_nacin" type="xs:string"/>
+        </xs:choice>
+    </xs:complexType>
+    <xs:complexType name="Ttrazilac_informacije">
+        <xs:sequence>
+            <xs:element name="ime" type="xs:string"/>
+            <xs:element name="prezime" type="xs:string"/>
+            <xs:element name="adresa" type="xs:string"/>
+            <xs:element name="drugi_podaci_za_kontakt" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Tdatum_vreme">
+        <xs:sequence>
+            <xs:element name="sat">
+                <xs:simpleType>
+                    <xs:restriction base="xs:positiveInteger">
+                        <xs:maxInclusive value="24"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="minut">
+                <xs:simpleType>
+                    <xs:restriction base="xs:positiveInteger">
+                        <xs:maxInclusive value="60"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="datum">
+                <xs:simpleType>
+                    <xs:restriction base="xs:date">
+                        <xs:pattern value="\d{1,2}\.\d{1,2}\.\d{4}"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
