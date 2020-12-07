@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified"
-    targetNamespace="http://www.shared.com" xmlns:sh="http://www.shared.com">
+<xs:schema 
+    xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    elementFormDefault="unqualified"
+    targetNamespace="http://www.shared.com" 
+    xmlns:sh="http://www.shared.com">
 
     <xs:complexType name="TOsoba">
         <xs:sequence>
@@ -29,7 +32,7 @@
         <xs:complexType>
             <xs:simpleContent>
                 <xs:extension base="xs:string">
-                    <xs:attribute name="broj" use="required"/>
+                    <xs:attribute name="broj" use="required" type="xs:positiveInteger"/>
                 </xs:extension>
             </xs:simpleContent>
         </xs:complexType>

@@ -1,29 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Zalba xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:noNamespaceSchemaLocation="../xsd/zalbanaodluku.xsd">
+<za:Zalba 
+    xmlns:za="http://www.zalbanaodluku.com"
+    xmlns:sh="http://www.shared.com"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.zalbanaodluku.com ../xsd/zalbanaodluku.xsd">
     <Naslov>
         ЖАЛБА  ПРОТИВ  ОДЛУКЕ ОРГАНА  ВЛАСТИ КОЈОМ ЈЕ 
         ОДБИЈЕН ИЛИ ОДБАЧЕН ЗАХТЕВ ЗА ПРИСТУП ИНФОРМАЦИЈИ
     </Naslov>
     <Primaoc>
         <Uloga>Поверенику за информације од јавног значаја и заштиту података о личности</Uloga>
-        <Adresa>
+        <sh:Adresa>
             <Grad>Beograd</Grad>
             <Ulica>Булевар краља Александрa</Ulica>
             <Broj>15</Broj>
             <Postanski_broj>11000</Postanski_broj>
-        </Adresa>
+        </sh:Adresa>
     </Primaoc>
     <Podnaslov>ZALBA</Podnaslov>
     <Fizicko_lice>
         <Ime></Ime>
         <Prezime></Prezime>
-        <Adresa>
+        <sh:Adresa>
             <Grad></Grad>
             <Ulica></Ulica>
             <Broj>1</Broj>
             <Postanski_broj>11000</Postanski_broj>
-        </Adresa>
+        </sh:Adresa>
     </Fizicko_lice>
     <Tekst_zalbe>
         Наведеном одлуком органа власти (решењем, закључком, обавештењем у писаној форми са елементима одлуке) , супротно закону, одбијен-одбачен је мој захтев који сам 
@@ -44,12 +47,12 @@
     <Podnosilac>
         <Ime></Ime>
         <Prezime></Prezime>
-        <Adresa>
+        <sh:Adresa>
             <Grad></Grad>
             <Ulica></Ulica>
             <Broj>1</Broj>
             <Postanski_broj>11000</Postanski_broj>
-        </Adresa>
+        </sh:Adresa>
         <Kontakt></Kontakt>
     </Podnosilac>
     <Napomena>
@@ -61,4 +64,4 @@
             Уз жалбу обавезно приложити копију поднетог захтева и доказ о његовој предаји-упућивању органу као и копију одлуке органа која се оспорава жалбом
         </Tacka>
     </Napomena>
-</Zalba>
+</za:Zalba>

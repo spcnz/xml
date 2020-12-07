@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sh="http://www.shared.com"
-    targetNamespace="http://www.resenje.com" xmlns="http://www.resenje.com"
+<xs:schema 
+    xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    xmlns:sh="http://www.shared.com"
+    targetNamespace="http://www.resenje.com" 
+    xmlns:re="http://www.resenje.com"
     elementFormDefault="qualified">
     <xs:import namespace="http://www.shared.com" schemaLocation="shared.xsd"/>
     <xs:element name="Resenja">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="Resenje">
+                <xs:element name="Resenje" maxOccurs="unbounded">
                     <xs:complexType>
                         <xs:sequence>
                             <xs:element name="ID">
@@ -25,20 +28,19 @@
                                     </xs:restriction>
                                 </xs:simpleType>
                             </xs:element>
-                            <xs:element name="Opis_resenja" type="TOpis_resenja"/>
+                            <xs:element name="Opis_resenja" type="re:TOpis_resenja"/>
                             <xs:element name="Obrazlozenje">
                                 <xs:complexType>
                                     <xs:sequence>
                                         <xs:element name="Opis_zalbe" type="xs:string"/>
                                         <xs:element name="Postupak_poverenika" type="xs:string"/>
-                                        <xs:element name="Odgovor_na_zalbu" type="TOdgovor_na_zalbu"
-                                        />
+                                        <xs:element name="Odgovor_na_zalbu"
+                                            type="re:TOdgovor_na_zalbu"/>
+                                        <xs:element name="Uputstvo_o_pravnom_sredstvu"
+                                            type="re:TUpustvo_o_pravnom_sredstvu"/>
                                     </xs:sequence>
                                 </xs:complexType>
                             </xs:element>
-                            <xs:element maxOccurs="1" minOccurs="0"
-                                name="Uputstvo_o_pravnom_sredstvu"
-                                type="TUpustvo_o_pravnom_sredstvu"/>
                             <xs:element name="Poverenik" type="sh:TOsoba"/>
                         </xs:sequence>
                         <xs:attribute name="dopustena_zalba"/>
@@ -62,8 +64,8 @@
         <xs:sequence>
             <xs:element maxOccurs="1" minOccurs="0" name="Razlozi">
                 <xs:complexType>
-                    <xs:sequence>
-                        <xs:element name="Tacka" type="xs:string"/>
+                    <xs:sequence maxOccurs="1">
+                        <xs:element maxOccurs="unbounded" ref="sh:Tacka"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
@@ -71,7 +73,13 @@
     </xs:complexType>
     <xs:complexType mixed="true" name="TUpustvo_o_pravnom_sredstvu">
         <xs:sequence>
-            <xs:element maxOccurs="1" minOccurs="0" name="Taksa" type="xs:positiveInteger"/>
+            <xs:element maxOccurs="1" minOccurs="0" name="Taksa">
+                <xs:simpleType>
+                    <xs:restriction base="xs:decimal">
+                        <xs:minInclusive value="0"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
         </xs:sequence>
     </xs:complexType>
 </xs:schema>
