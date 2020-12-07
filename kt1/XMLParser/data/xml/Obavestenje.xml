@@ -2,7 +2,7 @@
     xmlns="http://www.obavestenje.com"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:sh="http://www.shared.com"
-    xsi:schemaLocation="http://www.obavestenje.com ../xsd/obavestenje.xsd">>
+    xsi:schemaLocation="http://www.obavestenje.com ../xsd/obavestenje.xsd">
     <Organ>
         <Naziv></Naziv>
         <Adresa xmlns="http://www.shared.com">

@@ -1,4 +1,4 @@
-package parser;
+package parsers;
 
 import org.w3c.dom.*;
 import org.xml.sax.ErrorHandler;
@@ -12,22 +12,6 @@ import java.util.Scanner;
 
 import static org.apache.xerces.jaxp.JAXPConstants.*;
 
-/**
- * 
- * Kao rezultat parsiranja generiše se objektni reprezent XML dokumenta u vidu
- * DOM stabla njegovih elemenata. 
- * 
- * Primer demonstrira upotrebu metoda API-ja za potrebe pristupanja pojedinim
- * elementima DOM stabla. 
- * 
- * Primer omogućuje validaciju XML fajla u odnosu na XML šemu, koja se svodi 
- * na postavljanje svojstava factory objekta uz opcionu implementaciju error 
- * handling metoda.
- * 
- * NAPOMENA: za potrebe testiranja validacije dodati nepostojeći element ili 
- * atribut (npr. "test") u XML fajl koji se parsira.
- * 
- */
 public class DOMParser implements ErrorHandler {
 
 	private static DocumentBuilderFactory factory;
@@ -84,7 +68,7 @@ public class DOMParser implements ErrorHandler {
 				embeddedException = e.getException();
 
 			// Print stack trace...
-			embeddedException.printStackTrace();
+			//embeddedException.printStackTrace();
 			
 			System.exit(0);
 			
@@ -277,7 +261,7 @@ public class DOMParser implements ErrorHandler {
 
 		if (args.length != 1) {
 
-			filePath = "data/xml/zalbanaodluku.xml";
+			filePath = "data/xml/Obavestenje.xml";
 
 			System.out.println("[INFO] No input file, using default \""	+ filePath + "\"");
 
