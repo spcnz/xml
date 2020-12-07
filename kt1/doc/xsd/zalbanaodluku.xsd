@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
-
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    xmlns:sh="http://www.shared.com">
+    <xs:import namespace="http://www.shared.com" schemaLocation="shared.xsd"/>
     <xs:element name="Zalba">
         <xs:complexType>
             <xs:sequence>
@@ -20,8 +21,8 @@
                     </xs:simpleType>
                 </xs:element>
                 <xs:choice>
-                    <xs:element name="Pravno_lice" type="TPravno_lice"/>
-                    <xs:element name="Fizicko_lice" type="TFizicko_lice"/>
+                    <xs:element name="Pravno_lice" type="sh:TPravno_lice"/>
+                    <xs:element name="Fizicko_lice" type="sh:TFizicko_lice"/>
                 </xs:choice>
                 <xs:element name="Tekst_zalbe" type="TText_zalbe"/>
                 <xs:element name="Grad" type="xs:string"/>
@@ -46,39 +47,9 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-    <xs:element name="Adresa">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element name="Grad" type="xs:string"/>
-                <xs:element name="Ulica" type="xs:string"/>
-                <xs:element name="Broj" type="xs:positiveInteger"/>
-                <xs:element name="Postanski_broj">
-                    <xs:simpleType>
-                        <xs:restriction base="xs:int">
-                            <xs:minInclusive value="11000"/>
-                            <xs:maxInclusive value="40000"/>
-                        </xs:restriction>
-                    </xs:simpleType>
-                </xs:element>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
-    <xs:complexType name="TPravno_lice">
-        <xs:sequence>
-            <xs:element name="Naziv" type="xs:string"/>
-            <xs:element ref="Adresa"/>
-        </xs:sequence>
-    </xs:complexType>
-    <xs:complexType name="TFizicko_lice">
-        <xs:sequence>
-            <xs:element name="Ime" type="xs:string"/>
-            <xs:element name="Prezime" type="xs:string"/>
-            <xs:element ref="Adresa"/>
-        </xs:sequence>
-    </xs:complexType>
     <xs:complexType name="TPodnosilac">
         <xs:complexContent>
-            <xs:extension base="TFizicko_lice">
+            <xs:extension base="sh:TFizicko_lice">
                 <xs:sequence>
                     <xs:element name="Kontakt" type="xs:string"/>
                 </xs:sequence>
@@ -94,7 +65,7 @@
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
-            <xs:element ref="Adresa"/>
+            <xs:element ref="sh:Adresa"/>
         </xs:sequence>
     </xs:complexType>
     <xs:complexType mixed="true" name="TText_zalbe">
