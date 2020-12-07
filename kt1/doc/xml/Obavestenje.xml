@@ -1,125 +1,66 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<obavestenje>
-    <organ>
-        <naziv>
-            Primer naziva
-        </naziv>
-        <sediste>
-            Primer sedista
-        </sediste>
-        <broj_predmeta>
-            22
-        </broj_predmeta>
-        <datum>
-            01.02.2021.
-        </datum>
-    </organ>
-    <podnosioc>
-        <naziv>
-            ime i prezime
-        </naziv>
-        <adresa>
-            <grad>
-                
-            </grad>
-            <ulica>
-                
-            </ulica>
-            <broj>
-                
-            </broj>
-        </adresa>
-    </podnosioc>
-    <naslov>
-        О Б А В Е Ш Т Е Њ Е 
-    </naslov>
-    <podnaslov>
-        о стављању на увид документа који садржи 
-        тражену информацију и о изради копије 
-    </podnaslov>
-    На основу члана 16. ст. 1. Закона о слободном приступу информацијама од јавног значаја, поступајући по вашем захтеву за слободан приступ информацијама од
-    <godina_zahteva>
-        2020
-    </godina_zahteva>
-    год., којим сте тражили увид у документ/е са информацијама о / у вези са:  
-    
-    <opis_trazene_informacije>
-        Primer opisa trazene informacije
-    </opis_trazene_informacije>
-   
-    обавештавамо вас да дана 
-    <datum>
-        21.12.2020.
-    </datum>, у 
-    <sati>
-        21
-    </sati>
-    часова, односно у времену од 
-    <sati_od>
-        12
-    </sati_od>
-    до 
-    <sati_do>
-        15
-    </sati_do>
-    часова, у просторијама органа у 
-    <adresa> 
-        <grad>
-            Novom Sadu
-        </grad>ул. 
-        <ulica>
-            Mise Dimitrijevica
-        </ulica> бр. 
-        <broj>
-            12
-        </broj>
-        , канцеларија бр. 
-        <broj_kancelarije>
-            1
-        </broj_kancelarije>
-        
-    </adresa>
-    
-    
-    
-    Том приликом, на ваш захтев, може вам се издати и копија документа са траженом информацијом.     
-    Трошкови су утврђени Уредбом Владе Републике Србије („Сл. гласник РС“, бр. 8/06), и то: копија
-    стране А4 формата износи 3 динара, А3 формата 6 динара, CD 35 динара, дискете 20 динара, DVD 40 динара,
-    аудио-касета – 150 динара, видео-касета 300 динара, претварање једне стране документа из физичког у електронски облик – 30 динара. 
-    
-    <!-- Da li samo za input polja kreiramo elemente, ili i za informacije koje korisnik ne popunjava (info iz teksta) -->
-    
-    Износ укупних трошкова израде копије документа по вашем захтеву износи 
-    <troskovi_izrade>
-        500    
-    </troskovi_izrade> 
-    динара и уплаћује се на жиро-рачун Буџета Републике Србије бр. 840-742328-843-30,
-    с позивом на број 97 – ознака шифре општине/града где се налази орган власти 
-    (из Правилника о условима и начину вођења рачуна – „Сл. гласник РС“, 20/07/<kraca_godina>20</kraca_godina> 40/10). 
-    
-    
-    
-    
-    можете извршити увид у документ/е у коме је садржана тражена информација.  
-    <potpis_ovlascenog_lica potpis="Vladimir Antonic"></potpis_ovlascenog_lica>
-    
-    
-    <dostavljenom>
-        <tacka broj="1">
-            Именованом (М.П.) 
-        </tacka>
-        <tacka broj="2">
-            Архиви
-        </tacka>
-        
-    </dostavljenom>
-    Достављено: 
-    Именованом (М.П.) 
-    
-    Архиви 
-    
-    
-</obavestenje>
-
-
-
+<Obavestenje xmlns="http://www.obavestenje.com"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.obavestenje.com file:/C:/Users/MilenaVlada/xml/kt1/doc/xsd/obavestenje.xsd">
+    <Organ>
+        <Naziv></Naziv>
+        <Adresa xmlns="http://www.shared.com">
+            <Grad xmlns="">Novi Sad</Grad>
+            <Ulica xmlns="">Jesenjinova</Ulica>
+            <Broj xmlns="">11</Broj>
+            <Postanski_broj xmlns="">11000</Postanski_broj>
+        </Adresa>
+    </Organ>
+    <Broj_predmeta>12</Broj_predmeta>
+    <Datum>2020-10-01</Datum>
+    <Podnosilac>
+        <Fizicko_lice>
+            <Ime xmlns=""></Ime>
+            <Prezime xmlns=""></Prezime>
+            <Adresa xmlns="http://www.shared.com">
+                <Grad xmlns=""></Grad>
+                <Ulica xmlns=""></Ulica>
+                <Broj xmlns="">12</Broj>
+                <Postanski_broj xmlns="">11000</Postanski_broj>
+            </Adresa>
+        </Fizicko_lice>
+    </Podnosilac>
+    <Naslov></Naslov>
+    <Podnaslov></Podnaslov>
+    <Odgovor>
+        <Godina_zahteva>2020</Godina_zahteva>
+        <Opis_trazene_informacije></Opis_trazene_informacije>
+        <Datum></Datum>
+        <Sati>23</Sati>
+        <Sati_od>23</Sati_od>
+        <Sati_do>23</Sati_do>
+        <Lokacija>
+            <Adresa xmlns="http://www.shared.com">
+                <Grad xmlns=""></Grad>
+                <Ulica xmlns=""></Ulica>
+                <Broj xmlns="">12</Broj>
+                <Postanski_broj xmlns="">12000</Postanski_broj>
+            </Adresa>
+            <Broj_kancelarije>12</Broj_kancelarije>
+        </Lokacija>
+    </Odgovor>
+    <Podaci_o_placanju>
+        <Pojedinacni_troskovi>
+            <Trosak>
+                <Naziv>Naziv 1</Naziv>
+                <Cena>3000</Cena>
+            </Trosak>
+            <Trosak>
+                <Naziv>Naziv 1</Naziv>
+                <Cena>3000</Cena>
+            </Trosak>
+        </Pojedinacni_troskovi>
+        <Ukupni_troskovi>5500</Ukupni_troskovi>
+        <Broj_racuna>12345678901234567</Broj_racuna>
+        <Poziv_na_broj>98</Poziv_na_broj>
+    </Podaci_o_placanju>
+    <Dostavljeno>
+        <Tacka broj="1">
+            Vladimiru
+        </Tacka>
+    </Dostavljeno>
+</Obavestenje>
