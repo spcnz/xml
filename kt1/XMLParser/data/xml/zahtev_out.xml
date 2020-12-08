@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><zah:zahtev_dokument xmlns:zah="http://www.zahtevcir.com" xmlns:sh="http://www.shared.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.zahtevcir.com ../xsd/zahtev.xsd">
+  <nadlezni_organ>
+    <naziv/>
+    <sediste/>
+  </nadlezni_organ>
+  <naslov>З А Х Т Е В  за приступ информацији од јавног значаја</naslov>
+  <sadrzaj>
+    <izbor_zahteva>
+      <zahtev>обавештење да ли поседује тражену информацију</zahtev>
+      <zahtev>увид у документ који садржи тражену информацију</zahtev>
+      <zahtev>копију документа који садржи тражену информацију</zahtev>
+    </izbor_zahteva>
+    <nacini_dostave>
+      <nacin>електронском поштом</nacin>
+      <nacin>поштом</nacin>
+      <nacin>на други начин:***<unos_nacina/>
+      </nacin>
+    </nacini_dostave>
+    <opis_informacije/>
+    <trazilac_informacije>
+      <ime/>
+      <prezime/>
+      <adresa/>
+      <drugi_podaci_za_kontakt/>
+    </trazilac_informacije>
+    <datum_vreme>
+      <vreme>09:07</vreme>
+      <datum>2020-09-10</datum>
+    </datum_vreme>
+  </sadrzaj>
+  <fusnote>
+    <fusnota>* У кућици означити која законска права на приступ информацијама желите да остварите.</fusnota>
+    <fusnota>** У кућици означити начин достављања копије докумената.</fusnota>
+    <fusnota>*** Када захтевате други начин достављања обавезно уписати који начин достављања захтевате.</fusnota>
+  </fusnote>
+</zah:zahtev_dokument>

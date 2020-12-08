@@ -10,7 +10,7 @@
                 <xs:element name="sadrzaj">
                     <xs:complexType mixed="true">
                         <xs:sequence>
-                            <xs:element name="izbori_zahteva">
+                            <xs:element name="izbor_zahteva">
                                 <xs:complexType>
                                     <xs:sequence>
                                         <xs:element maxOccurs="unbounded" name="zahtev"
