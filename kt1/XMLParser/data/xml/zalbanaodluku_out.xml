@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><za:Zalba xmlns:za="http://www.zalbanaodluku.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.zalbanaodluku.com ../xsd/zalbanaodluku.xsd">
+  <Naslov>ЖАЛБА  ПРОТИВ  ОДЛУКЕ ОРГАНА  ВЛАСТИ КОЈОМ ЈЕ 
+        ОДБИЈЕН ИЛИ ОДБАЧЕН ЗАХТЕВ ЗА ПРИСТУП ИНФОРМАЦИЈИ</Naslov>
+  <Primaoc>
+    <Uloga>Поверенику за информације од јавног значаја и заштиту података о личности</Uloga>
+    <sh:Adresa xmlns:sh="http://www.shared.com">
+      <Grad>Beograd</Grad>
+      <Ulica>Булевар краља Александрa</Ulica>
+      <Broj>1</Broj>
+      <Postanski_broj>11000</Postanski_broj>
+    </sh:Adresa>
+  </Primaoc>
+  <Podnaslov>Zalba</Podnaslov>
+  <Fizicko_lice>
+    <Ime/>
+    <Prezime/>
+    <sh:Adresa xmlns:sh="http://www.shared.com">
+      <Grad>Beograd</Grad>
+      <Ulica>Булевар краља Александрa</Ulica>
+      <Broj>1</Broj>
+      <Postanski_broj>11000</Postanski_broj>
+    </sh:Adresa>
+  </Fizicko_lice>
+  <Tekst_zalbe>Наведеном одлуком органа власти (решењем, закључком, обавештењем у писаној форми са елементима одлуке) , супротно закону, одбијен-одбачен је мој захтев који сам 
+        поднео/ла-упутио/ла дана <Datum_podnosenja_zahteva> 2020-09-10</Datum_podnosenja_zahteva>године и тако ми ускраћено-онемогућено остваривање уставног и законског права на слободан приступ информацијама од јавног значаја.
+        Oдлуку побијам у целости, односно у делу којим<Osnova_zalbe> године и тако ми ускраћено-онемогућено остваривање уставног и законског права на слободан приступ информацијама од јавног значаја.
+        Oдлуку побијам у целости, односно у делу којим</Osnova_zalbe>
+  </Tekst_zalbe>
+  <Grad>Beograd</Grad>
+  <Datum>2020-09-10</Datum>
+  <Podnosilac>
+    <Ime/>
+    <Prezime/>
+    <sh:Adresa xmlns:sh="http://www.shared.com">
+      <Grad>Beograd</Grad>
+      <Ulica>Булевар краља Александрa</Ulica>
+      <Broj>1</Broj>
+      <Postanski_broj>11000</Postanski_broj>
+    </sh:Adresa>
+    <Kontakt/>
+  </Podnosilac>
+  <Napomena>
+    <Tacka broj="1">У жалби се мора навести одлука која се побија (решење, закључак, обавештење), назив органа који је одлуку донео, као и број и датум одлуке. Довољно је да жалилац наведе у жалби у ком погледу је незадовољан одлуком, с тим да жалбу не мора посебно образложити. 
+</Tacka>
+    <Tacka broj="2">У жалби се мора навести одлука која се побија (решење, закључак, обавештење), назив органа који је одлуку донео, као и број и датум одлуке. Довољно је да жалилац наведе у жалби у ком погледу је незадовољан одлуком, с тим да жалбу не мора посебно образложити. 
+</Tacka>
+  </Napomena>
+</za:Zalba>

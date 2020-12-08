@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sh="http://www.shared.com"
+    targetNamespace="http://www.zalbacutanje.com" xmlns="http://www.zalbacutanje.com">
+    <xs:import namespace="http://www.shared.com" schemaLocation="shared.xsd"/>
+
+    <xs:element name="zalba">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="naziv" type="xs:string"/>
+                <xs:element name="primaoc"/>
+                <xs:element name="sadrzaj">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="podnaslov" type="xs:string"/>
+                            <xs:element name="naziv_organa" type="xs:string"/>
+                            <xs:element name="datum">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:date">
+                                        <xs:pattern value="\d{1,2}\.\d{1,2}\.\d{4}"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="podaci_o_zahtevu" type="xs:string"/>
+                            <xs:element name="podnosilac_zalbe" type="sh:Ttrazilac_informacije"/>
+                            <xs:element name="datum_vreme" type="sh:Tdatum_vreme"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="Trazlozi_zalbe">
+        <xs:choice>
+            <xs:element name="nije_postupio" type="xs:string"/>
+            <xs:element name="nije_postpupio_u_celosti" type="xs:string"/>
+            <xs:element name="u_zakonskom_roku" type="xs:string"/>
+        </xs:choice>
+    </xs:complexType>
+</xs:schema>
