@@ -63,18 +63,18 @@ public class WriterObavestenje extends DOMWriter {
         Element naziv = document.createElement("Naziv");
         organ.appendChild(naziv);
 
-        Element adresa = document.createElement("Adresa");
+        Element adresa = document.createElement("sh:Adresa");
         adresa.setAttribute("xmlns", SHARED_NAMESPACE);
         organ.appendChild(adresa);
 
         Element grad = document.createElement("Grad");
         grad.setTextContent("Novi Sad");
         Element ulica = document.createElement("Ulica");
-        grad.setTextContent("Jesenjinova");
+        ulica.setTextContent("Jesenjinova");
         Element broj = document.createElement("Broj");
-        grad.setTextContent("33");
+        broj.setTextContent("33");
         Element postanskiBroj = document.createElement("Postanski_broj");
-        grad.setTextContent("11000");
+        postanskiBroj.setTextContent("11000");
         
         adresa.appendChild(grad);
         adresa.appendChild(ulica);
@@ -141,6 +141,7 @@ public class WriterObavestenje extends DOMWriter {
         Element trosak = document.createElement("Trosak");
         Element nazivTroska = document.createElement("Naziv");
         Element cena = document.createElement("Cena");
+        cena.setTextContent("22");
 
         obavestenje.appendChild(podaciOPlacanju);
         podaciOPlacanju.appendChild(pojedinacniTroskovi);
