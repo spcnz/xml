@@ -2,23 +2,23 @@
   <Organ>
     <Naziv/>
     <sh:Adresa xmlns="http://www.shared.com">
-      <Grad>Novi Sad</Grad>
-      <Ulica>Jesenjinova</Ulica>
-      <Broj>33</Broj>
-      <Postanski_broj>11000</Postanski_broj>
+      <Grad xmlns="">Novi Sad</Grad>
+      <Ulica xmlns="">Jesenjinova</Ulica>
+      <Broj xmlns="">33</Broj>
+      <Postanski_broj xmlns="">11000</Postanski_broj>
     </sh:Adresa>
   </Organ>
   <Broj_predmeta>12</Broj_predmeta>
   <Datum>2020-10-01</Datum>
   <Podnosilac>
     <Fizicko_lice>
-      <Ime/>
-      <Prezime/>
+      <Ime xmlns=""/>
+      <Prezime xmlns=""/>
       <sh:Adresa xmlns="http://www.shared.com">
-        <Grad>Novi Sad</Grad>
-        <Ulica>Jesenjinova</Ulica>
-        <Broj>33</Broj>
-        <Postanski_broj>11000</Postanski_broj>
+        <Grad xmlns="">Novi Sad</Grad>
+        <Ulica xmlns="">Jesenjinova</Ulica>
+        <Broj xmlns="">33</Broj>
+        <Postanski_broj xmlns="">11000</Postanski_broj>
       </sh:Adresa>
     </Fizicko_lice>
   </Podnosilac>
@@ -27,21 +27,16 @@
   <Odgovor>
     <Godina_zahteva>2020</Godina_zahteva>
     <Opis_trazene_informacije/>
-    <sh:Adresa xmlns="http://www.shared.com">
-      <Grad>Novi Sad</Grad>
-      <Ulica>Jesenjinova</Ulica>
-      <Broj>33</Broj>
-      <Postanski_broj>11000</Postanski_broj>
-    </sh:Adresa>
+    <Datum>2020-10-01</Datum>
     <Sati>23</Sati>
     <Sati_od>23</Sati_od>
     <Sati_do>23</Sati_do>
     <Lokacija>
       <sh:Adresa xmlns="http://www.shared.com">
-        <Grad>Novi Sad</Grad>
-        <Ulica>Jesenjinova</Ulica>
-        <Broj>33</Broj>
-        <Postanski_broj>11000</Postanski_broj>
+        <Grad xmlns="">Novi Sad</Grad>
+        <Ulica xmlns="">Jesenjinova</Ulica>
+        <Broj xmlns="">33</Broj>
+        <Postanski_broj xmlns="">11000</Postanski_broj>
       </sh:Adresa>
       <Broj_kancelarije>15</Broj_kancelarije>
     </Lokacija>
@@ -53,11 +48,11 @@
         <Cena>22</Cena>
       </Trosak>
     </Pojedinacni_troskovi>
-    <Ukupni_troskovi/>
-    <Broj_racuna/>
-    <Poziv_na_broj/>
+    <Ukupni_troskovi>120</Ukupni_troskovi>
+    <Broj_racuna>01234567891234567</Broj_racuna>
+    <Poziv_na_broj>97</Poziv_na_broj>
   </Podaci_o_placanju>
   <Dostavljeno>
-    <Tacka Broj="1">Vladimiru</Tacka>
+    <Tacka broj="1">Vladimiru</Tacka>
   </Dostavljeno>
 </Obavestenje>

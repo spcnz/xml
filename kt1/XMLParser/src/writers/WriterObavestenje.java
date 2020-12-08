@@ -68,12 +68,16 @@ public class WriterObavestenje extends DOMWriter {
         organ.appendChild(adresa);
 
         Element grad = document.createElement("Grad");
+        grad.setAttribute("xmlns", "");
         grad.setTextContent("Novi Sad");
         Element ulica = document.createElement("Ulica");
+        ulica.setAttribute("xmlns", "");
         ulica.setTextContent("Jesenjinova");
         Element broj = document.createElement("Broj");
+        broj.setAttribute("xmlns", "");
         broj.setTextContent("33");
         Element postanskiBroj = document.createElement("Postanski_broj");
+        postanskiBroj.setAttribute("xmlns", "");
         postanskiBroj.setTextContent("11000");
         
         adresa.appendChild(grad);
@@ -94,7 +98,9 @@ public class WriterObavestenje extends DOMWriter {
 		podnosilac.appendChild(fizickoLice);
 
 		Element ime = document.createElement("Ime");
+        ime.setAttribute("xmlns", "");
 		Element prezime = document.createElement("Prezime");
+        prezime.setAttribute("xmlns", "");
 		fizickoLice.appendChild(ime);
 		fizickoLice.appendChild(prezime);
 		fizickoLice.appendChild(adresa.cloneNode(true));
@@ -114,7 +120,7 @@ public class WriterObavestenje extends DOMWriter {
         odgovor.appendChild(godinaZahteva);
         Element opisTrazeneInformacije = document.createElement("Opis_trazene_informacije");
         odgovor.appendChild(opisTrazeneInformacije);
-        odgovor.appendChild(adresa.cloneNode(true));
+        odgovor.appendChild(datum.cloneNode(true));
         Element sati = document.createElement("Sati");
         sati.setTextContent("23");
         Element satiOd = document.createElement("Sati_od");
@@ -136,8 +142,11 @@ public class WriterObavestenje extends DOMWriter {
         Element podaciOPlacanju = document.createElement("Podaci_o_placanju");
         Element pojedinacniTroskovi = document.createElement("Pojedinacni_troskovi");
         Element ukupniTroskovi = document.createElement("Ukupni_troskovi");
+        ukupniTroskovi.setTextContent("120");
         Element brojRacuna = document.createElement("Broj_racuna");
+        brojRacuna.setTextContent("01234567891234567");
         Element pnb = document.createElement("Poziv_na_broj");
+        pnb.setTextContent("97");
         Element trosak = document.createElement("Trosak");
         Element nazivTroska = document.createElement("Naziv");
         Element cena = document.createElement("Cena");
@@ -154,7 +163,7 @@ public class WriterObavestenje extends DOMWriter {
         
         Element dostavljeno = document.createElement("Dostavljeno");
         Element tacka1 = document.createElement("Tacka");
-        tacka1.setAttribute("Broj", "1");
+        tacka1.setAttribute("broj", "1");
         tacka1.setTextContent("Vladimiru");
         // Element tacka2 = document.createElement("Tacka");
         // tacka2.setAttribute("Broj", "2");
