@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<zalba>
+<zal:zalba
+    xmlns:zal="http://www.zalbacutanje.com"
+    xmlns:sh="http://www.shared.com"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.zalbacutanje.com ../xsd/zalbacutanje.xsd">
     <naziv>
         ЖАЛБА КАДА ОРГАН ВЛАСТИ НИЈЕ ПОСТУПИО/ није поступио у целости/ ПО ЗАХТЕВУ ТРАЖИОЦА У ЗАКОНСКОМ  РОКУ  (ЋУТАЊЕ УПРАВЕ)
     </naziv>
@@ -29,11 +33,7 @@
         
         
         по мом захтеву  за слободан приступ информацијама од јавног значаја који сам поднео  том органу  дана 
-        <datum>
-            <dan></dan>
-            <mesec></mesec>
-            <godina></godina>
-        </datum> 
+        <datum>2020-09-10</datum> 
         године, а којим сам тражио/ла да ми се у складу са Законом о слободном приступу информацијама од јавног значаја омогући увид- копија документа који садржи информације  о /у вези са :
         <podaci_o_zahtevu></podaci_o_zahtevu>
         (навести податке о захтеву и информацији/ама)
@@ -50,17 +50,14 @@
         </podnosilac_zalbe>
         
         
-        <datum_i_vreme>
-            <sat></sat>
-            <minut></minut>
-            <dan></dan>
-            <mesec></mesec>
-            <godina></godina>
-        </datum_i_vreme>
+        <datum_vreme>
+            <vreme>09:15</vreme>
+            <datum>2020-09-10</datum>
+        </datum_vreme>
         
     </sadrzaj>
     
     
     
     
-</zalba>
+</zal:zalba>
