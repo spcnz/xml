@@ -20,7 +20,7 @@ public class RescriptApi {
     RescriptService rescriptService;
 
     @RequestMapping( method = RequestMethod.POST, consumes = MediaType.APPLICATION_XML_VALUE)
-    public ResponseEntity<?> createUser(@RequestBody Resenje rescript)  {
+    public ResponseEntity<?> createRescript(@RequestBody Resenje rescript)  {
         if (rescriptService.create(rescript)){
             return new ResponseEntity<>(HttpStatus.CREATED);
         }
@@ -28,11 +28,11 @@ public class RescriptApi {
     }
 
     @RequestMapping( method = RequestMethod.GET, consumes = MediaType.APPLICATION_XML_VALUE)
-    public ResponseEntity<RescriptList> getUsers() {
+    public ResponseEntity<RescriptList> getAllRescripts() {
         RescriptList rescripts = new RescriptList();
         try {
             rescripts = rescriptService.getAll();
-            System.out.println(rescripts.getRescripts().size());
+
             return new ResponseEntity(rescripts, HttpStatus.OK);
         } catch (XMLDBException | JAXBException e) {
             return new ResponseEntity(HttpStatus.BAD_REQUEST);
