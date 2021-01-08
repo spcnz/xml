@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
-    targetNamespace="http://user" xmlns:u="http://user">
+    targetNamespace="http://user.com" xmlns:u="http://user.com">
     <xs:element name="user">
         <xs:complexType>
             <xs:sequence>
@@ -13,9 +13,7 @@
                 </xs:element>
                 <xs:element name="password">
                     <xs:simpleType>
-                        <xs:restriction base="xs:string">
-                            <xs:minLength value="8"/>
-                        </xs:restriction>
+                        <xs:restriction base="xs:string"> </xs:restriction>
                     </xs:simpleType>
                 </xs:element>
                 <xs:element name="role" type="xs:string"/>
