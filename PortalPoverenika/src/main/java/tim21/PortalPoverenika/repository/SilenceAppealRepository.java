@@ -8,8 +8,8 @@ import org.xmldb.api.base.ResourceSet;
 import org.xmldb.api.base.XMLDBException;
 import org.xmldb.api.modules.XMLResource;
 
-import static tim21.PortalPoverenika.util.constants.DBConstants.silenceAppealCollectionUri;
-import static tim21.PortalPoverenika.util.constants.NamespaceConstants.silenceAppealTargetNamespace;
+import static tim21.PortalPoverenika.util.constants.DBConstants.SILENCEAPPEAL_COLLECTION_URI;
+import static tim21.PortalPoverenika.util.constants.NamespaceConstants.SILENCEAPPEAL_TARGET_NAMESPACE;
 
 @Repository
 public class SilenceAppealRepository {
@@ -21,7 +21,7 @@ public class SilenceAppealRepository {
     public boolean create(ZalbaCutanje appeal) {
         try {
             //ovde mitre izmenii
-            return existManager.store(silenceAppealCollectionUri, "test.xml", appeal);
+            return existManager.store(SILENCEAPPEAL_COLLECTION_URI, "test.xml", appeal);
         } catch (Exception e) {
             e.printStackTrace();
             return false;
@@ -30,7 +30,7 @@ public class SilenceAppealRepository {
 
     public XMLResource getOne(String ID) {
         try {
-            return existManager.getOne(silenceAppealCollectionUri, ID);
+            return existManager.getOne(SILENCEAPPEAL_COLLECTION_URI, ID);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -39,7 +39,7 @@ public class SilenceAppealRepository {
 
     public ResourceSet getAll() throws XMLDBException {
         try {
-            return existManager.getAll(silenceAppealCollectionUri, "/zalbaCutanje", silenceAppealTargetNamespace);
+            return existManager.getAll(SILENCEAPPEAL_COLLECTION_URI, "/zalbaCutanje", SILENCEAPPEAL_TARGET_NAMESPACE);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
