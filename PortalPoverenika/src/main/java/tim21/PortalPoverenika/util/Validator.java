@@ -12,7 +12,7 @@ import java.io.StringReader;
 
 import static tim21.PortalPoverenika.util.constants.XSDConstants.xsdPathMap;
 
-import static tim21.PortalPoverenika.util.constants.NamespaceConstants.schemaNamespace;
+import static tim21.PortalPoverenika.util.constants.NamespaceConstants.SCHEMA_NAMESPACE;
 
 public class Validator {
 
@@ -25,7 +25,7 @@ public class Validator {
         try {
             String objectValidateString = jaxB.marshall(genericClass, objectValidate);
 
-            SchemaFactory factory = SchemaFactory.newInstance(schemaNamespace);
+            SchemaFactory factory = SchemaFactory.newInstance(SCHEMA_NAMESPACE);
             Schema schema = factory.newSchema(ResourceUtils.getFile(path));
 
             JAXBContext context = JAXBContext.newInstance(genericClass);
