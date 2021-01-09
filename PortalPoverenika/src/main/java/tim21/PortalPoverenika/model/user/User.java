@@ -63,7 +63,7 @@ public class User implements UserDetails {
     protected String password;
     @XmlElement(required = true)
     protected String role;
-    
+
 
     /**
      * Gets the value of the email property.
@@ -92,7 +92,7 @@ public class User implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return new ArrayList<Authority>() {{
-            add(new Authority("ROLE_CITIZEN"));
+            add(new Authority(getRole()));
         }};
     }
 
