@@ -3,13 +3,16 @@ package tim21.PortalPoverenika.model.user;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import tim21.PortalPoverenika.model.auth.Authority;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 
 /**
@@ -60,6 +63,7 @@ public class User implements UserDetails {
     protected String password;
     @XmlElement(required = true)
     protected String role;
+    
 
     /**
      * Gets the value of the email property.
@@ -87,7 +91,9 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return new ArrayList<Authority>() {{
+            add(new Authority("ROLE_CITIZEN"));
+        }};
     }
 
     /**

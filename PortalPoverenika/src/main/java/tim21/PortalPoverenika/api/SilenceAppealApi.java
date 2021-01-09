@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.xmldb.api.base.XMLDBException;
 import tim21.PortalPoverenika.model.silenceAppeal.ZalbaCutanje;
@@ -19,6 +20,7 @@ public class SilenceAppealApi {
     @Autowired
     SilenceAppealService appealService;
 
+    @PreAuthorize("hasRole('ROLE_CITIZEN')")
     @RequestMapping( method = RequestMethod.POST, consumes = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<?> createAppeal(@RequestBody ZalbaCutanje appeal)  {
         if (appealService.create(appeal)){
