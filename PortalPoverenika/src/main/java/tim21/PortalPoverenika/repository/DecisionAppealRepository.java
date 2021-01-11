@@ -20,12 +20,16 @@ public class DecisionAppealRepository {
 
     public boolean create(Zalba appeal) {
         try {
-            //ovde mitre izmenii
+
             return existManager.store(DECISIONAPPEAL_COLLECTION_URI, "test.xml", appeal);
         } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
+    }
+
+    public void saveFromText(String text) throws Exception {
+        existManager.storeFromText(DECISIONAPPEAL_COLLECTION_URI, "ZalbaOdluka", text);
     }
 
     public XMLResource getOne(String ID) {

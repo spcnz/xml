@@ -22,6 +22,7 @@ public class DecisionAppealApi {
     @RequestMapping( method = RequestMethod.POST, consumes = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<?> createAppeal(@RequestBody Zalba appeal)  {
         if (appealService.create(appeal)){
+
             return new ResponseEntity<>(HttpStatus.CREATED);
         }
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);

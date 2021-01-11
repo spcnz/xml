@@ -3,7 +3,10 @@
     xmlns:za="http://www.zalbanaodluku.com"
     xmlns:sh="http://www.shared.com"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.zalbanaodluku.com ../xsd/zalbanaodluku.xsd">
+    xsi:schemaLocation="http://www.zalbanaodluku.com ../xsd/zalbanaodluku.xsd"
+
+    xmlns:pred="http://www.tim21.com/predicate/"
+>
     <Naslov>
         ЖАЛБА  ПРОТИВ  ОДЛУКЕ ОРГАНА  ВЛАСТИ КОЈОМ ЈЕ 
         ОДБИЈЕН ИЛИ ОДБАЧЕН ЗАХТЕВ ЗА ПРИСТУП ИНФОРМАЦИЈИ
@@ -43,10 +46,10 @@
         </Osnova_zalbe>  
     </Tekst_zalbe>
     <Grad></Grad>
-    <Datum> 2020-09-10</Datum>
+    <Datum property="pred:datum" datatype="xs:string"> 2020-09-10</Datum>
     <Podnosilac>
-        <Ime></Ime>
-        <Prezime></Prezime>
+        <Ime property="pred:podnosilacIme" datatype="xs:string"></Ime>
+        <Prezime property="pred:podnosilacPrezime" datatype="xs:string"></Prezime>
         <sh:Adresa>
             <Grad></Grad>
             <Ulica></Ulica>

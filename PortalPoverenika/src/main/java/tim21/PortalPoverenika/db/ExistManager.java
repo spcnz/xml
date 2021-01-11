@@ -11,6 +11,7 @@ import org.xmldb.api.base.XMLDBException;
 import org.xmldb.api.modules.CollectionManagementService;
 import org.xmldb.api.modules.XMLResource;
 import org.xmldb.api.modules.XPathQueryService;
+import tim21.PortalPoverenika.service.MetadataExtractService;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
@@ -23,6 +24,9 @@ public class ExistManager {
 
 	@Autowired
 	private AuthenticationManager authManager;
+
+	@Autowired
+	private MetadataExtractService metadataExtract;
 
 	public void createConnection() throws Exception {
 		Class<?> cl = Class.forName(authManager.getDriver());
@@ -86,6 +90,9 @@ public class ExistManager {
 			col = getOrCreateCollection(collectionId, 0);
 			res = (XMLResource) col.createResource(documentId, XMLResource.RESOURCE_TYPE);
 
+
+
+
 			JAXBContext context = JAXBContext.newInstance(xml.getClass());
 			Marshaller marshaller = context.createMarshaller();
 			marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
@@ -93,6 +100,11 @@ public class ExistManager {
 
 			res.setContent(os);
 			col.storeResource(res);
+
+			// Ovdje ekstrahujemo
+			metadataExtract.extract(os);
+
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
