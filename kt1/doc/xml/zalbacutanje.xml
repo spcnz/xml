@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<zal:zalba
+<zal:zalbaCutanje
     xmlns:zal="http://www.zalbacutanje.com"
     xmlns:sh="http://www.shared.com"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -60,4 +60,4 @@
     
     
     
-</zal:zalba>
+</zal:zalbaCutanje>

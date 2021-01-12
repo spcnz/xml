@@ -7,64 +7,64 @@
 
     xmlns:pred="http://www.tim21.com/predicate/"
 >
-    <Naslov>
+    <za:Naslov>
         ЖАЛБА  ПРОТИВ  ОДЛУКЕ ОРГАНА  ВЛАСТИ КОЈОМ ЈЕ 
         ОДБИЈЕН ИЛИ ОДБАЧЕН ЗАХТЕВ ЗА ПРИСТУП ИНФОРМАЦИЈИ
-    </Naslov>
-    <Primaoc>
-        <Uloga>Поверенику за информације од јавног значаја и заштиту података о личности</Uloga>
+    </za:Naslov>
+    <za:Primaoc>
+        <za:Uloga>Поверенику за информације од јавног значаја и заштиту података о личности</za:Uloga>
         <sh:Adresa>
-            <Grad>Beograd</Grad>
-            <Ulica>Булевар краља Александрa</Ulica>
-            <Broj>15</Broj>
-            <Postanski_broj>11000</Postanski_broj>
+            <sh:Grad>Beograd</sh:Grad>
+            <sh:Ulica>Булевар краља Александрa</sh:Ulica>
+            <sh:Broj>15</sh:Broj>
+            <sh:Postanski_broj>11000</sh:Postanski_broj>
         </sh:Adresa>
-    </Primaoc>
-    <Podnaslov>ZALBA</Podnaslov>
-    <Fizicko_lice>
-        <Ime></Ime>
-        <Prezime></Prezime>
+    </za:Primaoc>
+    <za:Podnaslov>ZALBA</za:Podnaslov>
+    <za:Fizicko_lice>
+        <sh:Ime></sh:Ime>
+        <sh:Prezime></sh:Prezime>
         <sh:Adresa>
-            <Grad></Grad>
-            <Ulica></Ulica>
-            <Broj>1</Broj>
-            <Postanski_broj>11000</Postanski_broj>
+            <sh:Grad></sh:Grad>
+            <sh:Ulica></sh:Ulica>
+            <sh:Broj>1</sh:Broj>
+            <sh:Postanski_broj>11000</sh:Postanski_broj>
         </sh:Adresa>
-    </Fizicko_lice>
-    <Tekst_zalbe>
+    </za:Fizicko_lice>
+    <za:Tekst_zalbe>
         Наведеном одлуком органа власти (решењем, закључком, обавештењем у писаној форми са елементима одлуке) , супротно закону, одбијен-одбачен је мој захтев који сам 
         поднео/ла-упутио/ла дана 
-        <Datum_podnosenja_zahteva>
+        <za:Datum_podnosenja_zahteva>
             2020-09-10
-        </Datum_podnosenja_zahteva>
+        </za:Datum_podnosenja_zahteva>
         године и тако ми ускраћено-онемогућено остваривање уставног и законског права на слободан приступ информацијама од јавног значаја.
         Oдлуку побијам у целости, односно у делу којим
-        <Osnova_zalbe>
+        <za:Osnova_zalbe>
             jер није заснована на Закону о слободном приступу информацијама од јавног значаја.
             На основу изнетих разлога, предлажем да Повереник уважи моју жалбу,  поништи одлука првостепеног органа и омогући ми приступ траженој/им  информацији/ма.
             Жалбу подносим благовремено, у законском року утврђеном у члану 22. ст. 1. Закона о слободном приступу информацијама од јавног значаја.
-        </Osnova_zalbe>  
-    </Tekst_zalbe>
-    <Grad></Grad>
-    <Datum property="pred:datum" datatype="xs:string"> 2020-09-10</Datum>
-    <Podnosilac>
-        <Ime property="pred:podnosilacIme" datatype="xs:string"></Ime>
-        <Prezime property="pred:podnosilacPrezime" datatype="xs:string"></Prezime>
+        </za:Osnova_zalbe>  
+    </za:Tekst_zalbe>
+    <za:Grad></za:Grad>
+    <za:Datum> 2020-09-10</za:Datum>
+    <za:Podnosilac property="pred:podnosilac" content="2">
+        <sh:Ime></sh:Ime>
+        <sh:Prezime></sh:Prezime>
         <sh:Adresa>
-            <Grad></Grad>
-            <Ulica></Ulica>
-            <Broj>1</Broj>
-            <Postanski_broj>11000</Postanski_broj>
+            <sh:Grad></sh:Grad>
+            <sh:Ulica></sh:Ulica>
+            <sh:Broj>1</sh:Broj>
+            <sh:Postanski_broj>11000</sh:Postanski_broj>
         </sh:Adresa>
-        <Kontakt></Kontakt>
-    </Podnosilac>
-    <Napomena>
-        <Tacka broj="1">
+        <za:Kontakt></za:Kontakt>
+    </za:Podnosilac>
+    <za:Napomena>
+        <za:Tacka broj="1">
             У жалби се мора навести одлука која се побија (решење, закључак, обавештење), назив органа који је одлуку донео, као и број и датум одлуке. Довољно је да жалилац наведе у жалби у ком погледу је незадовољан одлуком, с тим да жалбу не мора посебно образложити. 
-        </Tacka>
-        <Tacka broj="2">
+        </za:Tacka>
+        <za:Tacka broj="2">
             Ако жалбу изјављује на овом обрасцу, додатно образложење може  посебно приложити. 
             Уз жалбу обавезно приложити копију поднетог захтева и доказ о његовој предаји-упућивању органу као и копију одлуке органа која се оспорава жалбом
-        </Tacka>
-    </Napomena>
+        </za:Tacka>
+    </za:Napomena>
 </za:Zalba>
