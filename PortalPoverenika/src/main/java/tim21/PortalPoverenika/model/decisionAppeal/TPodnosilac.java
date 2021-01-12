@@ -21,6 +21,7 @@ import javax.xml.bind.annotation.XmlType;
  *       &lt;sequence>
  *         &lt;element name="Kontakt" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
+ *       &lt;anyAttribute processContents='lax'/>
  *     &lt;/extension>
  *   &lt;/complexContent>
  * &lt;/complexType>

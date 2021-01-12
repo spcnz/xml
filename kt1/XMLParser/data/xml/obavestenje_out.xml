@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><Obavestenje xmlns="http://www.obavestenje.com" xmlns:sh="http://www.shared.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.obavestenje.com ../xsd/obavestenje.xsd">
+<?xml version="1.0" encoding="UTF-8"?><Obavestenje 
+  xmlns="http://www.obavestenje.com" xmlns:sh="http://www.shared.com" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.obavestenje.com ../xsd/obavestenje.xsd">
   <Organ>
     <Naziv/>
     <sh:Adresa xmlns="http://www.shared.com">
