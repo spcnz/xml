@@ -91,12 +91,18 @@ public class ExistManager {
 			res = (XMLResource) col.createResource(documentId, XMLResource.RESOURCE_TYPE);
 
 
-
-
 			JAXBContext context = JAXBContext.newInstance(xml.getClass());
 			Marshaller marshaller = context.createMarshaller();
 			marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+			marshaller.setProperty("com.sun.xml.bind.xmlHeaders",
+					" <?xml version=\"1.0\" encoding=\"UTF-8\"?>");
+			marshaller.setProperty("com.sun.xml.bind.xmlHeaders",
+					"<?xml-stylesheet type=\"text/xsl\" href=\"../xsl/grddl.xsl\"?>");
+
+
+
 			marshaller.marshal(xml, os);
+
 
 			res.setContent(os);
 			col.storeResource(res);

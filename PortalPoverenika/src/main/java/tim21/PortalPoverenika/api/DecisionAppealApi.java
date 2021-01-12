@@ -5,12 +5,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.xml.sax.SAXException;
 import org.xmldb.api.base.XMLDBException;
 import tim21.PortalPoverenika.model.decisionAppeal.Zalba;
 import tim21.PortalPoverenika.model.lists.DecisionAppealList;
 import tim21.PortalPoverenika.service.DecisionAppealService;
 
 import javax.xml.bind.JAXBException;
+import java.io.IOException;
 
 @RestController
 @RequestMapping(value = "/api/decisionappeal", produces = MediaType.APPLICATION_XML_VALUE)
@@ -20,7 +22,7 @@ public class DecisionAppealApi {
     DecisionAppealService appealService;
 
     @RequestMapping( method = RequestMethod.POST, consumes = MediaType.APPLICATION_XML_VALUE)
-    public ResponseEntity<?> createAppeal(@RequestBody Zalba appeal)  {
+    public ResponseEntity<?> createAppeal(@RequestBody Zalba appeal) throws IOException, SAXException {
         if (appealService.create(appeal)){
 
             return new ResponseEntity<>(HttpStatus.CREATED);

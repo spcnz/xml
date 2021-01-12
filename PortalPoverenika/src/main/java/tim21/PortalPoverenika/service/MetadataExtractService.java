@@ -21,7 +21,7 @@ import java.io.*;
 
 @Service
 public class MetadataExtractService {
-    private static final String RDF_FILEPATH = "src/main/resources/rdf/rdfOutput.rdf";
+    private static final String RDF_FILEPATH = "src/main/resources/rdf/metadata.rdf";
     private static final String GRAPH_URI = "metadata";
 
 
@@ -30,7 +30,6 @@ public class MetadataExtractService {
 
         // Referencing XML file with RDF data in attributes
 
-        String rdfFilePath = "/src/main/resources/rdf/rdfOutput.rdf";
 
         // Automatic extraction of RDF triples from XML file
         MetadataExtractor metadataExtractor = new MetadataExtractor();
@@ -42,7 +41,7 @@ public class MetadataExtractService {
 
         // Loading a default model with extracted metadata
         Model model = ModelFactory.createDefaultModel();
-        model.read(rdfFilePath);
+        model.read(RDF_FILEPATH);
 
         ByteArrayOutputStream out = new ByteArrayOutputStream();
 
@@ -54,7 +53,7 @@ public class MetadataExtractService {
 
         // Writing the named graph
         System.out.println("[INFO] Populating named graph \"" + GRAPH_URI + "\" with extracted metadata.");
-        String sparqlUpdate = SparqlUtil.insertData(conn.dataEndpoint + GRAPH_URI, new String(out.toByteArray()));
+        String sparqlUpdate = SparqlUtil.insertData(conn.dataEndpoint + "/" + GRAPH_URI, new String(out.toByteArray()));
         System.out.println(sparqlUpdate);
 
         // UpdateRequest represents a unit of execution

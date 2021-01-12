@@ -28,12 +28,8 @@ public class DecisionAppealService {
     DecisionAppealRepository appealRepository;
 
 
-
-
-
     public boolean create(Zalba appeal) throws IOException, SAXException {
 
-        MetadataExtractor metadataExtractor = new MetadataExtractor();
 
         if (Validator.validate(appeal.getClass(), appeal)){
 
@@ -41,6 +37,7 @@ public class DecisionAppealService {
         }
         return false;
     }
+
 
     public DecisionAppealList getAll() throws XMLDBException, JAXBException {
         List<Zalba> appeals = new ArrayList<>();

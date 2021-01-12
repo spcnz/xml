@@ -28,9 +28,6 @@ public class DecisionAppealRepository {
         }
     }
 
-    public void saveFromText(String text) throws Exception {
-        existManager.storeFromText(DECISIONAPPEAL_COLLECTION_URI, "ZalbaOdluka", text);
-    }
 
     public XMLResource getOne(String ID) {
         try {
