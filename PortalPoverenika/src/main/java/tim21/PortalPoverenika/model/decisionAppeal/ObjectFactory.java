@@ -1,8 +1,6 @@
 
 package tim21.PortalPoverenika.model.decisionAppeal;
-
 import tim21.PortalPoverenika.model.shared.*;
-
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;
 import javax.xml.bind.annotation.XmlRegistry;
@@ -27,8 +25,8 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _TTextZalbeDatumPodnosenjaZahteva_QNAME = new QName("", "Datum_podnosenja_zahteva");
-    private final static QName _TTextZalbeOsnovaZalbe_QNAME = new QName("", "Osnova_zalbe");
+    private final static QName _TTextZalbeDatumPodnosenjaZahteva_QNAME = new QName("http://www.zalbanaodluku.com", "Datum_podnosenja_zahteva");
+    private final static QName _TTextZalbeOsnovaZalbe_QNAME = new QName("http://www.zalbanaodluku.com", "Osnova_zalbe");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: tim21.PortalPoverenika.model
@@ -94,11 +92,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Tacka }
+     * Create an instance of {@link tim21.PortalPoverenika.model.shared.Tacka }
      * 
      */
-    public Tacka createTacka() {
-        return new Tacka();
+    public tim21.PortalPoverenika.model.shared.Tacka createTacka() {
+        return new tim21.PortalPoverenika.model.shared.Tacka();
     }
 
     /**
@@ -145,7 +143,7 @@ public class ObjectFactory {
      * Create an instance of {@link JAXBElement }{@code <}{@link XMLGregorianCalendar }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "", name = "Datum_podnosenja_zahteva", scope = TTextZalbe.class)
+    @XmlElementDecl(namespace = "http://www.zalbanaodluku.com", name = "Datum_podnosenja_zahteva", scope = TTextZalbe.class)
     public JAXBElement<XMLGregorianCalendar> createTTextZalbeDatumPodnosenjaZahteva(XMLGregorianCalendar value) {
         return new JAXBElement<XMLGregorianCalendar>(_TTextZalbeDatumPodnosenjaZahteva_QNAME, XMLGregorianCalendar.class, TTextZalbe.class, value);
     }
@@ -154,7 +152,7 @@ public class ObjectFactory {
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "", name = "Osnova_zalbe", scope = TTextZalbe.class)
+    @XmlElementDecl(namespace = "http://www.zalbanaodluku.com", name = "Osnova_zalbe", scope = TTextZalbe.class)
     public JAXBElement<String> createTTextZalbeOsnovaZalbe(String value) {
         return new JAXBElement<String>(_TTextZalbeOsnovaZalbe_QNAME, String.class, TTextZalbe.class, value);
     }

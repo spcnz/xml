@@ -1,14 +1,15 @@
 
 package tim21.PortalPoverenika.model.decisionAppeal;
 
-import tim21.PortalPoverenika.model.shared.TFizickoLice;
-import tim21.PortalPoverenika.model.shared.TPravnoLice;
-
+import tim21.PortalPoverenika.model.shared.*;
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAnyAttribute;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -16,6 +17,7 @@ import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.XmlValue;
 import javax.xml.datatype.XMLGregorianCalendar;
+import javax.xml.namespace.QName;
 
 
 /**
@@ -71,6 +73,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *           &lt;/complexType>
  *         &lt;/element>
  *       &lt;/sequence>
+ *       &lt;anyAttribute processContents='lax'/>
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -94,27 +97,29 @@ import javax.xml.datatype.XMLGregorianCalendar;
 @XmlRootElement(name = "Zalba", namespace = "http://www.zalbanaodluku.com")
 public class Zalba {
 
-    @XmlElement(name = "Naslov", required = true)
+    @XmlElement(name = "Naslov", namespace = "http://www.zalbanaodluku.com", required = true)
     protected String naslov;
-    @XmlElement(name = "Primaoc", required = true)
+    @XmlElement(name = "Primaoc", namespace = "http://www.zalbanaodluku.com", required = true)
     protected TPrimaoc primaoc;
-    @XmlElement(name = "Podnaslov", required = true)
+    @XmlElement(name = "Podnaslov", namespace = "http://www.zalbanaodluku.com", required = true)
     protected String podnaslov;
-    @XmlElement(name = "Pravno_lice")
+    @XmlElement(name = "Pravno_lice", namespace = "http://www.zalbanaodluku.com")
     protected TPravnoLice pravnoLice;
-    @XmlElement(name = "Fizicko_lice")
+    @XmlElement(name = "Fizicko_lice", namespace = "http://www.zalbanaodluku.com")
     protected TFizickoLice fizickoLice;
-    @XmlElement(name = "Tekst_zalbe", required = true)
+    @XmlElement(name = "Tekst_zalbe", namespace = "http://www.zalbanaodluku.com", required = true)
     protected TTextZalbe tekstZalbe;
-    @XmlElement(name = "Grad", required = true)
+    @XmlElement(name = "Grad", namespace = "http://www.zalbanaodluku.com", required = true)
     protected String grad;
-    @XmlElement(name = "Datum", required = true)
+    @XmlElement(name = "Datum", namespace = "http://www.zalbanaodluku.com", required = true)
     @XmlSchemaType(name = "date")
     protected XMLGregorianCalendar datum;
-    @XmlElement(name = "Podnosilac", required = true)
+    @XmlElement(name = "Podnosilac", namespace = "http://www.zalbanaodluku.com", required = true)
     protected TPodnosilac podnosilac;
-    @XmlElement(name = "Napomena", required = true)
+    @XmlElement(name = "Napomena", namespace = "http://www.zalbanaodluku.com", required = true)
     protected Zalba.Napomena napomena;
+    @XmlAnyAttribute
+    private Map<QName, String> otherAttributes = new HashMap<QName, String>();
 
     /**
      * Gets the value of the naslov property.
@@ -356,6 +361,24 @@ public class Zalba {
         this.napomena = value;
     }
 
+    /**
+     * Gets a map that contains attributes that aren't bound to any typed property on this class.
+     * 
+     * <p>
+     * the map is keyed by the name of the attribute and 
+     * the value is the string value of the attribute.
+     * 
+     * the map returned by this method is live, and you can add new attribute
+     * by updating the map directly. Because of this design, there's no setter.
+     * 
+     * 
+     * @return
+     *     always non-null
+     */
+    public Map<QName, String> getOtherAttributes() {
+        return otherAttributes;
+    }
+
 
     /**
      * <p>Java class for anonymous complex type.
@@ -390,7 +413,7 @@ public class Zalba {
     })
     public static class Napomena {
 
-        @XmlElement(name = "Tacka", required = true)
+        @XmlElement(name = "Tacka", namespace = "http://www.zalbanaodluku.com", required = true)
         protected List<Zalba.Napomena.Tacka> tacka;
 
         /**
