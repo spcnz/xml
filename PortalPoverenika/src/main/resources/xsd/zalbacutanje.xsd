@@ -6,19 +6,59 @@
     <xs:element name="zalbaCutanje">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="naziv" type="xs:string"/>
-                <xs:element name="primaoc"/>
+                <xs:element name="naziv">
+                    <xs:complexType>
+                        <xs:simpleContent>
+                            <xs:extension base="xs:string">
+                                <xs:attribute name="property" type="xs:string"/>
+                            </xs:extension>
+                        </xs:simpleContent>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="primaoc">
+                    <xs:complexType>
+                        <xs:simpleContent>
+                            <xs:extension base="xs:string">
+                                <xs:attribute name="property" type="xs:string"/>
+                            </xs:extension>
+                        </xs:simpleContent>
+                    </xs:complexType>
+                </xs:element>
                 <xs:element name="sadrzaj">
                     <xs:complexType mixed="true">
                         <xs:sequence>
-                            <xs:element name="podnaslov" type="xs:string"/>
-                            <xs:element name="naziv_organa" type="xs:string"/>
+                            <xs:element name="podnaslov">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute name="property" type="xs:string"/>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="naziv_organa">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute name="property" type="xs:string"/>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
                             <xs:element name="razlozi">
                                 <xs:complexType>
                                     <xs:choice>
-                                        <xs:element maxOccurs="unbounded" name="opcija"
-                                            type="xs:string"/>
+                                        <xs:element maxOccurs="unbounded" name="opcija">
+                                            <xs:complexType>
+                                                <xs:simpleContent>
+                                                  <xs:extension base="xs:string">
+                                                  <xs:attribute name="property" type="xs:string"/>
+                                                  </xs:extension>
+                                                </xs:simpleContent>
+                                            </xs:complexType>
+                                        </xs:element>
                                     </xs:choice>
+                                    <xs:attribute name="property" type="xs:string"/>
                                 </xs:complexType>
                             </xs:element>
                             <xs:element name="datum">
@@ -26,10 +66,33 @@
                                     <xs:restriction base="xs:date"> </xs:restriction>
                                 </xs:simpleType>
                             </xs:element>
-                            <xs:element name="podaci_o_zahtevu" type="xs:string"/>
-                            <xs:element maxOccurs="unbounded" minOccurs="0" name="istaknuto"
-                                type="xs:string"/>
-                            <xs:element name="podnosilac_zalbe"/>
+                            <xs:element name="podaci_o_zahtevu">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute name="property" type="xs:string"/>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element maxOccurs="unbounded" minOccurs="0" name="istaknuto">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute name="property" type="xs:string"/>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="podnosilac_zalbe">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute name="property" type="xs:string"/>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
                             <xs:element name="datum_vreme" type="sh:Tdatum_vreme"/>
                         </xs:sequence>
                     </xs:complexType>

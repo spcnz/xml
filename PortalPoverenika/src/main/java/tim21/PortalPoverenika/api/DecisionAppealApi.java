@@ -28,7 +28,7 @@ public class DecisionAppealApi {
             return new ResponseEntity<>(HttpStatus.CREATED);
         }
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-    }
+    }   
 
     @RequestMapping( method = RequestMethod.GET, consumes = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<DecisionAppealList> getAllAppeals() {
