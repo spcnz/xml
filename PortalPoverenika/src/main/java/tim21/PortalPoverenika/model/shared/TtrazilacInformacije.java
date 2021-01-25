@@ -3,8 +3,10 @@ package tim21.PortalPoverenika.model.shared;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.XmlValue;
 
 
 /**
@@ -17,7 +19,15 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="ime" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="Ime">
+ *           &lt;complexType>
+ *             &lt;simpleContent>
+ *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>string">
+ *                 &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" />
+ *               &lt;/extension>
+ *             &lt;/simpleContent>
+ *           &lt;/complexType>
+ *         &lt;/element>
  *         &lt;element name="prezime" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="adresa" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="drugi_podaci_za_kontakt" type="{http://www.w3.org/2001/XMLSchema}string"/>
@@ -30,7 +40,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Ttrazilac_informacije", namespace = "http://www.shared.com", propOrder = {
+@XmlType(name = "Ttrazilac_informacije", propOrder = {
     "ime",
     "prezime",
     "adresa",
@@ -38,13 +48,13 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class TtrazilacInformacije {
 
-    @XmlElement(namespace = "http://www.shared.com", required = true)
-    protected String ime;
-    @XmlElement(namespace = "http://www.shared.com", required = true)
+    @XmlElement(name = "Ime", required = true)
+    protected TtrazilacInformacije.Ime ime;
+    @XmlElement(required = true)
     protected String prezime;
-    @XmlElement(namespace = "http://www.shared.com", required = true)
+    @XmlElement(required = true)
     protected String adresa;
-    @XmlElement(name = "drugi_podaci_za_kontakt", namespace = "http://www.shared.com", required = true)
+    @XmlElement(name = "drugi_podaci_za_kontakt", required = true)
     protected String drugiPodaciZaKontakt;
 
     /**
@@ -52,10 +62,10 @@ public class TtrazilacInformacije {
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link TtrazilacInformacije.Ime }
      *     
      */
-    public String getIme() {
+    public TtrazilacInformacije.Ime getIme() {
         return ime;
     }
 
@@ -64,10 +74,10 @@ public class TtrazilacInformacije {
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link TtrazilacInformacije.Ime }
      *     
      */
-    public void setIme(String value) {
+    public void setIme(TtrazilacInformacije.Ime value) {
         this.ime = value;
     }
 
@@ -141,6 +151,85 @@ public class TtrazilacInformacije {
      */
     public void setDrugiPodaciZaKontakt(String value) {
         this.drugiPodaciZaKontakt = value;
+    }
+
+
+    /**
+     * <p>Java class for anonymous complex type.
+     * 
+     * <p>The following schema fragment specifies the expected content contained within this class.
+     * 
+     * <pre>
+     * &lt;complexType>
+     *   &lt;simpleContent>
+     *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>string">
+     *       &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" />
+     *     &lt;/extension>
+     *   &lt;/simpleContent>
+     * &lt;/complexType>
+     * </pre>
+     * 
+     * 
+     */
+    @XmlAccessorType(XmlAccessType.FIELD)
+    @XmlType(name = "", propOrder = {
+        "value"
+    })
+    public static class Ime {
+
+        @XmlValue
+        protected String value;
+        @XmlAttribute(name = "property")
+        protected String property;
+
+        /**
+         * Gets the value of the value property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getValue() {
+            return value;
+        }
+
+        /**
+         * Sets the value of the value property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setValue(String value) {
+            this.value = value;
+        }
+
+        /**
+         * Gets the value of the property property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getProperty() {
+            return property;
+        }
+
+        /**
+         * Sets the value of the property property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setProperty(String value) {
+            this.property = value;
+        }
+
     }
 
 }

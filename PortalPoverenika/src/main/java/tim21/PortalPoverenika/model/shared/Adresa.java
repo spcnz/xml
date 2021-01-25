@@ -2,16 +2,14 @@
 package tim21.PortalPoverenika.model.shared;
 
 import java.math.BigInteger;
-import java.util.HashMap;
-import java.util.Map;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAnyAttribute;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.namespace.QName;
+import javax.xml.bind.annotation.XmlValue;
 
 
 /**
@@ -24,7 +22,15 @@ import javax.xml.namespace.QName;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="Grad" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="Grad">
+ *           &lt;complexType>
+ *             &lt;simpleContent>
+ *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>string">
+ *                 &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" />
+ *               &lt;/extension>
+ *             &lt;/simpleContent>
+ *           &lt;/complexType>
+ *         &lt;/element>
  *         &lt;element name="Ulica" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="Broj" type="{http://www.w3.org/2001/XMLSchema}positiveInteger"/>
  *         &lt;element name="Postanski_broj">
@@ -36,7 +42,6 @@ import javax.xml.namespace.QName;
  *           &lt;/simpleType>
  *         &lt;/element>
  *       &lt;/sequence>
- *       &lt;anyAttribute processContents='lax'/>
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -51,30 +56,28 @@ import javax.xml.namespace.QName;
     "broj",
     "postanskiBroj"
 })
-@XmlRootElement(name = "Adresa", namespace = "http://www.shared.com")
+@XmlRootElement(name = "Adresa")
 public class Adresa {
 
-    @XmlElement(name = "Grad", namespace = "http://www.shared.com", required = true)
-    protected String grad;
-    @XmlElement(name = "Ulica", namespace = "http://www.shared.com", required = true)
+    @XmlElement(name = "Grad", required = true)
+    protected Adresa.Grad grad;
+    @XmlElement(name = "Ulica", required = true)
     protected String ulica;
-    @XmlElement(name = "Broj", namespace = "http://www.shared.com", required = true)
+    @XmlElement(name = "Broj", required = true)
     @XmlSchemaType(name = "positiveInteger")
     protected BigInteger broj;
-    @XmlElement(name = "Postanski_broj", namespace = "http://www.shared.com")
+    @XmlElement(name = "Postanski_broj")
     protected int postanskiBroj;
-    @XmlAnyAttribute
-    private Map<QName, String> otherAttributes = new HashMap<QName, String>();
 
     /**
      * Gets the value of the grad property.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link Adresa.Grad }
      *     
      */
-    public String getGrad() {
+    public Adresa.Grad getGrad() {
         return grad;
     }
 
@@ -83,10 +86,10 @@ public class Adresa {
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link Adresa.Grad }
      *     
      */
-    public void setGrad(String value) {
+    public void setGrad(Adresa.Grad value) {
         this.grad = value;
     }
 
@@ -154,22 +157,83 @@ public class Adresa {
         this.postanskiBroj = value;
     }
 
+
     /**
-     * Gets a map that contains attributes that aren't bound to any typed property on this class.
+     * <p>Java class for anonymous complex type.
      * 
-     * <p>
-     * the map is keyed by the name of the attribute and 
-     * the value is the string value of the attribute.
+     * <p>The following schema fragment specifies the expected content contained within this class.
      * 
-     * the map returned by this method is live, and you can add new attribute
-     * by updating the map directly. Because of this design, there's no setter.
+     * <pre>
+     * &lt;complexType>
+     *   &lt;simpleContent>
+     *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>string">
+     *       &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" />
+     *     &lt;/extension>
+     *   &lt;/simpleContent>
+     * &lt;/complexType>
+     * </pre>
      * 
      * 
-     * @return
-     *     always non-null
      */
-    public Map<QName, String> getOtherAttributes() {
-        return otherAttributes;
+    @XmlAccessorType(XmlAccessType.FIELD)
+    @XmlType(name = "", propOrder = {
+        "value"
+    })
+    public static class Grad {
+
+        @XmlValue
+        protected String value;
+        @XmlAttribute(name = "property")
+        protected String property;
+
+        /**
+         * Gets the value of the value property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getValue() {
+            return value;
+        }
+
+        /**
+         * Sets the value of the value property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setValue(String value) {
+            this.value = value;
+        }
+
+        /**
+         * Gets the value of the property property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getProperty() {
+            return property;
+        }
+
+        /**
+         * Sets the value of the property property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setProperty(String value) {
+            this.property = value;
+        }
+
     }
 
 }

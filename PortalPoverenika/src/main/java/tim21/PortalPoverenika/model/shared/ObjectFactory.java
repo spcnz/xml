@@ -7,7 +7,7 @@ import javax.xml.bind.annotation.XmlRegistry;
 /**
  * This object contains factory methods for each 
  * Java content interface and Java element interface 
- * generated in the tim21.PortalPoverenika.model package. 
+ * generated in the tim21.PortalPoverenika.model.shared package. 
  * <p>An ObjectFactory allows you to programatically 
  * construct new instances of the Java representation 
  * for XML content. The Java representation of XML 
@@ -23,10 +23,26 @@ public class ObjectFactory {
 
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: tim21.PortalPoverenika.model
+     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: tim21.PortalPoverenika.model.shared
      * 
      */
     public ObjectFactory() {
+    }
+
+    /**
+     * Create an instance of {@link Adresa }
+     * 
+     */
+    public Adresa createAdresa() {
+        return new Adresa();
+    }
+
+    /**
+     * Create an instance of {@link TtrazilacInformacije }
+     * 
+     */
+    public TtrazilacInformacije createTtrazilacInformacije() {
+        return new TtrazilacInformacije();
     }
 
     /**
@@ -38,11 +54,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Adresa }
+     * Create an instance of {@link Adresa.Grad }
      * 
      */
-    public Adresa createAdresa() {
-        return new Adresa();
+    public Adresa.Grad createAdresaGrad() {
+        return new Adresa.Grad();
     }
 
     /**
@@ -78,11 +94,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link TtrazilacInformacije }
+     * Create an instance of {@link TtrazilacInformacije.Ime }
      * 
      */
-    public TtrazilacInformacije createTtrazilacInformacije() {
-        return new TtrazilacInformacije();
+    public TtrazilacInformacije.Ime createTtrazilacInformacijeIme() {
+        return new TtrazilacInformacije.Ime();
     }
 
 }

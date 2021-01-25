@@ -3,7 +3,6 @@ package tim21.PortalPoverenika.model.shared;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.datatype.XMLGregorianCalendar;
 
@@ -40,15 +39,13 @@ import javax.xml.datatype.XMLGregorianCalendar;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Tdatum_vreme", namespace = "http://www.shared.com", propOrder = {
+@XmlType(name = "Tdatum_vreme", propOrder = {
     "vreme",
     "datum"
 })
 public class TdatumVreme {
 
-    @XmlElement(namespace = "http://www.shared.com")
     protected String vreme;
-    @XmlElement(namespace = "http://www.shared.com")
     protected XMLGregorianCalendar datum;
 
     /**

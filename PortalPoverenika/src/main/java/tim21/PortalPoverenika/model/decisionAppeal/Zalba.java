@@ -2,16 +2,11 @@
 package tim21.PortalPoverenika.model.decisionAppeal;
 
 import tim21.PortalPoverenika.model.shared.*;
-import tim21.PortalPoverenika.model.decisionAppeal.TPodnosilac;
-
 import java.math.BigInteger;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAnyAttribute;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -19,7 +14,6 @@ import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.XmlValue;
 import javax.xml.datatype.XMLGregorianCalendar;
-import javax.xml.namespace.QName;
 
 
 /**
@@ -75,7 +69,6 @@ import javax.xml.namespace.QName;
  *           &lt;/complexType>
  *         &lt;/element>
  *       &lt;/sequence>
- *       &lt;anyAttribute processContents='lax'/>
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -117,11 +110,9 @@ public class Zalba {
     @XmlSchemaType(name = "date")
     protected XMLGregorianCalendar datum;
     @XmlElement(name = "Podnosilac", namespace = "http://www.zalbanaodluku.com", required = true)
-    protected tim21.PortalPoverenika.model.decisionAppeal.TPodnosilac podnosilac;
+    protected TPodnosilac podnosilac;
     @XmlElement(name = "Napomena", namespace = "http://www.zalbanaodluku.com", required = true)
     protected Zalba.Napomena napomena;
-    @XmlAnyAttribute
-    private Map<QName, String> otherAttributes = new HashMap<QName, String>();
 
     /**
      * Gets the value of the naslov property.
@@ -320,10 +311,10 @@ public class Zalba {
      * 
      * @return
      *     possible object is
-     *     {@link tim21.PortalPoverenika.model.decisionAppeal.TPodnosilac }
+     *     {@link TPodnosilac }
      *     
      */
-    public tim21.PortalPoverenika.model.decisionAppeal.TPodnosilac getPodnosilac() {
+    public TPodnosilac getPodnosilac() {
         return podnosilac;
     }
 
@@ -332,7 +323,7 @@ public class Zalba {
      * 
      * @param value
      *     allowed object is
-     *     {@link tim21.PortalPoverenika.model.decisionAppeal.TPodnosilac }
+     *     {@link TPodnosilac }
      *     
      */
     public void setPodnosilac(TPodnosilac value) {
@@ -361,24 +352,6 @@ public class Zalba {
      */
     public void setNapomena(Zalba.Napomena value) {
         this.napomena = value;
-    }
-
-    /**
-     * Gets a map that contains attributes that aren't bound to any typed property on this class.
-     * 
-     * <p>
-     * the map is keyed by the name of the attribute and 
-     * the value is the string value of the attribute.
-     * 
-     * the map returned by this method is live, and you can add new attribute
-     * by updating the map directly. Because of this design, there's no setter.
-     * 
-     * 
-     * @return
-     *     always non-null
-     */
-    public Map<QName, String> getOtherAttributes() {
-        return otherAttributes;
     }
 
 

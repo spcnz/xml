@@ -2,12 +2,6 @@
 package tim21.PortalPoverenika.model.decisionAppeal;
 
 import tim21.PortalPoverenika.model.shared.*;
-import tim21.PortalPoverenika.model.*;
-import tim21.PortalPoverenika.model.decisionAppeal.TPodnosilac;
-import tim21.PortalPoverenika.model.decisionAppeal.TPrimaoc;
-import tim21.PortalPoverenika.model.decisionAppeal.TTextZalbe;
-import tim21.PortalPoverenika.model.decisionAppeal.Zalba;
-
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;
 import javax.xml.bind.annotation.XmlRegistry;
@@ -18,7 +12,7 @@ import javax.xml.namespace.QName;
 /**
  * This object contains factory methods for each 
  * Java content interface and Java element interface 
- * generated in the tim21.PortalPoverenika.model package. 
+ * generated in the tim21.PortalPoverenika.model.decisionAppeal package. 
  * <p>An ObjectFactory allows you to programatically 
  * construct new instances of the Java representation 
  * for XML content. The Java representation of XML 
@@ -36,7 +30,7 @@ public class ObjectFactory {
     private final static QName _TTextZalbeOsnovaZalbe_QNAME = new QName("http://www.zalbanaodluku.com", "Osnova_zalbe");
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: tim21.PortalPoverenika.model
+     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: tim21.PortalPoverenika.model.decisionAppeal
      * 
      */
     public ObjectFactory() {
@@ -48,6 +42,22 @@ public class ObjectFactory {
      */
     public Zalba createZalba() {
         return new Zalba();
+    }
+
+    /**
+     * Create an instance of {@link Adresa }
+     * 
+     */
+    public Adresa createAdresa() {
+        return new Adresa();
+    }
+
+    /**
+     * Create an instance of {@link TtrazilacInformacije }
+     * 
+     */
+    public TtrazilacInformacije createTtrazilacInformacije() {
+        return new TtrazilacInformacije();
     }
 
     /**
@@ -91,10 +101,10 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link tim21.PortalPoverenika.model.decisionAppeal.TPodnosilac }
+     * Create an instance of {@link TPodnosilac }
      * 
      */
-    public tim21.PortalPoverenika.model.decisionAppeal.TPodnosilac createTPodnosilac() {
+    public TPodnosilac createTPodnosilac() {
         return new TPodnosilac();
     }
 
@@ -107,11 +117,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Adresa }
+     * Create an instance of {@link Adresa.Grad }
      * 
      */
-    public Adresa createAdresa() {
-        return new Adresa();
+    public Adresa.Grad createAdresaGrad() {
+        return new Adresa.Grad();
     }
 
     /**
@@ -131,11 +141,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link TtrazilacInformacije }
+     * Create an instance of {@link TtrazilacInformacije.Ime }
      * 
      */
-    public TtrazilacInformacije createTtrazilacInformacije() {
-        return new TtrazilacInformacije();
+    public TtrazilacInformacije.Ime createTtrazilacInformacijeIme() {
+        return new TtrazilacInformacije.Ime();
     }
 
     /**

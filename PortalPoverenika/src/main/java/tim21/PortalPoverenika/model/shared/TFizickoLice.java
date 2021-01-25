@@ -19,7 +19,6 @@ import javax.xml.bind.annotation.XmlType;
  *       &lt;sequence>
  *         &lt;element ref="{http://www.shared.com}Adresa"/>
  *       &lt;/sequence>
- *       &lt;anyAttribute processContents='lax'/>
  *     &lt;/extension>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -28,14 +27,14 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TFizicko_lice", namespace = "http://www.shared.com", propOrder = {
+@XmlType(name = "TFizicko_lice", propOrder = {
     "adresa"
 })
 public class TFizickoLice
     extends TOsoba
 {
 
-    @XmlElement(name = "Adresa", namespace = "http://www.shared.com", required = true)
+    @XmlElement(name = "Adresa", required = true)
     protected Adresa adresa;
 
     /**

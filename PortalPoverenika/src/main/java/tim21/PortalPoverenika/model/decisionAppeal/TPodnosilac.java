@@ -2,7 +2,6 @@
 package tim21.PortalPoverenika.model.decisionAppeal;
 
 import tim21.PortalPoverenika.model.shared.*;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -21,7 +20,6 @@ import javax.xml.bind.annotation.XmlType;
  *       &lt;sequence>
  *         &lt;element name="Kontakt" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
- *       &lt;anyAttribute processContents='lax'/>
  *     &lt;/extension>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -37,7 +35,7 @@ public class TPodnosilac
     extends TFizickoLice
 {
 
-    @XmlElement(name = "Kontakt", namespace = "http://www.zalbanaodluku.com", required = true)
+    @XmlElement(name = "Kontakt", required = true)
     protected String kontakt;
 
     /**
