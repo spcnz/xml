@@ -72,19 +72,12 @@
         </xs:sequence>
     </xs:complexType>
     <xs:complexType name="Ttrazilac_informacije">
-        <xs:sequence>
-            <xs:element name="Ime">
-                <xs:complexType>
-                    <xs:simpleContent>
-                        <xs:extension base="xs:string">
-                            <xs:attribute name="property" type="xs:string"/>
-                        </xs:extension>
-                    </xs:simpleContent>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="prezime" type="xs:string"/>
-            <xs:element name="adresa" type="xs:string"/>
-            <xs:element name="drugi_podaci_za_kontakt" type="xs:string"/>
-        </xs:sequence>
+        <xs:complexContent>
+            <xs:extension base="sh:TFizicko_lice">
+                <xs:sequence>
+                    <xs:element name="drugi_podaci_za_kontakt" type="xs:string"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
     </xs:complexType>
 </xs:schema>
