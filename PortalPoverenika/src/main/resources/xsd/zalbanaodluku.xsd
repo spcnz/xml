@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema 
-    xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-    xmlns:sh="http://www.shared.com"
-    targetNamespace="http://www.zalbanaodluku.com" 
-    xmlns="http://www.zalbanaodluku.com"
-    elementFormDefault="qualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sh="http://www.shared.com"
+    targetNamespace="http://www.zalbanaodluku.com" xmlns="http://www.zalbanaodluku.com"
+    elementFormDefault="qualified"
+    xmlns:rdfa="http://www.w3.org/ns/rdfa#"
+    xmlns:pred="http://www.ftn.uns.ac.rs/rdf/examples/predicate/">
     <xs:import namespace="http://www.shared.com" schemaLocation="shared.xsd"/>
     <xs:element name="Zalba">
         <xs:complexType>
@@ -49,7 +48,6 @@
                     </xs:complexType>
                 </xs:element>
             </xs:sequence>
-            <xs:anyAttribute namespace="##any" processContents="lax"/>
         </xs:complexType>
     </xs:element>
     <xs:complexType name="TPodnosilac">
@@ -78,5 +76,6 @@
             <xs:element name="Datum_podnosenja_zahteva" type="xs:date"/>
             <xs:element name="Osnova_zalbe" type="xs:string"/>
         </xs:sequence>
+        <xs:anyAttribute namespace="##any" processContents="lax"/>
     </xs:complexType>
 </xs:schema>

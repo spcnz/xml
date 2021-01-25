@@ -2,12 +2,16 @@
 package tim21.PortalPoverenika.model.shared;
 
 import java.math.BigInteger;
+import java.util.HashMap;
+import java.util.Map;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAnyAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.namespace.QName;
 
 
 /**
@@ -32,6 +36,7 @@ import javax.xml.bind.annotation.XmlType;
  *           &lt;/simpleType>
  *         &lt;/element>
  *       &lt;/sequence>
+ *       &lt;anyAttribute processContents='lax'/>
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -46,18 +51,20 @@ import javax.xml.bind.annotation.XmlType;
     "broj",
     "postanskiBroj"
 })
-@XmlRootElement(name = "Adresa")
+@XmlRootElement(name = "Adresa", namespace = "http://www.shared.com")
 public class Adresa {
 
-    @XmlElement(name = "Grad", required = true)
+    @XmlElement(name = "Grad", namespace = "http://www.shared.com", required = true)
     protected String grad;
-    @XmlElement(name = "Ulica", required = true)
+    @XmlElement(name = "Ulica", namespace = "http://www.shared.com", required = true)
     protected String ulica;
-    @XmlElement(name = "Broj", required = true)
+    @XmlElement(name = "Broj", namespace = "http://www.shared.com", required = true)
     @XmlSchemaType(name = "positiveInteger")
     protected BigInteger broj;
-    @XmlElement(name = "Postanski_broj")
+    @XmlElement(name = "Postanski_broj", namespace = "http://www.shared.com")
     protected int postanskiBroj;
+    @XmlAnyAttribute
+    private Map<QName, String> otherAttributes = new HashMap<QName, String>();
 
     /**
      * Gets the value of the grad property.
@@ -145,6 +152,24 @@ public class Adresa {
      */
     public void setPostanskiBroj(int value) {
         this.postanskiBroj = value;
+    }
+
+    /**
+     * Gets a map that contains attributes that aren't bound to any typed property on this class.
+     * 
+     * <p>
+     * the map is keyed by the name of the attribute and 
+     * the value is the string value of the attribute.
+     * 
+     * the map returned by this method is live, and you can add new attribute
+     * by updating the map directly. Because of this design, there's no setter.
+     * 
+     * 
+     * @return
+     *     always non-null
+     */
+    public Map<QName, String> getOtherAttributes() {
+        return otherAttributes;
     }
 
 }

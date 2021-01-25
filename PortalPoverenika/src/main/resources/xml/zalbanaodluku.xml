@@ -31,7 +31,7 @@
             <sh:Postanski_broj>11000</sh:Postanski_broj>
         </sh:Adresa>
     </za:Fizicko_lice>
-    <za:Tekst_zalbe>
+    <za:Tekst_zalbe property="pred:datum" content="2020-09-10">
         Наведеном одлуком органа власти (решењем, закључком, обавештењем у писаној форми са елементима одлуке) , супротно закону, одбијен-одбачен је мој захтев који сам 
         поднео/ла-упутио/ла дана 
         <za:Datum_podnosenja_zahteva>
@@ -50,8 +50,8 @@
     <za:Podnosilac property="pred:podnosilac" content="2">
         <sh:Ime></sh:Ime>
         <sh:Prezime></sh:Prezime>
-        <sh:Adresa>
-            <sh:Grad></sh:Grad>
+        <sh:Adresa property="pred:grad" content="Beograd">
+            <sh:Grad>Beograd</sh:Grad>
             <sh:Ulica></sh:Ulica>
             <sh:Broj>1</sh:Broj>
             <sh:Postanski_broj>11000</sh:Postanski_broj>

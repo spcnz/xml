@@ -28,14 +28,14 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TFizicko_lice", propOrder = {
+@XmlType(name = "TFizicko_lice", namespace = "http://www.shared.com", propOrder = {
     "adresa"
 })
 public class TFizickoLice
     extends TOsoba
 {
 
-    @XmlElement(name = "Adresa", required = true)
+    @XmlElement(name = "Adresa", namespace = "http://www.shared.com", required = true)
     protected Adresa adresa;
 
     /**

@@ -2,6 +2,8 @@
 package tim21.PortalPoverenika.model.decisionAppeal;
 
 import tim21.PortalPoverenika.model.shared.*;
+import tim21.PortalPoverenika.model.decisionAppeal.TPodnosilac;
+
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -115,7 +117,7 @@ public class Zalba {
     @XmlSchemaType(name = "date")
     protected XMLGregorianCalendar datum;
     @XmlElement(name = "Podnosilac", namespace = "http://www.zalbanaodluku.com", required = true)
-    protected TPodnosilac podnosilac;
+    protected tim21.PortalPoverenika.model.decisionAppeal.TPodnosilac podnosilac;
     @XmlElement(name = "Napomena", namespace = "http://www.zalbanaodluku.com", required = true)
     protected Zalba.Napomena napomena;
     @XmlAnyAttribute
@@ -318,10 +320,10 @@ public class Zalba {
      * 
      * @return
      *     possible object is
-     *     {@link TPodnosilac }
+     *     {@link tim21.PortalPoverenika.model.decisionAppeal.TPodnosilac }
      *     
      */
-    public TPodnosilac getPodnosilac() {
+    public tim21.PortalPoverenika.model.decisionAppeal.TPodnosilac getPodnosilac() {
         return podnosilac;
     }
 
@@ -330,7 +332,7 @@ public class Zalba {
      * 
      * @param value
      *     allowed object is
-     *     {@link TPodnosilac }
+     *     {@link tim21.PortalPoverenika.model.decisionAppeal.TPodnosilac }
      *     
      */
     public void setPodnosilac(TPodnosilac value) {

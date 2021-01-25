@@ -1,8 +1,7 @@
 
 package tim21.PortalPoverenika.model.decisionAppeal;
 
-import tim21.PortalPoverenika.model.shared.Adresa;
-
+import tim21.PortalPoverenika.model.shared.*;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -42,7 +41,7 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class TPrimaoc {
 
-    @XmlElement(name = "Uloga", required = true)
+    @XmlElement(name = "Uloga", namespace = "http://www.zalbanaodluku.com", required = true)
     protected String uloga;
     @XmlElement(name = "Adresa", namespace = "http://www.shared.com", required = true)
     protected Adresa adresa;

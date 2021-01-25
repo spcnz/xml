@@ -34,7 +34,7 @@ import javax.xml.namespace.QName;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TOsoba", propOrder = {
+@XmlType(name = "TOsoba", namespace = "http://www.shared.com", propOrder = {
     "ime",
     "prezime"
 })
@@ -43,9 +43,9 @@ import javax.xml.namespace.QName;
 })
 public class TOsoba {
 
-    @XmlElement(name = "Ime", required = true)
+    @XmlElement(name = "Ime", namespace = "http://www.shared.com", required = true)
     protected String ime;
-    @XmlElement(name = "Prezime", required = true)
+    @XmlElement(name = "Prezime", namespace = "http://www.shared.com", required = true)
     protected String prezime;
     @XmlAnyAttribute
     private Map<QName, String> otherAttributes = new HashMap<QName, String>();

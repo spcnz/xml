@@ -1,6 +1,13 @@
 
 package tim21.PortalPoverenika.model.decisionAppeal;
+
 import tim21.PortalPoverenika.model.shared.*;
+import tim21.PortalPoverenika.model.*;
+import tim21.PortalPoverenika.model.decisionAppeal.TPodnosilac;
+import tim21.PortalPoverenika.model.decisionAppeal.TPrimaoc;
+import tim21.PortalPoverenika.model.decisionAppeal.TTextZalbe;
+import tim21.PortalPoverenika.model.decisionAppeal.Zalba;
+
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;
 import javax.xml.bind.annotation.XmlRegistry;
@@ -84,10 +91,10 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link TPodnosilac }
+     * Create an instance of {@link tim21.PortalPoverenika.model.decisionAppeal.TPodnosilac }
      * 
      */
-    public TPodnosilac createTPodnosilac() {
+    public tim21.PortalPoverenika.model.decisionAppeal.TPodnosilac createTPodnosilac() {
         return new TPodnosilac();
     }
 

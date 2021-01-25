@@ -7,7 +7,6 @@
             <xs:element name="Ime" type="xs:string"/>
             <xs:element name="Prezime" type="xs:string"/>
         </xs:sequence>
-        <xs:anyAttribute namespace="##any" processContents="lax"/>
     </xs:complexType>
     <xs:element name="Adresa">
         <xs:complexType>
@@ -29,9 +28,7 @@
     <xs:element name="Tacka">
         <xs:complexType>
             <xs:simpleContent>
-                <xs:extension base="xs:string">
-                    <xs:attribute name="broj" use="required" type="xs:positiveInteger"/>
-                </xs:extension>
+                <xs:extension base="xs:string"> </xs:extension>
             </xs:simpleContent>
         </xs:complexType>
     </xs:element>

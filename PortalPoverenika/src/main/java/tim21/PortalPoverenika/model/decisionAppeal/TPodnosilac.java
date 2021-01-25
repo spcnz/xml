@@ -1,7 +1,7 @@
 
 package tim21.PortalPoverenika.model.decisionAppeal;
 
-import tim21.PortalPoverenika.model.shared.TFizickoLice;
+import tim21.PortalPoverenika.model.shared.*;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -37,7 +37,7 @@ public class TPodnosilac
     extends TFizickoLice
 {
 
-    @XmlElement(name = "Kontakt", required = true)
+    @XmlElement(name = "Kontakt", namespace = "http://www.zalbanaodluku.com", required = true)
     protected String kontakt;
 
     /**
