@@ -38,11 +38,35 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link TOsoba }
+     * 
+     */
+    public TOsoba createTOsoba() {
+        return new TOsoba();
+    }
+
+    /**
      * Create an instance of {@link TtrazilacInformacije }
      * 
      */
     public TtrazilacInformacije createTtrazilacInformacije() {
         return new TtrazilacInformacije();
+    }
+
+    /**
+     * Create an instance of {@link TdatumVreme }
+     * 
+     */
+    public TdatumVreme createTdatumVreme() {
+        return new TdatumVreme();
+    }
+
+    /**
+     * Create an instance of {@link TPravnoLice }
+     * 
+     */
+    public TPravnoLice createTPravnoLice() {
+        return new TPravnoLice();
     }
 
     /**
@@ -62,27 +86,27 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link TOsoba }
+     * Create an instance of {@link Adresa.Ulica }
      * 
      */
-    public TOsoba createTOsoba() {
-        return new TOsoba();
+    public Adresa.Ulica createAdresaUlica() {
+        return new Adresa.Ulica();
     }
 
     /**
-     * Create an instance of {@link TPravnoLice }
+     * Create an instance of {@link Adresa.Broj }
      * 
      */
-    public TPravnoLice createTPravnoLice() {
-        return new TPravnoLice();
+    public Adresa.Broj createAdresaBroj() {
+        return new Adresa.Broj();
     }
 
     /**
-     * Create an instance of {@link TdatumVreme }
+     * Create an instance of {@link TPrimaoc }
      * 
      */
-    public TdatumVreme createTdatumVreme() {
-        return new TdatumVreme();
+    public TPrimaoc createTPrimaoc() {
+        return new TPrimaoc();
     }
 
     /**
@@ -94,11 +118,51 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link TtrazilacInformacije.Ime }
+     * Create an instance of {@link TOsoba.Ime }
      * 
      */
-    public TtrazilacInformacije.Ime createTtrazilacInformacijeIme() {
-        return new TtrazilacInformacije.Ime();
+    public TOsoba.Ime createTOsobaIme() {
+        return new TOsoba.Ime();
+    }
+
+    /**
+     * Create an instance of {@link TOsoba.Prezime }
+     * 
+     */
+    public TOsoba.Prezime createTOsobaPrezime() {
+        return new TOsoba.Prezime();
+    }
+
+    /**
+     * Create an instance of {@link TtrazilacInformacije.DrugiPodaciZaKontakt }
+     * 
+     */
+    public TtrazilacInformacije.DrugiPodaciZaKontakt createTtrazilacInformacijeDrugiPodaciZaKontakt() {
+        return new TtrazilacInformacije.DrugiPodaciZaKontakt();
+    }
+
+    /**
+     * Create an instance of {@link TdatumVreme.Vreme }
+     * 
+     */
+    public TdatumVreme.Vreme createTdatumVremeVreme() {
+        return new TdatumVreme.Vreme();
+    }
+
+    /**
+     * Create an instance of {@link TdatumVreme.Datum }
+     * 
+     */
+    public TdatumVreme.Datum createTdatumVremeDatum() {
+        return new TdatumVreme.Datum();
+    }
+
+    /**
+     * Create an instance of {@link TPravnoLice.Naziv }
+     * 
+     */
+    public TPravnoLice.Naziv createTPravnoLiceNaziv() {
+        return new TPravnoLice.Naziv();
     }
 
 }

@@ -1,0 +1,44 @@
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:h="http://www.w3.org/1999/xhtml">
+  <rdf:Description rdf:about="http://zalbe/2">
+    <pred:appealForRequest xmlns:pred="http://www.tim21.com/predicate/" rdf:resource="http://zahtevi/1"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://zalbe/2">
+    <pred:recipient xmlns:pred="http://www.tim21.com/predicate/" rdf:resource="http://users/2"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://zalbe/2">
+    <pred:recipientCity xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">Beograd</pred:recipientCity>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://zalbe/2">
+    <pred:recipientStreet xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">Булевар краља Александрa</pred:recipientStreet>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://zalbe/2">
+    <pred:recipientStreetnum xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">15</pred:recipientStreetnum>
+  </rdf:Description>
+  <!--Could not produce the triple for: http://zalbe/2 - authorityName - Naziv organa vlasti nekii-->
+  <rdf:Description rdf:about="http://zalbe/2">
+    <pred:requestDate xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">2020-09-10</pred:requestDate>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://zalbe/2">
+    <pred:requestDetails xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">neki podaci o zahtevu</pred:requestDetails>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://zalbe/2">
+    <pred:submitter xmlns:pred="http://www.tim21.com/predicate/" rdf:resource="http://users/1"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://zalbe/2">
+    <pred:submitterName xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">Milenaa</pred:submitterName>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://zalbe/2">
+    <pred:submitterLastname xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://zalbe/2">
+    <pred:submitterCity xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">Beograd</pred:submitterCity>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://zalbe/2">
+    <pred:submitterStreet xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://zalbe/2">
+    <pred:submitterStreetnum xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">1</pred:submitterStreetnum>
+  </rdf:Description>
+  <!--Could not produce the triple for: http://zalbe/2 - appealTime - 09:15:00-->
+  <!--Could not produce the triple for: http://zalbe/2 - appealDate - 2020-09-10-->
+</rdf:RDF>

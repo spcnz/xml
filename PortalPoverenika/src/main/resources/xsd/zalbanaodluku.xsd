@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sh="http://www.shared.com"
-    targetNamespace="http://www.zalbanaodluku.com" xmlns="http://www.zalbanaodluku.com"
-    elementFormDefault="qualified"
-    xmlns:rdfa="http://www.w3.org/ns/rdfa#"
-    xmlns:pred="http://www.ftn.uns.ac.rs/rdf/examples/predicate/">
+           targetNamespace="http://www.zalbanaodluku.com" xmlns="http://www.zalbanaodluku.com"
+           elementFormDefault="qualified" xmlns:rdfa="http://www.w3.org/ns/rdfa#"
+           xmlns:pred="http://www.ftn.uns.ac.rs/rdf/examples/predicate/">
     <xs:import namespace="http://www.shared.com" schemaLocation="shared.xsd"/>
     <xs:element name="Zalba">
         <xs:complexType>
@@ -15,7 +14,7 @@
                         </xs:restriction>
                     </xs:simpleType>
                 </xs:element>
-                <xs:element name="Primaoc" type="TPrimaoc"/>
+                <xs:element name="Primaoc" type="sh:TPrimaoc"/>
                 <xs:element name="Podnaslov">
                     <xs:simpleType>
                         <xs:restriction base="xs:string">
@@ -28,9 +27,25 @@
                     <xs:element name="Fizicko_lice" type="sh:TFizicko_lice"/>
                 </xs:choice>
                 <xs:element name="Tekst_zalbe" type="TText_zalbe"/>
-                <xs:element name="Grad" type="xs:string"/>
-                <xs:element name="Datum" type="xs:date"/>
-                <xs:element name="Podnosilac" type="TPodnosilac"/>
+                <xs:element name="Grad">
+                    <xs:complexType>
+                        <xs:simpleContent>
+                            <xs:extension base="xs:string">
+                                <xs:anyAttribute namespace="##any" processContents="lax"/>
+                            </xs:extension>
+                        </xs:simpleContent>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Datum">
+                    <xs:complexType>
+                        <xs:simpleContent>
+                            <xs:extension base="xs:date">
+                                <xs:anyAttribute namespace="##any" processContents="lax"/>
+                            </xs:extension>
+                        </xs:simpleContent>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Podnosilac" type="sh:Ttrazilac_informacije"/>
                 <xs:element name="Napomena">
                     <xs:complexType>
                         <xs:sequence>
@@ -39,7 +54,7 @@
                                     <xs:simpleContent>
                                         <xs:extension base="xs:string">
                                             <xs:attribute name="broj" type="xs:positiveInteger"
-                                                use="required"/>
+                                                          use="required"/>
                                         </xs:extension>
                                     </xs:simpleContent>
                                 </xs:complexType>
@@ -48,33 +63,29 @@
                     </xs:complexType>
                 </xs:element>
             </xs:sequence>
+            <xs:anyAttribute namespace="##any" processContents="lax"/>
         </xs:complexType>
     </xs:element>
-    <xs:complexType name="TPodnosilac">
-        <xs:complexContent>
-            <xs:extension base="sh:TFizicko_lice">
-                <xs:sequence>
-                    <xs:element name="Kontakt" type="xs:string"/>
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:complexType name="TPrimaoc">
-        <xs:sequence>
-            <xs:element name="Uloga">
-                <xs:simpleType>
-                    <xs:restriction base="xs:string">
-                        <xs:maxLength value="150"/>
-                    </xs:restriction>
-                </xs:simpleType>
-            </xs:element>
-            <xs:element ref="sh:Adresa"/>
-        </xs:sequence>
-    </xs:complexType>
     <xs:complexType mixed="true" name="TText_zalbe">
         <xs:sequence>
-            <xs:element name="Datum_podnosenja_zahteva" type="xs:date"/>
-            <xs:element name="Osnova_zalbe" type="xs:string"/>
+            <xs:element name="Datum_podnosenja_zahteva">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:date">
+                            <xs:anyAttribute namespace="##any" processContents="lax"/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Osnova_zalbe">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                            <xs:anyAttribute namespace="##any" processContents="lax"/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
         </xs:sequence>
         <xs:anyAttribute namespace="##any" processContents="lax"/>
     </xs:complexType>

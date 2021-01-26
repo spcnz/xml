@@ -17,9 +17,9 @@ import javax.xml.bind.annotation.XmlValue;
  * <pre>
  * &lt;complexType name="Ttrazilac_informacije">
  *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *     &lt;extension base="{http://www.shared.com}TFizicko_lice">
  *       &lt;sequence>
- *         &lt;element name="Ime">
+ *         &lt;element name="drugi_podaci_za_kontakt">
  *           &lt;complexType>
  *             &lt;simpleContent>
  *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>string">
@@ -28,11 +28,9 @@ import javax.xml.bind.annotation.XmlValue;
  *             &lt;/simpleContent>
  *           &lt;/complexType>
  *         &lt;/element>
- *         &lt;element name="prezime" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="adresa" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="drugi_podaci_za_kontakt" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
- *     &lt;/restriction>
+ *       &lt;anyAttribute processContents='lax'/>
+ *     &lt;/extension>
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
@@ -41,103 +39,24 @@ import javax.xml.bind.annotation.XmlValue;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Ttrazilac_informacije", propOrder = {
-    "ime",
-    "prezime",
-    "adresa",
     "drugiPodaciZaKontakt"
 })
-public class TtrazilacInformacije {
+public class TtrazilacInformacije
+    extends TFizickoLice
+{
 
-    @XmlElement(name = "Ime", required = true)
-    protected TtrazilacInformacije.Ime ime;
-    @XmlElement(required = true)
-    protected String prezime;
-    @XmlElement(required = true)
-    protected String adresa;
     @XmlElement(name = "drugi_podaci_za_kontakt", required = true)
-    protected String drugiPodaciZaKontakt;
-
-    /**
-     * Gets the value of the ime property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TtrazilacInformacije.Ime }
-     *     
-     */
-    public TtrazilacInformacije.Ime getIme() {
-        return ime;
-    }
-
-    /**
-     * Sets the value of the ime property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link TtrazilacInformacije.Ime }
-     *     
-     */
-    public void setIme(TtrazilacInformacije.Ime value) {
-        this.ime = value;
-    }
-
-    /**
-     * Gets the value of the prezime property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getPrezime() {
-        return prezime;
-    }
-
-    /**
-     * Sets the value of the prezime property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setPrezime(String value) {
-        this.prezime = value;
-    }
-
-    /**
-     * Gets the value of the adresa property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getAdresa() {
-        return adresa;
-    }
-
-    /**
-     * Sets the value of the adresa property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setAdresa(String value) {
-        this.adresa = value;
-    }
+    protected TtrazilacInformacije.DrugiPodaciZaKontakt drugiPodaciZaKontakt;
 
     /**
      * Gets the value of the drugiPodaciZaKontakt property.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link TtrazilacInformacije.DrugiPodaciZaKontakt }
      *     
      */
-    public String getDrugiPodaciZaKontakt() {
+    public TtrazilacInformacije.DrugiPodaciZaKontakt getDrugiPodaciZaKontakt() {
         return drugiPodaciZaKontakt;
     }
 
@@ -146,10 +65,10 @@ public class TtrazilacInformacije {
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link TtrazilacInformacije.DrugiPodaciZaKontakt }
      *     
      */
-    public void setDrugiPodaciZaKontakt(String value) {
+    public void setDrugiPodaciZaKontakt(TtrazilacInformacije.DrugiPodaciZaKontakt value) {
         this.drugiPodaciZaKontakt = value;
     }
 
@@ -175,7 +94,7 @@ public class TtrazilacInformacije {
     @XmlType(name = "", propOrder = {
         "value"
     })
-    public static class Ime {
+    public static class DrugiPodaciZaKontakt {
 
         @XmlValue
         protected String value;

@@ -80,11 +80,12 @@ public class ExistManager {
 		}
 	}
 
-	public boolean store(String collectionId, String documentId, Object xml) throws Exception {
+	public boolean store(String collectionId, String documentId, Object xml, String collectionName) throws Exception {
 		createConnection();
 		Collection col = null;
 		XMLResource res = null;
 		OutputStream os = new ByteArrayOutputStream();
+		boolean success = true;
 
 		try {
 			col = getOrCreateCollection(collectionId, 0);
@@ -108,20 +109,21 @@ public class ExistManager {
 			col.storeResource(res);
 
 			// Ovdje ekstrahujemo
-			metadataExtract.extract(os);
+			metadataExtract.extract(os, collectionName);
 
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			success = false;
 		} finally {
 			try {
 				closeConnection(col, res);
-				return true;
+				return success;
 			} catch (XMLDBException xe) {
 				xe.printStackTrace();
 			}
 		}
-		return false;
+		return success;
 	}
 
 	public XMLResource getOne(String collectionUri, String documentId) throws Exception  {

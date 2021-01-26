@@ -1,18 +1,17 @@
 
 package tim21.PortalPoverenika.model.decisionAppeal;
 
-import tim21.PortalPoverenika.model.shared.*;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;
 import javax.xml.bind.annotation.XmlRegistry;
-import javax.xml.datatype.XMLGregorianCalendar;
 import javax.xml.namespace.QName;
+import tim21.PortalPoverenika.model.shared.*;
 
 
 /**
  * This object contains factory methods for each 
  * Java content interface and Java element interface 
- * generated in the tim21.PortalPoverenika.model.decisionAppeal package. 
+ * generated in the tim21.PortalPoverenika.model package. 
  * <p>An ObjectFactory allows you to programatically 
  * construct new instances of the Java representation 
  * for XML content. The Java representation of XML 
@@ -30,7 +29,7 @@ public class ObjectFactory {
     private final static QName _TTextZalbeOsnovaZalbe_QNAME = new QName("http://www.zalbanaodluku.com", "Osnova_zalbe");
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: tim21.PortalPoverenika.model.decisionAppeal
+     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: tim21.PortalPoverenika.model
      * 
      */
     public ObjectFactory() {
@@ -53,11 +52,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link TtrazilacInformacije }
+     * Create an instance of {@link TdatumVreme }
      * 
      */
-    public TtrazilacInformacije createTtrazilacInformacije() {
-        return new TtrazilacInformacije();
+    public TdatumVreme createTdatumVreme() {
+        return new TdatumVreme();
+    }
+
+    /**
+     * Create an instance of {@link TOsoba }
+     * 
+     */
+    public TOsoba createTOsoba() {
+        return new TOsoba();
     }
 
     /**
@@ -69,27 +76,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link TPrimaoc }
+     * Create an instance of {@link TtrazilacInformacije }
      * 
      */
-    public TPrimaoc createTPrimaoc() {
-        return new TPrimaoc();
-    }
-
-    /**
-     * Create an instance of {@link TPravnoLice }
-     * 
-     */
-    public TPravnoLice createTPravnoLice() {
-        return new TPravnoLice();
-    }
-
-    /**
-     * Create an instance of {@link TFizickoLice }
-     * 
-     */
-    public TFizickoLice createTFizickoLice() {
-        return new TFizickoLice();
+    public TtrazilacInformacije createTtrazilacInformacije() {
+        return new TtrazilacInformacije();
     }
 
     /**
@@ -101,11 +92,43 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link TPodnosilac }
+     * Create an instance of {@link TPravnoLice }
      * 
      */
-    public TPodnosilac createTPodnosilac() {
-        return new TPodnosilac();
+    public TPravnoLice createTPravnoLice() {
+        return new TPravnoLice();
+    }
+
+    /**
+     * Create an instance of {@link TPrimaoc }
+     * 
+     */
+    public TPrimaoc createTPrimaoc() {
+        return new TPrimaoc();
+    }
+
+    /**
+     * Create an instance of {@link TFizickoLice }
+     * 
+     */
+    public TFizickoLice createTFizickoLice() {
+        return new TFizickoLice();
+    }
+
+    /**
+     * Create an instance of {@link Zalba.Grad }
+     * 
+     */
+    public Zalba.Grad createZalbaGrad() {
+        return new Zalba.Grad();
+    }
+
+    /**
+     * Create an instance of {@link Zalba.Datum }
+     * 
+     */
+    public Zalba.Datum createZalbaDatum() {
+        return new Zalba.Datum();
     }
 
     /**
@@ -125,27 +148,51 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link TOsoba }
+     * Create an instance of {@link Adresa.Ulica }
      * 
      */
-    public TOsoba createTOsoba() {
-        return new TOsoba();
+    public Adresa.Ulica createAdresaUlica() {
+        return new Adresa.Ulica();
     }
 
     /**
-     * Create an instance of {@link TdatumVreme }
+     * Create an instance of {@link Adresa.Broj }
      * 
      */
-    public TdatumVreme createTdatumVreme() {
-        return new TdatumVreme();
+    public Adresa.Broj createAdresaBroj() {
+        return new Adresa.Broj();
     }
 
     /**
-     * Create an instance of {@link TtrazilacInformacije.Ime }
+     * Create an instance of {@link TdatumVreme.Vreme }
      * 
      */
-    public TtrazilacInformacije.Ime createTtrazilacInformacijeIme() {
-        return new TtrazilacInformacije.Ime();
+    public TdatumVreme.Vreme createTdatumVremeVreme() {
+        return new TdatumVreme.Vreme();
+    }
+
+    /**
+     * Create an instance of {@link TdatumVreme.Datum }
+     * 
+     */
+    public TdatumVreme.Datum createTdatumVremeDatum() {
+        return new TdatumVreme.Datum();
+    }
+
+    /**
+     * Create an instance of {@link TOsoba.Ime }
+     * 
+     */
+    public TOsoba.Ime createTOsobaIme() {
+        return new TOsoba.Ime();
+    }
+
+    /**
+     * Create an instance of {@link TOsoba.Prezime }
+     * 
+     */
+    public TOsoba.Prezime createTOsobaPrezime() {
+        return new TOsoba.Prezime();
     }
 
     /**
@@ -157,21 +204,53 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link XMLGregorianCalendar }{@code >}}
+     * Create an instance of {@link TtrazilacInformacije.DrugiPodaciZaKontakt }
      * 
      */
-    @XmlElementDecl(namespace = "http://www.zalbanaodluku.com", name = "Datum_podnosenja_zahteva", scope = TTextZalbe.class)
-    public JAXBElement<XMLGregorianCalendar> createTTextZalbeDatumPodnosenjaZahteva(XMLGregorianCalendar value) {
-        return new JAXBElement<XMLGregorianCalendar>(_TTextZalbeDatumPodnosenjaZahteva_QNAME, XMLGregorianCalendar.class, TTextZalbe.class, value);
+    public TtrazilacInformacije.DrugiPodaciZaKontakt createTtrazilacInformacijeDrugiPodaciZaKontakt() {
+        return new TtrazilacInformacije.DrugiPodaciZaKontakt();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * Create an instance of {@link TTextZalbe.DatumPodnosenjaZahteva }
+     * 
+     */
+    public TTextZalbe.DatumPodnosenjaZahteva createTTextZalbeDatumPodnosenjaZahteva() {
+        return new TTextZalbe.DatumPodnosenjaZahteva();
+    }
+
+    /**
+     * Create an instance of {@link TTextZalbe.OsnovaZalbe }
+     * 
+     */
+    public TTextZalbe.OsnovaZalbe createTTextZalbeOsnovaZalbe() {
+        return new TTextZalbe.OsnovaZalbe();
+    }
+
+    /**
+     * Create an instance of {@link TPravnoLice.Naziv }
+     * 
+     */
+    public TPravnoLice.Naziv createTPravnoLiceNaziv() {
+        return new TPravnoLice.Naziv();
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link TTextZalbe.DatumPodnosenjaZahteva }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.zalbanaodluku.com", name = "Datum_podnosenja_zahteva", scope = TTextZalbe.class)
+    public JAXBElement<TTextZalbe.DatumPodnosenjaZahteva> createTTextZalbeDatumPodnosenjaZahteva(TTextZalbe.DatumPodnosenjaZahteva value) {
+        return new JAXBElement<TTextZalbe.DatumPodnosenjaZahteva>(_TTextZalbeDatumPodnosenjaZahteva_QNAME, TTextZalbe.DatumPodnosenjaZahteva.class, TTextZalbe.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link TTextZalbe.OsnovaZalbe }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://www.zalbanaodluku.com", name = "Osnova_zalbe", scope = TTextZalbe.class)
-    public JAXBElement<String> createTTextZalbeOsnovaZalbe(String value) {
-        return new JAXBElement<String>(_TTextZalbeOsnovaZalbe_QNAME, String.class, TTextZalbe.class, value);
+    public JAXBElement<TTextZalbe.OsnovaZalbe> createTTextZalbeOsnovaZalbe(TTextZalbe.OsnovaZalbe value) {
+        return new JAXBElement<TTextZalbe.OsnovaZalbe>(_TTextZalbeOsnovaZalbe_QNAME, TTextZalbe.OsnovaZalbe.class, TTextZalbe.class, value);
     }
 
 }

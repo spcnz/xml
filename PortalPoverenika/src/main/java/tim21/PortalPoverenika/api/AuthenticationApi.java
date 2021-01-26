@@ -40,7 +40,7 @@ public class AuthenticationApi {
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
         User user = (User) authentication.getPrincipal();
-        String jwt = tokenUtils.generateToken(user.getEmail());
+        String jwt = tokenUtils.generateToken(user.getEmail().getValue());
         int expiresIn = tokenUtils.getExpiredIn();
 
         return ResponseEntity.ok(new JWTResponse(jwt, expiresIn));

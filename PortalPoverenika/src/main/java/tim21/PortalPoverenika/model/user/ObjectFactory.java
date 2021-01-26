@@ -1,6 +1,8 @@
 
 package tim21.PortalPoverenika.model.user;
 
+import tim21.PortalPoverenika.model.user.User;
+
 import javax.xml.bind.annotation.XmlRegistry;
 
 
@@ -30,11 +32,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link User }
+     * Create an instance of {@link tim21.PortalPoverenika.model.user.User }
      * 
      */
-    public User createUser() {
-        return new User();
+    public tim21.PortalPoverenika.model.user.User createUser() {
+        return new tim21.PortalPoverenika.model.user.User();
+    }
+
+    /**
+     * Create an instance of {@link tim21.PortalPoverenika.model.user.User.Email }
+     * 
+     */
+    public tim21.PortalPoverenika.model.user.User.Email createUserEmail() {
+        return new User.Email();
     }
 
 }

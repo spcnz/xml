@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<user xmlns="http://user.com"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://user.com ../xsd/user.xsd">
+    <email property="pred:email">user@gmail.com</email>
+    <password>$2y$12$.PWVvztLIA1VBvOcpykig.CZPr78dwT3mVrtCda8YjjyNOas4P6j2</password>
+    <role>ROLE_CITIZEN</role>
+</user>

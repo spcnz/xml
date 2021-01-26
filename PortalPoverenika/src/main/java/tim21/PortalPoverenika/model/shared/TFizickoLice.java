@@ -4,6 +4,7 @@ package tim21.PortalPoverenika.model.shared;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -19,6 +20,7 @@ import javax.xml.bind.annotation.XmlType;
  *       &lt;sequence>
  *         &lt;element ref="{http://www.shared.com}Adresa"/>
  *       &lt;/sequence>
+ *       &lt;anyAttribute processContents='lax'/>
  *     &lt;/extension>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -29,6 +31,9 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TFizicko_lice", propOrder = {
     "adresa"
+})
+@XmlSeeAlso({
+    TtrazilacInformacije.class
 })
 public class TFizickoLice
     extends TOsoba

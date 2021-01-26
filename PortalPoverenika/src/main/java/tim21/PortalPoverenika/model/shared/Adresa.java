@@ -2,14 +2,17 @@
 package tim21.PortalPoverenika.model.shared;
 
 import java.math.BigInteger;
+import java.util.HashMap;
+import java.util.Map;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlAnyAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.XmlValue;
+import javax.xml.namespace.QName;
 
 
 /**
@@ -26,13 +29,29 @@ import javax.xml.bind.annotation.XmlValue;
  *           &lt;complexType>
  *             &lt;simpleContent>
  *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>string">
- *                 &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" />
+ *                 &lt;anyAttribute processContents='lax'/>
  *               &lt;/extension>
  *             &lt;/simpleContent>
  *           &lt;/complexType>
  *         &lt;/element>
- *         &lt;element name="Ulica" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="Broj" type="{http://www.w3.org/2001/XMLSchema}positiveInteger"/>
+ *         &lt;element name="Ulica">
+ *           &lt;complexType>
+ *             &lt;simpleContent>
+ *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>string">
+ *                 &lt;anyAttribute processContents='lax'/>
+ *               &lt;/extension>
+ *             &lt;/simpleContent>
+ *           &lt;/complexType>
+ *         &lt;/element>
+ *         &lt;element name="Broj">
+ *           &lt;complexType>
+ *             &lt;simpleContent>
+ *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>positiveInteger">
+ *                 &lt;anyAttribute processContents='lax'/>
+ *               &lt;/extension>
+ *             &lt;/simpleContent>
+ *           &lt;/complexType>
+ *         &lt;/element>
  *         &lt;element name="Postanski_broj">
  *           &lt;simpleType>
  *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}int">
@@ -62,10 +81,9 @@ public class Adresa {
     @XmlElement(name = "Grad", required = true)
     protected Adresa.Grad grad;
     @XmlElement(name = "Ulica", required = true)
-    protected String ulica;
+    protected Adresa.Ulica ulica;
     @XmlElement(name = "Broj", required = true)
-    @XmlSchemaType(name = "positiveInteger")
-    protected BigInteger broj;
+    protected Adresa.Broj broj;
     @XmlElement(name = "Postanski_broj")
     protected int postanskiBroj;
 
@@ -98,10 +116,10 @@ public class Adresa {
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link Adresa.Ulica }
      *     
      */
-    public String getUlica() {
+    public Adresa.Ulica getUlica() {
         return ulica;
     }
 
@@ -110,10 +128,10 @@ public class Adresa {
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link Adresa.Ulica }
      *     
      */
-    public void setUlica(String value) {
+    public void setUlica(Adresa.Ulica value) {
         this.ulica = value;
     }
 
@@ -122,10 +140,10 @@ public class Adresa {
      * 
      * @return
      *     possible object is
-     *     {@link BigInteger }
+     *     {@link Adresa.Broj }
      *     
      */
-    public BigInteger getBroj() {
+    public Adresa.Broj getBroj() {
         return broj;
     }
 
@@ -134,10 +152,10 @@ public class Adresa {
      * 
      * @param value
      *     allowed object is
-     *     {@link BigInteger }
+     *     {@link Adresa.Broj }
      *     
      */
-    public void setBroj(BigInteger value) {
+    public void setBroj(Adresa.Broj value) {
         this.broj = value;
     }
 
@@ -166,8 +184,82 @@ public class Adresa {
      * <pre>
      * &lt;complexType>
      *   &lt;simpleContent>
+     *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>positiveInteger">
+     *       &lt;anyAttribute processContents='lax'/>
+     *     &lt;/extension>
+     *   &lt;/simpleContent>
+     * &lt;/complexType>
+     * </pre>
+     * 
+     * 
+     */
+    @XmlAccessorType(XmlAccessType.FIELD)
+    @XmlType(name = "", propOrder = {
+        "value"
+    })
+    public static class Broj {
+
+        @XmlValue
+        @XmlSchemaType(name = "positiveInteger")
+        protected BigInteger value;
+        @XmlAnyAttribute
+        private Map<QName, String> otherAttributes = new HashMap<QName, String>();
+
+        /**
+         * Gets the value of the value property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link BigInteger }
+         *     
+         */
+        public BigInteger getValue() {
+            return value;
+        }
+
+        /**
+         * Sets the value of the value property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link BigInteger }
+         *     
+         */
+        public void setValue(BigInteger value) {
+            this.value = value;
+        }
+
+        /**
+         * Gets a map that contains attributes that aren't bound to any typed property on this class.
+         * 
+         * <p>
+         * the map is keyed by the name of the attribute and 
+         * the value is the string value of the attribute.
+         * 
+         * the map returned by this method is live, and you can add new attribute
+         * by updating the map directly. Because of this design, there's no setter.
+         * 
+         * 
+         * @return
+         *     always non-null
+         */
+        public Map<QName, String> getOtherAttributes() {
+            return otherAttributes;
+        }
+
+    }
+
+
+    /**
+     * <p>Java class for anonymous complex type.
+     * 
+     * <p>The following schema fragment specifies the expected content contained within this class.
+     * 
+     * <pre>
+     * &lt;complexType>
+     *   &lt;simpleContent>
      *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>string">
-     *       &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" />
+     *       &lt;anyAttribute processContents='lax'/>
      *     &lt;/extension>
      *   &lt;/simpleContent>
      * &lt;/complexType>
@@ -183,8 +275,8 @@ public class Adresa {
 
         @XmlValue
         protected String value;
-        @XmlAttribute(name = "property")
-        protected String property;
+        @XmlAnyAttribute
+        private Map<QName, String> otherAttributes = new HashMap<QName, String>();
 
         /**
          * Gets the value of the value property.
@@ -211,27 +303,94 @@ public class Adresa {
         }
 
         /**
-         * Gets the value of the property property.
+         * Gets a map that contains attributes that aren't bound to any typed property on this class.
+         * 
+         * <p>
+         * the map is keyed by the name of the attribute and 
+         * the value is the string value of the attribute.
+         * 
+         * the map returned by this method is live, and you can add new attribute
+         * by updating the map directly. Because of this design, there's no setter.
+         * 
+         * 
+         * @return
+         *     always non-null
+         */
+        public Map<QName, String> getOtherAttributes() {
+            return otherAttributes;
+        }
+
+    }
+
+
+    /**
+     * <p>Java class for anonymous complex type.
+     * 
+     * <p>The following schema fragment specifies the expected content contained within this class.
+     * 
+     * <pre>
+     * &lt;complexType>
+     *   &lt;simpleContent>
+     *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>string">
+     *       &lt;anyAttribute processContents='lax'/>
+     *     &lt;/extension>
+     *   &lt;/simpleContent>
+     * &lt;/complexType>
+     * </pre>
+     * 
+     * 
+     */
+    @XmlAccessorType(XmlAccessType.FIELD)
+    @XmlType(name = "", propOrder = {
+        "value"
+    })
+    public static class Ulica {
+
+        @XmlValue
+        protected String value;
+        @XmlAnyAttribute
+        private Map<QName, String> otherAttributes = new HashMap<QName, String>();
+
+        /**
+         * Gets the value of the value property.
          * 
          * @return
          *     possible object is
          *     {@link String }
          *     
          */
-        public String getProperty() {
-            return property;
+        public String getValue() {
+            return value;
         }
 
         /**
-         * Sets the value of the property property.
+         * Sets the value of the value property.
          * 
          * @param value
          *     allowed object is
          *     {@link String }
          *     
          */
-        public void setProperty(String value) {
-            this.property = value;
+        public void setValue(String value) {
+            this.value = value;
+        }
+
+        /**
+         * Gets a map that contains attributes that aren't bound to any typed property on this class.
+         * 
+         * <p>
+         * the map is keyed by the name of the attribute and 
+         * the value is the string value of the attribute.
+         * 
+         * the map returned by this method is live, and you can add new attribute
+         * by updating the map directly. Because of this design, there's no setter.
+         * 
+         * 
+         * @return
+         *     always non-null
+         */
+        public Map<QName, String> getOtherAttributes() {
+            return otherAttributes;
         }
 
     }

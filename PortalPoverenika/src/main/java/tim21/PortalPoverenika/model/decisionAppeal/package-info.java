@@ -2,7 +2,7 @@
         namespace = "http://www.zalbanaodluku.com",
         xmlns={@XmlNs(prefix="za", namespaceURI="http://www.zalbanaodluku.com"),
                 @XmlNs(prefix="sh", namespaceURI="http://www.shared.com"),
-                @XmlNs(prefix="pred", namespaceURI="http://www.zalbanaodluku.com/predicate/")})
+                @XmlNs(prefix="pred", namespaceURI="http://www.tim21.com/predicate/")})
 
 package tim21.PortalPoverenika.model.decisionAppeal;
 
