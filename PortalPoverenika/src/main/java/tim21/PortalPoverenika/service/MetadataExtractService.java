@@ -21,11 +21,9 @@ import java.io.*;
 
 @Service
 public class MetadataExtractService {
-    private static final String RDF_FILEPATH = "src/main/resources/rdf/metadata.rdf";
-    private static final String GRAPH_URI = "metadata";
+    private static final String RDF_FILEPATH = "src/main/resources/rdf/";
 
-
-    public static void extract(OutputStream outStream) throws IOException, TransformerException, SAXException {
+    public static void extract(OutputStream outStream, String GRAPH_URI) throws IOException, TransformerException, SAXException {
         AuthenticationUtilities.ConnectionProperties conn = AuthenticationUtilities.loadProperties();
 
         // Referencing XML file with RDF data in attributes
@@ -36,12 +34,12 @@ public class MetadataExtractService {
         ByteArrayInputStream input = new ByteArrayInputStream( ((ByteArrayOutputStream) outStream).toByteArray() );
 
         System.out.println("[INFO] Extracting metadata from RDFa attributes...");
-        metadataExtractor.extractMetadata(input);
+        metadataExtractor.extractMetadata(input, GRAPH_URI);
 
 
         // Loading a default model with extracted metadata
         Model model = ModelFactory.createDefaultModel();
-        model.read(RDF_FILEPATH);
+        model.read(RDF_FILEPATH + GRAPH_URI + ".rdf");
 
         ByteArrayOutputStream out = new ByteArrayOutputStream();
 

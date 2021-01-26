@@ -1,7 +1,7 @@
 
 package tim21.PortalPoverenika.model.rescript;
 
-import tim21.PortalPoverenika.model.shared.Tacka;
+import tim21.PortalPoverenika.model.shared.*;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -72,8 +72,8 @@ public class TOdgovorNaZalbu {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link String }
      * {@link JAXBElement }{@code <}{@link TOdgovorNaZalbu.Razlozi }{@code >}
+     * {@link String }
      * 
      * 
      */

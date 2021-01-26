@@ -20,8 +20,8 @@ public class UserRepository {
 
     public boolean create(User user) {
         try {
-            //ovde mitre izmenii
-            return existManager.store(USER_COLLECTION_URI, user.getEmail(), user);
+
+            return existManager.store(USER_COLLECTION_URI, user.getEmail().getValue(), user, "users");
         } catch (Exception e) {
             e.printStackTrace();
             return false;

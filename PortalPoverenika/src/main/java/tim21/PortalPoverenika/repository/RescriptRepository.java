@@ -7,6 +7,8 @@ import org.springframework.stereotype.Repository;
 import org.xmldb.api.base.ResourceSet;
 import org.xmldb.api.base.XMLDBException;
 import org.xmldb.api.modules.XMLResource;
+import tim21.PortalPoverenika.util.IdGenerator;
+import tim21.PortalPoverenika.util.constants.XSDConstants;
 
 import static tim21.PortalPoverenika.util.constants.DBConstants.RESCRIPT_COLLECTION_URI;
 import static tim21.PortalPoverenika.util.constants.NamespaceConstants.RESCRIPT_TARGET_NAMESPACE;
@@ -20,8 +22,10 @@ public class RescriptRepository {
 
     public boolean create(Resenje rescript) {
         try {
-            //Ovde izmeni documentID
-            return existManager.store(RESCRIPT_COLLECTION_URI, rescript.getID().replace("/",""), rescript);
+            String id = IdGenerator.generate(XSDConstants.RESCRIPT);
+            rescript.setID(id);
+
+            return existManager.store(RESCRIPT_COLLECTION_URI, IdGenerator.generateDocumentID(id, XSDConstants.RESCRIPT), rescript, "resenja");
         } catch (Exception e) {
             e.printStackTrace();
             return false;

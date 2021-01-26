@@ -2,6 +2,7 @@
 package tim21.PortalPoverenika.model.rescript;
 
 import tim21.PortalPoverenika.model.shared.*;
+
 import java.math.BigDecimal;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;
@@ -12,7 +13,7 @@ import javax.xml.namespace.QName;
 /**
  * This object contains factory methods for each 
  * Java content interface and Java element interface 
- * generated in the tim21.PortalPoverenika.model package. 
+ * generated in the tim21.PortalPoverenika.model.rescript package. 
  * <p>An ObjectFactory allows you to programatically 
  * construct new instances of the Java representation 
  * for XML content. The Java representation of XML 
@@ -31,7 +32,7 @@ public class ObjectFactory {
     private final static QName _TOpisResenjaStavkeResenja_QNAME = new QName("http://www.resenje.com", "Stavke_resenja");
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: tim21.PortalPoverenika.model
+     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: tim21.PortalPoverenika.model.rescript
      * 
      */
     public ObjectFactory() {
@@ -43,6 +44,46 @@ public class ObjectFactory {
      */
     public Resenje createResenje() {
         return new Resenje();
+    }
+
+    /**
+     * Create an instance of {@link Adresa }
+     * 
+     */
+    public Adresa createAdresa() {
+        return new Adresa();
+    }
+
+    /**
+     * Create an instance of {@link TOsoba }
+     * 
+     */
+    public TOsoba createTOsoba() {
+        return new TOsoba();
+    }
+
+    /**
+     * Create an instance of {@link TtrazilacInformacije }
+     * 
+     */
+    public TtrazilacInformacije createTtrazilacInformacije() {
+        return new TtrazilacInformacije();
+    }
+
+    /**
+     * Create an instance of {@link TdatumVreme }
+     * 
+     */
+    public TdatumVreme createTdatumVreme() {
+        return new TdatumVreme();
+    }
+
+    /**
+     * Create an instance of {@link TPravnoLice }
+     * 
+     */
+    public TPravnoLice createTPravnoLice() {
+        return new TPravnoLice();
     }
 
     /**
@@ -62,19 +103,27 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link Resenje.Datum }
+     * 
+     */
+    public Resenje.Datum createResenjeDatum() {
+        return new Resenje.Datum();
+    }
+
+    /**
+     * Create an instance of {@link Resenje.StatusZalbe }
+     * 
+     */
+    public Resenje.StatusZalbe createResenjeStatusZalbe() {
+        return new Resenje.StatusZalbe();
+    }
+
+    /**
      * Create an instance of {@link Resenje.Obrazlozenje }
      * 
      */
     public Resenje.Obrazlozenje createResenjeObrazlozenje() {
         return new Resenje.Obrazlozenje();
-    }
-
-    /**
-     * Create an instance of {@link TOsoba }
-     * 
-     */
-    public TOsoba createTOsoba() {
-        return new TOsoba();
     }
 
     /**
@@ -94,27 +143,35 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Adresa }
+     * Create an instance of {@link Adresa.Grad }
      * 
      */
-    public Adresa createAdresa() {
-        return new Adresa();
+    public Adresa.Grad createAdresaGrad() {
+        return new Adresa.Grad();
     }
 
     /**
-     * Create an instance of {@link TPravnoLice }
+     * Create an instance of {@link Adresa.Ulica }
      * 
      */
-    public TPravnoLice createTPravnoLice() {
-        return new TPravnoLice();
+    public Adresa.Ulica createAdresaUlica() {
+        return new Adresa.Ulica();
     }
 
     /**
-     * Create an instance of {@link TdatumVreme }
+     * Create an instance of {@link Adresa.Broj }
      * 
      */
-    public TdatumVreme createTdatumVreme() {
-        return new TdatumVreme();
+    public Adresa.Broj createAdresaBroj() {
+        return new Adresa.Broj();
+    }
+
+    /**
+     * Create an instance of {@link TPrimaoc }
+     * 
+     */
+    public TPrimaoc createTPrimaoc() {
+        return new TPrimaoc();
     }
 
     /**
@@ -126,11 +183,51 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link TtrazilacInformacije }
+     * Create an instance of {@link TOsoba.Ime }
      * 
      */
-    public TtrazilacInformacije createTtrazilacInformacije() {
-        return new TtrazilacInformacije();
+    public TOsoba.Ime createTOsobaIme() {
+        return new TOsoba.Ime();
+    }
+
+    /**
+     * Create an instance of {@link TOsoba.Prezime }
+     * 
+     */
+    public TOsoba.Prezime createTOsobaPrezime() {
+        return new TOsoba.Prezime();
+    }
+
+    /**
+     * Create an instance of {@link TtrazilacInformacije.DrugiPodaciZaKontakt }
+     * 
+     */
+    public TtrazilacInformacije.DrugiPodaciZaKontakt createTtrazilacInformacijeDrugiPodaciZaKontakt() {
+        return new TtrazilacInformacije.DrugiPodaciZaKontakt();
+    }
+
+    /**
+     * Create an instance of {@link TdatumVreme.Vreme }
+     * 
+     */
+    public TdatumVreme.Vreme createTdatumVremeVreme() {
+        return new TdatumVreme.Vreme();
+    }
+
+    /**
+     * Create an instance of {@link TdatumVreme.Datum }
+     * 
+     */
+    public TdatumVreme.Datum createTdatumVremeDatum() {
+        return new TdatumVreme.Datum();
+    }
+
+    /**
+     * Create an instance of {@link TPravnoLice.Naziv }
+     * 
+     */
+    public TPravnoLice.Naziv createTPravnoLiceNaziv() {
+        return new TPravnoLice.Naziv();
     }
 
     /**

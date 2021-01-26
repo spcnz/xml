@@ -6,7 +6,6 @@ import tim21.PortalPoverenika.model.shared.*;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;
 import javax.xml.bind.annotation.XmlRegistry;
-import javax.xml.datatype.XMLGregorianCalendar;
 import javax.xml.namespace.QName;
 
 
@@ -52,22 +51,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ZalbaCutanje.Sadrzaj }
-     * 
-     */
-    public ZalbaCutanje.Sadrzaj createZalbaCutanjeSadrzaj() {
-        return new ZalbaCutanje.Sadrzaj();
-    }
-
-    /**
-     * Create an instance of {@link Tacka }
-     * 
-     */
-    public Tacka createTacka() {
-        return new Tacka();
-    }
-
-    /**
      * Create an instance of {@link Adresa }
      * 
      */
@@ -84,11 +67,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link TPravnoLice }
+     * Create an instance of {@link TtrazilacInformacije }
      * 
      */
-    public TPravnoLice createTPravnoLice() {
-        return new TPravnoLice();
+    public TtrazilacInformacije createTtrazilacInformacije() {
+        return new TtrazilacInformacije();
     }
 
     /**
@@ -100,19 +83,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link TFizickoLice }
+     * Create an instance of {@link TPravnoLice }
      * 
      */
-    public TFizickoLice createTFizickoLice() {
-        return new TFizickoLice();
+    public TPravnoLice createTPravnoLice() {
+        return new TPravnoLice();
     }
 
     /**
-     * Create an instance of {@link TtrazilacInformacije }
+     * Create an instance of {@link ZalbaCutanje.Sadrzaj }
      * 
      */
-    public TtrazilacInformacije createTtrazilacInformacije() {
-        return new TtrazilacInformacije();
+    public ZalbaCutanje.Sadrzaj createZalbaCutanjeSadrzaj() {
+        return new ZalbaCutanje.Sadrzaj();
     }
 
     /**
@@ -124,39 +107,191 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link XMLGregorianCalendar }{@code >}}
+     * Create an instance of {@link ZalbaCutanje.Naziv }
+     * 
+     */
+    public ZalbaCutanje.Naziv createZalbaCutanjeNaziv() {
+        return new ZalbaCutanje.Naziv();
+    }
+
+    /**
+     * Create an instance of {@link TPrimaoc }
+     * 
+     */
+    public TPrimaoc createTPrimaoc() {
+        return new TPrimaoc();
+    }
+
+    /**
+     * Create an instance of {@link Tacka }
+     * 
+     */
+    public Tacka createTacka() {
+        return new Tacka();
+    }
+
+    /**
+     * Create an instance of {@link Adresa.Grad }
+     * 
+     */
+    public Adresa.Grad createAdresaGrad() {
+        return new Adresa.Grad();
+    }
+
+    /**
+     * Create an instance of {@link Adresa.Ulica }
+     * 
+     */
+    public Adresa.Ulica createAdresaUlica() {
+        return new Adresa.Ulica();
+    }
+
+    /**
+     * Create an instance of {@link Adresa.Broj }
+     * 
+     */
+    public Adresa.Broj createAdresaBroj() {
+        return new Adresa.Broj();
+    }
+
+    /**
+     * Create an instance of {@link TFizickoLice }
+     * 
+     */
+    public TFizickoLice createTFizickoLice() {
+        return new TFizickoLice();
+    }
+
+    /**
+     * Create an instance of {@link TOsoba.Ime }
+     * 
+     */
+    public TOsoba.Ime createTOsobaIme() {
+        return new TOsoba.Ime();
+    }
+
+    /**
+     * Create an instance of {@link TOsoba.Prezime }
+     * 
+     */
+    public TOsoba.Prezime createTOsobaPrezime() {
+        return new TOsoba.Prezime();
+    }
+
+    /**
+     * Create an instance of {@link TtrazilacInformacije.DrugiPodaciZaKontakt }
+     * 
+     */
+    public TtrazilacInformacije.DrugiPodaciZaKontakt createTtrazilacInformacijeDrugiPodaciZaKontakt() {
+        return new TtrazilacInformacije.DrugiPodaciZaKontakt();
+    }
+
+    /**
+     * Create an instance of {@link TdatumVreme.Vreme }
+     * 
+     */
+    public TdatumVreme.Vreme createTdatumVremeVreme() {
+        return new TdatumVreme.Vreme();
+    }
+
+    /**
+     * Create an instance of {@link TdatumVreme.Datum }
+     * 
+     */
+    public TdatumVreme.Datum createTdatumVremeDatum() {
+        return new TdatumVreme.Datum();
+    }
+
+    /**
+     * Create an instance of {@link TPravnoLice.Naziv }
+     * 
+     */
+    public TPravnoLice.Naziv createTPravnoLiceNaziv() {
+        return new TPravnoLice.Naziv();
+    }
+
+    /**
+     * Create an instance of {@link ZalbaCutanje.Sadrzaj.Podnaslov }
+     * 
+     */
+    public ZalbaCutanje.Sadrzaj.Podnaslov createZalbaCutanjeSadrzajPodnaslov() {
+        return new ZalbaCutanje.Sadrzaj.Podnaslov();
+    }
+
+    /**
+     * Create an instance of {@link ZalbaCutanje.Sadrzaj.NazivOrgana }
+     * 
+     */
+    public ZalbaCutanje.Sadrzaj.NazivOrgana createZalbaCutanjeSadrzajNazivOrgana() {
+        return new ZalbaCutanje.Sadrzaj.NazivOrgana();
+    }
+
+    /**
+     * Create an instance of {@link ZalbaCutanje.Sadrzaj.Datum }
+     * 
+     */
+    public ZalbaCutanje.Sadrzaj.Datum createZalbaCutanjeSadrzajDatum() {
+        return new ZalbaCutanje.Sadrzaj.Datum();
+    }
+
+    /**
+     * Create an instance of {@link ZalbaCutanje.Sadrzaj.PodaciOZahtevu }
+     * 
+     */
+    public ZalbaCutanje.Sadrzaj.PodaciOZahtevu createZalbaCutanjeSadrzajPodaciOZahtevu() {
+        return new ZalbaCutanje.Sadrzaj.PodaciOZahtevu();
+    }
+
+    /**
+     * Create an instance of {@link ZalbaCutanje.Sadrzaj.Istaknuto }
+     * 
+     */
+    public ZalbaCutanje.Sadrzaj.Istaknuto createZalbaCutanjeSadrzajIstaknuto() {
+        return new ZalbaCutanje.Sadrzaj.Istaknuto();
+    }
+
+    /**
+     * Create an instance of {@link ZalbaCutanje.Sadrzaj.Razlozi.Opcija }
+     * 
+     */
+    public ZalbaCutanje.Sadrzaj.Razlozi.Opcija createZalbaCutanjeSadrzajRazloziOpcija() {
+        return new ZalbaCutanje.Sadrzaj.Razlozi.Opcija();
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ZalbaCutanje.Sadrzaj.Datum }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "", name = "datum", scope = ZalbaCutanje.Sadrzaj.class)
-    public JAXBElement<XMLGregorianCalendar> createZalbaCutanjeSadrzajDatum(XMLGregorianCalendar value) {
-        return new JAXBElement<XMLGregorianCalendar>(_ZalbaCutanjeSadrzajDatum_QNAME, XMLGregorianCalendar.class, ZalbaCutanje.Sadrzaj.class, value);
+    public JAXBElement<ZalbaCutanje.Sadrzaj.Datum> createZalbaCutanjeSadrzajDatum(ZalbaCutanje.Sadrzaj.Datum value) {
+        return new JAXBElement<ZalbaCutanje.Sadrzaj.Datum>(_ZalbaCutanjeSadrzajDatum_QNAME, ZalbaCutanje.Sadrzaj.Datum.class, ZalbaCutanje.Sadrzaj.class, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ZalbaCutanje.Sadrzaj.NazivOrgana }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "", name = "naziv_organa", scope = ZalbaCutanje.Sadrzaj.class)
-    public JAXBElement<String> createZalbaCutanjeSadrzajNazivOrgana(String value) {
-        return new JAXBElement<String>(_ZalbaCutanjeSadrzajNazivOrgana_QNAME, String.class, ZalbaCutanje.Sadrzaj.class, value);
+    public JAXBElement<ZalbaCutanje.Sadrzaj.NazivOrgana> createZalbaCutanjeSadrzajNazivOrgana(ZalbaCutanje.Sadrzaj.NazivOrgana value) {
+        return new JAXBElement<ZalbaCutanje.Sadrzaj.NazivOrgana>(_ZalbaCutanjeSadrzajNazivOrgana_QNAME, ZalbaCutanje.Sadrzaj.NazivOrgana.class, ZalbaCutanje.Sadrzaj.class, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ZalbaCutanje.Sadrzaj.PodaciOZahtevu }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "", name = "podaci_o_zahtevu", scope = ZalbaCutanje.Sadrzaj.class)
-    public JAXBElement<String> createZalbaCutanjeSadrzajPodaciOZahtevu(String value) {
-        return new JAXBElement<String>(_ZalbaCutanjeSadrzajPodaciOZahtevu_QNAME, String.class, ZalbaCutanje.Sadrzaj.class, value);
+    public JAXBElement<ZalbaCutanje.Sadrzaj.PodaciOZahtevu> createZalbaCutanjeSadrzajPodaciOZahtevu(ZalbaCutanje.Sadrzaj.PodaciOZahtevu value) {
+        return new JAXBElement<ZalbaCutanje.Sadrzaj.PodaciOZahtevu>(_ZalbaCutanjeSadrzajPodaciOZahtevu_QNAME, ZalbaCutanje.Sadrzaj.PodaciOZahtevu.class, ZalbaCutanje.Sadrzaj.class, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Object }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link TtrazilacInformacije }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "", name = "podnosilac_zalbe", scope = ZalbaCutanje.Sadrzaj.class)
-    public JAXBElement<Object> createZalbaCutanjeSadrzajPodnosilacZalbe(Object value) {
-        return new JAXBElement<Object>(_ZalbaCutanjeSadrzajPodnosilacZalbe_QNAME, Object.class, ZalbaCutanje.Sadrzaj.class, value);
+    public JAXBElement<TtrazilacInformacije> createZalbaCutanjeSadrzajPodnosilacZalbe(TtrazilacInformacije value) {
+        return new JAXBElement<TtrazilacInformacije>(_ZalbaCutanjeSadrzajPodnosilacZalbe_QNAME, TtrazilacInformacije.class, ZalbaCutanje.Sadrzaj.class, value);
     }
 
     /**
@@ -169,12 +304,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ZalbaCutanje.Sadrzaj.Podnaslov }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "", name = "podnaslov", scope = ZalbaCutanje.Sadrzaj.class)
-    public JAXBElement<String> createZalbaCutanjeSadrzajPodnaslov(String value) {
-        return new JAXBElement<String>(_ZalbaCutanjeSadrzajPodnaslov_QNAME, String.class, ZalbaCutanje.Sadrzaj.class, value);
+    public JAXBElement<ZalbaCutanje.Sadrzaj.Podnaslov> createZalbaCutanjeSadrzajPodnaslov(ZalbaCutanje.Sadrzaj.Podnaslov value) {
+        return new JAXBElement<ZalbaCutanje.Sadrzaj.Podnaslov>(_ZalbaCutanjeSadrzajPodnaslov_QNAME, ZalbaCutanje.Sadrzaj.Podnaslov.class, ZalbaCutanje.Sadrzaj.class, value);
     }
 
     /**
@@ -187,12 +322,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ZalbaCutanje.Sadrzaj.Istaknuto }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "", name = "istaknuto", scope = ZalbaCutanje.Sadrzaj.class)
-    public JAXBElement<String> createZalbaCutanjeSadrzajIstaknuto(String value) {
-        return new JAXBElement<String>(_ZalbaCutanjeSadrzajIstaknuto_QNAME, String.class, ZalbaCutanje.Sadrzaj.class, value);
+    public JAXBElement<ZalbaCutanje.Sadrzaj.Istaknuto> createZalbaCutanjeSadrzajIstaknuto(ZalbaCutanje.Sadrzaj.Istaknuto value) {
+        return new JAXBElement<ZalbaCutanje.Sadrzaj.Istaknuto>(_ZalbaCutanjeSadrzajIstaknuto_QNAME, ZalbaCutanje.Sadrzaj.Istaknuto.class, ZalbaCutanje.Sadrzaj.class, value);
     }
 
 }

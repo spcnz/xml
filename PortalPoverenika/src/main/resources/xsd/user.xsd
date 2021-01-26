@@ -5,19 +5,34 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="email">
-                    <xs:simpleType>
-                        <xs:restriction base="xs:string">
-                            <xs:pattern value="[^@]+@[^\.]+\..+"/>
-                        </xs:restriction>
-                    </xs:simpleType>
+                    <xs:complexType>
+                        <xs:simpleContent>
+                            <xs:extension base="u:TEmail">
+                                <xs:anyAttribute namespace="##any" processContents="lax"/>
+                            </xs:extension>
+                        </xs:simpleContent>
+                    </xs:complexType>
                 </xs:element>
                 <xs:element name="password">
                     <xs:simpleType>
                         <xs:restriction base="xs:string"> </xs:restriction>
                     </xs:simpleType>
                 </xs:element>
-                <xs:element name="role" type="xs:string"/>
+                <xs:element name="role">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="ROLE_CITIZEN"/>
+                            <xs:enumeration value="ROLE_OFFICIAL"/>
+                            <xs:enumeration value="ROLE_COMMISSIONER"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
+    <xs:simpleType name="TEmail">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[^@]+@[^\.]+\..+"/>
+        </xs:restriction>
+    </xs:simpleType>
 </xs:schema>

@@ -1,14 +1,15 @@
 
 package tim21.PortalPoverenika.model.shared;
 
-import java.math.BigInteger;
+import java.util.HashMap;
+import java.util.Map;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlAnyAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.XmlValue;
+import javax.xml.namespace.QName;
 
 
 /**
@@ -20,7 +21,7 @@ import javax.xml.bind.annotation.XmlValue;
  * &lt;complexType>
  *   &lt;simpleContent>
  *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>string">
- *       &lt;attribute name="broj" use="required" type="{http://www.w3.org/2001/XMLSchema}positiveInteger" />
+ *       &lt;anyAttribute processContents='lax'/>
  *     &lt;/extension>
  *   &lt;/simpleContent>
  * &lt;/complexType>
@@ -37,9 +38,8 @@ public class Tacka {
 
     @XmlValue
     protected String value;
-    @XmlAttribute(name = "broj", required = true)
-    @XmlSchemaType(name = "positiveInteger")
-    protected BigInteger broj;
+    @XmlAnyAttribute
+    private Map<QName, String> otherAttributes = new HashMap<QName, String>();
 
     /**
      * Gets the value of the value property.
@@ -66,27 +66,21 @@ public class Tacka {
     }
 
     /**
-     * Gets the value of the broj property.
+     * Gets a map that contains attributes that aren't bound to any typed property on this class.
+     * 
+     * <p>
+     * the map is keyed by the name of the attribute and 
+     * the value is the string value of the attribute.
+     * 
+     * the map returned by this method is live, and you can add new attribute
+     * by updating the map directly. Because of this design, there's no setter.
+     * 
      * 
      * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
+     *     always non-null
      */
-    public BigInteger getBroj() {
-        return broj;
-    }
-
-    /**
-     * Sets the value of the broj property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
-     */
-    public void setBroj(BigInteger value) {
-        this.broj = value;
+    public Map<QName, String> getOtherAttributes() {
+        return otherAttributes;
     }
 
 }
