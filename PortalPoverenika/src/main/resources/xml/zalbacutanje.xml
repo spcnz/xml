@@ -4,25 +4,35 @@
     xmlns:zal="http://www.zalbacutanje.com"
     xmlns:sh="http://www.shared.com"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.zalbacutanje.com ../xsd/zalbacutanje.xsd">
+    xsi:schemaLocation="http://www.zalbacutanje.com ../xsd/zalbacutanje.xsd"
+    
+    about="http://zalbe/2"
+    rel="pred:appealForRequest"
+    href="http://zahtevi/1"
+    >
     <naziv>
         ЖАЛБА КАДА ОРГАН ВЛАСТИ НИЈЕ ПОСТУПИО/ није поступио у целости/ ПО ЗАХТЕВУ ТРАЖИОЦА У ЗАКОНСКОМ  РОКУ  (ЋУТАЊЕ УПРАВЕ)
     </naziv>
     
-    <primaoc>
-        Повереникy за информације од јавног значаја и заштиту података о личности
-        <adresa>
-            <grad>Beograd</grad>
-            <ulica>Булевар краља Александрa</ulica>
-            <broj>15</broj>
-        </adresa>
+    <primaoc
+        about="http://zalbe/2"
+        rel="pred:recipient"
+        href="http://users/2"
+        >
+        <sh:Uloga>Поверенику за информације од јавног значаја и заштиту података о личности</sh:Uloga>
+        <sh:Adresa>
+            <sh:Grad property="pred:recipientCity">Beograd</sh:Grad>
+            <sh:Ulica property="pred:recipientStreet">Булевар краља Александрa</sh:Ulica>
+            <sh:Broj property="pred:recipientStreetnum">15</sh:Broj>
+            <sh:Postanski_broj>11000</sh:Postanski_broj>
+        </sh:Adresa>
     </primaoc>
     
     <sadrzaj>
         У складу са чланом 22. Закона о слободном приступу информацијама од јавног значаја подносим:
         <podnaslov>Ж А Л Б У</podnaslov>
         против
-        <naziv_organa> </naziv_organa>
+        <naziv_organa property="authorityName">Naziv organa vlasti nekii</naziv_organa>
         због тога што орган власти: 
         <razlozi>
             <opcija>није поступио</opcija>
@@ -33,26 +43,36 @@
         
         
         по мом захтеву  за слободан приступ информацијама од јавног значаја који сам поднео  том органу  дана 
-        <datum>2020-09-10</datum> 
+        <datum property="pred:requestDate">2020-09-10</datum> 
         године, а којим сам тражио/ла да ми се у складу са Законом о слободном приступу информацијама од јавног значаја омогући увид- копија документа који садржи информације  о /у вези са :
-        <podaci_o_zahtevu></podaci_o_zahtevu>
+        <podaci_o_zahtevu property="pred:requestDetails">neki podaci o zahtevu</podaci_o_zahtevu>
         (навести податке о захтеву и информацији/ама)
         
         На основу изнетог, предлажем да Повереник уважи моју жалбу и омогући ми приступ траженој/им  информацији/ма.
         Као доказ , уз жалбу достављам копију захтева са доказом о предаји органу власти.
         <istaknuto>Напомена:</istaknuto> Код жалбе  због непоступању по захтеву у целости, треба приложити и добијени одговор органа власти
         
-        <podnosilac_zalbe>
-            <ime></ime>
-            <prezime></prezime>            
-            <adresa></adresa>
-            <drugi_podaci_za_kontakt></drugi_podaci_za_kontakt>
+        <podnosilac_zalbe 
+            about="http://zalbe/2"
+            rel="pred:submitter"
+            href="http://users/1"
+            >
+            <sh:Ime property="pred:submitterName">Milenaa</sh:Ime>
+            <sh:Prezime property="pred:submitterLastname"></sh:Prezime>
+            <sh:Adresa>
+                <sh:Grad property="pred:submitterCity">Beograd</sh:Grad>
+                <sh:Ulica property="pred:submitterStreet"></sh:Ulica>
+                <sh:Broj property="pred:submitterStreetnum">1</sh:Broj>
+                <sh:Postanski_broj>11000</sh:Postanski_broj>
+            </sh:Adresa>
+            <sh:drugi_podaci_za_kontakt>skmwk</sh:drugi_podaci_za_kontakt>
         </podnosilac_zalbe>
         
         
+        
         <datum_vreme>
-            <vreme>09:15</vreme>
-            <datum>2020-09-10</datum>
+            <sh:vreme property="appealTime">09:15:00</sh:vreme>
+            <sh:datum property="appealDate">2020-09-10</sh:datum>
         </datum_vreme>
         
     </sadrzaj>

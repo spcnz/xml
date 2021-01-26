@@ -3,12 +3,17 @@
     xmlns="http://www.resenje.com"
     xmlns:sh="http://www.shared.com"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:pred="http://www.tim21.com/predicate/"
     xsi:schemaLocation="http://www.resenje.com ../xsd/resenje.xsd"
     dopustena_zalba="ne"
+    
+    about="http://resenja/1"
+    rel="pred:rescriptForAppeal"
+    href="http://zalbe/1"
     >
     <ID>071-01-1114/2020-03</ID>
-    <Datum>2020-09-08</Datum>
-    <Status_zahteva>prihvacen</Status_zahteva>
+    <Datum property="pred:rescriptDate">2020-09-08</Datum>
+    <Status_zalbe property="pred:appealStatus">PRIHVACENA</Status_zalbe>
     <Opis_resenja>
         Повереник за информације од јавног значаја и заштиту података о личности, у поступку по алби
         коју је изјавио AA, због непоступања Учитељског факултета у Призрену са привременим седиштем
@@ -104,8 +109,12 @@
     
 </Obrazlozenje>
 
-<Poverenik>
-    <Ime xmlns="">Milan</Ime>
-    <Prezime xmlns="">Marinovic</Prezime>
+<Poverenik 
+    about="http://resenja/1"
+    rel="pred:commisioner"
+    href="http://users/1"
+    >
+    <sh:Ime property="pred:commisionerName">Milan</sh:Ime>
+    <sh:Prezime property="pred:commisionerLastname">Marinovic</sh:Prezime>
 </Poverenik>
 </Resenje>

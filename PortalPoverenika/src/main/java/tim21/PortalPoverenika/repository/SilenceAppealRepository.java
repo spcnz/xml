@@ -7,6 +7,8 @@ import org.springframework.stereotype.Repository;
 import org.xmldb.api.base.ResourceSet;
 import org.xmldb.api.base.XMLDBException;
 import org.xmldb.api.modules.XMLResource;
+import tim21.PortalPoverenika.util.IdGenerator;
+import tim21.PortalPoverenika.util.constants.XSDConstants;
 
 import static tim21.PortalPoverenika.util.constants.DBConstants.SILENCEAPPEAL_COLLECTION_URI;
 import static tim21.PortalPoverenika.util.constants.NamespaceConstants.SILENCEAPPEAL_TARGET_NAMESPACE;
@@ -20,8 +22,9 @@ public class SilenceAppealRepository {
 
     public boolean create(ZalbaCutanje appeal) {
         try {
-            //ovde mitre izmenii
-            return existManager.store(SILENCEAPPEAL_COLLECTION_URI, "test.xml", appeal);
+            String id = IdGenerator.generateDocumentID(IdGenerator.generate(XSDConstants.SILENCE_APPEAL),XSDConstants.SILENCE_APPEAL);
+
+            return existManager.store(SILENCEAPPEAL_COLLECTION_URI, id, appeal, "zalbe");
         } catch (Exception e) {
             e.printStackTrace();
             return false;

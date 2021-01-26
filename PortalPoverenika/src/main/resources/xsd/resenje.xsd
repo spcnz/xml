@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sh="http://www.shared.com"
-    targetNamespace="http://www.resenje.com" xmlns:re="http://www.resenje.com"
-    elementFormDefault="qualified">
+           targetNamespace="http://www.resenje.com" xmlns:re="http://www.resenje.com"
+           elementFormDefault="qualified">
     <xs:import namespace="http://www.shared.com" schemaLocation="shared.xsd"/>
     <xs:complexType mixed="true" name="TOpis_resenja">
         <xs:sequence>
@@ -46,14 +46,23 @@
                         </xs:restriction>
                     </xs:simpleType>
                 </xs:element>
-                <xs:element name="Datum" type="xs:date"/>
-                <xs:element name="Status_zahteva">
-                    <xs:simpleType>
-                        <xs:restriction base="xs:string">
-                            <xs:enumeration value="odbijen"/>
-                            <xs:enumeration value="prihvacen"/>
-                        </xs:restriction>
-                    </xs:simpleType>
+                <xs:element name="Datum">
+                    <xs:complexType>
+                        <xs:simpleContent>
+                            <xs:extension base="xs:date">
+                                <xs:anyAttribute namespace="##any" processContents="lax"/>
+                            </xs:extension>
+                        </xs:simpleContent>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Status_zalbe">
+                    <xs:complexType>
+                        <xs:simpleContent>
+                            <xs:extension base="re:TStatus_zalbe">
+                                <xs:anyAttribute namespace="##any" processContents="lax"/>
+                            </xs:extension>
+                        </xs:simpleContent>
+                    </xs:complexType>
                 </xs:element>
                 <xs:element name="Opis_resenja" type="re:TOpis_resenja"/>
                 <xs:element name="Obrazlozenje">
@@ -63,13 +72,20 @@
                             <xs:element name="Postupak_poverenika" type="xs:string"/>
                             <xs:element name="Odgovor_na_zalbu" type="re:TOdgovor_na_zalbu"/>
                             <xs:element name="Uputstvo_o_pravnom_sredstvu"
-                                type="re:TUpustvo_o_pravnom_sredstvu"/>
+                                        type="re:TUpustvo_o_pravnom_sredstvu"/>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
                 <xs:element name="Poverenik" type="sh:TOsoba"/>
             </xs:sequence>
             <xs:attribute name="dopustena_zalba"/>
+            <xs:anyAttribute namespace="##any" processContents="lax"/>
         </xs:complexType>
     </xs:element>
+    <xs:simpleType name="TStatus_zalbe">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="ODBIJENA"/>
+            <xs:enumeration value="PRIHVACENA"/>
+        </xs:restriction>
+    </xs:simpleType>
 </xs:schema>

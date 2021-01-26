@@ -2,6 +2,7 @@
 package tim21.PortalPoverenika.model.rescript;
 
 import tim21.PortalPoverenika.model.shared.*;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;

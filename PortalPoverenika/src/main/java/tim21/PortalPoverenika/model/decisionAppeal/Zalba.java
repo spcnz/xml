@@ -1,24 +1,15 @@
 
 package tim21.PortalPoverenika.model.decisionAppeal;
 
-import tim21.PortalPoverenika.model.shared.*;
+import javax.xml.bind.annotation.*;
+import javax.xml.datatype.XMLGregorianCalendar;
+import javax.xml.namespace.QName;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAnyAttribute;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.XmlValue;
-import javax.xml.datatype.XMLGregorianCalendar;
-import javax.xml.namespace.QName;
-
+import tim21.PortalPoverenika.model.shared.*;
 
 /**
  * <p>Java class for anonymous complex type.
@@ -37,7 +28,7 @@ import javax.xml.namespace.QName;
  *             &lt;/restriction>
  *           &lt;/simpleType>
  *         &lt;/element>
- *         &lt;element name="Primaoc" type="{http://www.zalbanaodluku.com}TPrimaoc"/>
+ *         &lt;element name="Primaoc" type="{http://www.shared.com}TPrimaoc"/>
  *         &lt;element name="Podnaslov">
  *           &lt;simpleType>
  *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
@@ -50,9 +41,25 @@ import javax.xml.namespace.QName;
  *           &lt;element name="Fizicko_lice" type="{http://www.shared.com}TFizicko_lice"/>
  *         &lt;/choice>
  *         &lt;element name="Tekst_zalbe" type="{http://www.zalbanaodluku.com}TText_zalbe"/>
- *         &lt;element name="Grad" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="Datum" type="{http://www.w3.org/2001/XMLSchema}date"/>
- *         &lt;element name="Podnosilac" type="{http://www.zalbanaodluku.com}TPodnosilac"/>
+ *         &lt;element name="Grad">
+ *           &lt;complexType>
+ *             &lt;simpleContent>
+ *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>string">
+ *                 &lt;anyAttribute processContents='lax'/>
+ *               &lt;/extension>
+ *             &lt;/simpleContent>
+ *           &lt;/complexType>
+ *         &lt;/element>
+ *         &lt;element name="Datum">
+ *           &lt;complexType>
+ *             &lt;simpleContent>
+ *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>date">
+ *                 &lt;anyAttribute processContents='lax'/>
+ *               &lt;/extension>
+ *             &lt;/simpleContent>
+ *           &lt;/complexType>
+ *         &lt;/element>
+ *         &lt;element name="Podnosilac" type="{http://www.shared.com}Ttrazilac_informacije"/>
  *         &lt;element name="Napomena">
  *           &lt;complexType>
  *             &lt;complexContent>
@@ -110,14 +117,13 @@ public class Zalba {
     @XmlElement(name = "Tekst_zalbe", namespace = "http://www.zalbanaodluku.com", required = true)
     protected TTextZalbe tekstZalbe;
     @XmlElement(name = "Grad", namespace = "http://www.zalbanaodluku.com", required = true)
-    protected String grad;
+    protected Grad grad;
     @XmlElement(name = "Datum", namespace = "http://www.zalbanaodluku.com", required = true)
-    @XmlSchemaType(name = "date")
-    protected XMLGregorianCalendar datum;
+    protected Datum datum;
     @XmlElement(name = "Podnosilac", namespace = "http://www.zalbanaodluku.com", required = true)
-    protected TPodnosilac podnosilac;
+    protected TtrazilacInformacije podnosilac;
     @XmlElement(name = "Napomena", namespace = "http://www.zalbanaodluku.com", required = true)
-    protected Zalba.Napomena napomena;
+    protected Napomena napomena;
     @XmlAnyAttribute
     private Map<QName, String> otherAttributes = new HashMap<QName, String>();
 
@@ -270,10 +276,10 @@ public class Zalba {
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link Grad }
      *     
      */
-    public String getGrad() {
+    public Grad getGrad() {
         return grad;
     }
 
@@ -282,10 +288,10 @@ public class Zalba {
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link Grad }
      *     
      */
-    public void setGrad(String value) {
+    public void setGrad(Grad value) {
         this.grad = value;
     }
 
@@ -294,10 +300,10 @@ public class Zalba {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Datum }
      *     
      */
-    public XMLGregorianCalendar getDatum() {
+    public Datum getDatum() {
         return datum;
     }
 
@@ -306,10 +312,10 @@ public class Zalba {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Datum }
      *     
      */
-    public void setDatum(XMLGregorianCalendar value) {
+    public void setDatum(Datum value) {
         this.datum = value;
     }
 
@@ -318,10 +324,10 @@ public class Zalba {
      * 
      * @return
      *     possible object is
-     *     {@link TPodnosilac }
+     *     {@link TtrazilacInformacije }
      *     
      */
-    public TPodnosilac getPodnosilac() {
+    public TtrazilacInformacije getPodnosilac() {
         return podnosilac;
     }
 
@@ -330,10 +336,10 @@ public class Zalba {
      * 
      * @param value
      *     allowed object is
-     *     {@link TPodnosilac }
+     *     {@link TtrazilacInformacije }
      *     
      */
-    public void setPodnosilac(TPodnosilac value) {
+    public void setPodnosilac(TtrazilacInformacije value) {
         this.podnosilac = value;
     }
 
@@ -342,10 +348,10 @@ public class Zalba {
      * 
      * @return
      *     possible object is
-     *     {@link Zalba.Napomena }
+     *     {@link Napomena }
      *     
      */
-    public Zalba.Napomena getNapomena() {
+    public Napomena getNapomena() {
         return napomena;
     }
 
@@ -354,10 +360,10 @@ public class Zalba {
      * 
      * @param value
      *     allowed object is
-     *     {@link Zalba.Napomena }
+     *     {@link Napomena }
      *     
      */
-    public void setNapomena(Zalba.Napomena value) {
+    public void setNapomena(Napomena value) {
         this.napomena = value;
     }
 
@@ -377,6 +383,153 @@ public class Zalba {
      */
     public Map<QName, String> getOtherAttributes() {
         return otherAttributes;
+    }
+
+
+    /**
+     * <p>Java class for anonymous complex type.
+     * 
+     * <p>The following schema fragment specifies the expected content contained within this class.
+     * 
+     * <pre>
+     * &lt;complexType>
+     *   &lt;simpleContent>
+     *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>date">
+     *       &lt;anyAttribute processContents='lax'/>
+     *     &lt;/extension>
+     *   &lt;/simpleContent>
+     * &lt;/complexType>
+     * </pre>
+     * 
+     * 
+     */
+    @XmlAccessorType(XmlAccessType.FIELD)
+    @XmlType(name = "", propOrder = {
+        "value"
+    })
+    public static class Datum {
+
+        @XmlValue
+        @XmlSchemaType(name = "date")
+        protected XMLGregorianCalendar value;
+        @XmlAnyAttribute
+        private Map<QName, String> otherAttributes = new HashMap<QName, String>();
+
+        /**
+         * Gets the value of the value property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link XMLGregorianCalendar }
+         *     
+         */
+        public XMLGregorianCalendar getValue() {
+            return value;
+        }
+
+        /**
+         * Sets the value of the value property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link XMLGregorianCalendar }
+         *     
+         */
+        public void setValue(XMLGregorianCalendar value) {
+            this.value = value;
+        }
+
+        /**
+         * Gets a map that contains attributes that aren't bound to any typed property on this class.
+         * 
+         * <p>
+         * the map is keyed by the name of the attribute and 
+         * the value is the string value of the attribute.
+         * 
+         * the map returned by this method is live, and you can add new attribute
+         * by updating the map directly. Because of this design, there's no setter.
+         * 
+         * 
+         * @return
+         *     always non-null
+         */
+        public Map<QName, String> getOtherAttributes() {
+            return otherAttributes;
+        }
+
+    }
+
+
+    /**
+     * <p>Java class for anonymous complex type.
+     * 
+     * <p>The following schema fragment specifies the expected content contained within this class.
+     * 
+     * <pre>
+     * &lt;complexType>
+     *   &lt;simpleContent>
+     *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>string">
+     *       &lt;anyAttribute processContents='lax'/>
+     *     &lt;/extension>
+     *   &lt;/simpleContent>
+     * &lt;/complexType>
+     * </pre>
+     * 
+     * 
+     */
+    @XmlAccessorType(XmlAccessType.FIELD)
+    @XmlType(name = "", propOrder = {
+        "value"
+    })
+    public static class Grad {
+
+        @XmlValue
+        protected String value;
+        @XmlAnyAttribute
+        private Map<QName, String> otherAttributes = new HashMap<QName, String>();
+
+        /**
+         * Gets the value of the value property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getValue() {
+            return value;
+        }
+
+        /**
+         * Sets the value of the value property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setValue(String value) {
+            this.value = value;
+        }
+
+        /**
+         * Gets a map that contains attributes that aren't bound to any typed property on this class.
+         * 
+         * <p>
+         * the map is keyed by the name of the attribute and 
+         * the value is the string value of the attribute.
+         * 
+         * the map returned by this method is live, and you can add new attribute
+         * by updating the map directly. Because of this design, there's no setter.
+         * 
+         * 
+         * @return
+         *     always non-null
+         */
+        public Map<QName, String> getOtherAttributes() {
+            return otherAttributes;
+        }
+
     }
 
 
@@ -414,7 +567,7 @@ public class Zalba {
     public static class Napomena {
 
         @XmlElement(name = "Tacka", namespace = "http://www.zalbanaodluku.com", required = true)
-        protected List<Zalba.Napomena.Tacka> tacka;
+        protected List<Tacka> tacka;
 
         /**
          * Gets the value of the tacka property.
@@ -434,13 +587,13 @@ public class Zalba {
          * 
          * <p>
          * Objects of the following type(s) are allowed in the list
-         * {@link Zalba.Napomena.Tacka }
+         * {@link Tacka }
          * 
          * 
          */
-        public List<Zalba.Napomena.Tacka> getTacka() {
+        public List<Tacka> getTacka() {
             if (tacka == null) {
-                tacka = new ArrayList<Zalba.Napomena.Tacka>();
+                tacka = new ArrayList<Tacka>();
             }
             return this.tacka;
         }

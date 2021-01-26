@@ -7,7 +7,7 @@ import javax.xml.bind.annotation.XmlRegistry;
 /**
  * This object contains factory methods for each 
  * Java content interface and Java element interface 
- * generated in the tim21.PortalPoverenika.model package. 
+ * generated in the tim21.PortalPoverenika.model.shared package. 
  * <p>An ObjectFactory allows you to programatically 
  * construct new instances of the Java representation 
  * for XML content. The Java representation of XML 
@@ -23,18 +23,10 @@ public class ObjectFactory {
 
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: tim21.PortalPoverenika.model
+     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: tim21.PortalPoverenika.model.shared
      * 
      */
     public ObjectFactory() {
-    }
-
-    /**
-     * Create an instance of {@link Tacka }
-     * 
-     */
-    public Tacka createTacka() {
-        return new Tacka();
     }
 
     /**
@@ -54,11 +46,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link TPravnoLice }
+     * Create an instance of {@link TtrazilacInformacije }
      * 
      */
-    public TPravnoLice createTPravnoLice() {
-        return new TPravnoLice();
+    public TtrazilacInformacije createTtrazilacInformacije() {
+        return new TtrazilacInformacije();
     }
 
     /**
@@ -70,6 +62,54 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link TPravnoLice }
+     * 
+     */
+    public TPravnoLice createTPravnoLice() {
+        return new TPravnoLice();
+    }
+
+    /**
+     * Create an instance of {@link Tacka }
+     * 
+     */
+    public Tacka createTacka() {
+        return new Tacka();
+    }
+
+    /**
+     * Create an instance of {@link Adresa.Grad }
+     * 
+     */
+    public Adresa.Grad createAdresaGrad() {
+        return new Adresa.Grad();
+    }
+
+    /**
+     * Create an instance of {@link Adresa.Ulica }
+     * 
+     */
+    public Adresa.Ulica createAdresaUlica() {
+        return new Adresa.Ulica();
+    }
+
+    /**
+     * Create an instance of {@link Adresa.Broj }
+     * 
+     */
+    public Adresa.Broj createAdresaBroj() {
+        return new Adresa.Broj();
+    }
+
+    /**
+     * Create an instance of {@link TPrimaoc }
+     * 
+     */
+    public TPrimaoc createTPrimaoc() {
+        return new TPrimaoc();
+    }
+
+    /**
      * Create an instance of {@link TFizickoLice }
      * 
      */
@@ -78,11 +118,51 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link TtrazilacInformacije }
+     * Create an instance of {@link TOsoba.Ime }
      * 
      */
-    public TtrazilacInformacije createTtrazilacInformacije() {
-        return new TtrazilacInformacije();
+    public TOsoba.Ime createTOsobaIme() {
+        return new TOsoba.Ime();
+    }
+
+    /**
+     * Create an instance of {@link TOsoba.Prezime }
+     * 
+     */
+    public TOsoba.Prezime createTOsobaPrezime() {
+        return new TOsoba.Prezime();
+    }
+
+    /**
+     * Create an instance of {@link TtrazilacInformacije.DrugiPodaciZaKontakt }
+     * 
+     */
+    public TtrazilacInformacije.DrugiPodaciZaKontakt createTtrazilacInformacijeDrugiPodaciZaKontakt() {
+        return new TtrazilacInformacije.DrugiPodaciZaKontakt();
+    }
+
+    /**
+     * Create an instance of {@link TdatumVreme.Vreme }
+     * 
+     */
+    public TdatumVreme.Vreme createTdatumVremeVreme() {
+        return new TdatumVreme.Vreme();
+    }
+
+    /**
+     * Create an instance of {@link TdatumVreme.Datum }
+     * 
+     */
+    public TdatumVreme.Datum createTdatumVremeDatum() {
+        return new TdatumVreme.Datum();
+    }
+
+    /**
+     * Create an instance of {@link TPravnoLice.Naziv }
+     * 
+     */
+    public TPravnoLice.Naziv createTPravnoLiceNaziv() {
+        return new TPravnoLice.Naziv();
     }
 
 }
