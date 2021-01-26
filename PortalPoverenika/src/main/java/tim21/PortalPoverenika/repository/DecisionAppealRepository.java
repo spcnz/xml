@@ -10,6 +10,10 @@ import org.xmldb.api.modules.XMLResource;
 import tim21.PortalPoverenika.util.IdGenerator;
 import tim21.PortalPoverenika.util.constants.XSDConstants;
 
+import javax.xml.namespace.QName;
+
+import java.util.Map;
+
 import static tim21.PortalPoverenika.util.constants.DBConstants.DECISIONAPPEAL_COLLECTION_URI;
 import static tim21.PortalPoverenika.util.constants.NamespaceConstants.DECISIONAPPEAL_TARGET_NAMESPACE;
 
@@ -23,6 +27,8 @@ public class DecisionAppealRepository {
     public boolean create(Zalba appeal) {
         try {
             String id = IdGenerator.generateDocumentID(IdGenerator.generate(XSDConstants.DECISION_APPEAL), XSDConstants.DECISION_APPEAL);
+            Map<QName, String> attrributes = appeal.getOtherAttributes();
+            attrributes.put(new QName("id"), id);
 
             return existManager.store(DECISIONAPPEAL_COLLECTION_URI, id, appeal, "zalbe");
         } catch (Exception e) {

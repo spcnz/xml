@@ -10,6 +10,9 @@ import org.xmldb.api.modules.XMLResource;
 import tim21.PortalPoverenika.util.IdGenerator;
 import tim21.PortalPoverenika.util.constants.XSDConstants;
 
+import javax.xml.namespace.QName;
+import java.util.Map;
+
 import static tim21.PortalPoverenika.util.constants.DBConstants.SILENCEAPPEAL_COLLECTION_URI;
 import static tim21.PortalPoverenika.util.constants.NamespaceConstants.SILENCEAPPEAL_TARGET_NAMESPACE;
 
@@ -23,6 +26,8 @@ public class SilenceAppealRepository {
     public boolean create(ZalbaCutanje appeal) {
         try {
             String id = IdGenerator.generateDocumentID(IdGenerator.generate(XSDConstants.SILENCE_APPEAL),XSDConstants.SILENCE_APPEAL);
+            Map<QName, String> attrributes = appeal.getOtherAttributes();
+            attrributes.put(new QName("id"), id);
 
             return existManager.store(SILENCEAPPEAL_COLLECTION_URI, id, appeal, "zalbe");
         } catch (Exception e) {

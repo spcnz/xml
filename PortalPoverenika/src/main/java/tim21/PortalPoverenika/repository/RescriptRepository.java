@@ -10,6 +10,9 @@ import org.xmldb.api.modules.XMLResource;
 import tim21.PortalPoverenika.util.IdGenerator;
 import tim21.PortalPoverenika.util.constants.XSDConstants;
 
+import javax.xml.namespace.QName;
+import java.util.Map;
+
 import static tim21.PortalPoverenika.util.constants.DBConstants.RESCRIPT_COLLECTION_URI;
 import static tim21.PortalPoverenika.util.constants.NamespaceConstants.RESCRIPT_TARGET_NAMESPACE;
 
@@ -24,6 +27,8 @@ public class RescriptRepository {
         try {
             String id = IdGenerator.generate(XSDConstants.RESCRIPT);
             rescript.setID(id);
+            Map<QName, String> attrributes = rescript.getOtherAttributes();
+            attrributes.put(new QName("id"), id);
 
             return existManager.store(RESCRIPT_COLLECTION_URI, IdGenerator.generateDocumentID(id, XSDConstants.RESCRIPT), rescript, "resenja");
         } catch (Exception e) {
