@@ -9,8 +9,7 @@
     about="http://obavestenja/1"
     rel="pred:informationForRequest"
     href="http://zahtevi/1"
-   
-    >
+   >
     <Organ>
         <Naziv></Naziv>
         <sh:Adresa>
@@ -24,7 +23,7 @@
     <Datum>2020-10-01</Datum>
     <Podnosilac>
         <Fizicko_lice
-            about="http:/zahtevi/1"
+            about="http://zahtevi/1"
             rel="pred:submitterOfRequest"
             href="http://users/1"
             >
