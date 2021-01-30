@@ -56,7 +56,7 @@
     <za:Grad></za:Grad>
     <za:Datum> 2020-09-10</za:Datum>
     <za:Podnosilac 
-        about="http:/zalbe/1"
+        about="http://zalbe/1"
         rel="pred:submitter"
         href="http://users/1"
         >

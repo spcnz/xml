@@ -68,7 +68,7 @@ public class MetadataExtractService {
         System.out.println("[INFO] Using \"" + GRAPH_URI + "\" named graph.");
 
         System.out.println("[INFO] Selecting the triples from the named graph \"" + GRAPH_URI + "\".");
-        String sparqlQuery = SparqlUtil.selectData(conn.dataEndpoint + GRAPH_URI, "?s ?p ?o");
+        String sparqlQuery = SparqlUtil.selectData(conn.dataEndpoint + '/' + GRAPH_URI, "?s ?p ?o");
 
         // Create a QueryExecution that will access a SPARQL service over HTTP
         QueryExecution query = QueryExecutionFactory.sparqlService(conn.queryEndpoint, sparqlQuery);
