@@ -15,24 +15,24 @@ import javax.xml.bind.annotation.XmlValue;
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="Ttrazilac_informacije">
- *   &lt;complexContent>
- *     &lt;extension base="{http://www.shared.com}TFizicko_lice">
- *       &lt;sequence>
- *         &lt;element name="drugi_podaci_za_kontakt">
- *           &lt;complexType>
- *             &lt;simpleContent>
- *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>string">
- *                 &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" />
- *               &lt;/extension>
- *             &lt;/simpleContent>
- *           &lt;/complexType>
- *         &lt;/element>
- *       &lt;/sequence>
- *       &lt;anyAttribute processContents='lax'/>
- *     &lt;/extension>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="Ttrazilac_informacije"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;extension base="{http://www.shared.com}TFizicko_lice"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="drugi_podaci_za_kontakt"&gt;
+ *           &lt;complexType&gt;
+ *             &lt;simpleContent&gt;
+ *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
+ *                 &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *               &lt;/extension&gt;
+ *             &lt;/simpleContent&gt;
+ *           &lt;/complexType&gt;
+ *         &lt;/element&gt;
+ *       &lt;/sequence&gt;
+ *       &lt;anyAttribute processContents='lax'/&gt;
+ *     &lt;/extension&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  * 
  * 
@@ -46,17 +46,17 @@ public class TtrazilacInformacije
 {
 
     @XmlElement(name = "drugi_podaci_za_kontakt", required = true)
-    protected TtrazilacInformacije.DrugiPodaciZaKontakt drugiPodaciZaKontakt;
+    protected DrugiPodaciZaKontakt drugiPodaciZaKontakt;
 
     /**
      * Gets the value of the drugiPodaciZaKontakt property.
      * 
      * @return
      *     possible object is
-     *     {@link TtrazilacInformacije.DrugiPodaciZaKontakt }
+     *     {@link DrugiPodaciZaKontakt }
      *     
      */
-    public TtrazilacInformacije.DrugiPodaciZaKontakt getDrugiPodaciZaKontakt() {
+    public DrugiPodaciZaKontakt getDrugiPodaciZaKontakt() {
         return drugiPodaciZaKontakt;
     }
 
@@ -65,10 +65,10 @@ public class TtrazilacInformacije
      * 
      * @param value
      *     allowed object is
-     *     {@link TtrazilacInformacije.DrugiPodaciZaKontakt }
+     *     {@link DrugiPodaciZaKontakt }
      *     
      */
-    public void setDrugiPodaciZaKontakt(TtrazilacInformacije.DrugiPodaciZaKontakt value) {
+    public void setDrugiPodaciZaKontakt(DrugiPodaciZaKontakt value) {
         this.drugiPodaciZaKontakt = value;
     }
 
@@ -79,13 +79,13 @@ public class TtrazilacInformacije
      * <p>The following schema fragment specifies the expected content contained within this class.
      * 
      * <pre>
-     * &lt;complexType>
-     *   &lt;simpleContent>
-     *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>string">
-     *       &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" />
-     *     &lt;/extension>
-     *   &lt;/simpleContent>
-     * &lt;/complexType>
+     * &lt;complexType&gt;
+     *   &lt;simpleContent&gt;
+     *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
+     *       &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+     *     &lt;/extension&gt;
+     *   &lt;/simpleContent&gt;
+     * &lt;/complexType&gt;
      * </pre>
      * 
      * 

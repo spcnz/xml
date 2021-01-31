@@ -1,14 +1,14 @@
 
-package tim21.PortalPoverenika.model.shared;
+package tim21.PortalPoverenika.model.decisionAppeal;
 
 import java.util.HashMap;
 import java.util.Map;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAnyAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.XmlValue;
 import javax.xml.namespace.QName;
 
 
@@ -19,11 +19,14 @@ import javax.xml.namespace.QName;
  * 
  * <pre>
  * &lt;complexType&gt;
- *   &lt;simpleContent&gt;
- *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="Zalba" type="{http://www.zalbanaodluku.com}TZalba"/&gt;
+ *       &lt;/sequence&gt;
  *       &lt;anyAttribute processContents='lax'/&gt;
- *     &lt;/extension&gt;
- *   &lt;/simpleContent&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
  * 
@@ -31,38 +34,38 @@ import javax.xml.namespace.QName;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "value"
+    "zalba"
 })
-@XmlRootElement(name = "Tacka")
-public class Tacka {
+@XmlRootElement(name = "ZalbaRoot")
+public class ZalbaRoot {
 
-    @XmlValue
-    protected String value;
+    @XmlElement(name = "Zalba", required = true)
+    protected TZalba zalba;
     @XmlAnyAttribute
     private Map<QName, String> otherAttributes = new HashMap<QName, String>();
 
     /**
-     * Gets the value of the value property.
+     * Gets the value of the zalba property.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link TZalba }
      *     
      */
-    public String getValue() {
-        return value;
+    public TZalba getZalba() {
+        return zalba;
     }
 
     /**
-     * Sets the value of the value property.
+     * Sets the value of the zalba property.
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link TZalba }
      *     
      */
-    public void setValue(String value) {
-        this.value = value;
+    public void setZalba(TZalba value) {
+        this.zalba = value;
     }
 
     /**
