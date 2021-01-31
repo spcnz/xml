@@ -1,4 +1,4 @@
-package tim21.PortalPoverenika.service;
+package tim21.PortalVlasti.service;
 
 import org.apache.jena.query.QueryExecution;
 import org.apache.jena.query.QueryExecutionFactory;
@@ -12,12 +12,15 @@ import org.apache.jena.update.UpdateProcessor;
 import org.apache.jena.update.UpdateRequest;
 import org.springframework.stereotype.Service;
 import org.xml.sax.SAXException;
-import tim21.PortalPoverenika.util.rdf.AuthenticationUtilities;
-import tim21.PortalPoverenika.util.rdf.MetadataExtractor;
-import tim21.PortalPoverenika.util.rdf.SparqlUtil;
+import tim21.PortalVlasti.util.rdf.AuthenticationUtilities;
+import tim21.PortalVlasti.util.rdf.MetadataExtractor;
+import tim21.PortalVlasti.util.rdf.SparqlUtil;
 
 import javax.xml.transform.TransformerException;
-import java.io.*;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 
 @Service
 public class MetadataExtractService {
