@@ -7,7 +7,9 @@ import org.xmldb.api.base.ResourceIterator;
 import org.xmldb.api.base.ResourceSet;
 import org.xmldb.api.base.XMLDBException;
 import org.xmldb.api.modules.XMLResource;
+import tim21.PortalPoverenika.model.decisionAppeal.TZalba;
 import tim21.PortalPoverenika.model.decisionAppeal.Zalba;
+import tim21.PortalPoverenika.model.decisionAppeal.ZalbaRoot;
 import tim21.PortalPoverenika.model.lists.DecisionAppealList;
 import tim21.PortalPoverenika.repository.DecisionAppealRepository;
 import tim21.PortalPoverenika.util.Validator;
@@ -28,7 +30,7 @@ public class DecisionAppealService {
     DecisionAppealRepository appealRepository;
 
 
-    public boolean create(Zalba appeal) throws IOException, SAXException {
+    public boolean create(ZalbaRoot appeal) throws IOException, SAXException {
 
 
         if (Validator.validate(appeal.getClass(), appeal)){

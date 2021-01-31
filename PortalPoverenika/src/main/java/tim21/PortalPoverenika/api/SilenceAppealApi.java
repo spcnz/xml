@@ -20,7 +20,7 @@ public class SilenceAppealApi {
     @Autowired
     SilenceAppealService appealService;
 
-    @PreAuthorize("hasRole('ROLE_CITIZEN')")
+    //@PreAuthorize("hasRole('ROLE_CITIZEN')")
     @RequestMapping( method = RequestMethod.POST, consumes = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<?> createAppeal(@RequestBody ZalbaCutanje appeal)  {
         if (appealService.create(appeal)){

@@ -5,13 +5,12 @@ import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;
 import javax.xml.bind.annotation.XmlRegistry;
 import javax.xml.namespace.QName;
-import tim21.PortalPoverenika.model.shared.*;
 
 
 /**
  * This object contains factory methods for each 
  * Java content interface and Java element interface 
- * generated in the tim21.PortalPoverenika.model package. 
+ * generated in the com.zalbanaodluku package. 
  * <p>An ObjectFactory allows you to programatically 
  * construct new instances of the Java representation 
  * for XML content. The Java representation of XML 
@@ -29,58 +28,10 @@ public class ObjectFactory {
     private final static QName _TTextZalbeOsnovaZalbe_QNAME = new QName("http://www.zalbanaodluku.com", "Osnova_zalbe");
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: tim21.PortalPoverenika.model
+     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.zalbanaodluku
      * 
      */
     public ObjectFactory() {
-    }
-
-    /**
-     * Create an instance of {@link Zalba }
-     * 
-     */
-    public Zalba createZalba() {
-        return new Zalba();
-    }
-
-    /**
-     * Create an instance of {@link Adresa }
-     * 
-     */
-    public Adresa createAdresa() {
-        return new Adresa();
-    }
-
-    /**
-     * Create an instance of {@link TdatumVreme }
-     * 
-     */
-    public TdatumVreme createTdatumVreme() {
-        return new TdatumVreme();
-    }
-
-    /**
-     * Create an instance of {@link TOsoba }
-     * 
-     */
-    public TOsoba createTOsoba() {
-        return new TOsoba();
-    }
-
-    /**
-     * Create an instance of {@link Zalba.Napomena }
-     * 
-     */
-    public Zalba.Napomena createZalbaNapomena() {
-        return new Zalba.Napomena();
-    }
-
-    /**
-     * Create an instance of {@link TtrazilacInformacije }
-     * 
-     */
-    public TtrazilacInformacije createTtrazilacInformacije() {
-        return new TtrazilacInformacije();
     }
 
     /**
@@ -92,123 +43,27 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link TPravnoLice }
+     * Create an instance of {@link TZalba }
      * 
      */
-    public TPravnoLice createTPravnoLice() {
-        return new TPravnoLice();
+    public TZalba createTZalba() {
+        return new TZalba();
     }
 
     /**
-     * Create an instance of {@link TPrimaoc }
+     * Create an instance of {@link TZalba.Napomena }
      * 
      */
-    public TPrimaoc createTPrimaoc() {
-        return new TPrimaoc();
+    public TZalba.Napomena createTZalbaNapomena() {
+        return new TZalba.Napomena();
     }
 
     /**
-     * Create an instance of {@link TFizickoLice }
+     * Create an instance of {@link ZalbaRoot }
      * 
      */
-    public TFizickoLice createTFizickoLice() {
-        return new TFizickoLice();
-    }
-
-    /**
-     * Create an instance of {@link Zalba.Grad }
-     * 
-     */
-    public Zalba.Grad createZalbaGrad() {
-        return new Zalba.Grad();
-    }
-
-    /**
-     * Create an instance of {@link Zalba.Datum }
-     * 
-     */
-    public Zalba.Datum createZalbaDatum() {
-        return new Zalba.Datum();
-    }
-
-    /**
-     * Create an instance of {@link tim21.PortalPoverenika.model.shared.Tacka }
-     * 
-     */
-    public tim21.PortalPoverenika.model.shared.Tacka createTacka() {
-        return new tim21.PortalPoverenika.model.shared.Tacka();
-    }
-
-    /**
-     * Create an instance of {@link Adresa.Grad }
-     * 
-     */
-    public Adresa.Grad createAdresaGrad() {
-        return new Adresa.Grad();
-    }
-
-    /**
-     * Create an instance of {@link Adresa.Ulica }
-     * 
-     */
-    public Adresa.Ulica createAdresaUlica() {
-        return new Adresa.Ulica();
-    }
-
-    /**
-     * Create an instance of {@link Adresa.Broj }
-     * 
-     */
-    public Adresa.Broj createAdresaBroj() {
-        return new Adresa.Broj();
-    }
-
-    /**
-     * Create an instance of {@link TdatumVreme.Vreme }
-     * 
-     */
-    public TdatumVreme.Vreme createTdatumVremeVreme() {
-        return new TdatumVreme.Vreme();
-    }
-
-    /**
-     * Create an instance of {@link TdatumVreme.Datum }
-     * 
-     */
-    public TdatumVreme.Datum createTdatumVremeDatum() {
-        return new TdatumVreme.Datum();
-    }
-
-    /**
-     * Create an instance of {@link TOsoba.Ime }
-     * 
-     */
-    public TOsoba.Ime createTOsobaIme() {
-        return new TOsoba.Ime();
-    }
-
-    /**
-     * Create an instance of {@link TOsoba.Prezime }
-     * 
-     */
-    public TOsoba.Prezime createTOsobaPrezime() {
-        return new TOsoba.Prezime();
-    }
-
-    /**
-     * Create an instance of {@link Zalba.Napomena.Tacka }
-     * 
-     */
-    public Zalba.Napomena.Tacka createZalbaNapomenaTacka() {
-        return new Zalba.Napomena.Tacka();
-    }
-
-    /**
-     * Create an instance of {@link TtrazilacInformacije.DrugiPodaciZaKontakt }
-     * 
-     */
-    public TtrazilacInformacije.DrugiPodaciZaKontakt createTtrazilacInformacijeDrugiPodaciZaKontakt() {
-        return new TtrazilacInformacije.DrugiPodaciZaKontakt();
+    public ZalbaRoot createZalbaRoot() {
+        return new ZalbaRoot();
     }
 
     /**
@@ -228,11 +83,27 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link TPravnoLice.Naziv }
+     * Create an instance of {@link TZalba.Grad }
      * 
      */
-    public TPravnoLice.Naziv createTPravnoLiceNaziv() {
-        return new TPravnoLice.Naziv();
+    public TZalba.Grad createTZalbaGrad() {
+        return new TZalba.Grad();
+    }
+
+    /**
+     * Create an instance of {@link TZalba.Datum }
+     * 
+     */
+    public TZalba.Datum createTZalbaDatum() {
+        return new TZalba.Datum();
+    }
+
+    /**
+     * Create an instance of {@link TZalba.Napomena.Tacka }
+     * 
+     */
+    public TZalba.Napomena.Tacka createTZalbaNapomenaTacka() {
+        return new TZalba.Napomena.Tacka();
     }
 
     /**

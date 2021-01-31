@@ -14,16 +14,16 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="TFizicko_lice">
- *   &lt;complexContent>
- *     &lt;extension base="{http://www.shared.com}TOsoba">
- *       &lt;sequence>
- *         &lt;element ref="{http://www.shared.com}Adresa"/>
- *       &lt;/sequence>
- *       &lt;anyAttribute processContents='lax'/>
- *     &lt;/extension>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="TFizicko_lice"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;extension base="{http://www.shared.com}TOsoba"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element ref="{http://www.shared.com}Adresa"/&gt;
+ *       &lt;/sequence&gt;
+ *       &lt;anyAttribute processContents='lax'/&gt;
+ *     &lt;/extension&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  * 
  * 

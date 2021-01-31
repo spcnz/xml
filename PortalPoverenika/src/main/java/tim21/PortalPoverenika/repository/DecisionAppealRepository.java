@@ -1,12 +1,14 @@
 package tim21.PortalPoverenika.repository;
 
 import tim21.PortalPoverenika.db.ExistManager;
+import tim21.PortalPoverenika.model.decisionAppeal.TZalba;
 import tim21.PortalPoverenika.model.decisionAppeal.Zalba;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.xmldb.api.base.ResourceSet;
 import org.xmldb.api.base.XMLDBException;
 import org.xmldb.api.modules.XMLResource;
+import tim21.PortalPoverenika.model.decisionAppeal.ZalbaRoot;
 import tim21.PortalPoverenika.util.IdGenerator;
 import tim21.PortalPoverenika.util.constants.XSDConstants;
 
@@ -24,7 +26,7 @@ public class DecisionAppealRepository {
     public ExistManager existManager;
 
 
-    public boolean create(Zalba appeal) {
+    public boolean create(ZalbaRoot appeal) {
         try {
             String id = IdGenerator.generateDocumentID(IdGenerator.generate(XSDConstants.DECISION_APPEAL), XSDConstants.DECISION_APPEAL);
             Map<QName, String> attrributes = appeal.getOtherAttributes();
