@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sh="http://www.shared.com"
-           targetNamespace="http://www.zalbanaodluku.com" xmlns="http://www.zalbanaodluku.com"
-           elementFormDefault="qualified" xmlns:rdfa="http://www.w3.org/ns/rdfa#"
-           xmlns:pred="http://www.ftn.uns.ac.rs/rdf/examples/predicate/">
+    targetNamespace="http://www.zalbanaodluku.com" xmlns="http://www.zalbanaodluku.com"
+    elementFormDefault="qualified" xmlns:rdfa="http://www.w3.org/ns/rdfa#"
+    xmlns:pred="http://www.ftn.uns.ac.rs/rdf/examples/predicate/">
     <xs:import namespace="http://www.shared.com" schemaLocation="shared.xsd"/>
     <xs:complexType mixed="true" name="TText_zalbe">
         <xs:sequence>
@@ -71,15 +71,7 @@
             <xs:element name="Napomena">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element maxOccurs="unbounded" minOccurs="1" name="Tacka">
-                            <xs:complexType>
-                                <xs:simpleContent>
-                                    <xs:extension base="xs:string">
-                                        <xs:attribute name="broj" type="xs:positiveInteger"
-                                                      use="required"/>
-                                    </xs:extension>
-                                </xs:simpleContent>
-                            </xs:complexType>
+                        <xs:element maxOccurs="unbounded" minOccurs="1" ref="sh:Tacka">
                         </xs:element>
                     </xs:sequence>
                 </xs:complexType>

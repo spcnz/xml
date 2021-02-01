@@ -19,10 +19,7 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://zalbe/1">
     <pred:appealBasis xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">
-            jер није заснована на Закону о слободном приступу информацијама од јавног значаја.
-            На основу изнетих разлога, предлажем да Повереник уважи моју жалбу,  поништи одлука првостепеног органа и омогући ми приступ траженој/им  информацији/ма.
-            Жалбу подносим благовремено, у законском року утврђеном у члану 22. ст. 1. Закона о слободном приступу информацијама од јавног значаја.
-        </pred:appealBasis>
+            </pred:appealBasis>
   </rdf:Description>
   <rdf:Description rdf:about="http://zalbe/1">
     <pred:submitter xmlns:pred="http://www.tim21.com/predicate/" rdf:resource="http://users/1"/>

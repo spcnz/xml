@@ -17,10 +17,7 @@ import javax.xml.bind.annotation.XmlValue;
 import javax.xml.datatype.XMLGregorianCalendar;
 import javax.xml.namespace.QName;
 
-import tim21.PortalPoverenika.model.shared.TFizickoLice;
-import tim21.PortalPoverenika.model.shared.TPravnoLice;
-import tim21.PortalPoverenika.model.shared.TPrimaoc;
-import tim21.PortalPoverenika.model.shared.TtrazilacInformacije;
+import tim21.PortalPoverenika.model.shared.*;
 
 
 /**
@@ -577,7 +574,7 @@ public class TZalba {
     })
     public static class Napomena {
 
-        @XmlElement(name = "Tacka", required = true)
+        @XmlElement(name = "Tacka", namespace = "http://www.shared.com", required = true)
         protected List<Tacka> tacka;
 
         /**
@@ -607,86 +604,6 @@ public class TZalba {
                 tacka = new ArrayList<Tacka>();
             }
             return this.tacka;
-        }
-
-
-        /**
-         * <p>Java class for anonymous complex type.
-         * 
-         * <p>The following schema fragment specifies the expected content contained within this class.
-         * 
-         * <pre>
-         * &lt;complexType&gt;
-         *   &lt;simpleContent&gt;
-         *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
-         *       &lt;attribute name="broj" use="required" type="{http://www.w3.org/2001/XMLSchema}positiveInteger" /&gt;
-         *     &lt;/extension&gt;
-         *   &lt;/simpleContent&gt;
-         * &lt;/complexType&gt;
-         * </pre>
-         * 
-         * 
-         */
-        @XmlAccessorType(XmlAccessType.FIELD)
-        @XmlType(name = "", propOrder = {
-            "value"
-        })
-        public static class Tacka {
-
-            @XmlValue
-            protected String value;
-            @XmlAttribute(name = "broj", required = true)
-            @XmlSchemaType(name = "positiveInteger")
-            protected BigInteger broj;
-
-            /**
-             * Gets the value of the value property.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
-             */
-            public String getValue() {
-                return value;
-            }
-
-            /**
-             * Sets the value of the value property.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
-             */
-            public void setValue(String value) {
-                this.value = value;
-            }
-
-            /**
-             * Gets the value of the broj property.
-             * 
-             * @return
-             *     possible object is
-             *     {@link BigInteger }
-             *     
-             */
-            public BigInteger getBroj() {
-                return broj;
-            }
-
-            /**
-             * Sets the value of the broj property.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link BigInteger }
-             *     
-             */
-            public void setBroj(BigInteger value) {
-                this.broj = value;
-            }
-
         }
 
     }

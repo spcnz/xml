@@ -1,8 +1,6 @@
 package tim21.PortalPoverenika.repository;
 
 import tim21.PortalPoverenika.db.ExistManager;
-import tim21.PortalPoverenika.model.decisionAppeal.TZalba;
-import tim21.PortalPoverenika.model.decisionAppeal.Zalba;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.xmldb.api.base.ResourceSet;

@@ -7,13 +7,10 @@ import org.xmldb.api.base.ResourceIterator;
 import org.xmldb.api.base.ResourceSet;
 import org.xmldb.api.base.XMLDBException;
 import org.xmldb.api.modules.XMLResource;
-import tim21.PortalPoverenika.model.decisionAppeal.TZalba;
-import tim21.PortalPoverenika.model.decisionAppeal.Zalba;
 import tim21.PortalPoverenika.model.decisionAppeal.ZalbaRoot;
 import tim21.PortalPoverenika.model.lists.DecisionAppealList;
 import tim21.PortalPoverenika.repository.DecisionAppealRepository;
 import tim21.PortalPoverenika.util.Validator;
-import tim21.PortalPoverenika.util.rdf.MetadataExtractor;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -53,7 +50,7 @@ public class DecisionAppealService {
             System.out.println(xmlResource);
             if(xmlResource == null)
                 return null;
-            JAXBContext context = JAXBContext.newInstance(Zalba.class);
+            JAXBContext context = JAXBContext.newInstance(ZalbaRoot.class);
             Unmarshaller unmarshaller = context.createUnmarshaller();
             ZalbaRoot appeal = (ZalbaRoot) unmarshaller.unmarshal(xmlResource.getContentAsDOM());
             appeals.add(appeal);

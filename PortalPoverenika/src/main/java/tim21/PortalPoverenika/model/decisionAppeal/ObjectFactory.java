@@ -1,6 +1,8 @@
 
 package tim21.PortalPoverenika.model.decisionAppeal;
 
+import tim21.PortalPoverenika.model.shared.Tacka;
+
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;
 import javax.xml.bind.annotation.XmlRegistry;
@@ -99,13 +101,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link TZalba.Napomena.Tacka }
-     * 
+     * Create an instance of {@link Tacka }
+     *
      */
-    public TZalba.Napomena.Tacka createTZalbaNapomenaTacka() {
-        return new TZalba.Napomena.Tacka();
+    public Tacka createTacka() {
+        return new Tacka();
     }
-
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TTextZalbe.DatumPodnosenjaZahteva }{@code >}}
      * 
