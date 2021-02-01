@@ -23,7 +23,7 @@ public class MailSenderController {
 	public ResponseEntity<String> sendMail() {
 
 
-		String response = emailService.sendMail("neki sadrzaj hehe", "laketic.milena98@gmail.com", "naslov");
-		return new ResponseEntity<>(response, HttpStatus.OK);
+//		String response = emailService.sendMail("neki sadrzaj hehe", "laketic.milena98@gmail.com", "naslov");
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 }

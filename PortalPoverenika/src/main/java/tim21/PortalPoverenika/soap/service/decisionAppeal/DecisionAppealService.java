@@ -14,7 +14,7 @@ import javax.xml.ws.Service;
  * 
  */
 @WebServiceClient(name = "DecisionAppealService", 
-                  wsdlLocation = "classpath:wsdl/ZalbaNaOdluku.wsdl",
+                  wsdlLocation = "classpath:wsdl/DecisionAppeal.wsdl",
                   targetNamespace = "http://www.zalbanaodluku.com") 
 public class DecisionAppealService extends Service {
 
@@ -23,11 +23,11 @@ public class DecisionAppealService extends Service {
     public final static QName SERVICE = new QName("http://www.zalbanaodluku.com", "DecisionAppealService");
     public final static QName DecisionAppealServiceSoapBinding = new QName("http://www.zalbanaodluku.com", "DecisionAppealServiceSoapBinding");
     static {
-        URL url = DecisionAppealService.class.getClassLoader().getResource("wsdl/ZalbaNaOdluku.wsdl");
+        URL url = DecisionAppealService.class.getClassLoader().getResource("wsdl/DecisionAppeal.wsdl");
         if (url == null) {
             java.util.logging.Logger.getLogger(DecisionAppealService.class.getName())
                 .log(java.util.logging.Level.INFO, 
-                     "Can not initialize the default wsdl from {0}", "classpath:wsdl/ZalbaNaOdluku.wsdl");
+                     "Can not initialize the default wsdl from {0}", "classpath:wsdl/DecisionAppeal.wsdl");
         }       
         WSDL_LOCATION = url;   
     }

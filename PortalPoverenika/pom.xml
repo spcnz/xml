@@ -158,12 +158,12 @@
 
 
 								<wsdlOption>
-									<wsdl>${basedir}/src/main/resources/wsdl/ZalbaNaOdluku.wsdl</wsdl>
+									<wsdl>${basedir}/src/main/resources/wsdl/DecisionAppeal.wsdl</wsdl>
 									<extraargs>
 										<extraarg>-impl</extraarg> <!-- Ima i drugih dodatniha<extraarg>-client</extraarg> -->
 										<extraarg>-verbose</extraarg>
 									</extraargs>
-									<wsdlLocation>classpath:wsdl/ZalbaNaOdluku.wsdl</wsdlLocation>
+									<wsdlLocation>classpath:wsdl/DecisionAppeal.wsdl</wsdlLocation>
 								</wsdlOption>
 
 

@@ -26,7 +26,7 @@ import javax.jws.WebService;
                       serviceName = "DecisionAppealService",
                       portName = "DecisionAppealServiceSoapBinding",
                       targetNamespace = "http://www.zalbanaodluku.com",
-                      wsdlLocation = "classpath:wsdl/ZalbaNaOdluku.wsdl",
+                      wsdlLocation = "classpath:wsdl/DecisionAppeal.wsdl",
                       endpointInterface = "tim21.PortalPoverenika.soap.service.decisionAppeal.DecisionAppealServicePortType")
 @Service
 public class DecisionAppealServiceSoapBindingImpl implements DecisionAppealServicePortType {

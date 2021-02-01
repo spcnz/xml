@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="www.mail.com" xmlns="www.mail.com">
+
+    <xs:complexType name="MailRequest">
+        <xs:sequence>
+            <xs:element name="From" type="TEmail"/>
+            <xs:element name="To" type="TEmail"/>
+            <xs:element name="Subject" type="xs:string"/>
+            <xs:element name="Content" type="xs:string"/>
+            <xs:element name="File"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:simpleType name="TEmail">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[^@]+@[^\.]+\..+"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

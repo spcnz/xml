@@ -9,6 +9,7 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.core.env.Environment;
+import tim21.EmailApp.model.MailRequest;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
@@ -39,7 +40,7 @@ public class EmailService {
     private JavaMailSender mailSender;
 
 
-    public String sendMail(String content, String email, String subject) {
+    public String sendMail(MailRequest request) {
 
         String response;
         MimeMessage message = mailSender.createMimeMessage();
@@ -49,16 +50,16 @@ public class EmailService {
 
             ClassPathResource pdf = new ClassPathResource("static/attachment.pdf");
 
-            helper.setTo(email);
+            helper.setTo(request.getTo());
             helper.setFrom(env.getProperty("spring.mail.username"));
-            helper.setSubject(subject);
-            helper.setText(content);
+            helper.setSubject(request.getSubject());
+            helper.setText(request.getContent());
             helper.addAttachment("attachment.pdf", pdf);
 
             mailSender.send(message);
-            response = "Email has been sent to :" + email;
+            response = "Email has been sent to :" + request.getTo();
         } catch (MessagingException e ) {
-            response = "Email send failure to :" + email;
+            response = "Email send failure to :" + request.getTo();
         }
 
         return response;
