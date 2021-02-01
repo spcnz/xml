@@ -1,5 +1,5 @@
 
-package tim21.EmailApp.model;
+package tim21.EmailApp.model.request;
 
 import javax.xml.bind.annotation.XmlRegistry;
 

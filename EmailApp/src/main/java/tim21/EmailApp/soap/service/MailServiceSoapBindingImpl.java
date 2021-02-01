@@ -8,7 +8,8 @@ package tim21.EmailApp.soap.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import tim21.EmailApp.model.MailRequest;
+import tim21.EmailApp.model.request.MailRequest;
+import tim21.EmailApp.model.response.TResponse;
 import tim21.EmailApp.service.EmailService;
 
 import java.util.logging.Logger;
@@ -39,11 +40,11 @@ public class MailServiceSoapBindingImpl implements MailServicePortType {
     /* (non-Javadoc)
      * @see com.mail.MailServicePortType#sendEmail(com.mail.MailRequest mail)*
      */
-    public String sendEmail(MailRequest mail) {
+    public TResponse sendEmail(MailRequest mail) {
         LOG.info("Executing operation sendEmail");
         System.out.println(mail);
         try {
-            String _return = emailService.sendMail(mail);
+            TResponse _return = emailService.sendMail(mail);
             return _return;
         } catch (Exception ex) {
             ex.printStackTrace();

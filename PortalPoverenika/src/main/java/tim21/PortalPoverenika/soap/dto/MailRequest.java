@@ -1,10 +1,7 @@
 
-package tim21.EmailApp.model;
+package tim21.PortalPoverenika.soap.dto;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 
 
 /**
@@ -38,17 +35,18 @@ import javax.xml.bind.annotation.XmlType;
     "content",
     "file"
 })
+@XmlRootElement(name = "mail",namespace = "http://www.mail.com")
 public class MailRequest {
 
-    @XmlElement(name = "From", required = true)
+    @XmlElement(name = "From", required = true, namespace = "http://www.mail.com")
     protected String from;
-    @XmlElement(name = "To", required = true)
+    @XmlElement(name = "To", required = true, namespace = "http://www.mail.com")
     protected String to;
-    @XmlElement(name = "Subject", required = true)
+    @XmlElement(name = "Subject", required = true, namespace = "http://www.mail.com")
     protected String subject;
-    @XmlElement(name = "Content", required = true)
+    @XmlElement(name = "Content", required = true, namespace = "http://www.mail.com")
     protected String content;
-    @XmlElement(name = "File", required = true)
+    @XmlElement(name = "File", required = true, namespace = "http://www.mail.com")
     protected Object file;
 
     /**

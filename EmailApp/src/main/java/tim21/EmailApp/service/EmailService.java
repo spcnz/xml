@@ -4,12 +4,10 @@ import com.sun.istack.ByteArrayDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
-import org.springframework.mail.MailException;
-import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.core.env.Environment;
-import tim21.EmailApp.model.MailRequest;
+import tim21.EmailApp.model.request.MailRequest;
+import tim21.EmailApp.model.response.TResponse;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
@@ -25,9 +23,9 @@ public class EmailService {
     private JavaMailSender mailSender;
 
 
-    public String sendMail(MailRequest request) {
+    public TResponse sendMail(MailRequest request) {
 
-        String response;
+        TResponse response = new TResponse();
         MimeMessage message = mailSender.createMimeMessage();
         try {
             MimeMessageHelper helper = new MimeMessageHelper(message, MimeMessageHelper.MULTIPART_MODE_MIXED_RELATED,
@@ -43,10 +41,10 @@ public class EmailService {
             helper.addAttachment("attachment.pdf", bds);
 
             mailSender.send(message);
-            response = "Email has been sent to :" + request.getTo();
+            response.setStatus("SUCCESS");
         } catch (MessagingException e ) {
 
-            response = "Email send failure to :" + request.getTo();
+            response.setStatus("FAILED");
         }
 
         return response;
