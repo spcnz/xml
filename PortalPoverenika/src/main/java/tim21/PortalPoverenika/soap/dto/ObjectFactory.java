@@ -59,7 +59,7 @@ public class ObjectFactory {
      * Create an instance of {@link JAXBElement }{@code <}{@link tim21.PortalPoverenika.soap.dto.TResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://www.mail.com", name = "Response")
+    @XmlElementDecl(namespace = "http://www.mail.com", name = "response")
     public JAXBElement<tim21.PortalPoverenika.soap.dto.TResponse> createResponse(tim21.PortalPoverenika.soap.dto.TResponse value) {
         return new JAXBElement<tim21.PortalPoverenika.soap.dto.TResponse>(_Response_QNAME, tim21.PortalPoverenika.soap.dto.TResponse.class, null, value);
     }

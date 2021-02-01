@@ -60,12 +60,12 @@ public class RescriptApi {
     }
 
     @RequestMapping(value="/{ID}", method = RequestMethod.POST, consumes = MediaType.APPLICATION_XML_VALUE)
-    public ResponseEntity<?> sendToApplicant(@PathVariable String ID) {
-  //      Resenje rescript = rescriptService.getOne(ID);
+    public ResponseEntity<?> sendToApplicant(@PathVariable String ID, @RequestBody MailRequest request) {
+//        Resenje rescript = rescriptService.getOne(ID);
 //        if(rescript != null) {
-            //ovde ce se generisati pdf
-            //uzeti njegova putanja i pretvoriti u bajtove
-            //za sad cemo ovkako
+//            ovde ce se generisati pdf
+//            uzeti njegova putanja i pretvoriti u bajtove
+//            za sad cemo ovkako
             Path pdfPath = Paths.get("C:/Users/bekim/Desktop/xml/PortalPoverenika/src/main/resources/pdf/bookstore.pdf");
             try {
                 byte[] byteArr = Files.readAllBytes(pdfPath);
@@ -79,14 +79,6 @@ public class RescriptApi {
             mailClient.setDefaultUri(env.getProperty("portal_vlasti"));
             mailClient.setMarshaller(marshaller);
             mailClient.setUnmarshaller(marshaller);
-
-            MailRequest request = new MailRequest();
-            request.setContent("dadadaa");
-            request.setFrom("odmene@gmail.com");
-            request.setSubject("naslovee");
-            request.setTo("laketic.milena98@gmail.com");
-            request.setFile("");
-
 
             boolean sent = mailClient.sendMail(request);
             if(sent){

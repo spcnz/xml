@@ -21,9 +21,7 @@ public class MailClient extends WebServiceGatewaySupport {
                         new SoapActionCallback(
                                 "http://www.mail.com/ws/sendEmail"));
 
-
-        System.out.println(response);
-        if (response.getStatus().equals("SUCCES")) {
+        if (response.getStatus().equals("SUCCESS")) {
             return true;
         } else {
             return false;

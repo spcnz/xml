@@ -1,10 +1,7 @@
 
 package tim21.PortalPoverenika.soap.dto;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 
 
 /**
@@ -34,9 +31,10 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "response", propOrder = {
+@XmlType( propOrder = {
     "status"
-},  namespace = "http://www.mail.com")
+})
+@XmlRootElement(name="response")
 public class TResponse {
 
     @XmlElement(required = true,  namespace = "http://www.mail.com")

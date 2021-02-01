@@ -34,7 +34,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TResponse", propOrder = {
+@XmlType(name = "response", propOrder = {
     "status"
 })
 public class TResponse {
