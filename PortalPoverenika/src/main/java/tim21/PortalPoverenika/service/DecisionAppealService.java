@@ -79,4 +79,25 @@ public class DecisionAppealService {
 
         return appeal;
     }
+
+
+    public DecisionAppealList search(String keyword) throws XMLDBException, JAXBException {
+        List<Zalba> appeals = new ArrayList<>();
+
+        ResourceSet resourceSet = null;
+        resourceSet = appealRepository.search(keyword);
+        ResourceIterator resourceIterator = resourceSet.getIterator();
+
+        while (resourceIterator.hasMoreResources()){
+            XMLResource xmlResource = (XMLResource) resourceIterator.nextResource();
+            System.out.println(xmlResource);
+            if(xmlResource == null)
+                return null;
+            JAXBContext context = JAXBContext.newInstance(Zalba.class);
+            Unmarshaller unmarshaller = context.createUnmarshaller();
+            Zalba appeal = (Zalba) unmarshaller.unmarshal(xmlResource.getContentAsDOM());
+            appeals.add(appeal);
+        }
+        return new DecisionAppealList(appeals);
+    }
 }

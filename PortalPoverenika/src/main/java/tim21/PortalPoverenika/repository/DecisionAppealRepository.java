@@ -55,4 +55,14 @@ public class DecisionAppealRepository {
             return null;
         }
     }
+    public ResourceSet search(String keyword) throws XMLDBException {
+        try {
+            return existManager.search(DECISIONAPPEAL_COLLECTION_URI, keyword, DECISIONAPPEAL_TARGET_NAMESPACE);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+
 }

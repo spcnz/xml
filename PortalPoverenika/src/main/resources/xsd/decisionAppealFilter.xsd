@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://www.shared.com" xmlns:sh="http://www.shared.com">
+    <xs:element name="RequestId" type="xs:string"/>
+    <xs:element name="SubmitterName" type="xs:string"/>
+    <xs:element name="SubmitterLastname" type="xs:string"/>
+    <xs:element name="SubmitterCity" type="xs:string"/>
+    <xs:element name="SubmitterStreet" type="xs:string"/>
+    <xs:element name="RequestDate" type="xs:string"/>
+    <xs:element name="RecipientCity" type="xs:string"/>
+    <xs:element name="RecipientStreet" type="xs:string"/>
+</xs:schema>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
-    targetNamespace="http://www.shared.com" xmlns:sh="http://www.shared.com">
+           targetNamespace="http://www.shared.com" xmlns:sh="http://www.shared.com">
 
     <xs:complexType name="TOsoba">
         <xs:sequence>
