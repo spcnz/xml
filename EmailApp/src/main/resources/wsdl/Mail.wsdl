@@ -39,7 +39,7 @@
     </wsdl:binding>
     <wsdl:service name="MailService">
         <wsdl:port name="MailServiceSoapBinding" binding="ma:MailServiceSoapBinding">
-            <soap:address location="http://localhost:8080/MailPort" />
+            <soap:address location="http://localhost:8094/MailPort" />
         </wsdl:port>
     </wsdl:service>
 </wsdl:definitions>

@@ -13,19 +13,19 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="MailRequest">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="From" type="{www.mail.com}TEmail"/>
- *         &lt;element name="To" type="{www.mail.com}TEmail"/>
- *         &lt;element name="Subject" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="Content" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="File" type="{http://www.w3.org/2001/XMLSchema}anyType"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="MailRequest"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="From" type="{http://www.mail.com}TEmail"/&gt;
+ *         &lt;element name="To" type="{http://www.mail.com}TEmail"/&gt;
+ *         &lt;element name="Subject" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="Content" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="File" type="{http://www.w3.org/2001/XMLSchema}anyType"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  * 
  * 
