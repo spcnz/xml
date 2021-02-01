@@ -1,4 +1,4 @@
-package tim21.PortalPoverenika.model.decisionAppeal;
+package tim21.PortalPoverenika.soap.service.decisionAppeal;
 
 import java.net.URL;
 import javax.xml.namespace.QName;

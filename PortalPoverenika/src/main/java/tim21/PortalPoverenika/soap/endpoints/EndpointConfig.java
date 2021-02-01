@@ -1,4 +1,4 @@
-package tim21.PortalPoverenika.endpoints;
+package tim21.PortalPoverenika.soap.endpoints;
 
 import javax.xml.ws.Endpoint;
 
@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import tim21.PortalPoverenika.model.decisionAppeal.DecisionAppealServiceSoapBindingImpl;
+import tim21.PortalPoverenika.soap.service.decisionAppeal.DecisionAppealServiceSoapBindingImpl;
 
 @Configuration
 public class EndpointConfig {
@@ -16,10 +16,13 @@ public class EndpointConfig {
     @Autowired
     private Bus bus;
 
+    @Autowired
+    private DecisionAppealServiceSoapBindingImpl decisionAppealServiceSoapBinding;
+
 
     @Bean
     public Endpoint decisionAppealEndpoint() {
-        EndpointImpl endpoint = new EndpointImpl(bus, new DecisionAppealServiceSoapBindingImpl());
+        EndpointImpl endpoint = new EndpointImpl(bus, decisionAppealServiceSoapBinding);
         endpoint.publish("/decision-appeal");
         return endpoint;
     }

@@ -51,7 +51,7 @@ public class DecisionAppealRepository {
 
     public ResourceSet getAll() throws XMLDBException {
         try {
-            return existManager.getAll(DECISIONAPPEAL_COLLECTION_URI, "/Zalba", DECISIONAPPEAL_TARGET_NAMESPACE);
+            return existManager.getAll(DECISIONAPPEAL_COLLECTION_URI, "/ZalbaRoot", DECISIONAPPEAL_TARGET_NAMESPACE);
         } catch (Exception e) {
             e.printStackTrace();
             return null;

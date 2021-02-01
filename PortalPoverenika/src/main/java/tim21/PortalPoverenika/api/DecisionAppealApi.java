@@ -46,7 +46,7 @@ public class DecisionAppealApi {
 
     @RequestMapping(value="/{ID}", method = RequestMethod.GET, consumes = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<?> getAppeal(@PathVariable String ID) {
-        Zalba appeal = appealService.getOne(ID);
+        ZalbaRoot appeal = appealService.getOne(ID);
         if(appeal != null)
             return new ResponseEntity(appeal, HttpStatus.OK);
 

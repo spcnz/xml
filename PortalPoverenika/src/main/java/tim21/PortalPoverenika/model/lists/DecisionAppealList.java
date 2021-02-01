@@ -1,25 +1,25 @@
 package tim21.PortalPoverenika.model.lists;
 
-import tim21.PortalPoverenika.model.decisionAppeal.Zalba;
+import tim21.PortalPoverenika.model.decisionAppeal.ZalbaRoot;
 
 import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @XmlRootElement
-@XmlSeeAlso({Zalba.class})
+@XmlSeeAlso({ZalbaRoot.class})
 public class DecisionAppealList {
 
-    private List<Zalba> appeals = new ArrayList<>();
+    private List<ZalbaRoot> appeals = new ArrayList<>();
 
-    public DecisionAppealList(List<Zalba> appeals){
+    public DecisionAppealList(List<ZalbaRoot> appeals){
         this.appeals = appeals;
     }
 
     public DecisionAppealList(){}
 
     @XmlAnyElement
-    public List<Zalba> getAppeals() {
+    public List<ZalbaRoot> getAppeals() {
         return appeals;
     }
 }

@@ -1,4 +1,7 @@
-package tim21.PortalPoverenika.model.decisionAppeal;
+package tim21.PortalPoverenika.soap.service.decisionAppeal;
+
+import tim21.PortalPoverenika.model.decisionAppeal.ObjectFactory;
+import tim21.PortalPoverenika.model.decisionAppeal.TZalba;
 
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
