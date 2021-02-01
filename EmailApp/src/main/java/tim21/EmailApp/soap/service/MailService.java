@@ -1,4 +1,4 @@
-package tim21.EmailApp.model;
+package tim21.EmailApp.soap.service;
 
 import java.net.URL;
 import javax.xml.namespace.QName;
@@ -13,9 +13,10 @@ import javax.xml.ws.Service;
  * Generated source version: 3.2.1
  * 
  */
+
 @WebServiceClient(name = "MailService", 
                   wsdlLocation = "classpath:wsdl/Mail.wsdl",
-                  targetNamespace = "http://www.mail.com") 
+                  targetNamespace = "http://www.mail.com")
 public class MailService extends Service {
 
     public final static URL WSDL_LOCATION;

@@ -16,4 +16,5 @@
             <xs:pattern value="[^@]+@[^\.]+\..+"/>
         </xs:restriction>
     </xs:simpleType>
+    <xs:element name="mail" type="MailRequest"/>
 </xs:schema>

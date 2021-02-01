@@ -1,4 +1,7 @@
-package tim21.EmailApp.model;
+package tim21.EmailApp.soap.service;
+
+import tim21.EmailApp.model.MailRequest;
+import tim21.EmailApp.model.ObjectFactory;
 
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -21,7 +24,7 @@ public interface MailServicePortType {
     @WebMethod(action = "http://www.mail.com/ws/sendEmail")
     @WebResult(name = "success", targetNamespace = "http://www.mail.com", partName = "success")
     public String sendEmail(
-        @WebParam(partName = "id", name = "id")
-        MailRequest id
+        @WebParam(partName = "mail", name = "mail")
+                MailRequest mail
     );
 }

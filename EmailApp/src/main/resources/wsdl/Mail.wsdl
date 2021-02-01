@@ -12,7 +12,7 @@
     </wsdl:types>
 
     <wsdl:message name="sendEmailRequest">
-        <wsdl:part name="id" type="ma:MailRequest" />
+        <wsdl:part name="mail" type="ma:MailRequest" />
     </wsdl:message>
     <wsdl:message name="sendEmailResponse">
         <wsdl:part name="success" type="xsd:string" />
