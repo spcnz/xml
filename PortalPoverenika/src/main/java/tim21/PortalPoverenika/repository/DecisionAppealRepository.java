@@ -15,6 +15,7 @@ import javax.xml.namespace.QName;
 import java.util.Map;
 
 import static tim21.PortalPoverenika.util.constants.DBConstants.DECISIONAPPEAL_COLLECTION_URI;
+import static tim21.PortalPoverenika.util.constants.NamespaceConstants.DECISIONAPPEAL_ROOT_EL;
 import static tim21.PortalPoverenika.util.constants.NamespaceConstants.DECISIONAPPEAL_TARGET_NAMESPACE;
 
 @Repository
@@ -26,17 +27,14 @@ public class DecisionAppealRepository {
 
     public Zalba create(Zalba appeal) {
         try {
-            String id = IdGenerator.generate(XSDConstants.DECISION_APPEAL);
-            String existID = IdGenerator.generateDocumentID(id, XSDConstants.DECISION_APPEAL);
+            String id = IdGenerator.generate();
             String aboutValue = "http://zalbe/" + id;
             Map<QName, String> attrributes = appeal.getOtherAttributes();
 
-            attrributes.put(new QName("id"), existID);
+            attrributes.put(new QName("id"), id);
             attrributes.put(new QName("about"), aboutValue);
-            //appeal.getPrimaoc().getOtherAttributes().put(new QName("about"), aboutValue);
-            //appeal.getPodnosilac().getOtherAttributes().put(new QName("about"), aboutValue);
 
-            if(existManager.store(DECISIONAPPEAL_COLLECTION_URI, existID, appeal, "zalbe")){
+            if(existManager.store(DECISIONAPPEAL_COLLECTION_URI, id + ".xml", appeal, "zalbe")){
                 return appeal;
             }
             return null;
@@ -66,7 +64,7 @@ public class DecisionAppealRepository {
     }
     public ResourceSet search(String keyword) throws XMLDBException {
         try {
-            return existManager.search(DECISIONAPPEAL_COLLECTION_URI, keyword, DECISIONAPPEAL_TARGET_NAMESPACE);
+            return existManager.search(DECISIONAPPEAL_COLLECTION_URI, keyword, DECISIONAPPEAL_TARGET_NAMESPACE, DECISIONAPPEAL_ROOT_EL);
         } catch (Exception e) {
             e.printStackTrace();
             return null;

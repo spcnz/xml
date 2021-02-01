@@ -25,7 +25,7 @@ public class RescriptRepository {
 
     public boolean create(Resenje rescript) {
         try {
-            String id = IdGenerator.generate(XSDConstants.RESCRIPT);
+            String id = IdGenerator.generate();
             rescript.setID(id);
             Map<QName, String> attrributes = rescript.getOtherAttributes();
             attrributes.put(new QName("id"), id);

@@ -1,45 +1,45 @@
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:h="http://www.w3.org/1999/xhtml">
-  <rdf:Description rdf:about="http://zalbe/20210201204803">
+  <rdf:Description rdf:about="http://zalbe/20210201225918">
     <pred:appealForRequest xmlns:pred="http://www.tim21.com/predicate/" rdf:resource="http://zahtevi/1"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://zalbe/20210201204803">
+  <rdf:Description rdf:about="http://zalbe/20210201225918">
     <pred:recipient xmlns:pred="http://www.tim21.com/predicate/" rdf:resource="http://users/2"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://zalbe/20210201204803">
-    <pred:recipientCity xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">Murtovina</pred:recipientCity>
+  <rdf:Description rdf:about="http://zalbe/20210201225918">
+    <pred:recipientCity xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">DUDLAJ GA BREE</pred:recipientCity>
   </rdf:Description>
-  <rdf:Description rdf:about="http://zalbe/20210201204803">
+  <rdf:Description rdf:about="http://zalbe/20210201225918">
     <pred:recipientStreet xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">Булевар краља Александрa</pred:recipientStreet>
   </rdf:Description>
-  <rdf:Description rdf:about="http://zalbe/20210201204803">
+  <rdf:Description rdf:about="http://zalbe/20210201225918">
     <pred:recipientStreetnum xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">69</pred:recipientStreetnum>
   </rdf:Description>
-  <rdf:Description rdf:about="http://zalbe/20210201204803">
-    <pred:requestDate xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">2020-09-13</pred:requestDate>
+  <rdf:Description rdf:about="http://zalbe/20210201225918">
+    <pred:requestDate xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">2020-02-01</pred:requestDate>
   </rdf:Description>
-  <rdf:Description rdf:about="http://zalbe/20210201204803">
+  <rdf:Description rdf:about="http://zalbe/20210201225918">
     <pred:appealBasis xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">
             jер није заснована на Закону о слободном приступу информацијама од јавног значаја.
             На основу изнетих разлога, предлажем да Повереник уважи моју жалбу,  поништи одлука првостепеног органа и омогући ми приступ траженој/им  информацији/ма.
             Жалбу подносим благовремено, у законском року утврђеном у члану 22. ст. 1. Закона о слободном приступу информацијама од јавног значаја.
         </pred:appealBasis>
   </rdf:Description>
-  <rdf:Description rdf:about="http://zalbe/20210201204803">
+  <rdf:Description rdf:about="http://zalbe/20210201225918">
     <pred:submitter xmlns:pred="http://www.tim21.com/predicate/" rdf:resource="http://users/1"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://zalbe/20210201204803">
-    <pred:submitterName xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">Milenaa</pred:submitterName>
+  <rdf:Description rdf:about="http://zalbe/20210201225918">
+    <pred:submitterName xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">Petar</pred:submitterName>
   </rdf:Description>
-  <rdf:Description rdf:about="http://zalbe/20210201204803">
+  <rdf:Description rdf:about="http://zalbe/20210201225918">
     <pred:submitterLastname xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://zalbe/20210201204803">
+  <rdf:Description rdf:about="http://zalbe/20210201225918">
     <pred:submitterCity xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">Beograd</pred:submitterCity>
   </rdf:Description>
-  <rdf:Description rdf:about="http://zalbe/20210201204803">
+  <rdf:Description rdf:about="http://zalbe/20210201225918">
     <pred:submitterStreet xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://zalbe/20210201204803">
+  <rdf:Description rdf:about="http://zalbe/20210201225918">
     <pred:submitterStreetnum xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">1</pred:submitterStreetnum>
   </rdf:Description>
 </rdf:RDF>

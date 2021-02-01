@@ -7,7 +7,7 @@ public class IdGenerator {
 
     private static String date;
 
-    public static String generate(String className) {
+    public static String generate() {
         date = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
         date = date.replace(".", "");
 

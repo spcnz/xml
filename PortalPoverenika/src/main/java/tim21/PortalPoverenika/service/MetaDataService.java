@@ -101,13 +101,9 @@ public class MetaDataService {
         String sparqlQuery = String.format(readFile(SPARQL_PATH + GRAPH_URI.toLowerCase() + ".rq", StandardCharsets.UTF_8),
                 filter.getSubmitterStreet(), filter.getSubmitterCity(), filter.getSubmitterName(), filter.getSubmitterLastname(), filter.getRequestId(), filter.getRequestDate(),
                 filter.getRecipientStreet(), filter.getRecipientCity());
-        System.out.println("QUERY JEBENI " + sparqlQuery + " \n\n\n\n\n\n");
-        // Create a QueryExecution that will access a SPARQL service over HTTP
-        System.out.println("CON QUERY " + conn.queryEndpoint);
+
         QueryExecution query = QueryExecutionFactory.sparqlService(conn.queryEndpoint, sparqlQuery);
 
-
-        // Query the collection, dump output response as XML
         ResultSet results = query.execSelect();
 
         List<String> res  = new ArrayList<String>();
@@ -119,7 +115,6 @@ public class MetaDataService {
             QuerySolution querySolution = results.next();
             Iterator<String> variableBindings = querySolution.varNames();
 
-            // Retrieve variable bindings
             while (variableBindings.hasNext()) {
 
                 varName = variableBindings.next();

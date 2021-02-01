@@ -166,7 +166,7 @@ public class ExistManager {
 	}
 
 
-	public ResourceSet search(String collectionUri, String keyword, String targetNamespace) throws Exception  {
+	public ResourceSet search(String collectionUri, String keyword, String targetNamespace, String rootElement) throws Exception  {
 		createConnection();
 		Collection col = null;
 		ResourceSet result = null;
@@ -176,8 +176,7 @@ public class ExistManager {
 			XPathQueryService xpathService = (XPathQueryService) col.getService("XPathQueryService", "1.0");
 			xpathService.setProperty("indent", "yes");
 			xpathService.setNamespace("", targetNamespace);
-			String xPathSelector = String.format("//Zalba[*//*[contains(text(),'%s')]]", keyword);
-
+			String xPathSelector = String.format("//%1$s[*//*[contains(text(),'%2$s')]] | //%1$s[*[contains(text(),'%2$s')]]", rootElement, keyword);
 			result = xpathService.query(xPathSelector);
 		} finally {
 			if (col != null) {
