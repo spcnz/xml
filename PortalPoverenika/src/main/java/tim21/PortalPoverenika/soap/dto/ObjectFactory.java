@@ -1,8 +1,6 @@
 
 package tim21.PortalPoverenika.soap.dto;
 
-import tim21.PortalVlasti.model.information.TResponse;
-
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;
 import javax.xml.bind.annotation.XmlRegistry;
@@ -26,7 +24,8 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _Response_QNAME = new QName("", "Response");
+    private final static QName _Mail_QNAME = new QName("http://www.mail.com", "mail");
+    private final static QName _Response_QNAME = new QName("http://www.mail.com", "Response");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.mail
@@ -36,28 +35,33 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link MailRequest }
+     * Create an instance of {@link tim21.PortalPoverenika.soap.dto.MailRequest }
      * 
      */
-    public MailRequest createMailRequest() {
-        return new MailRequest();
+    public tim21.PortalPoverenika.soap.dto.MailRequest createMailRequest() {
+        return new tim21.PortalPoverenika.soap.dto.MailRequest();
     }
 
     /**
-     * Create an instance of {@link tim21.PortalVlasti.model.information.TResponse }
-     *
+     * Create an instance of {@link tim21.PortalPoverenika.soap.dto.TResponse }
+     * 
      */
-    public tim21.PortalVlasti.model.information.TResponse createTResponse() {
-        return new tim21.PortalVlasti.model.information.TResponse();
+    public tim21.PortalPoverenika.soap.dto.TResponse createTResponse() {
+        return new tim21.PortalPoverenika.soap.dto.TResponse();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link tim21.PortalVlasti.model.information.TResponse }{@code >}}
-     *
+     * Create an instance of {@link JAXBElement }{@code <}{@link tim21.PortalPoverenika.soap.dto.MailRequest }{@code >}}
+     * 
      */
-    @XmlElementDecl(namespace = "", name = "Response")
-    public JAXBElement<tim21.PortalVlasti.model.information.TResponse> createResponse(tim21.PortalVlasti.model.information.TResponse value) {
-        return new JAXBElement<tim21.PortalVlasti.model.information.TResponse>(_Response_QNAME, TResponse.class, null, value);
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link tim21.PortalPoverenika.soap.dto.TResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.mail.com", name = "Response")
+    public JAXBElement<tim21.PortalPoverenika.soap.dto.TResponse> createResponse(tim21.PortalPoverenika.soap.dto.TResponse value) {
+        return new JAXBElement<tim21.PortalPoverenika.soap.dto.TResponse>(_Response_QNAME, tim21.PortalPoverenika.soap.dto.TResponse.class, null, value);
     }
 
 }

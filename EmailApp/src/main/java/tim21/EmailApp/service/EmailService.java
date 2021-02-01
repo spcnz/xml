@@ -6,8 +6,8 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.core.env.Environment;
-import tim21.EmailApp.model.request.MailRequest;
-import tim21.EmailApp.model.response.TResponse;
+import tim21.EmailApp.model.TResponse;
+import tim21.EmailApp.model.MailRequest;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;

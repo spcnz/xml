@@ -35,18 +35,18 @@ import javax.xml.bind.annotation.*;
     "content",
     "file"
 })
-@XmlRootElement(name = "mail",namespace = "http://www.mail.com")
+@XmlRootElement(name="mail")
 public class MailRequest {
 
     @XmlElement(name = "From", required = true, namespace = "http://www.mail.com")
     protected String from;
-    @XmlElement(name = "To", required = true, namespace = "http://www.mail.com")
+    @XmlElement(name = "To", required = true,  namespace = "http://www.mail.com")
     protected String to;
-    @XmlElement(name = "Subject", required = true, namespace = "http://www.mail.com")
+    @XmlElement(name = "Subject", required = true,  namespace = "http://www.mail.com")
     protected String subject;
-    @XmlElement(name = "Content", required = true, namespace = "http://www.mail.com")
+    @XmlElement(name = "Content", required = true,  namespace = "http://www.mail.com")
     protected String content;
-    @XmlElement(name = "File", required = true, namespace = "http://www.mail.com")
+    @XmlElement(name = "File", required = true,  namespace = "http://www.mail.com")
     protected Object file;
 
     /**

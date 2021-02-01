@@ -13,7 +13,6 @@ import tim21.PortalPoverenika.model.rescript.Resenje;
 import tim21.PortalPoverenika.service.RescriptService;
 import tim21.PortalPoverenika.soap.client.MailClient;
 import tim21.PortalPoverenika.soap.dto.MailRequest;
-import tim21.PortalPoverenika.soap.dto.MailResponse;
 
 import javax.xml.bind.JAXBException;
 import java.io.IOException;

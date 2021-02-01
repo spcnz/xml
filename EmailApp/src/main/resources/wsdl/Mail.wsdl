@@ -15,7 +15,7 @@
         <wsdl:part name="mail" type="ma:MailRequest" />
     </wsdl:message>
     <wsdl:message name="sendEmailResponse">
-        <wsdl:part name="success" type="ma:TResponse" />
+        <wsdl:part name="response" type="ma:TResponse" />
     </wsdl:message>
 
     <wsdl:portType name="MailServicePortType">
@@ -26,14 +26,14 @@
     </wsdl:portType>
 
     <wsdl:binding name="MailServiceSoapBinding" type="ma:MailServicePortType">
-        <soap:binding  transport="http://schemas.xmlsoap.org/soap/http" />
+        <soap:binding  style="document" transport="http://schemas.xmlsoap.org/soap/http" />
         <wsdl:operation name="sendEmail">
             <soap:operation soapAction="http://www.mail.com/ws/sendEmail" />
             <wsdl:input>
-                <soap:body use="literal"/>
+                <soap:body use="encoded"/>
             </wsdl:input>
             <wsdl:output>
-                <soap:body use="literal"/>
+                <soap:body use="encoded"/>
             </wsdl:output>
         </wsdl:operation>
     </wsdl:binding>

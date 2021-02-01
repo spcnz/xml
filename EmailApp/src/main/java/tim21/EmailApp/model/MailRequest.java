@@ -1,5 +1,5 @@
 
-package tim21.EmailApp.model.request;
+package tim21.EmailApp.model;
 
 import javax.xml.bind.annotation.*;
 
@@ -35,7 +35,6 @@ import javax.xml.bind.annotation.*;
     "content",
     "file"
 })
-@XmlRootElement(name = "mail")
 public class MailRequest {
 
     @XmlElement(name = "From", required = true)

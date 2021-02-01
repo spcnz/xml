@@ -5,7 +5,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.ws.client.core.support.WebServiceGatewaySupport;
 import org.springframework.ws.soap.client.core.SoapActionCallback;
 import tim21.PortalPoverenika.soap.dto.MailRequest;
-import tim21.PortalPoverenika.soap.dto.MailResponse;
+import tim21.PortalPoverenika.soap.dto.TResponse;
 import tim21.PortalPoverenika.soap.dto.TResponse;
 
 import javax.swing.plaf.synth.SynthTextAreaUI;
