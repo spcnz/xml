@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<ZahtevRoot 
+    xmlns="http://www.zahtev.com"
+    xmlns:sh="http://www.shared.com"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.zahtev.com ../xsd/zahtev.xsd"
+    xmlns:pred="http://www.tim21.com/predicate/"
+    
+    
+    about="http://zahtevi/1"
+    rel="pred:submitter"
+    href="http://users/1"
+    id="1"
+  >
 <zahtev_dokument
-        xmlns="http://www.zahtev.com"
-        xmlns:sh="http://www.shared.com"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.zahtev.com ../xsd/zahtev.xsd"
-        xmlns:pred="http://www.tim21.com/predicate/"
-
-
-        about="http://zahtevi/1"
-        rel="pred:submitter"
-        href="http://users/1"
-        id="1"
+      
 >
     <nadlezni_organ>
         <naziv property="pred:institutionName">Neko ime</naziv>
@@ -71,3 +74,4 @@
 
 
 </zahtev_dokument>
+</ZahtevRoot>  

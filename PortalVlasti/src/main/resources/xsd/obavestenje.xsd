@@ -2,162 +2,6 @@
     targetNamespace="http://www.obavestenje.com" xmlns="http://www.obavestenje.com"
     elementFormDefault="qualified">
     <xs:import namespace="http://www.shared.com" schemaLocation="shared.xsd"/>
-    <xs:element name="Obavestenje">
-        <xs:complexType mixed="true">
-            <xs:sequence>
-                <xs:element name="Organ">
-                    <xs:complexType>
-                        <xs:sequence>
-                            <xs:element name="Naziv" type="xs:string"/>
-                            <xs:element ref="sh:Adresa"/>
-                        </xs:sequence>
-                    </xs:complexType>
-                </xs:element>
-                <xs:element name="Broj_predmeta">
-                    <xs:complexType>
-                        <xs:simpleContent>
-                            <xs:extension base="xs:int">
-                                <xs:anyAttribute namespace="##any" processContents="lax"/>
-                            </xs:extension>
-                        </xs:simpleContent>
-                    </xs:complexType>
-                </xs:element>
-                <xs:element name="Datum">
-                    <xs:complexType>
-                        <xs:simpleContent>
-                            <xs:extension base="xs:date">
-                                <xs:anyAttribute namespace="##any" processContents="lax"/>
-                            </xs:extension>
-                        </xs:simpleContent>
-                    </xs:complexType>
-                </xs:element>
-                <xs:element name="Podnosilac">
-                    <xs:complexType>
-                        <xs:complexContent>
-                            <xs:extension base="TPodnosilac">
-                                <xs:anyAttribute namespace="##any" processContents="lax"/>
-                            </xs:extension>
-                        </xs:complexContent>
-                    </xs:complexType>
-                </xs:element>
-                <xs:element name="Naslov" type="xs:string"/>
-                <xs:element name="Podnaslov" type="xs:string"/>
-                <xs:element name="Odgovor">
-                    <xs:complexType>
-                        <xs:sequence>
-                            <xs:element maxOccurs="1" minOccurs="1" name="Godina_zahteva">
-                                <xs:complexType>
-                                    <xs:simpleContent>
-                                        <xs:extension base="xs:int">
-                                            <xs:anyAttribute namespace="##any" processContents="lax"
-                                            />
-                                        </xs:extension>
-                                    </xs:simpleContent>
-                                </xs:complexType>
-                            </xs:element>
-                            <xs:element name="Opis_trazene_informacije" type="xs:string"/>
-                            <xs:element name="Datum">
-                                <xs:complexType>
-                                    <xs:simpleContent>
-                                        <xs:extension base="xs:date">
-                                            <xs:anyAttribute namespace="##any" processContents="lax"
-                                            />
-                                        </xs:extension>
-                                    </xs:simpleContent>
-                                </xs:complexType>
-                            </xs:element>
-                            <xs:element name="Sati">
-                                <xs:simpleType>
-                                    <xs:restriction base="xs:integer">
-                                        <xs:minInclusive value="0"/>
-                                        <xs:maxInclusive value="23"/>
-                                    </xs:restriction>
-                                </xs:simpleType>
-                            </xs:element>
-                            <xs:element name="Sati_od">
-                                <xs:simpleType>
-                                    <xs:restriction base="xs:integer">
-                                        <xs:minInclusive value="0"/>
-                                        <xs:maxInclusive value="23"/>
-                                    </xs:restriction>
-                                </xs:simpleType>
-                            </xs:element>
-                            <xs:element name="Sati_do">
-                                <xs:simpleType>
-                                    <xs:restriction base="xs:integer">
-                                        <xs:minInclusive value="0"/>
-                                        <xs:maxInclusive value="23"/>
-                                    </xs:restriction>
-                                </xs:simpleType>
-                            </xs:element>
-                            <xs:element name="Lokacija" type="TLokacija"/>
-                        </xs:sequence>
-                    </xs:complexType>
-                </xs:element>
-                <xs:element name="Podaci_o_placanju">
-                    <xs:complexType>
-                        <xs:sequence>
-                            <xs:element name="Pojedinacni_troskovi">
-                                <xs:complexType>
-                                    <xs:sequence maxOccurs="unbounded" minOccurs="1">
-                                        <xs:element name="Trosak">
-                                            <xs:complexType>
-                                                <xs:sequence>
-                                                  <xs:element name="Naziv" type="xs:string"/>
-                                                  <xs:element name="Cena" type="xs:positiveInteger"
-                                                  />
-                                                </xs:sequence>
-                                            </xs:complexType>
-                                        </xs:element>
-                                    </xs:sequence>
-                                </xs:complexType>
-                            </xs:element>
-                            <xs:element name="Ukupni_troskovi">
-                                <xs:complexType>
-                                    <xs:simpleContent>
-                                        <xs:extension base="xs:positiveInteger">
-                                            <xs:anyAttribute namespace="##any" processContents="lax"
-                                            />
-                                        </xs:extension>
-                                    </xs:simpleContent>
-                                </xs:complexType>
-                            </xs:element>
-                            <xs:element name="Broj_racuna">
-                                <xs:complexType>
-                                    <xs:simpleContent>
-                                        <xs:extension base="TBroj_racuna">
-                                            <xs:anyAttribute namespace="##any" processContents="lax"
-                                            />
-                                        </xs:extension>
-                                    </xs:simpleContent>
-                                </xs:complexType>
-                            </xs:element>
-                            <xs:element name="Poziv_na_broj">
-                                <xs:complexType>
-                                    <xs:simpleContent>
-                                        <xs:extension base="TPoziv_na_broj">
-                                            <xs:anyAttribute namespace="##any" processContents="lax"
-                                            />
-                                        </xs:extension>
-                                    </xs:simpleContent>
-                                </xs:complexType>
-                            </xs:element>
-                        </xs:sequence>
-                    </xs:complexType>
-                </xs:element>
-                <xs:element name="Dostavljeno">
-                    <xs:complexType>
-                        <xs:simpleContent>
-                            <xs:extension base="TDostavljeno">
-                                <xs:anyAttribute namespace="##any" processContents="lax"/>
-                            </xs:extension>
-                        </xs:simpleContent>
-                    </xs:complexType>
-                </xs:element>
-            </xs:sequence>
-            <xs:anyAttribute namespace="##any" processContents="lax"/>
-        </xs:complexType>
-    </xs:element>
     <xs:complexType mixed="true" name="TLokacija">
         <xs:sequence>
             <xs:element ref="sh:Adresa"/>
@@ -186,4 +30,159 @@
             <xs:enumeration value="ARHIVI"/>
         </xs:restriction>
     </xs:simpleType>
+    <xs:element name="ObavestenjeRoot">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Obavestenje" type="TObavestenje"/>
+            </xs:sequence>
+            <xs:anyAttribute namespace="##any" processContents="lax"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="TObavestenje">
+        <xs:sequence>
+            <xs:element name="Organ">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Naziv" type="xs:string"/>
+                        <xs:element ref="sh:Adresa"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Broj_predmeta">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:int">
+                            <xs:anyAttribute namespace="##any" processContents="lax"/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Datum">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:date">
+                            <xs:anyAttribute namespace="##any" processContents="lax"/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Podnosilac">
+                <xs:complexType>
+                    <xs:complexContent>
+                        <xs:extension base="TPodnosilac">
+                            <xs:anyAttribute namespace="##any" processContents="lax"/>
+                        </xs:extension>
+                    </xs:complexContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Naslov" type="xs:string"/>
+            <xs:element name="Podnaslov" type="xs:string"/>
+            <xs:element name="Odgovor">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="1" minOccurs="1" name="Godina_zahteva">
+                            <xs:complexType>
+                                <xs:simpleContent>
+                                    <xs:extension base="xs:int">
+                                        <xs:anyAttribute namespace="##any" processContents="lax"/>
+                                    </xs:extension>
+                                </xs:simpleContent>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element name="Opis_trazene_informacije" type="xs:string"/>
+                        <xs:element name="Datum">
+                            <xs:complexType>
+                                <xs:simpleContent>
+                                    <xs:extension base="xs:date">
+                                        <xs:anyAttribute namespace="##any" processContents="lax"/>
+                                    </xs:extension>
+                                </xs:simpleContent>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element name="Sati">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:integer">
+                                    <xs:minInclusive value="0"/>
+                                    <xs:maxInclusive value="23"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="Sati_od">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:integer">
+                                    <xs:minInclusive value="0"/>
+                                    <xs:maxInclusive value="23"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="Sati_do">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:integer">
+                                    <xs:minInclusive value="0"/>
+                                    <xs:maxInclusive value="23"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="Lokacija" type="TLokacija"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Podaci_o_placanju">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Pojedinacni_troskovi">
+                            <xs:complexType>
+                                <xs:sequence maxOccurs="unbounded" minOccurs="1">
+                                    <xs:element name="Trosak">
+                                        <xs:complexType>
+                                            <xs:sequence>
+                                                <xs:element name="Naziv" type="xs:string"/>
+                                                <xs:element name="Cena" type="xs:positiveInteger"/>
+                                            </xs:sequence>
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element name="Ukupni_troskovi">
+                            <xs:complexType>
+                                <xs:simpleContent>
+                                    <xs:extension base="xs:positiveInteger">
+                                        <xs:anyAttribute namespace="##any" processContents="lax"/>
+                                    </xs:extension>
+                                </xs:simpleContent>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element name="Broj_racuna">
+                            <xs:complexType>
+                                <xs:simpleContent>
+                                    <xs:extension base="TBroj_racuna">
+                                        <xs:anyAttribute namespace="##any" processContents="lax"/>
+                                    </xs:extension>
+                                </xs:simpleContent>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element name="Poziv_na_broj">
+                            <xs:complexType>
+                                <xs:simpleContent>
+                                    <xs:extension base="TPoziv_na_broj">
+                                        <xs:anyAttribute namespace="##any" processContents="lax"/>
+                                    </xs:extension>
+                                </xs:simpleContent>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Dostavljeno">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="TDostavljeno">
+                            <xs:anyAttribute namespace="##any" processContents="lax"/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
 </xs:schema>
