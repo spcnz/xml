@@ -36,57 +36,61 @@
             </xs:element>
         </xs:sequence>
     </xs:complexType>
-    <xs:element name="Resenje">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element name="ID">
-                    <xs:simpleType>
-                        <xs:restriction base="xs:string">
-                            <xs:pattern value="\d{3}-\d{2}-\d{4}/\d{4}-\d{2}"/>
-                        </xs:restriction>
-                    </xs:simpleType>
-                </xs:element>
-                <xs:element name="Datum">
-                    <xs:complexType>
-                        <xs:simpleContent>
-                            <xs:extension base="xs:date">
-                                <xs:anyAttribute namespace="##any" processContents="lax"/>
-                            </xs:extension>
-                        </xs:simpleContent>
-                    </xs:complexType>
-                </xs:element>
-                <xs:element name="Status_zalbe">
-                    <xs:complexType>
-                        <xs:simpleContent>
-                            <xs:extension base="re:TStatus_zalbe">
-                                <xs:anyAttribute namespace="##any" processContents="lax"/>
-                            </xs:extension>
-                        </xs:simpleContent>
-                    </xs:complexType>
-                </xs:element>
-                <xs:element name="Opis_resenja" type="re:TOpis_resenja"/>
-                <xs:element name="Obrazlozenje">
-                    <xs:complexType>
-                        <xs:sequence>
-                            <xs:element name="Opis_zalbe" type="xs:string"/>
-                            <xs:element name="Postupak_poverenika" type="xs:string"/>
-                            <xs:element name="Odgovor_na_zalbu" type="re:TOdgovor_na_zalbu"/>
-                            <xs:element name="Uputstvo_o_pravnom_sredstvu"
-                                type="re:TUpustvo_o_pravnom_sredstvu"/>
-                        </xs:sequence>
-                    </xs:complexType>
-                </xs:element>
-                <xs:element name="Poverenik" type="sh:TOsoba"/>
-            </xs:sequence>
-            <xs:attribute name="dopustena_zalba"/>
-            <xs:anyAttribute namespace="##any" processContents="lax"/>
-        </xs:complexType>
-    </xs:element>
     <xs:simpleType name="TStatus_zalbe">
         <xs:restriction base="xs:string">
             <xs:enumeration value="ODBIJENA"/>
             <xs:enumeration value="PRIHVACENA"/>
         </xs:restriction>
     </xs:simpleType>
-    <xs:complexType name=""/>
+    <xs:complexType name="TResnje">
+        <xs:sequence>
+            <xs:element name="ID">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="\d{3}-\d{2}-\d{4}/\d{4}-\d{2}"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Datum">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:date">
+                            <xs:anyAttribute namespace="##any" processContents="lax"/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Status_zalbe">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="re:TStatus_zalbe">
+                            <xs:anyAttribute namespace="##any" processContents="lax"/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Opis_resenja" type="re:TOpis_resenja"/>
+            <xs:element name="Obrazlozenje">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Opis_zalbe" type="xs:string"/>
+                        <xs:element name="Postupak_poverenika" type="xs:string"/>
+                        <xs:element name="Odgovor_na_zalbu" type="re:TOdgovor_na_zalbu"/>
+                        <xs:element name="Uputstvo_o_pravnom_sredstvu"
+                            type="re:TUpustvo_o_pravnom_sredstvu"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Poverenik" type="sh:TOsoba"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ResenjeRoot">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Resenje" type="re:TResnje"/>
+            </xs:sequence>
+            <xs:attribute name="dopustena_zalba"/>
+            <xs:anyAttribute namespace="##any" processContents="lax"/>
+        </xs:complexType>
+    </xs:element>
 </xs:schema>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<zal:zalbaCutanje
+<zal:ZalbaCutanjeRoot 
     xmlns:zal="http://www.zalbacutanje.com"
     xmlns:sh="http://www.shared.com"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -10,6 +9,7 @@
     rel="pred:appealForRequest"
     href="http://zahtevi/1"
     >
+<zalbaCutanje>
     <naziv>
         ЖАЛБА КАДА ОРГАН ВЛАСТИ НИЈЕ ПОСТУПИО/ није поступио у целости/ ПО ЗАХТЕВУ ТРАЖИОЦА У ЗАКОНСКОМ  РОКУ  (ЋУТАЊЕ УПРАВЕ)
     </naziv>
@@ -80,4 +80,5 @@
     
     
     
-</zal:zalbaCutanje>
+</zalbaCutanje>
+</zal:ZalbaCutanjeRoot>
