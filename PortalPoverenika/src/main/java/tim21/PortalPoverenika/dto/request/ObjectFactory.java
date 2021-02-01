@@ -1,7 +1,5 @@
 
-package com.project.organ_vlasti.model.util.message;
-
-import tim21.PortalPoverenika.dto.request.DecisionAppealFilterDTO;
+package tim21.PortalPoverenika.dto.request;
 
 import javax.xml.bind.annotation.XmlRegistry;
 
@@ -9,7 +7,7 @@ import javax.xml.bind.annotation.XmlRegistry;
 /**
  * This object contains factory methods for each 
  * Java content interface and Java element interface 
- * generated in the message package. 
+ * generated in the decisionFilterDTO package. 
  * <p>An ObjectFactory allows you to programatically 
  * construct new instances of the Java representation 
  * for XML content. The Java representation of XML 
@@ -18,33 +16,25 @@ import javax.xml.bind.annotation.XmlRegistry;
  * type definitions, element declarations and model 
  * groups.  Factory methods for each of these are 
  * provided in this class.
- *
+ * 
  */
 @XmlRegistry
 public class ObjectFactory {
 
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: message
-     *
+     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: decisionFilterDTO
+     * 
      */
     public ObjectFactory() {
     }
 
     /**
-     * Create an instance of {@link tim21.PortalPoverenika.dto.request.DecisionAppealFilterDTO }
-     *
+     * Create an instance of {@link DecisionAppealFilter }
+     * 
      */
-    public DecisionAppealFilterDTO createDecisionAppealFitlerDTO() {
-        return new DecisionAppealFilterDTO();
-    }
-
-    /**
-     * Create an instance of {@link Message.Body }
-     *
-     */
-    public DecisionAppealFilterDTO.RequestId createMessageBody() {
-        return new DecisionAppealFilterDTO.RequestId();
+    public DecisionAppealFilter createDecisionAppealFilter() {
+        return new DecisionAppealFilter();
     }
 
 }

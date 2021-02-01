@@ -11,7 +11,7 @@ import org.apache.jena.update.UpdateProcessor;
 import org.apache.jena.update.UpdateRequest;
 import org.springframework.stereotype.Service;
 import org.xml.sax.SAXException;
-import tim21.PortalPoverenika.dto.request.DecisionAppealFilterDTO;
+import tim21.PortalPoverenika.dto.request.DecisionAppealFilter;
 import tim21.PortalPoverenika.model.lists.DecisionAppealList;
 import tim21.PortalPoverenika.util.rdf.AuthenticationUtilities;
 import tim21.PortalPoverenika.util.rdf.MetadataExtractor;
@@ -95,12 +95,15 @@ public class MetaDataService {
     }
 
 
-    public static List<String> filter(String GRAPH_URI, DecisionAppealFilterDTO filter) throws IOException {
+    public static List<String> filter(String GRAPH_URI, DecisionAppealFilter filter) throws IOException {
         AuthenticationUtilities.ConnectionProperties conn = AuthenticationUtilities.loadProperties();
 
-        String sparqlQuery = String.format(readFile(SPARQL_PATH + GRAPH_URI.toLowerCase() + ".rq", StandardCharsets.UTF_8), filter.getRecipientCity());
-
+        String sparqlQuery = String.format(readFile(SPARQL_PATH + GRAPH_URI.toLowerCase() + ".rq", StandardCharsets.UTF_8),
+                filter.getSubmitterStreet(), filter.getSubmitterCity(), filter.getSubmitterName(), filter.getSubmitterLastname(), filter.getRequestId(), filter.getRequestDate(),
+                filter.getRecipientStreet(), filter.getRecipientCity());
+        System.out.println("QUERY JEBENI " + sparqlQuery + " \n\n\n\n\n\n");
         // Create a QueryExecution that will access a SPARQL service over HTTP
+        System.out.println("CON QUERY " + conn.queryEndpoint);
         QueryExecution query = QueryExecutionFactory.sparqlService(conn.queryEndpoint, sparqlQuery);
 
 
@@ -111,10 +114,8 @@ public class MetaDataService {
 
         String varName;
         RDFNode varValue;
-
         while (results.hasNext()) {
 
-            // A single answer from a SELECT query
             QuerySolution querySolution = results.next();
             Iterator<String> variableBindings = querySolution.varNames();
 
@@ -124,17 +125,12 @@ public class MetaDataService {
                 varName = variableBindings.next();
                 varValue = querySolution.get(varName);
 
-                System.out.println(varName + ": " + varValue);
+                res.add(varValue.toString());
             }
-            System.out.println();
         }
 
-        ResultSetFormatter.out(System.out, results);
 
         query.close() ;
-
-        System.out.println("[INFO] End.");
-
         return res;
     }
 

@@ -24,16 +24,25 @@ public class DecisionAppealRepository {
     public ExistManager existManager;
 
 
-    public boolean create(Zalba appeal) {
+    public Zalba create(Zalba appeal) {
         try {
-            String id = IdGenerator.generateDocumentID(IdGenerator.generate(XSDConstants.DECISION_APPEAL), XSDConstants.DECISION_APPEAL);
+            String id = IdGenerator.generate(XSDConstants.DECISION_APPEAL);
+            String existID = IdGenerator.generateDocumentID(id, XSDConstants.DECISION_APPEAL);
+            String aboutValue = "http://zalbe/" + id;
             Map<QName, String> attrributes = appeal.getOtherAttributes();
-            attrributes.put(new QName("id"), id);
 
-            return existManager.store(DECISIONAPPEAL_COLLECTION_URI, id, appeal, "zalbe");
+            attrributes.put(new QName("id"), existID);
+            attrributes.put(new QName("about"), aboutValue);
+            //appeal.getPrimaoc().getOtherAttributes().put(new QName("about"), aboutValue);
+            //appeal.getPodnosilac().getOtherAttributes().put(new QName("about"), aboutValue);
+
+            if(existManager.store(DECISIONAPPEAL_COLLECTION_URI, existID, appeal, "zalbe")){
+                return appeal;
+            }
+            return null;
         } catch (Exception e) {
             e.printStackTrace();
-            return false;
+            return null;
         }
     }
 

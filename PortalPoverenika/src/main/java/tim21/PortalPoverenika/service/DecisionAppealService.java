@@ -28,14 +28,14 @@ public class DecisionAppealService {
     DecisionAppealRepository appealRepository;
 
 
-    public boolean create(Zalba appeal) throws IOException, SAXException {
+    public Zalba create(Zalba appeal) throws IOException, SAXException {
 
 
         if (Validator.validate(appeal.getClass(), appeal)){
 
             return appealRepository.create(appeal);
         }
-        return false;
+        return null;
     }
 
 

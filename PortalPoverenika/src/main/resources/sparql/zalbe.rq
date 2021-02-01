@@ -1,23 +1,23 @@
 PREFIX pred: <http://www.tim21.com/predicate/>
 prefix xsd: <http://www.w3.org/2001/XMLSchema#>
 
-SELECT * FROM <http://localhost:8089/fuseki/Tim21Dataset/data/zalbe>
+SELECT ?appeal FROM <http://localhost:8089/fuseki/Tim21Dataset/data/zalbe>
 WHERE{
     ?appeal pred:submitterStreet ?submitterStreet .
+    ?appeal pred:submitterCity ?submitterCity .
     ?appeal pred:submitterName ?submitterName .
     ?appeal pred:submitterLastname ?submitterLastname .
     ?appeal pred:appealForRequest ?appealForRequest .
     ?appeal pred:requestDate ?requestDate .
-  	?appeal pred:recipient ?recipient .
     ?appeal pred:recipientStreet ?recipientStreet .
     ?appeal pred:recipientCity ?recipientCity .
 
     FILTER(CONTAINS(UCASE(str(?submitterStreet)), UCASE("%1$s"))
-        && CONTAINS(UCASE(str(?submitterName)), UCASE("%2$s"))
-        && CONTAINS(UCASE(str(?submitterLastname)), UCASE("%3$s"))
-        && CONTAINS(UCASE(str(?appealForRequest)), UCASE("%4$s"))
-    	&& CONTAINS(UCASE(str(?requestDate)), UCASE("%5$s"))
-    	&& CONTAINS(UCASE(str(?recipient)), UCASE("%6$s"))
+        && CONTAINS(UCASE(str(?submitterCity)), UCASE("%2$s"))
+        && CONTAINS(UCASE(str(?submitterName)), UCASE("%3$s"))
+        && CONTAINS(UCASE(str(?submitterLastname)), UCASE("%4$s"))
+        && CONTAINS(UCASE(str(?appealForRequest)), UCASE("%5$s"))
+    	&& CONTAINS(UCASE(str(?requestDate)), UCASE("%6$s"))
     	&& CONTAINS(UCASE(str(?recipientStreet)), UCASE("%7$s"))
     	&& CONTAINS(UCASE(str(?recipientCity)), UCASE("%8$s"))
     ).
