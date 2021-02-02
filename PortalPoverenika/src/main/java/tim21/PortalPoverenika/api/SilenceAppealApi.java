@@ -27,6 +27,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static tim21.PortalPoverenika.util.constants.RDFConstants.DECISIONAPPEAL_RDF_RESOURCES;
+import static tim21.PortalPoverenika.util.constants.RDFConstants.DECISIONSILENCE_RDF_RESOURCES;
 
 @RestController
 @RequestMapping(value = "/api/silenceappeal", produces = MediaType.APPLICATION_XML_VALUE)
@@ -87,10 +88,13 @@ public class SilenceAppealApi {
     public ResponseEntity<?> metaSearchAppeals(@RequestBody SilenceAppealFilter filter) {
         List<ZalbaCutanjeRoot> appeals = new ArrayList<ZalbaCutanjeRoot>();
         List<String> res = new ArrayList<String>();
-        List<String> filterVals = Arrays.asList(filter.getAppealDate());
+        List<String> filterVals = Arrays.asList(filter.getSubmitterStreet(), filter.getSubmitterCity(), filter.getSubmitterName(), filter.getSubmitterLastname(),
+                                    filter.getRequestId(), filter.getRequestDate(), filter.getRecipientStreet(), filter.getRecipientCity(), filter.getRequestDetails(), filter.getAuthorityName(), filter.getAppealDate());
         try {
             res =  metaDataService.filter("ZalbeCutanje", filterVals);
+            System.out.println("KLJUC  RES OVO ONO " + res.size());
             for(String key : res){
+                System.out.println("KLJUC " + key);
                 String id = key.split("zalbeCutanje")[1].substring(1);    // format keya je http://zalbe/234213123
                 appeals.add(appealService.getOne(id + ".xml"));
             }
@@ -104,7 +108,7 @@ public class SilenceAppealApi {
 
     @RequestMapping(value= "/meta/rdf/{ID}", method=RequestMethod.GET)
     public ResponseEntity<InputStreamResource> metaExportRDF(@PathVariable Long ID) throws IOException {
-        String path = DECISIONAPPEAL_RDF_RESOURCES + ID + ".rdf";
+        String path = DECISIONSILENCE_RDF_RESOURCES + ID + ".rdf";
         try {
             ByteArrayInputStream bis = new ByteArrayInputStream(Files.readAllBytes(Paths.get(path)));
 
@@ -120,7 +124,7 @@ public class SilenceAppealApi {
     @RequestMapping(value= "/meta/json/{ID}", method=RequestMethod.GET)
     public ResponseEntity<?> metaExportJSON(@PathVariable Long ID) throws IOException {
 
-        String path = DECISIONAPPEAL_RDF_RESOURCES + ID + ".json";
+        String path = DECISIONSILENCE_RDF_RESOURCES + ID + ".json";
         try {
             ByteArrayInputStream bis = new ByteArrayInputStream(Files.readAllBytes(Paths.get(path)));
 
