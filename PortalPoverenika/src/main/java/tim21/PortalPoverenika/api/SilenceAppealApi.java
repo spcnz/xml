@@ -84,11 +84,12 @@ public class SilenceAppealApi {
         List<ZalbaCutanjeRoot> appeals = new ArrayList<ZalbaCutanjeRoot>();
         List<String> res = new ArrayList<String>();
         List<String> filterVals = Arrays.asList(filter.getSubmitterStreet(), filter.getSubmitterCity(), filter.getSubmitterName(), filter.getSubmitterLastname(),
-                                    filter.getRequestId(), filter.getRequestDate(), filter.getRecipientStreet(), filter.getRecipientCity(), filter.getRequestDetails(), filter.getAuthorityName());
-        System.out.println(filterVals + " SU FILTERII");
+                                    filter.getRequestId(), filter.getRequestDate(), filter.getRecipientStreet(), filter.getRecipientCity(), filter.getRequestDetails(), filter.getAuthorityName(), filter.getAppealDate());
         try {
             res =  metaDataService.filter("ZalbeCutanje", filterVals);
+            System.out.println("KLJUC  RES OVO ONO " + res.size());
             for(String key : res){
+                System.out.println("KLJUC " + key);
                 String id = key.split("zalbeCutanje")[1].substring(1);    // format keya je http://zalbe/234213123
                 appeals.add(appealService.getOne(id + ".xml"));
             }
