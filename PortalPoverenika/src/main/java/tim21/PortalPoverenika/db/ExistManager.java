@@ -17,6 +17,7 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
 import javax.xml.transform.OutputKeys;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.OutputStream;
 
 @Service
@@ -89,7 +90,7 @@ public class ExistManager {
 
 		try {
 			col = getOrCreateCollection(collectionId, 0);
-			res = (XMLResource) col.createResource(documentId, XMLResource.RESOURCE_TYPE);
+			res = (XMLResource) col.createResource(documentId + ".xml", XMLResource.RESOURCE_TYPE);
 
 
 			JAXBContext context = JAXBContext.newInstance(xml.getClass());
@@ -101,7 +102,6 @@ public class ExistManager {
 					"<?xml-stylesheet type=\"text/xsl\" href=\"../xsl/grddl.xsl\"?>");
 
 
-
 			marshaller.marshal(xml, os);
 
 
@@ -109,7 +109,7 @@ public class ExistManager {
 			col.storeResource(res);
 
 			// Ovdje ekstrahujemo
-			metadataExtract.extract(os, collectionName);
+			metadataExtract.extract(os, collectionName + "/" + documentId);
 
 
 		} catch (Exception e) {

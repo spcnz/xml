@@ -1,6 +1,7 @@
 package tim21.PortalPoverenika.service;
 
 import ch.qos.logback.core.util.FileUtil;
+import com.sun.xml.internal.messaging.saaj.util.ByteOutputStream;
 import org.apache.jena.query.*;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
@@ -48,12 +49,14 @@ public class MetaDataService {
 
         // Loading a default model with extracted metadata
         Model model = ModelFactory.createDefaultModel();
+
         model.read(RDF_FILEPATH + GRAPH_URI + ".rdf");
 
         ByteArrayOutputStream out = new ByteArrayOutputStream();
+        FileOutputStream outJSON = new FileOutputStream(new File(RDF_FILEPATH + GRAPH_URI + ".json"));
 
         model.write(out, SparqlUtil.NTRIPLES);
-
+        model.write(outJSON, SparqlUtil.JSON);
         System.out.println("[INFO] Extracted metadata as RDF/XML...");
         model.write(System.out, SparqlUtil.RDF_XML);
 

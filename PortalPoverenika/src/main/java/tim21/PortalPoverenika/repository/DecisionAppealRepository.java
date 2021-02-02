@@ -34,7 +34,7 @@ public class DecisionAppealRepository {
             attrributes.put(new QName("id"), id);
             attrributes.put(new QName("about"), aboutValue);
 
-            if(existManager.store(DECISIONAPPEAL_COLLECTION_URI, id + ".xml", appeal, "zalbe")){
+            if(existManager.store(DECISIONAPPEAL_COLLECTION_URI, id , appeal, "zalbe")){
                 return appeal;
             }
             return null;
