@@ -42,7 +42,7 @@
             <xs:enumeration value="PRIHVACENA"/>
         </xs:restriction>
     </xs:simpleType>
-    <xs:complexType name="TResnje">
+    <xs:complexType name="TResenje">
         <xs:sequence>
             <xs:element name="ID">
                 <xs:simpleType>
@@ -87,10 +87,15 @@
     <xs:element name="ResenjeRoot">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="Resenje" type="re:TResnje"/>
+                <xs:element name="Resenje" type="re:TResenje"/>
             </xs:sequence>
             <xs:attribute name="dopustena_zalba"/>
             <xs:anyAttribute namespace="##any" processContents="lax"/>
         </xs:complexType>
     </xs:element>
+    <xs:complexType name="RescriptList">
+        <xs:sequence>
+            <xs:any maxOccurs="unbounded" minOccurs="0" processContents="skip"/>
+        </xs:sequence>
+    </xs:complexType>
 </xs:schema>

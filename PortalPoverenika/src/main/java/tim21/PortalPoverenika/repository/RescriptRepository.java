@@ -1,7 +1,7 @@
 package tim21.PortalPoverenika.repository;
 
 import tim21.PortalPoverenika.db.ExistManager;
-import tim21.PortalPoverenika.model.rescript.Resenje;
+import tim21.PortalPoverenika.model.rescript.ResenjeRoot;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.xmldb.api.base.ResourceSet;
@@ -23,14 +23,14 @@ public class RescriptRepository {
     public ExistManager existManager;
 
 
-    public boolean create(Resenje rescript) {
+    public boolean create(ResenjeRoot rescript) {
         try {
             String id = IdGenerator.generate();
-            rescript.setID(id);
+            rescript.getResenje().setID(id);
             Map<QName, String> attrributes = rescript.getOtherAttributes();
             attrributes.put(new QName("id"), id);
 
-            return existManager.store(RESCRIPT_COLLECTION_URI, IdGenerator.generateDocumentID(id, XSDConstants.RESCRIPT), rescript, "resenja");
+            return existManager.store(RESCRIPT_COLLECTION_URI, id, rescript, "resenja");
         } catch (Exception e) {
             e.printStackTrace();
             return false;
@@ -48,7 +48,7 @@ public class RescriptRepository {
 
     public ResourceSet getAll() throws XMLDBException {
         try {
-            return existManager.getAll(RESCRIPT_COLLECTION_URI, "/Resenje", RESCRIPT_TARGET_NAMESPACE);
+            return existManager.getAll(RESCRIPT_COLLECTION_URI, "/ResenjeRoot", RESCRIPT_TARGET_NAMESPACE);
         } catch (Exception e) {
             e.printStackTrace();
             return null;

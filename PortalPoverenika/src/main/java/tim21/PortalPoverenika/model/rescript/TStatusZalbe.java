@@ -11,16 +11,16 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  * <p>
  * <pre>
- * &lt;simpleType name="TStatus_zalbe">
- *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *     &lt;enumeration value="ODBIJENA"/>
- *     &lt;enumeration value="PRIHVACENA"/>
- *   &lt;/restriction>
- * &lt;/simpleType>
+ * &lt;simpleType name="TStatus_zalbe"&gt;
+ *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
+ *     &lt;enumeration value="ODBIJENA"/&gt;
+ *     &lt;enumeration value="PRIHVACENA"/&gt;
+ *   &lt;/restriction&gt;
+ * &lt;/simpleType&gt;
  * </pre>
  * 
  */
-@XmlType(name = "TStatus_zalbe", namespace = "http://www.resenje.com")
+@XmlType(name = "TStatus_zalbe")
 @XmlEnum
 public enum TStatusZalbe {
 

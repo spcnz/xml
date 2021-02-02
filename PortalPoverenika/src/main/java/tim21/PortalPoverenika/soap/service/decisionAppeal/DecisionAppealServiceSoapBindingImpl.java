@@ -49,7 +49,11 @@ public class DecisionAppealServiceSoapBindingImpl implements DecisionAppealServi
         System.out.println(id);
         try {
             ZalbaRoot rootEl = decisionAppealService.getOne(id);
-            return rootEl.getZalba();
+            if (rootEl != null) {
+                return rootEl.getZalba();
+            } else {
+                return null;
+            }
         } catch (Exception ex) {
             ex.printStackTrace();
             throw new RuntimeException(ex);

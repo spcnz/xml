@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tim21.PortalPoverenika.model.lists.SilenceAppealList;
 import tim21.PortalPoverenika.model.silenceAppeal.TZalbaCutanje;
+import tim21.PortalPoverenika.model.silenceAppeal.ZalbaCutanjeRoot;
 import tim21.PortalPoverenika.service.SilenceAppealService;
 
 import java.util.logging.Logger;
@@ -61,8 +62,13 @@ public class SilenceAppealServiceSoapBindingImpl implements SilenceAppealService
         LOG.info("Executing operation getSilenceAppealById");
         System.out.println(id);
         try {
-            TZalbaCutanje _return = silenceAppealService.getOne(id).getZalbaCutanje();
-            return _return;
+            ZalbaCutanjeRoot root = silenceAppealService.getOne(id);
+            if (root != null) {
+                return root.getZalbaCutanje();
+            }
+            else {
+                return null;
+            }
         } catch (Exception ex) {
             ex.printStackTrace();
             throw new RuntimeException(ex);
