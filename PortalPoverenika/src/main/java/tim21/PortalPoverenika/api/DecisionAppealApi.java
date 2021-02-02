@@ -119,7 +119,7 @@ public class DecisionAppealApi {
 
             HttpHeaders headers = new HttpHeaders();
             headers.add("Content-Type", "application/xml; charset=utf-8");
-
+            headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=" + ID + ".rdf");
             return ResponseEntity.ok().headers(headers).body(new InputStreamResource(bis));
         }catch(Exception e){
             return new   ResponseEntity(HttpStatus.BAD_REQUEST);
@@ -134,8 +134,8 @@ public class DecisionAppealApi {
             ByteArrayInputStream bis = new ByteArrayInputStream(Files.readAllBytes(Paths.get(path)));
 
             HttpHeaders headers = new HttpHeaders();
-            headers.add("Content-Type", "application/json; charset=utf-8");
 
+            headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=" + ID + ".json");
             return ResponseEntity.ok().headers(headers).body(new InputStreamResource(bis));
         }catch(Exception e){
             return new   ResponseEntity(HttpStatus.BAD_REQUEST);
