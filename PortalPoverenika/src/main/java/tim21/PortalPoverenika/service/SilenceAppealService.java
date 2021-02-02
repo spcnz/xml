@@ -74,7 +74,7 @@ public class SilenceAppealService {
 
 
     public SilenceAppealList search(String keyword) throws XMLDBException, JAXBException {
-        List<ZalbaCutanje> appeals = new ArrayList<>();
+        List<ZalbaCutanjeRoot> appeals = new ArrayList<>();
 
         ResourceSet resourceSet = null;
         resourceSet = appealRepository.search(keyword);
@@ -85,9 +85,9 @@ public class SilenceAppealService {
             System.out.println(xmlResource);
             if(xmlResource == null)
                 return null;
-            JAXBContext context = JAXBContext.newInstance(ZalbaCutanje.class);
+            JAXBContext context = JAXBContext.newInstance(ZalbaCutanjeRoot.class);
             Unmarshaller unmarshaller = context.createUnmarshaller();
-            ZalbaCutanje appeal = (ZalbaCutanje) unmarshaller.unmarshal(xmlResource.getContentAsDOM());
+            ZalbaCutanjeRoot appeal = (ZalbaCutanjeRoot) unmarshaller.unmarshal(xmlResource.getContentAsDOM());
             appeals.add(appeal);
         }
         return new SilenceAppealList(appeals);
