@@ -1,86 +1,82 @@
 
 package tim21.PortalPoverenika.model.rescript;
 
-import tim21.PortalPoverenika.model.shared.*;
-
 import java.util.HashMap;
 import java.util.Map;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAnyAttribute;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.XmlValue;
 import javax.xml.datatype.XMLGregorianCalendar;
 import javax.xml.namespace.QName;
+import tim21.PortalPoverenika.model.shared.TOsoba;
+
 
 
 /**
- * <p>Java class for anonymous complex type.
+ * <p>Java class for TResenje complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType>
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="ID">
- *           &lt;simpleType>
- *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *               &lt;pattern value="\d{3}-\d{2}-\d{4}/\d{4}-\d{2}"/>
- *             &lt;/restriction>
- *           &lt;/simpleType>
- *         &lt;/element>
- *         &lt;element name="Datum">
- *           &lt;complexType>
- *             &lt;simpleContent>
- *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>date">
- *                 &lt;anyAttribute processContents='lax'/>
- *               &lt;/extension>
- *             &lt;/simpleContent>
- *           &lt;/complexType>
- *         &lt;/element>
- *         &lt;element name="Status_zalbe">
- *           &lt;complexType>
- *             &lt;simpleContent>
- *               &lt;extension base="&lt;http://www.resenje.com>TStatus_zalbe">
- *                 &lt;anyAttribute processContents='lax'/>
- *               &lt;/extension>
- *             &lt;/simpleContent>
- *           &lt;/complexType>
- *         &lt;/element>
- *         &lt;element name="Opis_resenja" type="{http://www.resenje.com}TOpis_resenja"/>
- *         &lt;element name="Obrazlozenje">
- *           &lt;complexType>
- *             &lt;complexContent>
- *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *                 &lt;sequence>
- *                   &lt;element name="Opis_zalbe" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *                   &lt;element name="Postupak_poverenika" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *                   &lt;element name="Odgovor_na_zalbu" type="{http://www.resenje.com}TOdgovor_na_zalbu"/>
- *                   &lt;element name="Uputstvo_o_pravnom_sredstvu" type="{http://www.resenje.com}TUpustvo_o_pravnom_sredstvu"/>
- *                 &lt;/sequence>
- *               &lt;/restriction>
- *             &lt;/complexContent>
- *           &lt;/complexType>
- *         &lt;/element>
- *         &lt;element name="Poverenik" type="{http://www.shared.com}TOsoba"/>
- *       &lt;/sequence>
- *       &lt;attribute name="dopustena_zalba" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" />
- *       &lt;anyAttribute processContents='lax'/>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="TResenje"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="ID"&gt;
+ *           &lt;simpleType&gt;
+ *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
+ *               &lt;pattern value="\d{3}-\d{2}-\d{4}/\d{4}-\d{2}"/&gt;
+ *             &lt;/restriction&gt;
+ *           &lt;/simpleType&gt;
+ *         &lt;/element&gt;
+ *         &lt;element name="Datum"&gt;
+ *           &lt;complexType&gt;
+ *             &lt;simpleContent&gt;
+ *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;date"&gt;
+ *                 &lt;anyAttribute processContents='lax'/&gt;
+ *               &lt;/extension&gt;
+ *             &lt;/simpleContent&gt;
+ *           &lt;/complexType&gt;
+ *         &lt;/element&gt;
+ *         &lt;element name="Status_zalbe"&gt;
+ *           &lt;complexType&gt;
+ *             &lt;simpleContent&gt;
+ *               &lt;extension base="&lt;http://www.resenje.com&gt;TStatus_zalbe"&gt;
+ *                 &lt;anyAttribute processContents='lax'/&gt;
+ *               &lt;/extension&gt;
+ *             &lt;/simpleContent&gt;
+ *           &lt;/complexType&gt;
+ *         &lt;/element&gt;
+ *         &lt;element name="Opis_resenja" type="{http://www.resenje.com}TOpis_resenja"/&gt;
+ *         &lt;element name="Obrazlozenje"&gt;
+ *           &lt;complexType&gt;
+ *             &lt;complexContent&gt;
+ *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *                 &lt;sequence&gt;
+ *                   &lt;element name="Opis_zalbe" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *                   &lt;element name="Postupak_poverenika" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *                   &lt;element name="Odgovor_na_zalbu" type="{http://www.resenje.com}TOdgovor_na_zalbu"/&gt;
+ *                   &lt;element name="Uputstvo_o_pravnom_sredstvu" type="{http://www.resenje.com}TUpustvo_o_pravnom_sredstvu"/&gt;
+ *                 &lt;/sequence&gt;
+ *               &lt;/restriction&gt;
+ *             &lt;/complexContent&gt;
+ *           &lt;/complexType&gt;
+ *         &lt;/element&gt;
+ *         &lt;element name="Poverenik" type="{http://www.shared.com}TOsoba"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  * 
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
+@XmlType(name = "TResenje", propOrder = {
     "id",
     "datum",
     "statusZalbe",
@@ -88,26 +84,20 @@ import javax.xml.namespace.QName;
     "obrazlozenje",
     "poverenik"
 })
-@XmlRootElement(name = "Resenje", namespace = "http://www.resenje.com")
-public class Resenje {
+public class TResenje {
 
-    @XmlElement(name = "ID", namespace = "http://www.resenje.com", required = true)
+    @XmlElement(name = "ID", required = true)
     protected String id;
-    @XmlElement(name = "Datum", namespace = "http://www.resenje.com", required = true)
-    protected Resenje.Datum datum;
-    @XmlElement(name = "Status_zalbe", namespace = "http://www.resenje.com", required = true)
-    protected Resenje.StatusZalbe statusZalbe;
-    @XmlElement(name = "Opis_resenja", namespace = "http://www.resenje.com", required = true)
+    @XmlElement(name = "Datum", required = true)
+    protected Datum datum;
+    @XmlElement(name = "Status_zalbe", required = true)
+    protected StatusZalbe statusZalbe;
+    @XmlElement(name = "Opis_resenja", required = true)
     protected TOpisResenja opisResenja;
-    @XmlElement(name = "Obrazlozenje", namespace = "http://www.resenje.com", required = true)
-    protected Resenje.Obrazlozenje obrazlozenje;
-    @XmlElement(name = "Poverenik", namespace = "http://www.resenje.com", required = true)
+    @XmlElement(name = "Obrazlozenje", required = true)
+    protected Obrazlozenje obrazlozenje;
+    @XmlElement(name = "Poverenik", required = true)
     protected TOsoba poverenik;
-    @XmlAttribute(name = "dopustena_zalba")
-    @XmlSchemaType(name = "anySimpleType")
-    protected String dopustenaZalba;
-    @XmlAnyAttribute
-    private Map<QName, String> otherAttributes = new HashMap<QName, String>();
 
     /**
      * Gets the value of the id property.
@@ -138,10 +128,10 @@ public class Resenje {
      * 
      * @return
      *     possible object is
-     *     {@link Resenje.Datum }
+     *     {@link Datum }
      *     
      */
-    public Resenje.Datum getDatum() {
+    public Datum getDatum() {
         return datum;
     }
 
@@ -150,10 +140,10 @@ public class Resenje {
      * 
      * @param value
      *     allowed object is
-     *     {@link Resenje.Datum }
+     *     {@link Datum }
      *     
      */
-    public void setDatum(Resenje.Datum value) {
+    public void setDatum(Datum value) {
         this.datum = value;
     }
 
@@ -162,10 +152,10 @@ public class Resenje {
      * 
      * @return
      *     possible object is
-     *     {@link Resenje.StatusZalbe }
+     *     {@link StatusZalbe }
      *     
      */
-    public Resenje.StatusZalbe getStatusZalbe() {
+    public StatusZalbe getStatusZalbe() {
         return statusZalbe;
     }
 
@@ -174,10 +164,10 @@ public class Resenje {
      * 
      * @param value
      *     allowed object is
-     *     {@link Resenje.StatusZalbe }
+     *     {@link StatusZalbe }
      *     
      */
-    public void setStatusZalbe(Resenje.StatusZalbe value) {
+    public void setStatusZalbe(StatusZalbe value) {
         this.statusZalbe = value;
     }
 
@@ -210,10 +200,10 @@ public class Resenje {
      * 
      * @return
      *     possible object is
-     *     {@link Resenje.Obrazlozenje }
+     *     {@link Obrazlozenje }
      *     
      */
-    public Resenje.Obrazlozenje getObrazlozenje() {
+    public Obrazlozenje getObrazlozenje() {
         return obrazlozenje;
     }
 
@@ -222,10 +212,10 @@ public class Resenje {
      * 
      * @param value
      *     allowed object is
-     *     {@link Resenje.Obrazlozenje }
+     *     {@link Obrazlozenje }
      *     
      */
-    public void setObrazlozenje(Resenje.Obrazlozenje value) {
+    public void setObrazlozenje(Obrazlozenje value) {
         this.obrazlozenje = value;
     }
 
@@ -253,48 +243,6 @@ public class Resenje {
         this.poverenik = value;
     }
 
-    /**
-     * Gets the value of the dopustenaZalba property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getDopustenaZalba() {
-        return dopustenaZalba;
-    }
-
-    /**
-     * Sets the value of the dopustenaZalba property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setDopustenaZalba(String value) {
-        this.dopustenaZalba = value;
-    }
-
-    /**
-     * Gets a map that contains attributes that aren't bound to any typed property on this class.
-     * 
-     * <p>
-     * the map is keyed by the name of the attribute and 
-     * the value is the string value of the attribute.
-     * 
-     * the map returned by this method is live, and you can add new attribute
-     * by updating the map directly. Because of this design, there's no setter.
-     * 
-     * 
-     * @return
-     *     always non-null
-     */
-    public Map<QName, String> getOtherAttributes() {
-        return otherAttributes;
-    }
-
 
     /**
      * <p>Java class for anonymous complex type.
@@ -302,13 +250,13 @@ public class Resenje {
      * <p>The following schema fragment specifies the expected content contained within this class.
      * 
      * <pre>
-     * &lt;complexType>
-     *   &lt;simpleContent>
-     *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>date">
-     *       &lt;anyAttribute processContents='lax'/>
-     *     &lt;/extension>
-     *   &lt;/simpleContent>
-     * &lt;/complexType>
+     * &lt;complexType&gt;
+     *   &lt;simpleContent&gt;
+     *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;date"&gt;
+     *       &lt;anyAttribute processContents='lax'/&gt;
+     *     &lt;/extension&gt;
+     *   &lt;/simpleContent&gt;
+     * &lt;/complexType&gt;
      * </pre>
      * 
      * 
@@ -376,18 +324,18 @@ public class Resenje {
      * <p>The following schema fragment specifies the expected content contained within this class.
      * 
      * <pre>
-     * &lt;complexType>
-     *   &lt;complexContent>
-     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
-     *       &lt;sequence>
-     *         &lt;element name="Opis_zalbe" type="{http://www.w3.org/2001/XMLSchema}string"/>
-     *         &lt;element name="Postupak_poverenika" type="{http://www.w3.org/2001/XMLSchema}string"/>
-     *         &lt;element name="Odgovor_na_zalbu" type="{http://www.resenje.com}TOdgovor_na_zalbu"/>
-     *         &lt;element name="Uputstvo_o_pravnom_sredstvu" type="{http://www.resenje.com}TUpustvo_o_pravnom_sredstvu"/>
-     *       &lt;/sequence>
-     *     &lt;/restriction>
-     *   &lt;/complexContent>
-     * &lt;/complexType>
+     * &lt;complexType&gt;
+     *   &lt;complexContent&gt;
+     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+     *       &lt;sequence&gt;
+     *         &lt;element name="Opis_zalbe" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+     *         &lt;element name="Postupak_poverenika" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+     *         &lt;element name="Odgovor_na_zalbu" type="{http://www.resenje.com}TOdgovor_na_zalbu"/&gt;
+     *         &lt;element name="Uputstvo_o_pravnom_sredstvu" type="{http://www.resenje.com}TUpustvo_o_pravnom_sredstvu"/&gt;
+     *       &lt;/sequence&gt;
+     *     &lt;/restriction&gt;
+     *   &lt;/complexContent&gt;
+     * &lt;/complexType&gt;
      * </pre>
      * 
      * 
@@ -401,13 +349,13 @@ public class Resenje {
     })
     public static class Obrazlozenje {
 
-        @XmlElement(name = "Opis_zalbe", namespace = "http://www.resenje.com", required = true)
+        @XmlElement(name = "Opis_zalbe", required = true)
         protected String opisZalbe;
-        @XmlElement(name = "Postupak_poverenika", namespace = "http://www.resenje.com", required = true)
+        @XmlElement(name = "Postupak_poverenika", required = true)
         protected String postupakPoverenika;
-        @XmlElement(name = "Odgovor_na_zalbu", namespace = "http://www.resenje.com", required = true)
+        @XmlElement(name = "Odgovor_na_zalbu", required = true)
         protected TOdgovorNaZalbu odgovorNaZalbu;
-        @XmlElement(name = "Uputstvo_o_pravnom_sredstvu", namespace = "http://www.resenje.com", required = true)
+        @XmlElement(name = "Uputstvo_o_pravnom_sredstvu", required = true)
         protected TUpustvoOPravnomSredstvu uputstvoOPravnomSredstvu;
 
         /**
@@ -515,13 +463,13 @@ public class Resenje {
      * <p>The following schema fragment specifies the expected content contained within this class.
      * 
      * <pre>
-     * &lt;complexType>
-     *   &lt;simpleContent>
-     *     &lt;extension base="&lt;http://www.resenje.com>TStatus_zalbe">
-     *       &lt;anyAttribute processContents='lax'/>
-     *     &lt;/extension>
-     *   &lt;/simpleContent>
-     * &lt;/complexType>
+     * &lt;complexType&gt;
+     *   &lt;simpleContent&gt;
+     *     &lt;extension base="&lt;http://www.resenje.com&gt;TStatus_zalbe"&gt;
+     *       &lt;anyAttribute processContents='lax'/&gt;
+     *     &lt;/extension&gt;
+     *   &lt;/simpleContent&gt;
+     * &lt;/complexType&gt;
      * </pre>
      * 
      * 

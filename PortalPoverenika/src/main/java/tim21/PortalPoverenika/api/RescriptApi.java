@@ -9,7 +9,7 @@ import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 import org.springframework.web.bind.annotation.*;
 import org.xmldb.api.base.XMLDBException;
 import tim21.PortalPoverenika.model.lists.RescriptList;
-import tim21.PortalPoverenika.model.rescript.Resenje;
+import tim21.PortalPoverenika.model.rescript.ResenjeRoot;
 import tim21.PortalPoverenika.service.RescriptService;
 import tim21.PortalPoverenika.soap.client.MailClient;
 import tim21.PortalPoverenika.soap.dto.MailRequest;
@@ -31,7 +31,7 @@ public class RescriptApi {
     private Environment env;
 
     @RequestMapping( method = RequestMethod.POST, consumes = MediaType.APPLICATION_XML_VALUE)
-    public ResponseEntity<?> createRescript(@RequestBody Resenje rescript)  {
+    public ResponseEntity<?> createRescript(@RequestBody ResenjeRoot rescript)  {
         if (rescriptService.create(rescript)){
             return new ResponseEntity<>(HttpStatus.CREATED);
         }
@@ -52,7 +52,7 @@ public class RescriptApi {
 
     @RequestMapping(value="/{ID}", method = RequestMethod.GET, consumes = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<?> getRescript(@PathVariable String ID) {
-        Resenje rescript = rescriptService.getOne(ID);
+        ResenjeRoot rescript = rescriptService.getOne(ID);
         if(rescript != null)
             return new ResponseEntity(rescript, HttpStatus.OK);
 
@@ -61,7 +61,7 @@ public class RescriptApi {
 
     @RequestMapping(value="/{ID}", method = RequestMethod.POST, consumes = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<?> sendToApplicant(@PathVariable String ID, @RequestBody MailRequest request) {
-//        Resenje rescript = rescriptService.getOne(ID);
+//        ResenjeRoot rescript = rescriptService.getOne(ID);
 //        if(rescript != null) {
 //            ovde ce se generisati pdf
 //            uzeti njegova putanja i pretvoriti u bajtove
