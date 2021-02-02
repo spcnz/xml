@@ -13,6 +13,7 @@
                                     <xs:element name="BrojZalbiOdluka" type="xs:int"/>
                                     <xs:element name="BrojZalbiCutanje" type="xs:int"/>
                                 </xs:sequence>
+                                <xs:anyAttribute namespace="##any"/>
                             </xs:extension>
                         </xs:complexContent>
                     </xs:complexType>
@@ -21,4 +22,9 @@
         </xs:complexType>
     </xs:element>
     <xs:complexType name="TIzvestaj"/>
+    <xs:complexType name="ReportList">
+        <xs:sequence>
+            <xs:any maxOccurs="unbounded" minOccurs="0" processContents="skip"/>
+        </xs:sequence>
+    </xs:complexType>
 </xs:schema>

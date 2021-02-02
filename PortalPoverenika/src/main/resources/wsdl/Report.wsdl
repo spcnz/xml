@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  targetNamespace="http://www.izvestaj.com"
+                  xmlns:tns="http://www.izvestaj.com"
+                  name="ReportService">
+    <wsdl:types>
+        <xsd:schema>
+            <xsd:import namespace="http://www.izvestaj.com" schemaLocation="../xsd/izvestaj.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+
+    <wsdl:message name="getReportRequest">
+        <wsdl:part name="id" type="xsd:string" />
+    </wsdl:message>
+    <wsdl:message name="getReportResponse">
+        <wsdl:part name="izvestaj" type="tns:TIzvestaj" />
+    </wsdl:message>
+
+    <wsdl:message name="getAllRequest">
+        <wsdl:part name="year" type="xsd:int" />
+    </wsdl:message>
+    <wsdl:message name="getAllResponse">
+        <wsdl:part name="response" type="tns:ReportList" />
+    </wsdl:message>
+
+    <wsdl:portType name="ReportServicePortType">
+        <wsdl:operation name="getReportById">
+            <wsdl:input message="tns:getReportRequest" />
+            <wsdl:output message="tns:getReportResponse" />
+        </wsdl:operation>
+
+        <wsdl:operation name="getAll">
+            <wsdl:input message="tns:getAllRequest" />
+            <wsdl:output message="tns:getAllResponse" />
+        </wsdl:operation>
+    </wsdl:portType>
+
+    <wsdl:binding name="ReportServiceSoapBinding" type="tns:ReportServicePortType">
+        <soap:binding style="document"  transport="http://schemas.xmlsoap.org/soap/http" />
+        <wsdl:operation name="getReportById">
+            <soap:operation soapAction="http://www.izvestaj.com/ws/getReportById" />
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+
+        <wsdl:operation name="getAll">
+            <soap:operation soapAction="http://www.izvestaj.com/ws/getAll" />
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="encoded"/>
+            </wsdl:output>
+        </wsdl:operation>
+
+    </wsdl:binding>
+    <wsdl:service name="ReportService">
+        <wsdl:port name="ReportServiceSoapBinding" binding="tns:ReportServiceSoapBinding">
+            <soap:address location="http://localhost:8080/ReportPort" />
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
