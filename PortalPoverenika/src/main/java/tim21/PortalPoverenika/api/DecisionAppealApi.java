@@ -1,6 +1,9 @@
 package tim21.PortalPoverenika.api;
 
+import org.apache.tomcat.jni.File;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.core.io.InputStreamSource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +17,10 @@ import tim21.PortalPoverenika.service.DecisionAppealService;
 import tim21.PortalPoverenika.service.MetaDataService;
 
 import javax.xml.bind.JAXBException;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -72,7 +78,7 @@ public class DecisionAppealApi {
         }
     }
 
-    @RequestMapping(value="/meta-search/", method = RequestMethod.POST,  consumes = MediaType.APPLICATION_XML_VALUE)
+    @RequestMapping(value="/meta/search/", method = RequestMethod.POST,  consumes = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<?> metaSearchAppeals(@RequestBody DecisionAppealFilter filter) {
         List<Zalba> appeals = new ArrayList<Zalba>();
         List<String> res = new ArrayList<String>();
@@ -89,6 +95,26 @@ public class DecisionAppealApi {
             return new ResponseEntity(HttpStatus.BAD_REQUEST);
         }
     }
+
+    @RequestMapping(value= "/meta/rdf/{ID}", method=RequestMethod.GET)
+    public ResponseEntity<InputStreamResource> metaExportRDF(@PathVariable Long ID) throws IOException {
+        String path = "src/main/resources/rdf/zalbe/" + ID + ".rdf";
+        ByteArrayInputStream bis = new ByteArrayInputStream(Files.readAllBytes(Paths.get(path)));
+
+            //HttpHeaders headers = new HttpHeaders();
+            //headers.add("Content-Disposition", "inline; filename=" + id + ".pdf");
+
+
+
+        return new ResponseEntity(new InputStreamResource(bis), HttpStatus.OK);
+    }
+
+    @RequestMapping(value= "/meta/json/{ID}", method=RequestMethod.GET)
+    public ResponseEntity<?> metaExportJSON(@PathVariable Long ID){
+
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
 
 
 }
