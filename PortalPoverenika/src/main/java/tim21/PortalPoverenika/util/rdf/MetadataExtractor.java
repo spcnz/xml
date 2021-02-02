@@ -40,7 +40,6 @@ public class MetadataExtractor {
 
 
 		OutputStream out = new FileOutputStream(new File(RDF_FILE + File.separator + path + ".rdf"));
-
 		// Create transformation source
 		StreamSource transformSource = new StreamSource(new File(XSLT_FILE));
 		
@@ -56,7 +55,7 @@ public class MetadataExtractor {
 
 		// Initialize result stream
 		StreamResult result = new StreamResult(out);
-		
+
 		// Trigger the transformation
 		grddlTransformer.transform(source, result);
 		
