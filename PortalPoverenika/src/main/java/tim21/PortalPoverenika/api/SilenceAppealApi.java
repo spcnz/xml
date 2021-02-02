@@ -8,11 +8,14 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.xmldb.api.base.XMLDBException;
+import tim21.PortalPoverenika.model.decisionAppeal.ZalbaRoot;
 import tim21.PortalPoverenika.model.silenceAppeal.ZalbaCutanjeRoot;
 import tim21.PortalPoverenika.dto.silenceAppealFilter.SilenceAppealFilter;
 import tim21.PortalPoverenika.model.lists.SilenceAppealList;
 import tim21.PortalPoverenika.service.MetaDataService;
 import tim21.PortalPoverenika.service.SilenceAppealService;
+import tim21.PortalPoverenika.util.mappers.DecisionAppealMapper;
+import tim21.PortalPoverenika.util.mappers.SilenceAppealMapper;
 
 import javax.xml.bind.JAXBException;
 import java.io.ByteArrayInputStream;
@@ -37,7 +40,9 @@ public class SilenceAppealApi {
 
     //@PreAuthorize("hasRole('ROLE_CITIZEN')")
     @RequestMapping( method = RequestMethod.POST, consumes = MediaType.APPLICATION_XML_VALUE)
-    public ResponseEntity<?> createAppeal(@RequestBody ZalbaCutanjeRoot appeal)  {
+    public ResponseEntity<?> createAppeal(@RequestBody ZalbaCutanjeRoot appealReq)  {
+        ZalbaCutanjeRoot appeal = SilenceAppealMapper.addStaticText(appealReq);
+
         if (appealService.create(appeal)){
             return new ResponseEntity<>(HttpStatus.CREATED);
         }
