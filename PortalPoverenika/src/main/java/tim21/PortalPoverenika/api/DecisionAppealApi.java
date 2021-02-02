@@ -23,6 +23,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static tim21.PortalPoverenika.util.constants.RDFConstants.DECISIONAPPEAL_RDF_RESOURCES;
@@ -86,12 +87,15 @@ public class DecisionAppealApi {
     public ResponseEntity<?> metaSearchAppeals(@RequestBody DecisionAppealFilter filter) {
         List<ZalbaRoot> appeals = new ArrayList<ZalbaRoot>();
         List<String> res = new ArrayList<String>();
+        List<String> filterVals = Arrays.asList(filter.getSubmitterStreet(), filter.getSubmitterCity(), filter.getSubmitterName(), filter.getSubmitterLastname(), filter.getRequestId(), filter.getRequestDate(),
+                filter.getRecipientStreet(), filter.getRecipientCity());
         try {
-            res =  metaDataService.filter("Zalbe", filter);
+            res =  metaDataService.filter("Zalbe", filterVals);
             for(String key : res){
                 String id = key.split("zalbe")[1].substring(1);    // format keya je http://zalbe/234213123
-                appeals.add(appealService.getOne("Zalba" + id + ".xml"));
+                appeals.add(appealService.getOne( id + ".xml"));
             }
+
             DecisionAppealList response = new DecisionAppealList(appeals);
             return new ResponseEntity(response , HttpStatus.OK);
         } catch (IOException e) {

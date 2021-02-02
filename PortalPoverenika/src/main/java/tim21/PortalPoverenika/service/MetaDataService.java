@@ -30,27 +30,23 @@ public class MetaDataService {
     private static final String RDF_FILEPATH = "src/main/resources/rdf/";
     private static final String SPARQL_PATH = "src/main/resources/sparql/";
 
-    public static void extract(OutputStream outStream, String GRAPH_URI) throws IOException, TransformerException, SAXException {
+    public static void extract(OutputStream outStream, String GRAPH_URI, String ID) throws IOException, TransformerException, SAXException {
         AuthenticationUtilities.ConnectionProperties conn = AuthenticationUtilities.loadProperties();
 
-        // Referencing XML file with RDF data in attributes
-
-
-        // Automatic extraction of RDF triples from XML file
         MetadataExtractor metadataExtractor = new MetadataExtractor();
         ByteArrayInputStream input = new ByteArrayInputStream( ((ByteArrayOutputStream) outStream).toByteArray() );
 
         System.out.println("[INFO] Extracting metadata from RDFa attributes...");
-        metadataExtractor.extractMetadata(input, GRAPH_URI);
-
+        metadataExtractor.extractMetadata(input, GRAPH_URI, ID);
+        String fileName = GRAPH_URI + "/" + ID;
 
         // Loading a default model with extracted metadata
         Model model = ModelFactory.createDefaultModel();
 
-        model.read(RDF_FILEPATH + GRAPH_URI + ".rdf");
+        model.read(RDF_FILEPATH + fileName + ".rdf");
 
         ByteArrayOutputStream out = new ByteArrayOutputStream();
-        FileOutputStream outJSON = new FileOutputStream(new File(RDF_FILEPATH + GRAPH_URI + ".json"));
+        FileOutputStream outJSON = new FileOutputStream(new File(RDF_FILEPATH + fileName + ".json"));
 
         model.write(out, SparqlUtil.NTRIPLES);
         model.write(outJSON, SparqlUtil.JSON);
@@ -95,13 +91,13 @@ public class MetaDataService {
     }
 
 
-    public static List<String> filter(String GRAPH_URI, DecisionAppealFilter filter) throws IOException {
+    public static List<String> filter(String GRAPH_URI, List<String> filterValues) throws IOException {
         AuthenticationUtilities.ConnectionProperties conn = AuthenticationUtilities.loadProperties();
 
         String sparqlQuery = String.format(readFile(SPARQL_PATH + GRAPH_URI.toLowerCase() + ".rq", StandardCharsets.UTF_8),
-                filter.getSubmitterStreet(), filter.getSubmitterCity(), filter.getSubmitterName(), filter.getSubmitterLastname(), filter.getRequestId(), filter.getRequestDate(),
-                filter.getRecipientStreet(), filter.getRecipientCity());
+                filterValues.toArray());
 
+        System.out.println(sparqlQuery);
         QueryExecution query = QueryExecutionFactory.sparqlService(conn.queryEndpoint, sparqlQuery);
 
         ResultSet results = query.execSelect();
