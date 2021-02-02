@@ -1,5 +1,5 @@
 
-package tim21.PortalPoverenika.dto.request;
+package tim21.PortalPoverenika.dto.silenceAppealFilter;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -26,6 +26,9 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="SubmitterCity" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="SubmitterStreet" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="RequestDate" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="RequestDetails" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="AppealDate" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="AuthorityName" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -43,27 +46,36 @@ import javax.xml.bind.annotation.XmlType;
     "submitterLastname",
     "submitterCity",
     "submitterStreet",
-    "requestDate"
+    "requestDate",
+    "requestDetails",
+    "appealDate",
+    "authorityName"
 })
-@XmlRootElement(name = "DecisionAppealFilter", namespace = "http://www.shared.com")
-public class DecisionAppealFilter {
+@XmlRootElement(name = "SilenceAppealFilter", namespace = "http://www.shared.com")
+public class SilenceAppealFilter {
 
-    @XmlElement(name = "RecipientStreet", namespace = "", required = true)
+    @XmlElement(name = "RecipientStreet", namespace = "http://www.shared.com", required = true)
     protected String recipientStreet;
-    @XmlElement(name = "RecipientCity", namespace = "", required = true)
+    @XmlElement(name = "RecipientCity", namespace = "http://www.shared.com", required = true)
     protected String recipientCity;
-    @XmlElement(name = "RequestId", namespace = "", required = true)
+    @XmlElement(name = "RequestId", namespace = "http://www.shared.com", required = true)
     protected String requestId;
-    @XmlElement(name = "SubmitterName", namespace = "", required = true)
+    @XmlElement(name = "SubmitterName", namespace = "http://www.shared.com", required = true)
     protected String submitterName;
-    @XmlElement(name = "SubmitterLastname", namespace = "", required = true)
+    @XmlElement(name = "SubmitterLastname", namespace = "http://www.shared.com", required = true)
     protected String submitterLastname;
-    @XmlElement(name = "SubmitterCity", namespace = "", required = true)
+    @XmlElement(name = "SubmitterCity", namespace = "http://www.shared.com", required = true)
     protected String submitterCity;
-    @XmlElement(name = "SubmitterStreet", namespace = "", required = true)
+    @XmlElement(name = "SubmitterStreet", namespace = "http://www.shared.com", required = true)
     protected String submitterStreet;
-    @XmlElement(name = "RequestDate", namespace = "", required = true)
+    @XmlElement(name = "RequestDate", namespace = "http://www.shared.com", required = true)
     protected String requestDate;
+    @XmlElement(name = "RequestDetails", namespace = "http://www.shared.com", required = true)
+    protected String requestDetails;
+    @XmlElement(name = "AppealDate", namespace = "http://www.shared.com", required = true)
+    protected String appealDate;
+    @XmlElement(name = "AuthorityName", namespace = "http://www.shared.com", required = true)
+    protected String authorityName;
 
     /**
      * Gets the value of the recipientStreet property.
@@ -122,7 +134,7 @@ public class DecisionAppealFilter {
      *     
      */
     public String getRequestId() {
-        return  !requestId.equals("") ? "http://zahtevi/" + requestId : "" ;
+        return requestId;
     }
 
     /**
@@ -255,6 +267,78 @@ public class DecisionAppealFilter {
      */
     public void setRequestDate(String value) {
         this.requestDate = value;
+    }
+
+    /**
+     * Gets the value of the requestDetails property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getRequestDetails() {
+        return requestDetails;
+    }
+
+    /**
+     * Sets the value of the requestDetails property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setRequestDetails(String value) {
+        this.requestDetails = value;
+    }
+
+    /**
+     * Gets the value of the appealDate property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getAppealDate() {
+        return appealDate;
+    }
+
+    /**
+     * Sets the value of the appealDate property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setAppealDate(String value) {
+        this.appealDate = value;
+    }
+
+    /**
+     * Gets the value of the authorityName property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getAuthorityName() {
+        return authorityName;
+    }
+
+    /**
+     * Sets the value of the authorityName property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setAuthorityName(String value) {
+        this.authorityName = value;
     }
 
 }

@@ -1,13 +1,7 @@
 package tim21.PortalPoverenika.api;
 
 
-import org.apache.tomcat.jni.File;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.InputStreamResource;
-import org.springframework.core.io.InputStreamSource;
-import org.apache.commons.compress.utils.IOUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -16,17 +10,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.xml.sax.SAXException;
 import org.xmldb.api.base.XMLDBException;
-import tim21.PortalPoverenika.dto.request.DecisionAppealFilter;
+import tim21.PortalPoverenika.dto.decisionAppealFilter.DecisionAppealFilter;
 import tim21.PortalPoverenika.model.lists.DecisionAppealList;
 import tim21.PortalPoverenika.service.DecisionAppealService;
 import tim21.PortalPoverenika.service.MetaDataService;
 import tim21.PortalPoverenika.model.decisionAppeal.ZalbaRoot;
-import tim21.PortalPoverenika.model.lists.DecisionAppealList;
-import tim21.PortalPoverenika.service.DecisionAppealService;
-import tim21.PortalPoverenika.util.constants.RDFConstants;
 import tim21.PortalPoverenika.util.mappers.DecisionAppealMapper;
 
-import javax.servlet.http.HttpServletResponse;
 import javax.xml.bind.JAXBException;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -34,7 +24,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import java.io.InputStream;
 
 import static tim21.PortalPoverenika.util.constants.RDFConstants.DECISIONAPPEAL_RDF_RESOURCES;
 
