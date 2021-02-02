@@ -109,7 +109,7 @@ public class ExistManager {
 			col.storeResource(res);
 
 			// Ovdje ekstrahujemo
-			metadataExtract.extract(os, collectionName + "/" + documentId);
+			metadataExtract.extract(os, collectionName, documentId);
 
 
 		} catch (Exception e) {

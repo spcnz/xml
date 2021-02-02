@@ -1,5 +1,5 @@
 
-package tim21.PortalPoverenika.dto.request;
+package tim21.PortalPoverenika.dto.decisionAppealFilter;
 
 import javax.xml.bind.annotation.XmlRegistry;
 

@@ -36,10 +36,10 @@ public class MetadataExtractor {
 	 * input stream by applying GRDDL XSL transformation.
 	 * @param in XML containing input stream
 	 */
-	public void extractMetadata(InputStream in, String path) throws FileNotFoundException, TransformerException {
+	public void extractMetadata(InputStream in, String path, String id) throws FileNotFoundException, TransformerException {
 
 
-		OutputStream out = new FileOutputStream(new File(RDF_FILE + File.separator + path + ".rdf"));
+		OutputStream out = new FileOutputStream(new File(RDF_FILE + File.separator + path + "/" + id + ".rdf"));
 		// Create transformation source
 		StreamSource transformSource = new StreamSource(new File(XSLT_FILE));
 		
