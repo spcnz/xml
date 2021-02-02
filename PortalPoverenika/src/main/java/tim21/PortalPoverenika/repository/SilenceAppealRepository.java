@@ -28,7 +28,7 @@ public class SilenceAppealRepository {
             Map<QName, String> attrributes = appeal.getOtherAttributes();
             attrributes.put(new QName("id"), id);
 
-            return existManager.store(SILENCEAPPEAL_COLLECTION_URI, id + ".xml", appeal, "zalbeCutanje");
+            return existManager.store(SILENCEAPPEAL_COLLECTION_URI, id, appeal, "zalbeCutanje");
         } catch (Exception e) {
             e.printStackTrace();
             return false;
