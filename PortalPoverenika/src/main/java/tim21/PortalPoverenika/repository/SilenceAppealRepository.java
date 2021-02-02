@@ -8,13 +8,12 @@ import org.xmldb.api.base.ResourceSet;
 import org.xmldb.api.base.XMLDBException;
 import org.xmldb.api.modules.XMLResource;
 import tim21.PortalPoverenika.util.IdGenerator;
-import tim21.PortalPoverenika.util.constants.XSDConstants;
 
 import javax.xml.namespace.QName;
 import java.util.Map;
 
 import static tim21.PortalPoverenika.util.constants.DBConstants.SILENCEAPPEAL_COLLECTION_URI;
-import static tim21.PortalPoverenika.util.constants.NamespaceConstants.SILENCEAPPEAL_TARGET_NAMESPACE;
+import static tim21.PortalPoverenika.util.constants.NamespaceConstants.*;
 
 @Repository
 public class SilenceAppealRepository {
@@ -25,11 +24,11 @@ public class SilenceAppealRepository {
 
     public boolean create(ZalbaCutanjeRoot appeal) {
         try {
-            String id = IdGenerator.generateDocumentID(IdGenerator.generate(XSDConstants.SILENCE_APPEAL),XSDConstants.SILENCE_APPEAL);
+            String id = IdGenerator.generate();
             Map<QName, String> attrributes = appeal.getOtherAttributes();
             attrributes.put(new QName("id"), id);
 
-            return existManager.store(SILENCEAPPEAL_COLLECTION_URI, id, appeal, "zalbe");
+            return existManager.store(SILENCEAPPEAL_COLLECTION_URI, id + ".xml", appeal, "zalbeCutanje");
         } catch (Exception e) {
             e.printStackTrace();
             return false;
@@ -53,4 +52,15 @@ public class SilenceAppealRepository {
             return null;
         }
     }
+
+
+    public ResourceSet search(String keyword) throws XMLDBException {
+        try {
+            return existManager.search(SILENCEAPPEAL_COLLECTION_URI, keyword, SILENCEAPPEAL_TARGET_NAMESPACE, SILENCEAPPEAL_ROOT_EL);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
 }

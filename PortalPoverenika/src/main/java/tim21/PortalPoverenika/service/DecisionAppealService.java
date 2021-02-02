@@ -27,14 +27,14 @@ public class DecisionAppealService {
     DecisionAppealRepository appealRepository;
 
 
-    public boolean create(ZalbaRoot appeal) throws IOException, SAXException {
 
+    public ZalbaRoot create(ZalbaRoot appeal) throws IOException, SAXException {
 
         if (Validator.validate(appeal.getClass(), appeal)){
 
             return appealRepository.create(appeal);
         }
-        return false;
+        return null;
     }
 
 
@@ -77,5 +77,26 @@ public class DecisionAppealService {
         }
 
         return appeal;
+    }
+
+
+    public DecisionAppealList search(String keyword) throws XMLDBException, JAXBException {
+        List<ZalbaRoot> appeals = new ArrayList<>();
+
+        ResourceSet resourceSet = null;
+        resourceSet = appealRepository.search(keyword);
+        ResourceIterator resourceIterator = resourceSet.getIterator();
+
+        while (resourceIterator.hasMoreResources()){
+            XMLResource xmlResource = (XMLResource) resourceIterator.nextResource();
+            System.out.println(xmlResource);
+            if(xmlResource == null)
+                return null;
+            JAXBContext context = JAXBContext.newInstance(ZalbaRoot.class);
+            Unmarshaller unmarshaller = context.createUnmarshaller();
+            ZalbaRoot appeal = (ZalbaRoot) unmarshaller.unmarshal(xmlResource.getContentAsDOM());
+            appeals.add(appeal);
+        }
+        return new DecisionAppealList(appeals);
     }
 }

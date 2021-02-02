@@ -15,6 +15,7 @@ import javax.xml.namespace.QName;
 import java.util.Map;
 
 import static tim21.PortalPoverenika.util.constants.DBConstants.DECISIONAPPEAL_COLLECTION_URI;
+import static tim21.PortalPoverenika.util.constants.NamespaceConstants.DECISIONAPPEAL_ROOT_EL;
 import static tim21.PortalPoverenika.util.constants.NamespaceConstants.DECISIONAPPEAL_TARGET_NAMESPACE;
 
 @Repository
@@ -24,16 +25,22 @@ public class DecisionAppealRepository {
     public ExistManager existManager;
 
 
-    public boolean create(ZalbaRoot appeal) {
+    public ZalbaRoot create(ZalbaRoot appeal) {
         try {
-            String id = IdGenerator.generateDocumentID(IdGenerator.generate(XSDConstants.DECISION_APPEAL), XSDConstants.DECISION_APPEAL);
+            String id = IdGenerator.generate();
+            String aboutValue = "http://zalbe/" + id;
             Map<QName, String> attrributes = appeal.getOtherAttributes();
-            attrributes.put(new QName("id"), id);
 
-            return existManager.store(DECISIONAPPEAL_COLLECTION_URI, id, appeal, "zalbe");
+            attrributes.put(new QName("id"), id);
+            attrributes.put(new QName("about"), aboutValue);
+
+            if(existManager.store(DECISIONAPPEAL_COLLECTION_URI, id , appeal, "zalbe")){
+                return appeal;
+            }
+            return null;
         } catch (Exception e) {
             e.printStackTrace();
-            return false;
+            return null;
         }
     }
 
@@ -55,4 +62,14 @@ public class DecisionAppealRepository {
             return null;
         }
     }
+    public ResourceSet search(String keyword) throws XMLDBException {
+        try {
+            return existManager.search(DECISIONAPPEAL_COLLECTION_URI, keyword, DECISIONAPPEAL_TARGET_NAMESPACE, DECISIONAPPEAL_ROOT_EL);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+
 }

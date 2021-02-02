@@ -1,0 +1,73 @@
+{
+  "@id" : "http://zalbe/20210202122730",
+  "appealBasis" : "\n            jер није заснована на Закону о слободном приступу информацијама од јавног значаја.\n            На основу изнетих разлога, предлажем да Повереник уважи моју жалбу,  поништи одлука првостепеног органа и омогући ми приступ траженој/им  информацији/ма.\n            Жалбу подносим благовремено, у законском року утврђеном у члану 22. ст. 1. Закона о слободном приступу информацијама од јавног значаја.\n        ",
+  "appealForRequest" : "http://zahtevi/1",
+  "recipient" : "http://users/2",
+  "recipientCity" : "Murtovina",
+  "recipientStreet" : "Булевар краља Александрa",
+  "recipientStreetnum" : "69",
+  "requestDate" : "2020-09-13",
+  "submitter" : "http://users/1",
+  "submitterCity" : "Beograd",
+  "submitterLastname" : "",
+  "submitterName" : "Milenaa",
+  "submitterStreet" : "",
+  "submitterStreetnum" : "1",
+  "@context" : {
+    "submitterStreetnum" : {
+      "@id" : "http://www.tim21.com/predicate/submitterStreetnum",
+      "@type" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"
+    },
+    "recipientCity" : {
+      "@id" : "http://www.tim21.com/predicate/recipientCity",
+      "@type" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"
+    },
+    "submitterName" : {
+      "@id" : "http://www.tim21.com/predicate/submitterName",
+      "@type" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"
+    },
+    "submitterStreet" : {
+      "@id" : "http://www.tim21.com/predicate/submitterStreet",
+      "@type" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"
+    },
+    "appealForRequest" : {
+      "@id" : "http://www.tim21.com/predicate/appealForRequest",
+      "@type" : "@id"
+    },
+    "recipient" : {
+      "@id" : "http://www.tim21.com/predicate/recipient",
+      "@type" : "@id"
+    },
+    "recipientStreetnum" : {
+      "@id" : "http://www.tim21.com/predicate/recipientStreetnum",
+      "@type" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"
+    },
+    "submitterCity" : {
+      "@id" : "http://www.tim21.com/predicate/submitterCity",
+      "@type" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"
+    },
+    "submitter" : {
+      "@id" : "http://www.tim21.com/predicate/submitter",
+      "@type" : "@id"
+    },
+    "appealBasis" : {
+      "@id" : "http://www.tim21.com/predicate/appealBasis",
+      "@type" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"
+    },
+    "submitterLastname" : {
+      "@id" : "http://www.tim21.com/predicate/submitterLastname",
+      "@type" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"
+    },
+    "recipientStreet" : {
+      "@id" : "http://www.tim21.com/predicate/recipientStreet",
+      "@type" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"
+    },
+    "requestDate" : {
+      "@id" : "http://www.tim21.com/predicate/requestDate",
+      "@type" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"
+    },
+    "rdf" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "pred" : "http://www.tim21.com/predicate/",
+    "h" : "http://www.w3.org/1999/xhtml"
+  }
+}
