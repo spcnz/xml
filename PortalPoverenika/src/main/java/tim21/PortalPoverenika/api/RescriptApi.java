@@ -69,9 +69,11 @@ public class RescriptApi {
             Path pdfPath = Paths.get("C:/Users/bekim/Desktop/xml/PortalPoverenika/src/main/resources/pdf/bookstore.pdf");
             try {
                 byte[] byteArr = Files.readAllBytes(pdfPath);
+                request.setFile(byteArr);
             } catch (IOException e) {
                 return new ResponseEntity(HttpStatus.BAD_REQUEST);
             }
+
             Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
             marshaller.setContextPath("tim21.PortalPoverenika.soap.dto");
 
