@@ -30,7 +30,7 @@ public class RescriptRepository {
             Map<QName, String> attrributes = rescript.getOtherAttributes();
             attrributes.put(new QName("id"), id);
 
-            return existManager.store(RESCRIPT_COLLECTION_URI, IdGenerator.generateDocumentID(id, XSDConstants.RESCRIPT), rescript, "resenja");
+            return existManager.store(RESCRIPT_COLLECTION_URI, id, rescript, "resenja");
         } catch (Exception e) {
             e.printStackTrace();
             return false;
