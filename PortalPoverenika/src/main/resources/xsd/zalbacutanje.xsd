@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sh="http://www.shared.com"
-    targetNamespace="http://www.zalbacutanje.com" xmlns="http://www.zalbacutanje.com">
+    targetNamespace="http://www.zalbacutanje.com" xmlns="http://www.zalbacutanje.com"
+    elementFormDefault="qualified">
     <xs:import namespace="http://www.shared.com" schemaLocation="shared.xsd"/>
     <xs:complexType name="TZalbaCutanje">
         <xs:sequence>
@@ -93,4 +94,9 @@
             <xs:anyAttribute namespace="##any" processContents="lax"/>
         </xs:complexType>
     </xs:element>
+    <xs:complexType name="SilenceAppealList">
+        <xs:sequence>
+            <xs:any maxOccurs="unbounded" minOccurs="0" processContents="skip"/>
+        </xs:sequence>
+    </xs:complexType>
 </xs:schema>

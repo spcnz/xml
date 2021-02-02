@@ -7,7 +7,7 @@ import org.xmldb.api.base.ResourceSet;
 import org.xmldb.api.base.XMLDBException;
 import org.xmldb.api.modules.XMLResource;
 import tim21.PortalPoverenika.model.lists.SilenceAppealList;
-import tim21.PortalPoverenika.model.silenceAppeal.ZalbaCutanje;
+import tim21.PortalPoverenika.model.silenceAppeal.ZalbaCutanjeRoot;
 import tim21.PortalPoverenika.repository.SilenceAppealRepository;
 import tim21.PortalPoverenika.util.Validator;
 
@@ -24,7 +24,7 @@ public class SilenceAppealService {
     @Autowired
     SilenceAppealRepository appealRepository;
 
-    public boolean create(ZalbaCutanje appeal) {
+    public boolean create(ZalbaCutanjeRoot appeal) {
         if (Validator.validate(appeal.getClass(), appeal)){
             return appealRepository.create(appeal);
         }
@@ -32,7 +32,7 @@ public class SilenceAppealService {
     }
 
     public SilenceAppealList getAll() throws XMLDBException, JAXBException {
-        List<ZalbaCutanje> appeals = new ArrayList<>();
+        List<ZalbaCutanjeRoot> appeals = new ArrayList<>();
 
         ResourceSet resourceSet = null;
         resourceSet = appealRepository.getAll();
@@ -43,28 +43,28 @@ public class SilenceAppealService {
             System.out.println(xmlResource);
             if(xmlResource == null)
                 return null;
-            JAXBContext context = JAXBContext.newInstance(ZalbaCutanje.class);
+            JAXBContext context = JAXBContext.newInstance(ZalbaCutanjeRoot.class);
             Unmarshaller unmarshaller = context.createUnmarshaller();
-            ZalbaCutanje appeal = (ZalbaCutanje) unmarshaller.unmarshal(xmlResource.getContentAsDOM());
+            ZalbaCutanjeRoot appeal = (ZalbaCutanjeRoot) unmarshaller.unmarshal(xmlResource.getContentAsDOM());
             appeals.add(appeal);
         }
         return new SilenceAppealList(appeals);
     }
 
-    public ZalbaCutanje getOne(String ID) {
+    public ZalbaCutanjeRoot getOne(String ID) {
         XMLResource xmlResource = appealRepository.getOne(ID);
 
         if(xmlResource == null)
             return null;
 
-        ZalbaCutanje appeal = null;
+        ZalbaCutanjeRoot appeal = null;
         JAXBContext context = null;
 
         try {
-            context = JAXBContext.newInstance(ZalbaCutanje.class);
+            context = JAXBContext.newInstance(ZalbaCutanjeRoot.class);
             Unmarshaller unmarshaller = context.createUnmarshaller();
 
-            appeal = (ZalbaCutanje) unmarshaller.unmarshal(xmlResource.getContentAsDOM());
+            appeal = (ZalbaCutanjeRoot) unmarshaller.unmarshal(xmlResource.getContentAsDOM());
         } catch (JAXBException | XMLDBException e) {
             return null;
         }

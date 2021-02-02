@@ -1,9 +1,6 @@
 
 package tim21.PortalPoverenika.model.silenceAppeal;
 
-import tim21.PortalPoverenika.model.shared.TPrimaoc;
-import tim21.PortalPoverenika.model.shared.TdatumVreme;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -18,147 +15,144 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementRef;
 import javax.xml.bind.annotation.XmlElementRefs;
 import javax.xml.bind.annotation.XmlMixed;
-import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.XmlValue;
 import javax.xml.datatype.XMLGregorianCalendar;
 import javax.xml.namespace.QName;
+import tim21.PortalPoverenika.model.shared.*;
 
+import tim21.PortalPoverenika.model.shared.*;
 
 /**
- * <p>Java class for anonymous complex type.
+ * <p>Java class for TZalbaCutanje complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType>
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="naziv">
- *           &lt;complexType>
- *             &lt;simpleContent>
- *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>string">
- *                 &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" />
- *               &lt;/extension>
- *             &lt;/simpleContent>
- *           &lt;/complexType>
- *         &lt;/element>
- *         &lt;element name="primaoc" type="{http://www.shared.com}TPrimaoc"/>
- *         &lt;element name="sadrzaj">
- *           &lt;complexType>
- *             &lt;complexContent>
- *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *                 &lt;sequence>
- *                   &lt;element name="podnaslov">
- *                     &lt;complexType>
- *                       &lt;simpleContent>
- *                         &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>string">
- *                           &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" />
- *                         &lt;/extension>
- *                       &lt;/simpleContent>
- *                     &lt;/complexType>
- *                   &lt;/element>
- *                   &lt;element name="naziv_organa">
- *                     &lt;complexType>
- *                       &lt;simpleContent>
- *                         &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>string">
- *                           &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" />
- *                         &lt;/extension>
- *                       &lt;/simpleContent>
- *                     &lt;/complexType>
- *                   &lt;/element>
- *                   &lt;element name="razlozi">
- *                     &lt;complexType>
- *                       &lt;complexContent>
- *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *                           &lt;choice>
- *                             &lt;element name="opcija" maxOccurs="unbounded">
- *                               &lt;complexType>
- *                                 &lt;simpleContent>
- *                                   &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>string">
- *                                     &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" />
- *                                   &lt;/extension>
- *                                 &lt;/simpleContent>
- *                               &lt;/complexType>
- *                             &lt;/element>
- *                           &lt;/choice>
- *                           &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" />
- *                         &lt;/restriction>
- *                       &lt;/complexContent>
- *                     &lt;/complexType>
- *                   &lt;/element>
- *                   &lt;element name="datum">
- *                     &lt;complexType>
- *                       &lt;simpleContent>
- *                         &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>date">
- *                           &lt;anyAttribute processContents='lax'/>
- *                         &lt;/extension>
- *                       &lt;/simpleContent>
- *                     &lt;/complexType>
- *                   &lt;/element>
- *                   &lt;element name="podaci_o_zahtevu">
- *                     &lt;complexType>
- *                       &lt;simpleContent>
- *                         &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>string">
- *                           &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" />
- *                         &lt;/extension>
- *                       &lt;/simpleContent>
- *                     &lt;/complexType>
- *                   &lt;/element>
- *                   &lt;element name="istaknuto" maxOccurs="unbounded" minOccurs="0">
- *                     &lt;complexType>
- *                       &lt;simpleContent>
- *                         &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>string">
- *                           &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" />
- *                         &lt;/extension>
- *                       &lt;/simpleContent>
- *                     &lt;/complexType>
- *                   &lt;/element>
- *                   &lt;element name="podnosilac_zalbe" type="{http://www.shared.com}Ttrazilac_informacije"/>
- *                   &lt;element name="datum_vreme" type="{http://www.shared.com}Tdatum_vreme"/>
- *                 &lt;/sequence>
- *               &lt;/restriction>
- *             &lt;/complexContent>
- *           &lt;/complexType>
- *         &lt;/element>
- *       &lt;/sequence>
- *       &lt;anyAttribute processContents='lax'/>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="TZalbaCutanje"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="naziv"&gt;
+ *           &lt;complexType&gt;
+ *             &lt;simpleContent&gt;
+ *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
+ *                 &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *               &lt;/extension&gt;
+ *             &lt;/simpleContent&gt;
+ *           &lt;/complexType&gt;
+ *         &lt;/element&gt;
+ *         &lt;element name="primaoc" type="{http://www.shared.com}TPrimaoc"/&gt;
+ *         &lt;element name="sadrzaj"&gt;
+ *           &lt;complexType&gt;
+ *             &lt;complexContent&gt;
+ *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *                 &lt;sequence&gt;
+ *                   &lt;element name="podnaslov"&gt;
+ *                     &lt;complexType&gt;
+ *                       &lt;simpleContent&gt;
+ *                         &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
+ *                           &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *                         &lt;/extension&gt;
+ *                       &lt;/simpleContent&gt;
+ *                     &lt;/complexType&gt;
+ *                   &lt;/element&gt;
+ *                   &lt;element name="naziv_organa"&gt;
+ *                     &lt;complexType&gt;
+ *                       &lt;simpleContent&gt;
+ *                         &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
+ *                           &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *                         &lt;/extension&gt;
+ *                       &lt;/simpleContent&gt;
+ *                     &lt;/complexType&gt;
+ *                   &lt;/element&gt;
+ *                   &lt;element name="razlozi"&gt;
+ *                     &lt;complexType&gt;
+ *                       &lt;complexContent&gt;
+ *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *                           &lt;choice&gt;
+ *                             &lt;element name="opcija" maxOccurs="unbounded"&gt;
+ *                               &lt;complexType&gt;
+ *                                 &lt;simpleContent&gt;
+ *                                   &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
+ *                                     &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *                                   &lt;/extension&gt;
+ *                                 &lt;/simpleContent&gt;
+ *                               &lt;/complexType&gt;
+ *                             &lt;/element&gt;
+ *                           &lt;/choice&gt;
+ *                           &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *                         &lt;/restriction&gt;
+ *                       &lt;/complexContent&gt;
+ *                     &lt;/complexType&gt;
+ *                   &lt;/element&gt;
+ *                   &lt;element name="datum"&gt;
+ *                     &lt;complexType&gt;
+ *                       &lt;simpleContent&gt;
+ *                         &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;date"&gt;
+ *                           &lt;anyAttribute processContents='lax'/&gt;
+ *                         &lt;/extension&gt;
+ *                       &lt;/simpleContent&gt;
+ *                     &lt;/complexType&gt;
+ *                   &lt;/element&gt;
+ *                   &lt;element name="podaci_o_zahtevu"&gt;
+ *                     &lt;complexType&gt;
+ *                       &lt;simpleContent&gt;
+ *                         &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
+ *                           &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *                         &lt;/extension&gt;
+ *                       &lt;/simpleContent&gt;
+ *                     &lt;/complexType&gt;
+ *                   &lt;/element&gt;
+ *                   &lt;element name="istaknuto" maxOccurs="unbounded" minOccurs="0"&gt;
+ *                     &lt;complexType&gt;
+ *                       &lt;simpleContent&gt;
+ *                         &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
+ *                           &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *                         &lt;/extension&gt;
+ *                       &lt;/simpleContent&gt;
+ *                     &lt;/complexType&gt;
+ *                   &lt;/element&gt;
+ *                   &lt;element name="podnosilac_zalbe" type="{http://www.shared.com}Ttrazilac_informacije"/&gt;
+ *                   &lt;element name="datum_vreme" type="{http://www.shared.com}Tdatum_vreme"/&gt;
+ *                 &lt;/sequence&gt;
+ *               &lt;/restriction&gt;
+ *             &lt;/complexContent&gt;
+ *           &lt;/complexType&gt;
+ *         &lt;/element&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  * 
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
+@XmlType(name = "TZalbaCutanje", propOrder = {
     "naziv",
     "primaoc",
     "sadrzaj"
 })
-@XmlRootElement(name = "zalbaCutanje", namespace = "http://www.zalbacutanje.com")
-public class ZalbaCutanje {
+public class TZalbaCutanje {
 
-    @XmlElement(namespace = "", required = true)
-    protected ZalbaCutanje.Naziv naziv;
-    @XmlElement(namespace = "", required = true)
+    @XmlElement(required = true)
+    protected Naziv naziv;
+    @XmlElement(required = true)
     protected TPrimaoc primaoc;
-    @XmlElement(namespace = "", required = true)
-    protected ZalbaCutanje.Sadrzaj sadrzaj;
-    @XmlAnyAttribute
-    private Map<QName, String> otherAttributes = new HashMap<QName, String>();
+    @XmlElement(required = true)
+    protected Sadrzaj sadrzaj;
 
     /**
      * Gets the value of the naziv property.
      * 
      * @return
      *     possible object is
-     *     {@link ZalbaCutanje.Naziv }
+     *     {@link Naziv }
      *     
      */
-    public ZalbaCutanje.Naziv getNaziv() {
+    public Naziv getNaziv() {
         return naziv;
     }
 
@@ -167,10 +161,10 @@ public class ZalbaCutanje {
      * 
      * @param value
      *     allowed object is
-     *     {@link ZalbaCutanje.Naziv }
+     *     {@link Naziv }
      *     
      */
-    public void setNaziv(ZalbaCutanje.Naziv value) {
+    public void setNaziv(Naziv value) {
         this.naziv = value;
     }
 
@@ -203,10 +197,10 @@ public class ZalbaCutanje {
      * 
      * @return
      *     possible object is
-     *     {@link ZalbaCutanje.Sadrzaj }
+     *     {@link Sadrzaj }
      *     
      */
-    public ZalbaCutanje.Sadrzaj getSadrzaj() {
+    public Sadrzaj getSadrzaj() {
         return sadrzaj;
     }
 
@@ -215,29 +209,11 @@ public class ZalbaCutanje {
      * 
      * @param value
      *     allowed object is
-     *     {@link ZalbaCutanje.Sadrzaj }
+     *     {@link Sadrzaj }
      *     
      */
-    public void setSadrzaj(ZalbaCutanje.Sadrzaj value) {
+    public void setSadrzaj(Sadrzaj value) {
         this.sadrzaj = value;
-    }
-
-    /**
-     * Gets a map that contains attributes that aren't bound to any typed property on this class.
-     * 
-     * <p>
-     * the map is keyed by the name of the attribute and 
-     * the value is the string value of the attribute.
-     * 
-     * the map returned by this method is live, and you can add new attribute
-     * by updating the map directly. Because of this design, there's no setter.
-     * 
-     * 
-     * @return
-     *     always non-null
-     */
-    public Map<QName, String> getOtherAttributes() {
-        return otherAttributes;
     }
 
 
@@ -247,13 +223,13 @@ public class ZalbaCutanje {
      * <p>The following schema fragment specifies the expected content contained within this class.
      * 
      * <pre>
-     * &lt;complexType>
-     *   &lt;simpleContent>
-     *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>string">
-     *       &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" />
-     *     &lt;/extension>
-     *   &lt;/simpleContent>
-     * &lt;/complexType>
+     * &lt;complexType&gt;
+     *   &lt;simpleContent&gt;
+     *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
+     *       &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+     *     &lt;/extension&gt;
+     *   &lt;/simpleContent&gt;
+     * &lt;/complexType&gt;
      * </pre>
      * 
      * 
@@ -326,81 +302,81 @@ public class ZalbaCutanje {
      * <p>The following schema fragment specifies the expected content contained within this class.
      * 
      * <pre>
-     * &lt;complexType>
-     *   &lt;complexContent>
-     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
-     *       &lt;sequence>
-     *         &lt;element name="podnaslov">
-     *           &lt;complexType>
-     *             &lt;simpleContent>
-     *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>string">
-     *                 &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" />
-     *               &lt;/extension>
-     *             &lt;/simpleContent>
-     *           &lt;/complexType>
-     *         &lt;/element>
-     *         &lt;element name="naziv_organa">
-     *           &lt;complexType>
-     *             &lt;simpleContent>
-     *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>string">
-     *                 &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" />
-     *               &lt;/extension>
-     *             &lt;/simpleContent>
-     *           &lt;/complexType>
-     *         &lt;/element>
-     *         &lt;element name="razlozi">
-     *           &lt;complexType>
-     *             &lt;complexContent>
-     *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
-     *                 &lt;choice>
-     *                   &lt;element name="opcija" maxOccurs="unbounded">
-     *                     &lt;complexType>
-     *                       &lt;simpleContent>
-     *                         &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>string">
-     *                           &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" />
-     *                         &lt;/extension>
-     *                       &lt;/simpleContent>
-     *                     &lt;/complexType>
-     *                   &lt;/element>
-     *                 &lt;/choice>
-     *                 &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" />
-     *               &lt;/restriction>
-     *             &lt;/complexContent>
-     *           &lt;/complexType>
-     *         &lt;/element>
-     *         &lt;element name="datum">
-     *           &lt;complexType>
-     *             &lt;simpleContent>
-     *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>date">
-     *                 &lt;anyAttribute processContents='lax'/>
-     *               &lt;/extension>
-     *             &lt;/simpleContent>
-     *           &lt;/complexType>
-     *         &lt;/element>
-     *         &lt;element name="podaci_o_zahtevu">
-     *           &lt;complexType>
-     *             &lt;simpleContent>
-     *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>string">
-     *                 &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" />
-     *               &lt;/extension>
-     *             &lt;/simpleContent>
-     *           &lt;/complexType>
-     *         &lt;/element>
-     *         &lt;element name="istaknuto" maxOccurs="unbounded" minOccurs="0">
-     *           &lt;complexType>
-     *             &lt;simpleContent>
-     *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>string">
-     *                 &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" />
-     *               &lt;/extension>
-     *             &lt;/simpleContent>
-     *           &lt;/complexType>
-     *         &lt;/element>
-     *         &lt;element name="podnosilac_zalbe" type="{http://www.shared.com}Ttrazilac_informacije"/>
-     *         &lt;element name="datum_vreme" type="{http://www.shared.com}Tdatum_vreme"/>
-     *       &lt;/sequence>
-     *     &lt;/restriction>
-     *   &lt;/complexContent>
-     * &lt;/complexType>
+     * &lt;complexType&gt;
+     *   &lt;complexContent&gt;
+     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+     *       &lt;sequence&gt;
+     *         &lt;element name="podnaslov"&gt;
+     *           &lt;complexType&gt;
+     *             &lt;simpleContent&gt;
+     *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
+     *                 &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+     *               &lt;/extension&gt;
+     *             &lt;/simpleContent&gt;
+     *           &lt;/complexType&gt;
+     *         &lt;/element&gt;
+     *         &lt;element name="naziv_organa"&gt;
+     *           &lt;complexType&gt;
+     *             &lt;simpleContent&gt;
+     *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
+     *                 &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+     *               &lt;/extension&gt;
+     *             &lt;/simpleContent&gt;
+     *           &lt;/complexType&gt;
+     *         &lt;/element&gt;
+     *         &lt;element name="razlozi"&gt;
+     *           &lt;complexType&gt;
+     *             &lt;complexContent&gt;
+     *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+     *                 &lt;choice&gt;
+     *                   &lt;element name="opcija" maxOccurs="unbounded"&gt;
+     *                     &lt;complexType&gt;
+     *                       &lt;simpleContent&gt;
+     *                         &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
+     *                           &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+     *                         &lt;/extension&gt;
+     *                       &lt;/simpleContent&gt;
+     *                     &lt;/complexType&gt;
+     *                   &lt;/element&gt;
+     *                 &lt;/choice&gt;
+     *                 &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+     *               &lt;/restriction&gt;
+     *             &lt;/complexContent&gt;
+     *           &lt;/complexType&gt;
+     *         &lt;/element&gt;
+     *         &lt;element name="datum"&gt;
+     *           &lt;complexType&gt;
+     *             &lt;simpleContent&gt;
+     *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;date"&gt;
+     *                 &lt;anyAttribute processContents='lax'/&gt;
+     *               &lt;/extension&gt;
+     *             &lt;/simpleContent&gt;
+     *           &lt;/complexType&gt;
+     *         &lt;/element&gt;
+     *         &lt;element name="podaci_o_zahtevu"&gt;
+     *           &lt;complexType&gt;
+     *             &lt;simpleContent&gt;
+     *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
+     *                 &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+     *               &lt;/extension&gt;
+     *             &lt;/simpleContent&gt;
+     *           &lt;/complexType&gt;
+     *         &lt;/element&gt;
+     *         &lt;element name="istaknuto" maxOccurs="unbounded" minOccurs="0"&gt;
+     *           &lt;complexType&gt;
+     *             &lt;simpleContent&gt;
+     *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
+     *                 &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+     *               &lt;/extension&gt;
+     *             &lt;/simpleContent&gt;
+     *           &lt;/complexType&gt;
+     *         &lt;/element&gt;
+     *         &lt;element name="podnosilac_zalbe" type="{http://www.shared.com}Ttrazilac_informacije"/&gt;
+     *         &lt;element name="datum_vreme" type="{http://www.shared.com}Tdatum_vreme"/&gt;
+     *       &lt;/sequence&gt;
+     *     &lt;/restriction&gt;
+     *   &lt;/complexContent&gt;
+     * &lt;/complexType&gt;
      * </pre>
      * 
      * 
@@ -412,14 +388,14 @@ public class ZalbaCutanje {
     public static class Sadrzaj {
 
         @XmlElementRefs({
-            @XmlElementRef(name = "podnaslov", type = JAXBElement.class),
-            @XmlElementRef(name = "datum", type = JAXBElement.class),
-            @XmlElementRef(name = "podnosilac_zalbe", type = JAXBElement.class),
-            @XmlElementRef(name = "naziv_organa", type = JAXBElement.class),
-            @XmlElementRef(name = "istaknuto", type = JAXBElement.class),
-            @XmlElementRef(name = "razlozi", type = JAXBElement.class),
-            @XmlElementRef(name = "datum_vreme", type = JAXBElement.class),
-            @XmlElementRef(name = "podaci_o_zahtevu", type = JAXBElement.class)
+            @XmlElementRef(name = "razlozi", namespace = "http://www.zalbacutanje.com", type = JAXBElement.class),
+            @XmlElementRef(name = "podnaslov", namespace = "http://www.zalbacutanje.com", type = JAXBElement.class),
+            @XmlElementRef(name = "datum_vreme", namespace = "http://www.zalbacutanje.com", type = JAXBElement.class),
+            @XmlElementRef(name = "istaknuto", namespace = "http://www.zalbacutanje.com", type = JAXBElement.class),
+            @XmlElementRef(name = "podaci_o_zahtevu", namespace = "http://www.zalbacutanje.com", type = JAXBElement.class),
+            @XmlElementRef(name = "naziv_organa", namespace = "http://www.zalbacutanje.com", type = JAXBElement.class),
+            @XmlElementRef(name = "datum", namespace = "http://www.zalbacutanje.com", type = JAXBElement.class),
+            @XmlElementRef(name = "podnosilac_zalbe", namespace = "http://www.zalbacutanje.com", type = JAXBElement.class)
         })
         @XmlMixed
         protected List<Serializable> content;
@@ -443,14 +419,14 @@ public class ZalbaCutanje {
          * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link String }
-         * {@link JAXBElement }{@code <}{@link ZalbaCutanje.Sadrzaj.Podnaslov }{@code >}
-         * {@link JAXBElement }{@code <}{@link ZalbaCutanje.Sadrzaj.Datum }{@code >}
-         * {@link JAXBElement }{@code <}{@link TtrazilacInformacije }{@code >}
-         * {@link JAXBElement }{@code <}{@link ZalbaCutanje.Sadrzaj.NazivOrgana }{@code >}
-         * {@link JAXBElement }{@code <}{@link ZalbaCutanje.Sadrzaj.Istaknuto }{@code >}
-         * {@link JAXBElement }{@code <}{@link ZalbaCutanje.Sadrzaj.Razlozi }{@code >}
+         * {@link JAXBElement }{@code <}{@link Razlozi }{@code >}
+         * {@link JAXBElement }{@code <}{@link Podnaslov }{@code >}
          * {@link JAXBElement }{@code <}{@link TdatumVreme }{@code >}
-         * {@link JAXBElement }{@code <}{@link ZalbaCutanje.Sadrzaj.PodaciOZahtevu }{@code >}
+         * {@link JAXBElement }{@code <}{@link Istaknuto }{@code >}
+         * {@link JAXBElement }{@code <}{@link PodaciOZahtevu }{@code >}
+         * {@link JAXBElement }{@code <}{@link NazivOrgana }{@code >}
+         * {@link JAXBElement }{@code <}{@link Datum }{@code >}
+         * {@link JAXBElement }{@code <}{@link TtrazilacInformacije }{@code >}
          * 
          * 
          */
@@ -468,13 +444,13 @@ public class ZalbaCutanje {
          * <p>The following schema fragment specifies the expected content contained within this class.
          * 
          * <pre>
-         * &lt;complexType>
-         *   &lt;simpleContent>
-         *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>date">
-         *       &lt;anyAttribute processContents='lax'/>
-         *     &lt;/extension>
-         *   &lt;/simpleContent>
-         * &lt;/complexType>
+         * &lt;complexType&gt;
+         *   &lt;simpleContent&gt;
+         *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;date"&gt;
+         *       &lt;anyAttribute processContents='lax'/&gt;
+         *     &lt;/extension&gt;
+         *   &lt;/simpleContent&gt;
+         * &lt;/complexType&gt;
          * </pre>
          * 
          * 
@@ -542,13 +518,13 @@ public class ZalbaCutanje {
          * <p>The following schema fragment specifies the expected content contained within this class.
          * 
          * <pre>
-         * &lt;complexType>
-         *   &lt;simpleContent>
-         *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>string">
-         *       &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" />
-         *     &lt;/extension>
-         *   &lt;/simpleContent>
-         * &lt;/complexType>
+         * &lt;complexType&gt;
+         *   &lt;simpleContent&gt;
+         *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
+         *       &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+         *     &lt;/extension&gt;
+         *   &lt;/simpleContent&gt;
+         * &lt;/complexType&gt;
          * </pre>
          * 
          * 
@@ -621,13 +597,13 @@ public class ZalbaCutanje {
          * <p>The following schema fragment specifies the expected content contained within this class.
          * 
          * <pre>
-         * &lt;complexType>
-         *   &lt;simpleContent>
-         *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>string">
-         *       &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" />
-         *     &lt;/extension>
-         *   &lt;/simpleContent>
-         * &lt;/complexType>
+         * &lt;complexType&gt;
+         *   &lt;simpleContent&gt;
+         *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
+         *       &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+         *     &lt;/extension&gt;
+         *   &lt;/simpleContent&gt;
+         * &lt;/complexType&gt;
          * </pre>
          * 
          * 
@@ -700,13 +676,13 @@ public class ZalbaCutanje {
          * <p>The following schema fragment specifies the expected content contained within this class.
          * 
          * <pre>
-         * &lt;complexType>
-         *   &lt;simpleContent>
-         *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>string">
-         *       &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" />
-         *     &lt;/extension>
-         *   &lt;/simpleContent>
-         * &lt;/complexType>
+         * &lt;complexType&gt;
+         *   &lt;simpleContent&gt;
+         *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
+         *       &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+         *     &lt;/extension&gt;
+         *   &lt;/simpleContent&gt;
+         * &lt;/complexType&gt;
          * </pre>
          * 
          * 
@@ -779,13 +755,13 @@ public class ZalbaCutanje {
          * <p>The following schema fragment specifies the expected content contained within this class.
          * 
          * <pre>
-         * &lt;complexType>
-         *   &lt;simpleContent>
-         *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>string">
-         *       &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" />
-         *     &lt;/extension>
-         *   &lt;/simpleContent>
-         * &lt;/complexType>
+         * &lt;complexType&gt;
+         *   &lt;simpleContent&gt;
+         *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
+         *       &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+         *     &lt;/extension&gt;
+         *   &lt;/simpleContent&gt;
+         * &lt;/complexType&gt;
          * </pre>
          * 
          * 
@@ -858,24 +834,24 @@ public class ZalbaCutanje {
          * <p>The following schema fragment specifies the expected content contained within this class.
          * 
          * <pre>
-         * &lt;complexType>
-         *   &lt;complexContent>
-         *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
-         *       &lt;choice>
-         *         &lt;element name="opcija" maxOccurs="unbounded">
-         *           &lt;complexType>
-         *             &lt;simpleContent>
-         *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>string">
-         *                 &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" />
-         *               &lt;/extension>
-         *             &lt;/simpleContent>
-         *           &lt;/complexType>
-         *         &lt;/element>
-         *       &lt;/choice>
-         *       &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" />
-         *     &lt;/restriction>
-         *   &lt;/complexContent>
-         * &lt;/complexType>
+         * &lt;complexType&gt;
+         *   &lt;complexContent&gt;
+         *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+         *       &lt;choice&gt;
+         *         &lt;element name="opcija" maxOccurs="unbounded"&gt;
+         *           &lt;complexType&gt;
+         *             &lt;simpleContent&gt;
+         *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
+         *                 &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+         *               &lt;/extension&gt;
+         *             &lt;/simpleContent&gt;
+         *           &lt;/complexType&gt;
+         *         &lt;/element&gt;
+         *       &lt;/choice&gt;
+         *       &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+         *     &lt;/restriction&gt;
+         *   &lt;/complexContent&gt;
+         * &lt;/complexType&gt;
          * </pre>
          * 
          * 
@@ -886,8 +862,7 @@ public class ZalbaCutanje {
         })
         public static class Razlozi {
 
-            @XmlElement(namespace = "")
-            protected List<ZalbaCutanje.Sadrzaj.Razlozi.Opcija> opcija;
+            protected List<Opcija> opcija;
             @XmlAttribute(name = "property")
             protected String property;
 
@@ -909,13 +884,13 @@ public class ZalbaCutanje {
              * 
              * <p>
              * Objects of the following type(s) are allowed in the list
-             * {@link ZalbaCutanje.Sadrzaj.Razlozi.Opcija }
+             * {@link Opcija }
              * 
              * 
              */
-            public List<ZalbaCutanje.Sadrzaj.Razlozi.Opcija> getOpcija() {
+            public List<Opcija> getOpcija() {
                 if (opcija == null) {
-                    opcija = new ArrayList<ZalbaCutanje.Sadrzaj.Razlozi.Opcija>();
+                    opcija = new ArrayList<Opcija>();
                 }
                 return this.opcija;
             }
@@ -951,13 +926,13 @@ public class ZalbaCutanje {
              * <p>The following schema fragment specifies the expected content contained within this class.
              * 
              * <pre>
-             * &lt;complexType>
-             *   &lt;simpleContent>
-             *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>string">
-             *       &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" />
-             *     &lt;/extension>
-             *   &lt;/simpleContent>
-             * &lt;/complexType>
+             * &lt;complexType&gt;
+             *   &lt;simpleContent&gt;
+             *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
+             *       &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+             *     &lt;/extension&gt;
+             *   &lt;/simpleContent&gt;
+             * &lt;/complexType&gt;
              * </pre>
              * 
              * 

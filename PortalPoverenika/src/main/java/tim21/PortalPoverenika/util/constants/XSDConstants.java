@@ -7,11 +7,11 @@ import java.util.Map;
 public class XSDConstants {
     public static final String USER = "User";
 
-    public static final String RESCRIPT = "Resenje";
+    public static final String RESCRIPT = "ResenjeRoot";
 
     public static final String DECISION_APPEAL = "ZalbaRoot";
 
-    public static final String SILENCE_APPEAL = "ZalbaCutanje";
+    public static final String SILENCE_APPEAL = "ZalbaCutanjeRoot";
 
     public static final Map<String, String> xsdPathMap;
     static {

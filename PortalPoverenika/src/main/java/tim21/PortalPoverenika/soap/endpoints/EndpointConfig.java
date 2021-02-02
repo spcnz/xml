@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import tim21.PortalPoverenika.soap.service.decisionAppeal.DecisionAppealServiceSoapBindingImpl;
+import tim21.PortalPoverenika.soap.service.silenceAppeal.SilenceAppealServiceSoapBindingImpl;
 
 @Configuration
 public class EndpointConfig {
@@ -19,11 +20,21 @@ public class EndpointConfig {
     @Autowired
     private DecisionAppealServiceSoapBindingImpl decisionAppealServiceSoapBinding;
 
+    @Autowired
+    private SilenceAppealServiceSoapBindingImpl silenceAppealServiceSoapBinding;
+
 
     @Bean
     public Endpoint decisionAppealEndpoint() {
         EndpointImpl endpoint = new EndpointImpl(bus, decisionAppealServiceSoapBinding);
         endpoint.publish("/decision-appeal");
+        return endpoint;
+    }
+
+    @Bean
+    public Endpoint silenceAppealEndpoint() {
+        EndpointImpl endpoint = new EndpointImpl(bus, silenceAppealServiceSoapBinding);
+        endpoint.publish("/silence-appeal");
         return endpoint;
     }
 

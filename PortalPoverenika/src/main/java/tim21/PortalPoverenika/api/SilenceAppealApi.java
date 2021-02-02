@@ -4,10 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.xmldb.api.base.XMLDBException;
-import tim21.PortalPoverenika.model.silenceAppeal.ZalbaCutanje;
+import tim21.PortalPoverenika.model.silenceAppeal.ZalbaCutanjeRoot;
 import tim21.PortalPoverenika.model.lists.SilenceAppealList;
 import tim21.PortalPoverenika.service.SilenceAppealService;
 
@@ -22,10 +21,11 @@ public class SilenceAppealApi {
 
     //@PreAuthorize("hasRole('ROLE_CITIZEN')")
     @RequestMapping( method = RequestMethod.POST, consumes = MediaType.APPLICATION_XML_VALUE)
-    public ResponseEntity<?> createAppeal(@RequestBody ZalbaCutanje appeal)  {
+    public ResponseEntity<?> createAppeal(@RequestBody ZalbaCutanjeRoot appeal)  {
         if (appealService.create(appeal)){
             return new ResponseEntity<>(HttpStatus.CREATED);
         }
+
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
@@ -43,7 +43,7 @@ public class SilenceAppealApi {
 
     @RequestMapping(value="/{ID}", method = RequestMethod.GET, consumes = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<?> getAppeal(@PathVariable String ID) {
-        ZalbaCutanje appeal = appealService.getOne(ID);
+        ZalbaCutanjeRoot appeal = appealService.getOne(ID);
         if(appeal != null)
             return new ResponseEntity(appeal, HttpStatus.OK);
 

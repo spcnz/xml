@@ -5,7 +5,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import tim21.PortalPoverenika.model.silenceAppeal.ZalbaCutanje;
 import tim21.PortalPoverenika.model.user.User;
 import tim21.PortalPoverenika.service.UserService;
 

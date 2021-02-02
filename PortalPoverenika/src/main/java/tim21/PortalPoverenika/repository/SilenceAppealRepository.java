@@ -1,7 +1,7 @@
 package tim21.PortalPoverenika.repository;
 
 import tim21.PortalPoverenika.db.ExistManager;
-import tim21.PortalPoverenika.model.silenceAppeal.ZalbaCutanje;
+import tim21.PortalPoverenika.model.silenceAppeal.ZalbaCutanjeRoot;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.xmldb.api.base.ResourceSet;
@@ -23,7 +23,7 @@ public class SilenceAppealRepository {
     public ExistManager existManager;
 
 
-    public boolean create(ZalbaCutanje appeal) {
+    public boolean create(ZalbaCutanjeRoot appeal) {
         try {
             String id = IdGenerator.generateDocumentID(IdGenerator.generate(XSDConstants.SILENCE_APPEAL),XSDConstants.SILENCE_APPEAL);
             Map<QName, String> attrributes = appeal.getOtherAttributes();
@@ -47,7 +47,7 @@ public class SilenceAppealRepository {
 
     public ResourceSet getAll() throws XMLDBException {
         try {
-            return existManager.getAll(SILENCEAPPEAL_COLLECTION_URI, "/zalbaCutanje", SILENCEAPPEAL_TARGET_NAMESPACE);
+            return existManager.getAll(SILENCEAPPEAL_COLLECTION_URI, "/ZalbaCutanjeRoot", SILENCEAPPEAL_TARGET_NAMESPACE);
         } catch (Exception e) {
             e.printStackTrace();
             return null;

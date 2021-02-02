@@ -71,9 +71,9 @@ public class DecisionAppealList {
     public DecisionAppealList(List<ZalbaRoot> appeals) {
         this.any = appeals;
     }
+
     public DecisionAppealList() {
         this.any = new ArrayList<>();
     }
-
 
     }
