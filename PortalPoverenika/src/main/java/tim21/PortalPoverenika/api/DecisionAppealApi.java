@@ -1,35 +1,30 @@
 package tim21.PortalPoverenika.api;
 
-<<<<<<< HEAD
+
 import org.apache.tomcat.jni.File;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.InputStreamSource;
-=======
 import org.apache.commons.compress.utils.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpHeaders;
->>>>>>> d4d802dc488388f3e43648d15e22bea015103ac7
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.xml.sax.SAXException;
 import org.xmldb.api.base.XMLDBException;
-<<<<<<< HEAD
 import tim21.PortalPoverenika.dto.request.DecisionAppealFilter;
-import tim21.PortalPoverenika.model.decisionAppeal.Zalba;
 import tim21.PortalPoverenika.model.lists.DecisionAppealList;
 import tim21.PortalPoverenika.service.DecisionAppealService;
 import tim21.PortalPoverenika.service.MetaDataService;
-=======
 import tim21.PortalPoverenika.model.decisionAppeal.ZalbaRoot;
 import tim21.PortalPoverenika.model.lists.DecisionAppealList;
 import tim21.PortalPoverenika.service.DecisionAppealService;
+import tim21.PortalPoverenika.util.constants.RDFConstants;
 import tim21.PortalPoverenika.util.mappers.DecisionAppealMapper;
->>>>>>> d4d802dc488388f3e43648d15e22bea015103ac7
 
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.bind.JAXBException;
@@ -40,6 +35,8 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.io.InputStream;
+
+import static tim21.PortalPoverenika.util.constants.RDFConstants.DECISIONAPPEAL_RDF_RESOURCES;
 
 @RestController
 @RequestMapping(value = "/api/decisionappeal", produces = MediaType.APPLICATION_XML_VALUE)
@@ -55,8 +52,9 @@ public class DecisionAppealApi {
     public ResponseEntity<?> createAppeal(@RequestBody ZalbaRoot appealReq) throws IOException, SAXException {
 
         ZalbaRoot appeal = DecisionAppealMapper.addStaticText(appealReq);
-        if (appealService.create(appeal)){
-            return new ResponseEntity<>(res, HttpStatus.CREATED);
+        appeal = appealService.create(appeal);
+        if (appeal != null){
+            return new ResponseEntity<>(appeal, HttpStatus.CREATED);
         }
 
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -97,7 +95,7 @@ public class DecisionAppealApi {
 
     @RequestMapping(value="/meta/search/", method = RequestMethod.POST,  consumes = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<?> metaSearchAppeals(@RequestBody DecisionAppealFilter filter) {
-        List<Zalba> appeals = new ArrayList<Zalba>();
+        List<ZalbaRoot> appeals = new ArrayList<ZalbaRoot>();
         List<String> res = new ArrayList<String>();
         try {
             res =  metaDataService.filter("Zalbe", filter);
@@ -115,21 +113,33 @@ public class DecisionAppealApi {
 
     @RequestMapping(value= "/meta/rdf/{ID}", method=RequestMethod.GET)
     public ResponseEntity<InputStreamResource> metaExportRDF(@PathVariable Long ID) throws IOException {
-        String path = "src/main/resources/rdf/zalbe/" + ID + ".rdf";
-        ByteArrayInputStream bis = new ByteArrayInputStream(Files.readAllBytes(Paths.get(path)));
+        String path = DECISIONAPPEAL_RDF_RESOURCES + ID + ".rdf";
+        try {
+            ByteArrayInputStream bis = new ByteArrayInputStream(Files.readAllBytes(Paths.get(path)));
 
-            //HttpHeaders headers = new HttpHeaders();
-            //headers.add("Content-Disposition", "inline; filename=" + id + ".pdf");
+            HttpHeaders headers = new HttpHeaders();
+            headers.add("Content-Type", "application/xml; charset=utf-8");
 
-
-
-        return new ResponseEntity(new InputStreamResource(bis), HttpStatus.OK);
+            return ResponseEntity.ok().headers(headers).body(new InputStreamResource(bis));
+        }catch(Exception e){
+            return new   ResponseEntity(HttpStatus.BAD_REQUEST);
+        }
     }
 
     @RequestMapping(value= "/meta/json/{ID}", method=RequestMethod.GET)
-    public ResponseEntity<?> metaExportJSON(@PathVariable Long ID){
+    public ResponseEntity<?> metaExportJSON(@PathVariable Long ID) throws IOException {
 
-        return new ResponseEntity(HttpStatus.OK);
+        String path = DECISIONAPPEAL_RDF_RESOURCES + ID + ".json";
+        try {
+            ByteArrayInputStream bis = new ByteArrayInputStream(Files.readAllBytes(Paths.get(path)));
+
+            HttpHeaders headers = new HttpHeaders();
+            headers.add("Content-Type", "application/json; charset=utf-8");
+
+            return ResponseEntity.ok().headers(headers).body(new InputStreamResource(bis));
+        }catch(Exception e){
+            return new   ResponseEntity(HttpStatus.BAD_REQUEST);
+        }
     }
 
 

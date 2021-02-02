@@ -92,7 +92,7 @@ public class DecisionAppealService {
             System.out.println(xmlResource);
             if(xmlResource == null)
                 return null;
-            JAXBContext context = JAXBContext.newInstance(Zalba.class);
+            JAXBContext context = JAXBContext.newInstance(ZalbaRoot.class);
             Unmarshaller unmarshaller = context.createUnmarshaller();
             ZalbaRoot appeal = (ZalbaRoot) unmarshaller.unmarshal(xmlResource.getContentAsDOM());
             appeals.add(appeal);
