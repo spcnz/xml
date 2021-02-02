@@ -9,7 +9,7 @@ public class XSDConstants {
 
     public static final String RESCRIPT = "Resenje";
 
-    public static final String DECISION_APPEAL = "Zalba";
+    public static final String DECISION_APPEAL = "ZalbaRoot";
 
     public static final String SILENCE_APPEAL = "ZalbaCutanje";
 

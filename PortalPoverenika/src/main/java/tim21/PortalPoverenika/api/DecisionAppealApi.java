@@ -1,21 +1,37 @@
 package tim21.PortalPoverenika.api;
 
+<<<<<<< HEAD
 import org.apache.tomcat.jni.File;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.InputStreamSource;
+=======
+import org.apache.commons.compress.utils.IOUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.http.HttpHeaders;
+>>>>>>> d4d802dc488388f3e43648d15e22bea015103ac7
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.xml.sax.SAXException;
 import org.xmldb.api.base.XMLDBException;
+<<<<<<< HEAD
 import tim21.PortalPoverenika.dto.request.DecisionAppealFilter;
 import tim21.PortalPoverenika.model.decisionAppeal.Zalba;
 import tim21.PortalPoverenika.model.lists.DecisionAppealList;
 import tim21.PortalPoverenika.service.DecisionAppealService;
 import tim21.PortalPoverenika.service.MetaDataService;
+=======
+import tim21.PortalPoverenika.model.decisionAppeal.ZalbaRoot;
+import tim21.PortalPoverenika.model.lists.DecisionAppealList;
+import tim21.PortalPoverenika.service.DecisionAppealService;
+import tim21.PortalPoverenika.util.mappers.DecisionAppealMapper;
+>>>>>>> d4d802dc488388f3e43648d15e22bea015103ac7
 
+import javax.servlet.http.HttpServletResponse;
 import javax.xml.bind.JAXBException;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -23,6 +39,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.io.InputStream;
 
 @RestController
 @RequestMapping(value = "/api/decisionappeal", produces = MediaType.APPLICATION_XML_VALUE)
@@ -35,10 +52,10 @@ public class DecisionAppealApi {
     private MetaDataService metaDataService;
 
     @RequestMapping( method = RequestMethod.POST, consumes = MediaType.APPLICATION_XML_VALUE)
-    public ResponseEntity<?> createAppeal(@RequestBody Zalba appeal) throws IOException, SAXException {
-        Zalba res =  appealService.create(appeal);
+    public ResponseEntity<?> createAppeal(@RequestBody ZalbaRoot appealReq) throws IOException, SAXException {
 
-        if(res != null){
+        ZalbaRoot appeal = DecisionAppealMapper.addStaticText(appealReq);
+        if (appealService.create(appeal)){
             return new ResponseEntity<>(res, HttpStatus.CREATED);
         }
 
@@ -59,7 +76,7 @@ public class DecisionAppealApi {
 
     @RequestMapping(value="/{ID}", method = RequestMethod.GET, consumes = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<?> getAppeal(@PathVariable String ID) {
-        Zalba appeal = appealService.getOne(ID);
+        ZalbaRoot appeal = appealService.getOne(ID);
         if(appeal != null)
             return new ResponseEntity(appeal, HttpStatus.OK);
 
@@ -117,4 +134,30 @@ public class DecisionAppealApi {
 
 
 
+//    @RequestMapping(value = "/pdf/{id}", method = RequestMethod.GET)
+//    public void getFile(
+//            @PathVariable("id") String fileName,
+//            HttpServletResponse response) {
+//        try {
+//            // get your file as InputStream
+//            InputStream in = getClass()
+//                    .getResourceAsStream("classpath:pdf/bookstore.pdf");
+//            // copy it to response's OutputStream
+//            org.apache.commons.io.IOUtils.copy(in, response.getOutputStream());
+//            response.flushBuffer();
+//        } catch (IOException ex) {
+//
+//            throw new RuntimeException("IOError writing file to output stream");
+//        }
+//
+//
+//        return new FileSystemResource(myService.getFileFor(fileName));
+//    }
+//
+//
+//    @RequestMapping(value = "/files/{file_name}", method = RequestMethod.GET)
+//    @ResponseBody
+//    public FileSystemResource getFile(@PathVariable("file_name") String fileName) {
+//        return new FileSystemResource();
+//    }
 }

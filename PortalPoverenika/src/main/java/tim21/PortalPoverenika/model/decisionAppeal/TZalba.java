@@ -1,95 +1,104 @@
 
 package tim21.PortalPoverenika.model.decisionAppeal;
 
-import javax.xml.bind.annotation.*;
-import javax.xml.datatype.XMLGregorianCalendar;
-import javax.xml.namespace.QName;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAnyAttribute;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.XmlValue;
+import javax.xml.datatype.XMLGregorianCalendar;
+import javax.xml.namespace.QName;
+
 import tim21.PortalPoverenika.model.shared.*;
 
+
 /**
- * <p>Java class for anonymous complex type.
+ * <p>Java class for TZalba complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType>
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="Naslov">
- *           &lt;simpleType>
- *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *               &lt;maxLength value="200"/>
- *             &lt;/restriction>
- *           &lt;/simpleType>
- *         &lt;/element>
- *         &lt;element name="Primaoc" type="{http://www.shared.com}TPrimaoc"/>
- *         &lt;element name="Podnaslov">
- *           &lt;simpleType>
- *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *               &lt;maxLength value="150"/>
- *             &lt;/restriction>
- *           &lt;/simpleType>
- *         &lt;/element>
- *         &lt;choice>
- *           &lt;element name="Pravno_lice" type="{http://www.shared.com}TPravno_lice"/>
- *           &lt;element name="Fizicko_lice" type="{http://www.shared.com}TFizicko_lice"/>
- *         &lt;/choice>
- *         &lt;element name="Tekst_zalbe" type="{http://www.zalbanaodluku.com}TText_zalbe"/>
- *         &lt;element name="Grad">
- *           &lt;complexType>
- *             &lt;simpleContent>
- *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>string">
- *                 &lt;anyAttribute processContents='lax'/>
- *               &lt;/extension>
- *             &lt;/simpleContent>
- *           &lt;/complexType>
- *         &lt;/element>
- *         &lt;element name="Datum">
- *           &lt;complexType>
- *             &lt;simpleContent>
- *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>date">
- *                 &lt;anyAttribute processContents='lax'/>
- *               &lt;/extension>
- *             &lt;/simpleContent>
- *           &lt;/complexType>
- *         &lt;/element>
- *         &lt;element name="Podnosilac" type="{http://www.shared.com}Ttrazilac_informacije"/>
- *         &lt;element name="Napomena">
- *           &lt;complexType>
- *             &lt;complexContent>
- *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *                 &lt;sequence>
- *                   &lt;element name="Tacka" maxOccurs="unbounded">
- *                     &lt;complexType>
- *                       &lt;simpleContent>
- *                         &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>string">
- *                           &lt;attribute name="broj" use="required" type="{http://www.w3.org/2001/XMLSchema}positiveInteger" />
- *                         &lt;/extension>
- *                       &lt;/simpleContent>
- *                     &lt;/complexType>
- *                   &lt;/element>
- *                 &lt;/sequence>
- *               &lt;/restriction>
- *             &lt;/complexContent>
- *           &lt;/complexType>
- *         &lt;/element>
- *       &lt;/sequence>
- *       &lt;anyAttribute processContents='lax'/>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="TZalba"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="Naslov"&gt;
+ *           &lt;simpleType&gt;
+ *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
+ *               &lt;maxLength value="200"/&gt;
+ *             &lt;/restriction&gt;
+ *           &lt;/simpleType&gt;
+ *         &lt;/element&gt;
+ *         &lt;element name="Primaoc" type="{http://www.shared.com}TPrimaoc"/&gt;
+ *         &lt;element name="Podnaslov"&gt;
+ *           &lt;simpleType&gt;
+ *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
+ *               &lt;maxLength value="150"/&gt;
+ *             &lt;/restriction&gt;
+ *           &lt;/simpleType&gt;
+ *         &lt;/element&gt;
+ *         &lt;choice&gt;
+ *           &lt;element name="Pravno_lice" type="{http://www.shared.com}TPravno_lice"/&gt;
+ *           &lt;element name="Fizicko_lice" type="{http://www.shared.com}TFizicko_lice"/&gt;
+ *         &lt;/choice&gt;
+ *         &lt;element name="Tekst_zalbe" type="{http://www.zalbanaodluku.com}TText_zalbe"/&gt;
+ *         &lt;element name="Grad"&gt;
+ *           &lt;complexType&gt;
+ *             &lt;simpleContent&gt;
+ *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
+ *                 &lt;anyAttribute processContents='lax'/&gt;
+ *               &lt;/extension&gt;
+ *             &lt;/simpleContent&gt;
+ *           &lt;/complexType&gt;
+ *         &lt;/element&gt;
+ *         &lt;element name="Datum"&gt;
+ *           &lt;complexType&gt;
+ *             &lt;simpleContent&gt;
+ *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;date"&gt;
+ *                 &lt;anyAttribute processContents='lax'/&gt;
+ *               &lt;/extension&gt;
+ *             &lt;/simpleContent&gt;
+ *           &lt;/complexType&gt;
+ *         &lt;/element&gt;
+ *         &lt;element name="Podnosilac" type="{http://www.shared.com}Ttrazilac_informacije"/&gt;
+ *         &lt;element name="Napomena"&gt;
+ *           &lt;complexType&gt;
+ *             &lt;complexContent&gt;
+ *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *                 &lt;sequence&gt;
+ *                   &lt;element name="Tacka" maxOccurs="unbounded"&gt;
+ *                     &lt;complexType&gt;
+ *                       &lt;simpleContent&gt;
+ *                         &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
+ *                           &lt;attribute name="broj" use="required" type="{http://www.w3.org/2001/XMLSchema}positiveInteger" /&gt;
+ *                         &lt;/extension&gt;
+ *                       &lt;/simpleContent&gt;
+ *                     &lt;/complexType&gt;
+ *                   &lt;/element&gt;
+ *                 &lt;/sequence&gt;
+ *               &lt;/restriction&gt;
+ *             &lt;/complexContent&gt;
+ *           &lt;/complexType&gt;
+ *         &lt;/element&gt;
+ *       &lt;/sequence&gt;
+ *       &lt;anyAttribute processContents='lax'/&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  * 
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
+@XmlType(name = "TZalba", propOrder = {
     "naslov",
     "primaoc",
     "podnaslov",
@@ -101,28 +110,27 @@ import tim21.PortalPoverenika.model.shared.*;
     "podnosilac",
     "napomena"
 })
-@XmlRootElement(name = "Zalba", namespace = "http://www.zalbanaodluku.com")
-public class Zalba {
+public class TZalba {
 
-    @XmlElement(name = "Naslov", namespace = "http://www.zalbanaodluku.com", required = true)
+    @XmlElement(name = "Naslov", required = true)
     protected String naslov;
-    @XmlElement(name = "Primaoc", namespace = "http://www.zalbanaodluku.com", required = true)
+    @XmlElement(name = "Primaoc", required = true)
     protected TPrimaoc primaoc;
-    @XmlElement(name = "Podnaslov", namespace = "http://www.zalbanaodluku.com", required = true)
+    @XmlElement(name = "Podnaslov", required = true)
     protected String podnaslov;
-    @XmlElement(name = "Pravno_lice", namespace = "http://www.zalbanaodluku.com")
+    @XmlElement(name = "Pravno_lice")
     protected TPravnoLice pravnoLice;
-    @XmlElement(name = "Fizicko_lice", namespace = "http://www.zalbanaodluku.com")
+    @XmlElement(name = "Fizicko_lice")
     protected TFizickoLice fizickoLice;
-    @XmlElement(name = "Tekst_zalbe", namespace = "http://www.zalbanaodluku.com", required = true)
+    @XmlElement(name = "Tekst_zalbe", required = true)
     protected TTextZalbe tekstZalbe;
-    @XmlElement(name = "Grad", namespace = "http://www.zalbanaodluku.com", required = true)
+    @XmlElement(name = "Grad", required = true)
     protected Grad grad;
-    @XmlElement(name = "Datum", namespace = "http://www.zalbanaodluku.com", required = true)
+    @XmlElement(name = "Datum", required = true)
     protected Datum datum;
-    @XmlElement(name = "Podnosilac", namespace = "http://www.zalbanaodluku.com", required = true)
+    @XmlElement(name = "Podnosilac", required = true)
     protected TtrazilacInformacije podnosilac;
-    @XmlElement(name = "Napomena", namespace = "http://www.zalbanaodluku.com", required = true)
+    @XmlElement(name = "Napomena", required = true)
     protected Napomena napomena;
     @XmlAnyAttribute
     private Map<QName, String> otherAttributes = new HashMap<QName, String>();
@@ -392,13 +400,13 @@ public class Zalba {
      * <p>The following schema fragment specifies the expected content contained within this class.
      * 
      * <pre>
-     * &lt;complexType>
-     *   &lt;simpleContent>
-     *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>date">
-     *       &lt;anyAttribute processContents='lax'/>
-     *     &lt;/extension>
-     *   &lt;/simpleContent>
-     * &lt;/complexType>
+     * &lt;complexType&gt;
+     *   &lt;simpleContent&gt;
+     *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;date"&gt;
+     *       &lt;anyAttribute processContents='lax'/&gt;
+     *     &lt;/extension&gt;
+     *   &lt;/simpleContent&gt;
+     * &lt;/complexType&gt;
      * </pre>
      * 
      * 
@@ -466,13 +474,13 @@ public class Zalba {
      * <p>The following schema fragment specifies the expected content contained within this class.
      * 
      * <pre>
-     * &lt;complexType>
-     *   &lt;simpleContent>
-     *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>string">
-     *       &lt;anyAttribute processContents='lax'/>
-     *     &lt;/extension>
-     *   &lt;/simpleContent>
-     * &lt;/complexType>
+     * &lt;complexType&gt;
+     *   &lt;simpleContent&gt;
+     *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
+     *       &lt;anyAttribute processContents='lax'/&gt;
+     *     &lt;/extension&gt;
+     *   &lt;/simpleContent&gt;
+     * &lt;/complexType&gt;
      * </pre>
      * 
      * 
@@ -539,23 +547,23 @@ public class Zalba {
      * <p>The following schema fragment specifies the expected content contained within this class.
      * 
      * <pre>
-     * &lt;complexType>
-     *   &lt;complexContent>
-     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
-     *       &lt;sequence>
-     *         &lt;element name="Tacka" maxOccurs="unbounded">
-     *           &lt;complexType>
-     *             &lt;simpleContent>
-     *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>string">
-     *                 &lt;attribute name="broj" use="required" type="{http://www.w3.org/2001/XMLSchema}positiveInteger" />
-     *               &lt;/extension>
-     *             &lt;/simpleContent>
-     *           &lt;/complexType>
-     *         &lt;/element>
-     *       &lt;/sequence>
-     *     &lt;/restriction>
-     *   &lt;/complexContent>
-     * &lt;/complexType>
+     * &lt;complexType&gt;
+     *   &lt;complexContent&gt;
+     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+     *       &lt;sequence&gt;
+     *         &lt;element name="Tacka" maxOccurs="unbounded"&gt;
+     *           &lt;complexType&gt;
+     *             &lt;simpleContent&gt;
+     *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
+     *                 &lt;attribute name="broj" use="required" type="{http://www.w3.org/2001/XMLSchema}positiveInteger" /&gt;
+     *               &lt;/extension&gt;
+     *             &lt;/simpleContent&gt;
+     *           &lt;/complexType&gt;
+     *         &lt;/element&gt;
+     *       &lt;/sequence&gt;
+     *     &lt;/restriction&gt;
+     *   &lt;/complexContent&gt;
+     * &lt;/complexType&gt;
      * </pre>
      * 
      * 
@@ -566,7 +574,7 @@ public class Zalba {
     })
     public static class Napomena {
 
-        @XmlElement(name = "Tacka", namespace = "http://www.zalbanaodluku.com", required = true)
+        @XmlElement(name = "Tacka", namespace = "http://www.shared.com", required = true)
         protected List<Tacka> tacka;
 
         /**
@@ -596,86 +604,6 @@ public class Zalba {
                 tacka = new ArrayList<Tacka>();
             }
             return this.tacka;
-        }
-
-
-        /**
-         * <p>Java class for anonymous complex type.
-         * 
-         * <p>The following schema fragment specifies the expected content contained within this class.
-         * 
-         * <pre>
-         * &lt;complexType>
-         *   &lt;simpleContent>
-         *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>string">
-         *       &lt;attribute name="broj" use="required" type="{http://www.w3.org/2001/XMLSchema}positiveInteger" />
-         *     &lt;/extension>
-         *   &lt;/simpleContent>
-         * &lt;/complexType>
-         * </pre>
-         * 
-         * 
-         */
-        @XmlAccessorType(XmlAccessType.FIELD)
-        @XmlType(name = "", propOrder = {
-            "value"
-        })
-        public static class Tacka {
-
-            @XmlValue
-            protected String value;
-            @XmlAttribute(name = "broj", required = true)
-            @XmlSchemaType(name = "positiveInteger")
-            protected BigInteger broj;
-
-            /**
-             * Gets the value of the value property.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
-             */
-            public String getValue() {
-                return value;
-            }
-
-            /**
-             * Sets the value of the value property.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
-             */
-            public void setValue(String value) {
-                this.value = value;
-            }
-
-            /**
-             * Gets the value of the broj property.
-             * 
-             * @return
-             *     possible object is
-             *     {@link BigInteger }
-             *     
-             */
-            public BigInteger getBroj() {
-                return broj;
-            }
-
-            /**
-             * Sets the value of the broj property.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link BigInteger }
-             *     
-             */
-            public void setBroj(BigInteger value) {
-                this.broj = value;
-            }
-
         }
 
     }

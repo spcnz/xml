@@ -22,12 +22,24 @@ public class RequestRepository {
     @Autowired
     public ExistManager existManager;
 
+    enum REQUEST_STATUS {
+        PROCESS("PROCESS"),
+        REJECTED("REJECTED"),
+        ACCEPTED("ACCEPTED");
+
+        public final String label;
+
+        private REQUEST_STATUS(String label) {
+            this.label = label;
+        }
+    }
 
     public boolean create(ZahtevDokument request) {
         try {
             String id = IdGenerator.generateDocumentID(IdGenerator.generate(XSDConstants.REQUEST), XSDConstants.REQUEST);
             Map<QName, String> attrributes = request.getOtherAttributes();
             attrributes.put(new QName("id"), id);
+            attrributes.put(new QName("status"), REQUEST_STATUS.PROCESS.label);
 
             return existManager.store(REQUEST_COLLECTION_URI, id, request, "zahtevi");
         } catch (Exception e) {

@@ -1,4 +1,4 @@
-<Obavestenje 
+<ObavestenjeRoot
     xmlns="http://www.obavestenje.com"
     xmlns:sh="http://www.shared.com"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -9,7 +9,8 @@
     about="http://obavestenja/1"
     rel="pred:informationForRequest"
     href="http://zahtevi/1"
-   >
+    >
+<Obavestenje>
     <Organ>
         <Naziv></Naziv>
         <sh:Adresa>
@@ -73,3 +74,5 @@
     </Podaci_o_placanju>
     <Dostavljeno>IMENOVANOM</Dostavljeno>
 </Obavestenje>
+    
+</ObavestenjeRoot>

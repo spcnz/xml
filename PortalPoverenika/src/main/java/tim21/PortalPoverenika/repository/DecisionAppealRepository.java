@@ -1,12 +1,12 @@
 package tim21.PortalPoverenika.repository;
 
 import tim21.PortalPoverenika.db.ExistManager;
-import tim21.PortalPoverenika.model.decisionAppeal.Zalba;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.xmldb.api.base.ResourceSet;
 import org.xmldb.api.base.XMLDBException;
 import org.xmldb.api.modules.XMLResource;
+import tim21.PortalPoverenika.model.decisionAppeal.ZalbaRoot;
 import tim21.PortalPoverenika.util.IdGenerator;
 import tim21.PortalPoverenika.util.constants.XSDConstants;
 
@@ -25,7 +25,7 @@ public class DecisionAppealRepository {
     public ExistManager existManager;
 
 
-    public Zalba create(Zalba appeal) {
+    public ZalbaRoot create(ZalbaRoot appeal) {
         try {
             String id = IdGenerator.generate();
             String aboutValue = "http://zalbe/" + id;
@@ -56,7 +56,7 @@ public class DecisionAppealRepository {
 
     public ResourceSet getAll() throws XMLDBException {
         try {
-            return existManager.getAll(DECISIONAPPEAL_COLLECTION_URI, "/Zalba", DECISIONAPPEAL_TARGET_NAMESPACE);
+            return existManager.getAll(DECISIONAPPEAL_COLLECTION_URI, "/ZalbaRoot", DECISIONAPPEAL_TARGET_NAMESPACE);
         } catch (Exception e) {
             e.printStackTrace();
             return null;

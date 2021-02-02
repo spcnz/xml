@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  targetNamespace="http://www.mail.com"
+                  xmlns:ma="http://www.mail.com"
+                  name="MailService">
+    <wsdl:types>
+        <xsd:schema>
+            <xsd:import namespace="http://www.mail.com" schemaLocation="../xsd/mailReq.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+
+    <wsdl:message name="sendEmailRequest">
+        <wsdl:part name="mail" type="ma:MailRequest" />
+    </wsdl:message>
+    <wsdl:message name="sendEmailResponse">
+        <wsdl:part name="response" type="ma:TResponse" />
+    </wsdl:message>
+
+    <wsdl:portType name="MailServicePortType">
+        <wsdl:operation name="sendEmail">
+            <wsdl:input message="ma:sendEmailRequest" />
+            <wsdl:output message="ma:sendEmailResponse" />
+        </wsdl:operation>
+    </wsdl:portType>
+
+    <wsdl:binding name="MailServiceSoapBinding" type="ma:MailServicePortType">
+        <soap:binding  style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+        <wsdl:operation name="sendEmail">
+            <soap:operation soapAction="http://www.mail.com/ws/sendEmail" />
+            <wsdl:input>
+                <soap:body use="encoded"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="encoded"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="MailService">
+        <wsdl:port name="MailServiceSoapBinding" binding="ma:MailServiceSoapBinding">
+            <soap:address location="http://localhost:8094/MailPort" />
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

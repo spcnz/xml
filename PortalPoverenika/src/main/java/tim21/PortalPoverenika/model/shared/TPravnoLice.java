@@ -18,24 +18,24 @@ import javax.xml.namespace.QName;
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="TPravno_lice">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="Naziv">
- *           &lt;complexType>
- *             &lt;simpleContent>
- *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>string">
- *                 &lt;anyAttribute processContents='lax'/>
- *               &lt;/extension>
- *             &lt;/simpleContent>
- *           &lt;/complexType>
- *         &lt;/element>
- *         &lt;element ref="{http://www.shared.com}Adresa"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="TPravno_lice"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="Naziv"&gt;
+ *           &lt;complexType&gt;
+ *             &lt;simpleContent&gt;
+ *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
+ *                 &lt;anyAttribute processContents='lax'/&gt;
+ *               &lt;/extension&gt;
+ *             &lt;/simpleContent&gt;
+ *           &lt;/complexType&gt;
+ *         &lt;/element&gt;
+ *         &lt;element ref="{http://www.shared.com}Adresa"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  * 
  * 
@@ -48,7 +48,7 @@ import javax.xml.namespace.QName;
 public class TPravnoLice {
 
     @XmlElement(name = "Naziv", required = true)
-    protected TPravnoLice.Naziv naziv;
+    protected Naziv naziv;
     @XmlElement(name = "Adresa", required = true)
     protected Adresa adresa;
 
@@ -57,10 +57,10 @@ public class TPravnoLice {
      * 
      * @return
      *     possible object is
-     *     {@link TPravnoLice.Naziv }
+     *     {@link Naziv }
      *     
      */
-    public TPravnoLice.Naziv getNaziv() {
+    public Naziv getNaziv() {
         return naziv;
     }
 
@@ -69,10 +69,10 @@ public class TPravnoLice {
      * 
      * @param value
      *     allowed object is
-     *     {@link TPravnoLice.Naziv }
+     *     {@link Naziv }
      *     
      */
-    public void setNaziv(TPravnoLice.Naziv value) {
+    public void setNaziv(Naziv value) {
         this.naziv = value;
     }
 
@@ -107,13 +107,13 @@ public class TPravnoLice {
      * <p>The following schema fragment specifies the expected content contained within this class.
      * 
      * <pre>
-     * &lt;complexType>
-     *   &lt;simpleContent>
-     *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>string">
-     *       &lt;anyAttribute processContents='lax'/>
-     *     &lt;/extension>
-     *   &lt;/simpleContent>
-     * &lt;/complexType>
+     * &lt;complexType&gt;
+     *   &lt;simpleContent&gt;
+     *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
+     *       &lt;anyAttribute processContents='lax'/&gt;
+     *     &lt;/extension&gt;
+     *   &lt;/simpleContent&gt;
+     * &lt;/complexType&gt;
      * </pre>
      * 
      * 
