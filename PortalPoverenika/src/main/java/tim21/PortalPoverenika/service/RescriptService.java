@@ -7,7 +7,7 @@ import org.xmldb.api.base.ResourceSet;
 import org.xmldb.api.base.XMLDBException;
 import org.xmldb.api.modules.XMLResource;
 import tim21.PortalPoverenika.model.lists.RescriptList;
-import tim21.PortalPoverenika.model.rescript.Resenje;
+import tim21.PortalPoverenika.model.rescript.ResenjeRoot;
 import tim21.PortalPoverenika.repository.RescriptRepository;
 import tim21.PortalPoverenika.util.Validator;
 
@@ -24,7 +24,7 @@ public class RescriptService {
 	@Autowired
 	RescriptRepository rescriptRepository;
 
-	public boolean create(Resenje rescript) {
+	public boolean create(ResenjeRoot rescript) {
 		if (Validator.validate(rescript.getClass(), rescript)){
 			return rescriptRepository.create(rescript);
 		}
@@ -32,7 +32,7 @@ public class RescriptService {
 	}
 
 	public RescriptList getAll() throws XMLDBException, JAXBException {
-		List<Resenje> rescripts = new ArrayList<>();
+		List<ResenjeRoot> rescripts = new ArrayList<>();
 
 		ResourceSet resourceSet = null;
 		resourceSet = rescriptRepository.getAll();
@@ -43,28 +43,28 @@ public class RescriptService {
 			System.out.println(xmlResource);
 			if(xmlResource == null)
 				return null;
-			JAXBContext context = JAXBContext.newInstance(Resenje.class);
+			JAXBContext context = JAXBContext.newInstance(ResenjeRoot.class);
 			Unmarshaller unmarshaller = context.createUnmarshaller();
-			Resenje rescript = (Resenje) unmarshaller.unmarshal(xmlResource.getContentAsDOM());
+			ResenjeRoot rescript = (ResenjeRoot) unmarshaller.unmarshal(xmlResource.getContentAsDOM());
 			rescripts.add(rescript);
 		}
 		return new RescriptList(rescripts);
 	}
 
-	public Resenje getOne(String ID) {
+	public ResenjeRoot getOne(String ID) {
 		XMLResource xmlResource = rescriptRepository.getOne(ID);
 
 		if(xmlResource == null)
 			return null;
 
-		Resenje rescript = null;
+		ResenjeRoot rescript = null;
 		JAXBContext context = null;
 
 		try {
-			context = JAXBContext.newInstance(Resenje.class);
+			context = JAXBContext.newInstance(ResenjeRoot.class);
 			Unmarshaller unmarshaller = context.createUnmarshaller();
 
-			rescript = (Resenje) unmarshaller.unmarshal(xmlResource.getContentAsDOM());
+			rescript = (ResenjeRoot) unmarshaller.unmarshal(xmlResource.getContentAsDOM());
 		} catch (JAXBException | XMLDBException e) {
 			return null;
 		}

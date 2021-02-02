@@ -1,0 +1,77 @@
+{
+  "@graph" : [ {
+    "@id" : "http://zalbe/1",
+    "recipient" : "http://users/2",
+    "recipientCity" : "Beograd",
+    "recipientStreet" : "Булевар краља Александрa",
+    "recipientStreetnum" : "15",
+    "submitter" : "http://users/1",
+    "submitterCity" : "Beograd",
+    "submitterLastname" : "",
+    "submitterName" : "Milenaa",
+    "submitterStreet" : "",
+    "submitterStreetnum" : "1"
+  }, {
+    "@id" : "http://zalbe/20210202153500",
+    "appealBasis" : "\n            ",
+    "appealForRequest" : "http://zahtevi/1",
+    "requestDate" : "2020-09-13"
+  } ],
+  "@context" : {
+    "submitterName" : {
+      "@id" : "http://www.tim21.com/predicate/submitterName",
+      "@type" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"
+    },
+    "submitter" : {
+      "@id" : "http://www.tim21.com/predicate/submitter",
+      "@type" : "@id"
+    },
+    "recipientStreet" : {
+      "@id" : "http://www.tim21.com/predicate/recipientStreet",
+      "@type" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"
+    },
+    "submitterStreet" : {
+      "@id" : "http://www.tim21.com/predicate/submitterStreet",
+      "@type" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"
+    },
+    "recipientCity" : {
+      "@id" : "http://www.tim21.com/predicate/recipientCity",
+      "@type" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"
+    },
+    "recipient" : {
+      "@id" : "http://www.tim21.com/predicate/recipient",
+      "@type" : "@id"
+    },
+    "submitterLastname" : {
+      "@id" : "http://www.tim21.com/predicate/submitterLastname",
+      "@type" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"
+    },
+    "submitterStreetnum" : {
+      "@id" : "http://www.tim21.com/predicate/submitterStreetnum",
+      "@type" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"
+    },
+    "submitterCity" : {
+      "@id" : "http://www.tim21.com/predicate/submitterCity",
+      "@type" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"
+    },
+    "recipientStreetnum" : {
+      "@id" : "http://www.tim21.com/predicate/recipientStreetnum",
+      "@type" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"
+    },
+    "appealBasis" : {
+      "@id" : "http://www.tim21.com/predicate/appealBasis",
+      "@type" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"
+    },
+    "requestDate" : {
+      "@id" : "http://www.tim21.com/predicate/requestDate",
+      "@type" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"
+    },
+    "appealForRequest" : {
+      "@id" : "http://www.tim21.com/predicate/appealForRequest",
+      "@type" : "@id"
+    },
+    "rdf" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "pred" : "http://www.tim21.com/predicate/",
+    "h" : "http://www.w3.org/1999/xhtml"
+  }
+}

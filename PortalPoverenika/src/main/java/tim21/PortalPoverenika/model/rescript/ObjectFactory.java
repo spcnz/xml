@@ -1,8 +1,6 @@
 
 package tim21.PortalPoverenika.model.rescript;
 
-import tim21.PortalPoverenika.model.shared.*;
-
 import java.math.BigDecimal;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;
@@ -13,7 +11,7 @@ import javax.xml.namespace.QName;
 /**
  * This object contains factory methods for each 
  * Java content interface and Java element interface 
- * generated in the tim21.PortalPoverenika.model.rescript package. 
+ * generated in the com.resenje package. 
  * <p>An ObjectFactory allows you to programatically 
  * construct new instances of the Java representation 
  * for XML content. The Java representation of XML 
@@ -27,63 +25,15 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _TOdgovorNaZalbuRazlozi_QNAME = new QName("http://www.resenje.com", "Razlozi");
     private final static QName _TUpustvoOPravnomSredstvuTaksa_QNAME = new QName("http://www.resenje.com", "Taksa");
+    private final static QName _TOdgovorNaZalbuRazlozi_QNAME = new QName("http://www.resenje.com", "Razlozi");
     private final static QName _TOpisResenjaStavkeResenja_QNAME = new QName("http://www.resenje.com", "Stavke_resenja");
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: tim21.PortalPoverenika.model.rescript
+     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.resenje
      * 
      */
     public ObjectFactory() {
-    }
-
-    /**
-     * Create an instance of {@link Resenje }
-     * 
-     */
-    public Resenje createResenje() {
-        return new Resenje();
-    }
-
-    /**
-     * Create an instance of {@link Adresa }
-     * 
-     */
-    public Adresa createAdresa() {
-        return new Adresa();
-    }
-
-    /**
-     * Create an instance of {@link TOsoba }
-     * 
-     */
-    public TOsoba createTOsoba() {
-        return new TOsoba();
-    }
-
-    /**
-     * Create an instance of {@link TtrazilacInformacije }
-     * 
-     */
-    public TtrazilacInformacije createTtrazilacInformacije() {
-        return new TtrazilacInformacije();
-    }
-
-    /**
-     * Create an instance of {@link TdatumVreme }
-     * 
-     */
-    public TdatumVreme createTdatumVreme() {
-        return new TdatumVreme();
-    }
-
-    /**
-     * Create an instance of {@link TPravnoLice }
-     * 
-     */
-    public TPravnoLice createTPravnoLice() {
-        return new TPravnoLice();
     }
 
     /**
@@ -103,27 +53,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Resenje.Datum }
+     * Create an instance of {@link TResenje }
      * 
      */
-    public Resenje.Datum createResenjeDatum() {
-        return new Resenje.Datum();
+    public TResenje createTResenje() {
+        return new TResenje();
     }
 
     /**
-     * Create an instance of {@link Resenje.StatusZalbe }
+     * Create an instance of {@link ResenjeRoot }
      * 
      */
-    public Resenje.StatusZalbe createResenjeStatusZalbe() {
-        return new Resenje.StatusZalbe();
-    }
-
-    /**
-     * Create an instance of {@link Resenje.Obrazlozenje }
-     * 
-     */
-    public Resenje.Obrazlozenje createResenjeObrazlozenje() {
-        return new Resenje.Obrazlozenje();
+    public ResenjeRoot createResenjeRoot() {
+        return new ResenjeRoot();
     }
 
     /**
@@ -134,101 +76,6 @@ public class ObjectFactory {
         return new TUpustvoOPravnomSredstvu();
     }
 
-    /**
-     * Create an instance of {@link Tacka }
-     * 
-     */
-    public Tacka createTacka() {
-        return new Tacka();
-    }
-
-    /**
-     * Create an instance of {@link Adresa.Grad }
-     * 
-     */
-    public Adresa.Grad createAdresaGrad() {
-        return new Adresa.Grad();
-    }
-
-    /**
-     * Create an instance of {@link Adresa.Ulica }
-     * 
-     */
-    public Adresa.Ulica createAdresaUlica() {
-        return new Adresa.Ulica();
-    }
-
-    /**
-     * Create an instance of {@link Adresa.Broj }
-     * 
-     */
-    public Adresa.Broj createAdresaBroj() {
-        return new Adresa.Broj();
-    }
-
-    /**
-     * Create an instance of {@link TPrimaoc }
-     * 
-     */
-    public TPrimaoc createTPrimaoc() {
-        return new TPrimaoc();
-    }
-
-    /**
-     * Create an instance of {@link TFizickoLice }
-     * 
-     */
-    public TFizickoLice createTFizickoLice() {
-        return new TFizickoLice();
-    }
-
-    /**
-     * Create an instance of {@link TOsoba.Ime }
-     * 
-     */
-    public TOsoba.Ime createTOsobaIme() {
-        return new TOsoba.Ime();
-    }
-
-    /**
-     * Create an instance of {@link TOsoba.Prezime }
-     * 
-     */
-    public TOsoba.Prezime createTOsobaPrezime() {
-        return new TOsoba.Prezime();
-    }
-
-    /**
-     * Create an instance of {@link TtrazilacInformacije.DrugiPodaciZaKontakt }
-     * 
-     */
-    public TtrazilacInformacije.DrugiPodaciZaKontakt createTtrazilacInformacijeDrugiPodaciZaKontakt() {
-        return new TtrazilacInformacije.DrugiPodaciZaKontakt();
-    }
-
-    /**
-     * Create an instance of {@link TdatumVreme.Vreme }
-     * 
-     */
-    public TdatumVreme.Vreme createTdatumVremeVreme() {
-        return new TdatumVreme.Vreme();
-    }
-
-    /**
-     * Create an instance of {@link TdatumVreme.Datum }
-     * 
-     */
-    public TdatumVreme.Datum createTdatumVremeDatum() {
-        return new TdatumVreme.Datum();
-    }
-
-    /**
-     * Create an instance of {@link TPravnoLice.Naziv }
-     * 
-     */
-    public TPravnoLice.Naziv createTPravnoLiceNaziv() {
-        return new TPravnoLice.Naziv();
-    }
 
     /**
      * Create an instance of {@link TOdgovorNaZalbu.Razlozi }
@@ -247,12 +94,27 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TOdgovorNaZalbu.Razlozi }{@code >}}
+     * Create an instance of {@link TResenje.Datum }
      * 
      */
-    @XmlElementDecl(namespace = "http://www.resenje.com", name = "Razlozi", scope = TOdgovorNaZalbu.class)
-    public JAXBElement<TOdgovorNaZalbu.Razlozi> createTOdgovorNaZalbuRazlozi(TOdgovorNaZalbu.Razlozi value) {
-        return new JAXBElement<TOdgovorNaZalbu.Razlozi>(_TOdgovorNaZalbuRazlozi_QNAME, TOdgovorNaZalbu.Razlozi.class, TOdgovorNaZalbu.class, value);
+    public TResenje.Datum createTResenjeDatum() {
+        return new TResenje.Datum();
+    }
+
+    /**
+     * Create an instance of {@link TResenje.StatusZalbe }
+     * 
+     */
+    public TResenje.StatusZalbe createTResenjeStatusZalbe() {
+        return new TResenje.StatusZalbe();
+    }
+
+    /**
+     * Create an instance of {@link TResenje.Obrazlozenje }
+     * 
+     */
+    public TResenje.Obrazlozenje createTResenjeObrazlozenje() {
+        return new TResenje.Obrazlozenje();
     }
 
     /**
@@ -262,6 +124,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://www.resenje.com", name = "Taksa", scope = TUpustvoOPravnomSredstvu.class)
     public JAXBElement<BigDecimal> createTUpustvoOPravnomSredstvuTaksa(BigDecimal value) {
         return new JAXBElement<BigDecimal>(_TUpustvoOPravnomSredstvuTaksa_QNAME, BigDecimal.class, TUpustvoOPravnomSredstvu.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link TOdgovorNaZalbu.Razlozi }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.resenje.com", name = "Razlozi", scope = TOdgovorNaZalbu.class)
+    public JAXBElement<TOdgovorNaZalbu.Razlozi> createTOdgovorNaZalbuRazlozi(TOdgovorNaZalbu.Razlozi value) {
+        return new JAXBElement<TOdgovorNaZalbu.Razlozi>(_TOdgovorNaZalbuRazlozi_QNAME, TOdgovorNaZalbu.Razlozi.class, TOdgovorNaZalbu.class, value);
     }
 
     /**

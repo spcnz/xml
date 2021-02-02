@@ -175,6 +175,14 @@
 									<wsdlLocation>classpath:wsdl/SilenceAppeal.wsdl</wsdlLocation>
 								</wsdlOption>
 
+								<wsdlOption>
+									<wsdl>${basedir}/src/main/resources/wsdl/Rescript.wsdl</wsdl>
+									<extraargs>
+										<extraarg>-impl</extraarg> <!-- Ima i drugih dodatniha<extraarg>-client</extraarg> -->
+										<extraarg>-verbose</extraarg>
+									</extraargs>
+									<wsdlLocation>classpath:wsdl/Rescript.wsdl</wsdlLocation>
+								</wsdlOption>
 
 							</wsdlOptions>
 						</configuration>
