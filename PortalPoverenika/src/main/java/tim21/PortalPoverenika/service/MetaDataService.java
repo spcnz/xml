@@ -115,7 +115,6 @@ public class MetaDataService {
 
                 varName = variableBindings.next();
                 varValue = querySolution.get(varName);
-
                 res.add(varValue.toString());
             }
         }

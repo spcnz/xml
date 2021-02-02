@@ -1,0 +1,50 @@
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:h="http://www.w3.org/1999/xhtml">
+  <rdf:Description rdf:about="http://zalbeCutanje/20210202163719">
+    <pred:appealForRequest xmlns:pred="http://www.tim21.com/predicate/" rdf:resource="http://zahtevi/1"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://zalbeCutanje/20210202163719">
+    <pred:recipient xmlns:pred="http://www.tim21.com/predicate/" rdf:resource="http://users/poverenik@gmail.com"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://zalbeCutanje/20210202163719">
+    <pred:recipientCity xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">Zabjelo</pred:recipientCity>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://zalbeCutanje/20210202163719">
+    <pred:recipientStreet xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">Булевар краља Александрa</pred:recipientStreet>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://zalbeCutanje/20210202163719">
+    <pred:recipientStreetnum xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">15</pred:recipientStreetnum>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://zalbeCutanje/20210202163719">
+    <pred:authorityName xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">Naziv organa vlasti nekii</pred:authorityName>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://zalbeCutanje/20210202163719">
+    <pred:requestDate xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">2020-09-10</pred:requestDate>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://zalbeCutanje/20210202163719">
+    <pred:requestDetails xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">neki podaci o zahtevu</pred:requestDetails>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://zalbeCutanje/20210202163719">
+    <pred:submitter xmlns:pred="http://www.tim21.com/predicate/" rdf:resource="http://users/test@gmail.com"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://zalbeCutanje/20210202163719">
+    <pred:submitterName xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">Milenaa</pred:submitterName>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://zalbeCutanje/20210202163719">
+    <pred:submitterLastname xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://zalbeCutanje/20210202163719">
+    <pred:submitterCity xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">Beograd</pred:submitterCity>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://zalbeCutanje/20210202163719">
+    <pred:submitterStreet xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://zalbeCutanje/20210202163719">
+    <pred:submitterStreetnum xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">1</pred:submitterStreetnum>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://zalbeCutanje/20210202163719">
+    <pred:appealTime xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">09:15:00</pred:appealTime>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://zalbeCutanje/20210202163719">
+    <pred:appealDate xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">2020-09-10</pred:appealDate>
+  </rdf:Description>
+</rdf:RDF>

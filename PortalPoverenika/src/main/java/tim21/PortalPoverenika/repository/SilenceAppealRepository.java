@@ -25,10 +25,12 @@ public class SilenceAppealRepository {
     public boolean create(ZalbaCutanjeRoot appeal) {
         try {
             String id = IdGenerator.generate();
+            String aboutValue = "http://zalbeCutanje/" + id;
             Map<QName, String> attrributes = appeal.getOtherAttributes();
             attrributes.put(new QName("id"), id);
+            attrributes.put(new QName("about"), aboutValue);
 
-            return existManager.store(SILENCEAPPEAL_COLLECTION_URI, id + ".xml", appeal, "zalbeCutanje");
+            return existManager.store(SILENCEAPPEAL_COLLECTION_URI, id, appeal, "zalbeCutanje");
         } catch (Exception e) {
             e.printStackTrace();
             return false;

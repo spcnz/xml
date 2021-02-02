@@ -54,27 +54,27 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "SilenceAppealFilter", namespace = "http://www.shared.com")
 public class SilenceAppealFilter {
 
-    @XmlElement(name = "RecipientStreet", namespace = "http://www.shared.com", required = true)
+    @XmlElement(name = "RecipientStreet", namespace = "", required = true)
     protected String recipientStreet;
-    @XmlElement(name = "RecipientCity", namespace = "http://www.shared.com", required = true)
+    @XmlElement(name = "RecipientCity", namespace = "", required = true)
     protected String recipientCity;
-    @XmlElement(name = "RequestId", namespace = "http://www.shared.com", required = true)
+    @XmlElement(name = "RequestId", namespace = "", required = true)
     protected String requestId;
-    @XmlElement(name = "SubmitterName", namespace = "http://www.shared.com", required = true)
+    @XmlElement(name = "SubmitterName", namespace = "", required = true)
     protected String submitterName;
-    @XmlElement(name = "SubmitterLastname", namespace = "http://www.shared.com", required = true)
+    @XmlElement(name = "SubmitterLastname", namespace = "", required = true)
     protected String submitterLastname;
-    @XmlElement(name = "SubmitterCity", namespace = "http://www.shared.com", required = true)
+    @XmlElement(name = "SubmitterCity", namespace = "", required = true)
     protected String submitterCity;
-    @XmlElement(name = "SubmitterStreet", namespace = "http://www.shared.com", required = true)
+    @XmlElement(name = "SubmitterStreet", namespace = "", required = true)
     protected String submitterStreet;
-    @XmlElement(name = "RequestDate", namespace = "http://www.shared.com", required = true)
+    @XmlElement(name = "RequestDate", namespace = "", required = true)
     protected String requestDate;
-    @XmlElement(name = "RequestDetails", namespace = "http://www.shared.com", required = true)
+    @XmlElement(name = "RequestDetails", namespace = "", required = true)
     protected String requestDetails;
-    @XmlElement(name = "AppealDate", namespace = "http://www.shared.com", required = true)
+    @XmlElement(name = "AppealDate", namespace = "", required = true)
     protected String appealDate;
-    @XmlElement(name = "AuthorityName", namespace = "http://www.shared.com", required = true)
+    @XmlElement(name = "AuthorityName", namespace = "", required = true)
     protected String authorityName;
 
     /**
