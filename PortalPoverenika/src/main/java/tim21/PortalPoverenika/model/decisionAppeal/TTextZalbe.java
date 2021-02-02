@@ -64,8 +64,8 @@ import javax.xml.namespace.QName;
 public class TTextZalbe {
 
     @XmlElementRefs({
-        @XmlElementRef(name = "Datum_podnosenja_zahteva", namespace = "http://www.zalbanaodluku.com", type = JAXBElement.class),
-        @XmlElementRef(name = "Osnova_zalbe", namespace = "http://www.zalbanaodluku.com", type = JAXBElement.class)
+        @XmlElementRef(name = "Osnova_zalbe", namespace = "http://www.zalbanaodluku.com", type = JAXBElement.class),
+        @XmlElementRef(name = "Datum_podnosenja_zahteva", namespace = "http://www.zalbanaodluku.com", type = JAXBElement.class)
     })
     @XmlMixed
     protected List<Serializable> content;
@@ -90,8 +90,8 @@ public class TTextZalbe {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link JAXBElement }{@code <}{@link DatumPodnosenjaZahteva }{@code >}
      * {@link JAXBElement }{@code <}{@link OsnovaZalbe }{@code >}
+     * {@link JAXBElement }{@code <}{@link DatumPodnosenjaZahteva }{@code >}
      * {@link String }
      * 
      * 

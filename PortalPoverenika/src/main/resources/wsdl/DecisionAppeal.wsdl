@@ -18,15 +18,25 @@
         <wsdl:part name="zalba_odluka" type="tns:TZalba" />
     </wsdl:message>
 
+    <wsdl:message name="getAllRequest"/>
+    <wsdl:message name="getAllResponse">
+        <wsdl:part name="response" type="tns:DecisionAppealList" />
+    </wsdl:message>
+
     <wsdl:portType name="DecisionAppealServicePortType">
         <wsdl:operation name="getDecisionAppealById">
             <wsdl:input message="tns:getDecisionAppealRequest" />
             <wsdl:output message="tns:getDecisionAppealResponse" />
         </wsdl:operation>
+
+        <wsdl:operation name="getAll">
+            <wsdl:input message="tns:getAllRequest" />
+            <wsdl:output message="tns:getAllResponse" />
+        </wsdl:operation>
     </wsdl:portType>
 
     <wsdl:binding name="DecisionAppealServiceSoapBinding" type="tns:DecisionAppealServicePortType">
-        <soap:binding style="rpc"  transport="http://schemas.xmlsoap.org/soap/http" />
+        <soap:binding style="document"  transport="http://schemas.xmlsoap.org/soap/http" />
         <wsdl:operation name="getDecisionAppealById">
             <soap:operation soapAction="http://www.zalbanaodluku.com/ws/getDecisionAppealById" />
             <wsdl:input>
@@ -36,6 +46,17 @@
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
+
+        <wsdl:operation name="getAll">
+            <soap:operation soapAction="http://www.zalbanaodluku.com/ws/getAll" />
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="encoded"/>
+            </wsdl:output>
+        </wsdl:operation>
+
     </wsdl:binding>
     <wsdl:service name="DecisionAppealService">
         <wsdl:port name="DecisionAppealServiceSoapBinding" binding="tns:DecisionAppealServiceSoapBinding">
