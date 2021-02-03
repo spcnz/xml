@@ -22,13 +22,12 @@ import javax.xml.datatype.XMLGregorianCalendar;
 import javax.xml.namespace.QName;
 import tim21.PortalPoverenika.model.shared.*;
 
-import tim21.PortalPoverenika.model.shared.*;
 
 /**
  * <p>Java class for TZalbaCutanje complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="TZalbaCutanje"&gt;
  *   &lt;complexContent&gt;
@@ -67,25 +66,14 @@ import tim21.PortalPoverenika.model.shared.*;
  *                       &lt;/simpleContent&gt;
  *                     &lt;/complexType&gt;
  *                   &lt;/element&gt;
- *                   &lt;element name="razlozi"&gt;
- *                     &lt;complexType&gt;
- *                       &lt;complexContent&gt;
- *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                           &lt;choice&gt;
- *                             &lt;element name="opcija" maxOccurs="unbounded"&gt;
- *                               &lt;complexType&gt;
- *                                 &lt;simpleContent&gt;
- *                                   &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
- *                                     &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
- *                                   &lt;/extension&gt;
- *                                 &lt;/simpleContent&gt;
- *                               &lt;/complexType&gt;
- *                             &lt;/element&gt;
- *                           &lt;/choice&gt;
- *                           &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
- *                         &lt;/restriction&gt;
- *                       &lt;/complexContent&gt;
- *                     &lt;/complexType&gt;
+ *                   &lt;element name="razlog"&gt;
+ *                     &lt;simpleType&gt;
+ *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
+ *                         &lt;enumeration value="није поступио"/&gt;
+ *                         &lt;enumeration value="није поступио у целости"/&gt;
+ *                         &lt;enumeration value="није поступио у законском року"/&gt;
+ *                       &lt;/restriction&gt;
+ *                     &lt;/simpleType&gt;
  *                   &lt;/element&gt;
  *                   &lt;element name="datum"&gt;
  *                     &lt;complexType&gt;
@@ -126,55 +114,55 @@ import tim21.PortalPoverenika.model.shared.*;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TZalbaCutanje", propOrder = {
-    "naziv",
-    "primaoc",
-    "sadrzaj"
+        "naziv",
+        "primaoc",
+        "sadrzaj"
 })
 public class TZalbaCutanje {
 
     @XmlElement(required = true)
-    protected Naziv naziv;
+    protected TZalbaCutanje.Naziv naziv;
     @XmlElement(required = true)
     protected TPrimaoc primaoc;
     @XmlElement(required = true)
-    protected Sadrzaj sadrzaj;
+    protected TZalbaCutanje.Sadrzaj sadrzaj;
 
     /**
      * Gets the value of the naziv property.
-     * 
+     *
      * @return
      *     possible object is
-     *     {@link Naziv }
-     *     
+     *     {@link TZalbaCutanje.Naziv }
+     *
      */
-    public Naziv getNaziv() {
+    public TZalbaCutanje.Naziv getNaziv() {
         return naziv;
     }
 
     /**
      * Sets the value of the naziv property.
-     * 
+     *
      * @param value
      *     allowed object is
-     *     {@link Naziv }
-     *     
+     *     {@link TZalbaCutanje.Naziv }
+     *
      */
-    public void setNaziv(Naziv value) {
+    public void setNaziv(TZalbaCutanje.Naziv value) {
         this.naziv = value;
     }
 
     /**
      * Gets the value of the primaoc property.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link TPrimaoc }
-     *     
+     *
      */
     public TPrimaoc getPrimaoc() {
         return primaoc;
@@ -182,11 +170,11 @@ public class TZalbaCutanje {
 
     /**
      * Sets the value of the primaoc property.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link TPrimaoc }
-     *     
+     *
      */
     public void setPrimaoc(TPrimaoc value) {
         this.primaoc = value;
@@ -194,34 +182,34 @@ public class TZalbaCutanje {
 
     /**
      * Gets the value of the sadrzaj property.
-     * 
+     *
      * @return
      *     possible object is
-     *     {@link Sadrzaj }
-     *     
+     *     {@link TZalbaCutanje.Sadrzaj }
+     *
      */
-    public Sadrzaj getSadrzaj() {
+    public TZalbaCutanje.Sadrzaj getSadrzaj() {
         return sadrzaj;
     }
 
     /**
      * Sets the value of the sadrzaj property.
-     * 
+     *
      * @param value
      *     allowed object is
-     *     {@link Sadrzaj }
-     *     
+     *     {@link TZalbaCutanje.Sadrzaj }
+     *
      */
-    public void setSadrzaj(Sadrzaj value) {
+    public void setSadrzaj(TZalbaCutanje.Sadrzaj value) {
         this.sadrzaj = value;
     }
 
 
     /**
      * <p>Java class for anonymous complex type.
-     * 
+     *
      * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
+     *
      * <pre>
      * &lt;complexType&gt;
      *   &lt;simpleContent&gt;
@@ -231,12 +219,12 @@ public class TZalbaCutanje {
      *   &lt;/simpleContent&gt;
      * &lt;/complexType&gt;
      * </pre>
-     * 
-     * 
+     *
+     *
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "value"
+            "value"
     })
     public static class Naziv {
 
@@ -247,11 +235,11 @@ public class TZalbaCutanje {
 
         /**
          * Gets the value of the value property.
-         * 
+         *
          * @return
          *     possible object is
          *     {@link String }
-         *     
+         *
          */
         public String getValue() {
             return value;
@@ -259,11 +247,11 @@ public class TZalbaCutanje {
 
         /**
          * Sets the value of the value property.
-         * 
+         *
          * @param value
          *     allowed object is
          *     {@link String }
-         *     
+         *
          */
         public void setValue(String value) {
             this.value = value;
@@ -271,11 +259,11 @@ public class TZalbaCutanje {
 
         /**
          * Gets the value of the property property.
-         * 
+         *
          * @return
          *     possible object is
          *     {@link String }
-         *     
+         *
          */
         public String getProperty() {
             return property;
@@ -283,11 +271,11 @@ public class TZalbaCutanje {
 
         /**
          * Sets the value of the property property.
-         * 
+         *
          * @param value
          *     allowed object is
          *     {@link String }
-         *     
+         *
          */
         public void setProperty(String value) {
             this.property = value;
@@ -298,9 +286,9 @@ public class TZalbaCutanje {
 
     /**
      * <p>Java class for anonymous complex type.
-     * 
+     *
      * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
+     *
      * <pre>
      * &lt;complexType&gt;
      *   &lt;complexContent&gt;
@@ -324,25 +312,14 @@ public class TZalbaCutanje {
      *             &lt;/simpleContent&gt;
      *           &lt;/complexType&gt;
      *         &lt;/element&gt;
-     *         &lt;element name="razlozi"&gt;
-     *           &lt;complexType&gt;
-     *             &lt;complexContent&gt;
-     *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *                 &lt;choice&gt;
-     *                   &lt;element name="opcija" maxOccurs="unbounded"&gt;
-     *                     &lt;complexType&gt;
-     *                       &lt;simpleContent&gt;
-     *                         &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
-     *                           &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
-     *                         &lt;/extension&gt;
-     *                       &lt;/simpleContent&gt;
-     *                     &lt;/complexType&gt;
-     *                   &lt;/element&gt;
-     *                 &lt;/choice&gt;
-     *                 &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
-     *               &lt;/restriction&gt;
-     *             &lt;/complexContent&gt;
-     *           &lt;/complexType&gt;
+     *         &lt;element name="razlog"&gt;
+     *           &lt;simpleType&gt;
+     *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
+     *               &lt;enumeration value="није поступио"/&gt;
+     *               &lt;enumeration value="није поступио у целости"/&gt;
+     *               &lt;enumeration value="није поступио у законском року"/&gt;
+     *             &lt;/restriction&gt;
+     *           &lt;/simpleType&gt;
      *         &lt;/element&gt;
      *         &lt;element name="datum"&gt;
      *           &lt;complexType&gt;
@@ -378,57 +355,57 @@ public class TZalbaCutanje {
      *   &lt;/complexContent&gt;
      * &lt;/complexType&gt;
      * </pre>
-     * 
-     * 
+     *
+     *
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "content"
+            "content"
     })
     public static class Sadrzaj {
 
         @XmlElementRefs({
-            @XmlElementRef(name = "razlozi", namespace = "http://www.zalbacutanje.com", type = JAXBElement.class),
-            @XmlElementRef(name = "podnaslov", namespace = "http://www.zalbacutanje.com", type = JAXBElement.class),
-            @XmlElementRef(name = "datum_vreme", namespace = "http://www.zalbacutanje.com", type = JAXBElement.class),
-            @XmlElementRef(name = "istaknuto", namespace = "http://www.zalbacutanje.com", type = JAXBElement.class),
-            @XmlElementRef(name = "podaci_o_zahtevu", namespace = "http://www.zalbacutanje.com", type = JAXBElement.class),
-            @XmlElementRef(name = "naziv_organa", namespace = "http://www.zalbacutanje.com", type = JAXBElement.class),
-            @XmlElementRef(name = "datum", namespace = "http://www.zalbacutanje.com", type = JAXBElement.class),
-            @XmlElementRef(name = "podnosilac_zalbe", namespace = "http://www.zalbacutanje.com", type = JAXBElement.class)
+                @XmlElementRef(name = "naziv_organa", namespace = "http://www.zalbacutanje.com", type = JAXBElement.class),
+                @XmlElementRef(name = "podnosilac_zalbe", namespace = "http://www.zalbacutanje.com", type = JAXBElement.class),
+                @XmlElementRef(name = "podaci_o_zahtevu", namespace = "http://www.zalbacutanje.com", type = JAXBElement.class),
+                @XmlElementRef(name = "datum", namespace = "http://www.zalbacutanje.com", type = JAXBElement.class),
+                @XmlElementRef(name = "datum_vreme", namespace = "http://www.zalbacutanje.com", type = JAXBElement.class),
+                @XmlElementRef(name = "podnaslov", namespace = "http://www.zalbacutanje.com", type = JAXBElement.class),
+                @XmlElementRef(name = "razlog", namespace = "http://www.zalbacutanje.com", type = JAXBElement.class),
+                @XmlElementRef(name = "istaknuto", namespace = "http://www.zalbacutanje.com", type = JAXBElement.class)
         })
         @XmlMixed
         protected List<Serializable> content;
 
         /**
          * Gets the value of the content property.
-         * 
+         *
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the content property.
-         * 
+         *
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getContent().add(newItem);
          * </pre>
-         * 
-         * 
+         *
+         *
          * <p>
          * Objects of the following type(s) are allowed in the list
-         * {@link String }
-         * {@link JAXBElement }{@code <}{@link Razlozi }{@code >}
-         * {@link JAXBElement }{@code <}{@link Podnaslov }{@code >}
-         * {@link JAXBElement }{@code <}{@link TdatumVreme }{@code >}
-         * {@link JAXBElement }{@code <}{@link Istaknuto }{@code >}
-         * {@link JAXBElement }{@code <}{@link PodaciOZahtevu }{@code >}
-         * {@link JAXBElement }{@code <}{@link NazivOrgana }{@code >}
-         * {@link JAXBElement }{@code <}{@link Datum }{@code >}
+         * {@link JAXBElement }{@code <}{@link TZalbaCutanje.Sadrzaj.NazivOrgana }{@code >}
          * {@link JAXBElement }{@code <}{@link TtrazilacInformacije }{@code >}
-         * 
-         * 
+         * {@link JAXBElement }{@code <}{@link TZalbaCutanje.Sadrzaj.PodaciOZahtevu }{@code >}
+         * {@link JAXBElement }{@code <}{@link TZalbaCutanje.Sadrzaj.Datum }{@code >}
+         * {@link JAXBElement }{@code <}{@link TdatumVreme }{@code >}
+         * {@link JAXBElement }{@code <}{@link TZalbaCutanje.Sadrzaj.Podnaslov }{@code >}
+         * {@link JAXBElement }{@code <}{@link String }{@code >}
+         * {@link JAXBElement }{@code <}{@link TZalbaCutanje.Sadrzaj.Istaknuto }{@code >}
+         * {@link String }
+         *
+         *
          */
         public List<Serializable> getContent() {
             if (content == null) {
@@ -440,9 +417,9 @@ public class TZalbaCutanje {
 
         /**
          * <p>Java class for anonymous complex type.
-         * 
+         *
          * <p>The following schema fragment specifies the expected content contained within this class.
-         * 
+         *
          * <pre>
          * &lt;complexType&gt;
          *   &lt;simpleContent&gt;
@@ -452,12 +429,12 @@ public class TZalbaCutanje {
          *   &lt;/simpleContent&gt;
          * &lt;/complexType&gt;
          * </pre>
-         * 
-         * 
+         *
+         *
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "value"
+                "value"
         })
         public static class Datum {
 
@@ -469,11 +446,11 @@ public class TZalbaCutanje {
 
             /**
              * Gets the value of the value property.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link XMLGregorianCalendar }
-             *     
+             *
              */
             public XMLGregorianCalendar getValue() {
                 return value;
@@ -481,11 +458,11 @@ public class TZalbaCutanje {
 
             /**
              * Sets the value of the value property.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link XMLGregorianCalendar }
-             *     
+             *
              */
             public void setValue(XMLGregorianCalendar value) {
                 this.value = value;
@@ -493,15 +470,15 @@ public class TZalbaCutanje {
 
             /**
              * Gets a map that contains attributes that aren't bound to any typed property on this class.
-             * 
+             *
              * <p>
-             * the map is keyed by the name of the attribute and 
+             * the map is keyed by the name of the attribute and
              * the value is the string value of the attribute.
-             * 
+             *
              * the map returned by this method is live, and you can add new attribute
              * by updating the map directly. Because of this design, there's no setter.
-             * 
-             * 
+             *
+             *
              * @return
              *     always non-null
              */
@@ -514,9 +491,9 @@ public class TZalbaCutanje {
 
         /**
          * <p>Java class for anonymous complex type.
-         * 
+         *
          * <p>The following schema fragment specifies the expected content contained within this class.
-         * 
+         *
          * <pre>
          * &lt;complexType&gt;
          *   &lt;simpleContent&gt;
@@ -526,12 +503,12 @@ public class TZalbaCutanje {
          *   &lt;/simpleContent&gt;
          * &lt;/complexType&gt;
          * </pre>
-         * 
-         * 
+         *
+         *
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "value"
+                "value"
         })
         public static class Istaknuto {
 
@@ -542,11 +519,11 @@ public class TZalbaCutanje {
 
             /**
              * Gets the value of the value property.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getValue() {
                 return value;
@@ -554,11 +531,11 @@ public class TZalbaCutanje {
 
             /**
              * Sets the value of the value property.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setValue(String value) {
                 this.value = value;
@@ -566,11 +543,11 @@ public class TZalbaCutanje {
 
             /**
              * Gets the value of the property property.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getProperty() {
                 return property;
@@ -578,11 +555,11 @@ public class TZalbaCutanje {
 
             /**
              * Sets the value of the property property.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setProperty(String value) {
                 this.property = value;
@@ -593,9 +570,9 @@ public class TZalbaCutanje {
 
         /**
          * <p>Java class for anonymous complex type.
-         * 
+         *
          * <p>The following schema fragment specifies the expected content contained within this class.
-         * 
+         *
          * <pre>
          * &lt;complexType&gt;
          *   &lt;simpleContent&gt;
@@ -605,12 +582,12 @@ public class TZalbaCutanje {
          *   &lt;/simpleContent&gt;
          * &lt;/complexType&gt;
          * </pre>
-         * 
-         * 
+         *
+         *
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "value"
+                "value"
         })
         public static class NazivOrgana {
 
@@ -621,11 +598,11 @@ public class TZalbaCutanje {
 
             /**
              * Gets the value of the value property.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getValue() {
                 return value;
@@ -633,11 +610,11 @@ public class TZalbaCutanje {
 
             /**
              * Sets the value of the value property.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setValue(String value) {
                 this.value = value;
@@ -645,11 +622,11 @@ public class TZalbaCutanje {
 
             /**
              * Gets the value of the property property.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getProperty() {
                 return property;
@@ -657,11 +634,11 @@ public class TZalbaCutanje {
 
             /**
              * Sets the value of the property property.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setProperty(String value) {
                 this.property = value;
@@ -672,9 +649,9 @@ public class TZalbaCutanje {
 
         /**
          * <p>Java class for anonymous complex type.
-         * 
+         *
          * <p>The following schema fragment specifies the expected content contained within this class.
-         * 
+         *
          * <pre>
          * &lt;complexType&gt;
          *   &lt;simpleContent&gt;
@@ -684,12 +661,12 @@ public class TZalbaCutanje {
          *   &lt;/simpleContent&gt;
          * &lt;/complexType&gt;
          * </pre>
-         * 
-         * 
+         *
+         *
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "value"
+                "value"
         })
         public static class PodaciOZahtevu {
 
@@ -700,11 +677,11 @@ public class TZalbaCutanje {
 
             /**
              * Gets the value of the value property.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getValue() {
                 return value;
@@ -712,11 +689,11 @@ public class TZalbaCutanje {
 
             /**
              * Sets the value of the value property.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setValue(String value) {
                 this.value = value;
@@ -724,11 +701,11 @@ public class TZalbaCutanje {
 
             /**
              * Gets the value of the property property.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getProperty() {
                 return property;
@@ -736,11 +713,11 @@ public class TZalbaCutanje {
 
             /**
              * Sets the value of the property property.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setProperty(String value) {
                 this.property = value;
@@ -751,9 +728,9 @@ public class TZalbaCutanje {
 
         /**
          * <p>Java class for anonymous complex type.
-         * 
+         *
          * <p>The following schema fragment specifies the expected content contained within this class.
-         * 
+         *
          * <pre>
          * &lt;complexType&gt;
          *   &lt;simpleContent&gt;
@@ -763,12 +740,12 @@ public class TZalbaCutanje {
          *   &lt;/simpleContent&gt;
          * &lt;/complexType&gt;
          * </pre>
-         * 
-         * 
+         *
+         *
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "value"
+                "value"
         })
         public static class Podnaslov {
 
@@ -779,11 +756,11 @@ public class TZalbaCutanje {
 
             /**
              * Gets the value of the value property.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getValue() {
                 return value;
@@ -791,11 +768,11 @@ public class TZalbaCutanje {
 
             /**
              * Sets the value of the value property.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setValue(String value) {
                 this.value = value;
@@ -803,11 +780,11 @@ public class TZalbaCutanje {
 
             /**
              * Gets the value of the property property.
-             * 
+             *
              * @return
              *     possible object is
              *     {@link String }
-             *     
+             *
              */
             public String getProperty() {
                 return property;
@@ -815,187 +792,14 @@ public class TZalbaCutanje {
 
             /**
              * Sets the value of the property property.
-             * 
+             *
              * @param value
              *     allowed object is
              *     {@link String }
-             *     
+             *
              */
             public void setProperty(String value) {
                 this.property = value;
-            }
-
-        }
-
-
-        /**
-         * <p>Java class for anonymous complex type.
-         * 
-         * <p>The following schema fragment specifies the expected content contained within this class.
-         * 
-         * <pre>
-         * &lt;complexType&gt;
-         *   &lt;complexContent&gt;
-         *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-         *       &lt;choice&gt;
-         *         &lt;element name="opcija" maxOccurs="unbounded"&gt;
-         *           &lt;complexType&gt;
-         *             &lt;simpleContent&gt;
-         *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
-         *                 &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
-         *               &lt;/extension&gt;
-         *             &lt;/simpleContent&gt;
-         *           &lt;/complexType&gt;
-         *         &lt;/element&gt;
-         *       &lt;/choice&gt;
-         *       &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
-         *     &lt;/restriction&gt;
-         *   &lt;/complexContent&gt;
-         * &lt;/complexType&gt;
-         * </pre>
-         * 
-         * 
-         */
-        @XmlAccessorType(XmlAccessType.FIELD)
-        @XmlType(name = "", propOrder = {
-            "opcija"
-        })
-        public static class Razlozi {
-
-            protected List<Opcija> opcija;
-            @XmlAttribute(name = "property")
-            protected String property;
-
-            /**
-             * Gets the value of the opcija property.
-             * 
-             * <p>
-             * This accessor method returns a reference to the live list,
-             * not a snapshot. Therefore any modification you make to the
-             * returned list will be present inside the JAXB object.
-             * This is why there is not a <CODE>set</CODE> method for the opcija property.
-             * 
-             * <p>
-             * For example, to add a new item, do as follows:
-             * <pre>
-             *    getOpcija().add(newItem);
-             * </pre>
-             * 
-             * 
-             * <p>
-             * Objects of the following type(s) are allowed in the list
-             * {@link Opcija }
-             * 
-             * 
-             */
-            public List<Opcija> getOpcija() {
-                if (opcija == null) {
-                    opcija = new ArrayList<Opcija>();
-                }
-                return this.opcija;
-            }
-
-            /**
-             * Gets the value of the property property.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
-             */
-            public String getProperty() {
-                return property;
-            }
-
-            /**
-             * Sets the value of the property property.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
-             */
-            public void setProperty(String value) {
-                this.property = value;
-            }
-
-
-            /**
-             * <p>Java class for anonymous complex type.
-             * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
-             * 
-             * <pre>
-             * &lt;complexType&gt;
-             *   &lt;simpleContent&gt;
-             *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
-             *       &lt;attribute name="property" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
-             *     &lt;/extension&gt;
-             *   &lt;/simpleContent&gt;
-             * &lt;/complexType&gt;
-             * </pre>
-             * 
-             * 
-             */
-            @XmlAccessorType(XmlAccessType.FIELD)
-            @XmlType(name = "", propOrder = {
-                "value"
-            })
-            public static class Opcija {
-
-                @XmlValue
-                protected String value;
-                @XmlAttribute(name = "property")
-                protected String property;
-
-                /**
-                 * Gets the value of the value property.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
-                 */
-                public String getValue() {
-                    return value;
-                }
-
-                /**
-                 * Sets the value of the value property.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
-                 */
-                public void setValue(String value) {
-                    this.value = value;
-                }
-
-                /**
-                 * Gets the value of the property property.
-                 * 
-                 * @return
-                 *     possible object is
-                 *     {@link String }
-                 *     
-                 */
-                public String getProperty() {
-                    return property;
-                }
-
-                /**
-                 * Sets the value of the property property.
-                 * 
-                 * @param value
-                 *     allowed object is
-                 *     {@link String }
-                 *     
-                 */
-                public void setProperty(String value) {
-                    this.property = value;
-                }
-
             }
 
         }

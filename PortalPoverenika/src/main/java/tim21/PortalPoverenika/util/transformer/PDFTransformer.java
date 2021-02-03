@@ -1,10 +1,6 @@
 package tim21.PortalPoverenika.util.transformer;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -22,6 +18,7 @@ import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.tool.xml.XMLWorkerHelper;
+import org.xml.sax.InputSource;
 
 
 /**
@@ -80,7 +77,7 @@ public class PDFTransformer {
 		try {
 
 			DocumentBuilder builder = documentFactory.newDocumentBuilder();
-			document = builder.parse(new File(filePath));
+			document = builder.parse(new InputSource(new StringReader(filePath)));
 
 			if (document != null)
 				System.out.println("[INFO] File parsed with no errors.");
@@ -97,7 +94,6 @@ public class PDFTransformer {
 
 	public String generateHTML(String xmlPath, String outputFile, String xslPath) {
 		try {
-
 			// Initialize Transformer instance
 			StreamSource transformSource = new StreamSource(new File(xslPath));
 			Transformer transformer = transformerFactory.newTransformer(transformSource);

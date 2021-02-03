@@ -27,7 +27,7 @@ public class ObjectFactory {
 
     private final static QName _TZalbaCutanjeSadrzajPodnaslov_QNAME = new QName("http://www.zalbacutanje.com", "podnaslov");
     private final static QName _TZalbaCutanjeSadrzajNazivOrgana_QNAME = new QName("http://www.zalbacutanje.com", "naziv_organa");
-    private final static QName _TZalbaCutanjeSadrzajRazlozi_QNAME = new QName("http://www.zalbacutanje.com", "razlozi");
+    private final static QName _TZalbaCutanjeSadrzajRazlog_QNAME = new QName("http://www.zalbacutanje.com", "razlog");
     private final static QName _TZalbaCutanjeSadrzajDatum_QNAME = new QName("http://www.zalbacutanje.com", "datum");
     private final static QName _TZalbaCutanjeSadrzajPodaciOZahtevu_QNAME = new QName("http://www.zalbacutanje.com", "podaci_o_zahtevu");
     private final static QName _TZalbaCutanjeSadrzajIstaknuto_QNAME = new QName("http://www.zalbacutanje.com", "istaknuto");
@@ -58,20 +58,13 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link TZalbaCutanje.Sadrzaj.Razlozi }
-     * 
-     */
-    public TZalbaCutanje.Sadrzaj.Razlozi createTZalbaCutanjeSadrzajRazlozi() {
-        return new TZalbaCutanje.Sadrzaj.Razlozi();
-    }
-
-    /**
      * Create an instance of {@link ZalbaCutanjeRoot }
      * 
      */
     public ZalbaCutanjeRoot createZalbaCutanjeRoot() {
         return new ZalbaCutanjeRoot();
     }
+
 
     /**
      * Create an instance of {@link TZalbaCutanje.Naziv }
@@ -122,14 +115,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link TZalbaCutanje.Sadrzaj.Razlozi.Opcija }
-     * 
-     */
-    public TZalbaCutanje.Sadrzaj.Razlozi.Opcija createTZalbaCutanjeSadrzajRazloziOpcija() {
-        return new TZalbaCutanje.Sadrzaj.Razlozi.Opcija();
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TZalbaCutanje.Sadrzaj.Podnaslov }{@code >}}
      * 
      */
@@ -148,12 +133,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TZalbaCutanje.Sadrzaj.Razlozi }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://www.zalbacutanje.com", name = "razlozi", scope = TZalbaCutanje.Sadrzaj.class)
-    public JAXBElement<TZalbaCutanje.Sadrzaj.Razlozi> createTZalbaCutanjeSadrzajRazlozi(TZalbaCutanje.Sadrzaj.Razlozi value) {
-        return new JAXBElement<TZalbaCutanje.Sadrzaj.Razlozi>(_TZalbaCutanjeSadrzajRazlozi_QNAME, TZalbaCutanje.Sadrzaj.Razlozi.class, TZalbaCutanje.Sadrzaj.class, value);
+    @XmlElementDecl(namespace = "http://www.zalbacutanje.com", name = "razlog", scope = TZalbaCutanje.Sadrzaj.class)
+    public JAXBElement<String> createTZalbaCutanjeSadrzajRazlog(String value) {
+        return new JAXBElement<String>(_TZalbaCutanjeSadrzajRazlog_QNAME, String.class, TZalbaCutanje.Sadrzaj.class, value);
     }
 
     /**

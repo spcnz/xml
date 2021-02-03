@@ -16,7 +16,7 @@ public class SilenceAppealMapper {
 
         TZalbaCutanje appeal = rootAppeal.getZalbaCutanje();
         TZalbaCutanje.Naziv heading = new TZalbaCutanje.Naziv();
-        heading.setValue("            ЖАЛБА КАДА ОРГАН ВЛАСТИ НИЈЕ ПОСТУПИО/ није поступио у целости/ ПО ЗАХТЕВУ ТРАЖИОЦА У ЗАКОНСКОМ  РОКУ  (ЋУТАЊЕ УПРАВЕ)\n");
+        appeal.getNaziv().setValue("ЖАЛБА КАДА ОРГАН ВЛАСТИ НИЈЕ ПОСТУПИО/ није поступио у целости/ ПО ЗАХТЕВУ ТРАЖИОЦА У ЗАКОНСКОМ  РОКУ  (ЋУТАЊЕ УПРАВЕ)\n");
         appeal.getPrimaoc().setUloga("Поверенику за информације од јавног значаја и заштиту података о личности");
 
         TZalbaCutanje.Sadrzaj contentWithStatic = new TZalbaCutanje.Sadrzaj();

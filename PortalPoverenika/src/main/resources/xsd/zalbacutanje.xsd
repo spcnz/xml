@@ -36,21 +36,14 @@
                                 </xs:simpleContent>
                             </xs:complexType>
                         </xs:element>
-                        <xs:element name="razlozi">
-                            <xs:complexType>
-                                <xs:choice>
-                                    <xs:element maxOccurs="unbounded" name="opcija">
-                                        <xs:complexType>
-                                            <xs:simpleContent>
-                                                <xs:extension base="xs:string">
-                                                  <xs:attribute name="property" type="xs:string"/>
-                                                </xs:extension>
-                                            </xs:simpleContent>
-                                        </xs:complexType>
-                                    </xs:element>
-                                </xs:choice>
-                                <xs:attribute name="property" type="xs:string"/>
-                            </xs:complexType>
+                        <xs:element name="razlog">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:enumeration value="није поступио"/>
+                                    <xs:enumeration value="није поступио у целости"/>
+                                    <xs:enumeration value="није поступио у законском року"/>
+                                </xs:restriction>
+                            </xs:simpleType>
                         </xs:element>
                         <xs:element name="datum">
                             <xs:complexType>

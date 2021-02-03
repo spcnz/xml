@@ -4,7 +4,7 @@
     xmlns:sh="http://www.shared.com"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.zalbacutanje.com ../xsd/zalbacutanje.xsd"
-    
+
     about="http://zalbe/2"
     rel="pred:appealForRequest"
     href="http://zahtevi/1"
@@ -34,11 +34,7 @@
             против
             <zal:naziv_organa property="authorityName">Naziv organa vlasti nekii</zal:naziv_organa>
             због тога што орган власти: 
-            <zal:razlozi>
-                <zal:opcija>није поступио</zal:opcija>
-                <zal:opcija>није поступио у целости</zal:opcija>
-                <zal:opcija>у законском року</zal:opcija>
-            </zal:razlozi>
+            <zal:razlog>није поступио у целости</zal:razlog>
             (подвући  због чега се изјављује жалба)
             
             

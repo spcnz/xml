@@ -121,7 +121,12 @@ public class SilenceAppealService {
         System.out.println("lalala");
         String htmlPath ="src/main/resources/static/silence_appeal_" + ID + ".html";
         String uri = "silence_appeal_" + ID + ".html";
-        uri = transformer.generateHTML(appeal.toString(), htmlPath, XSL_FILE);
+        try {
+            uri = transformer.generateHTML(appeal.getContent().toString(), htmlPath, XSL_FILE);
+        } catch (XMLDBException e) {
+            e.printStackTrace();
+            return null;
+        }
 
         return uri;
     }

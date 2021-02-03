@@ -157,41 +157,34 @@
 							<wsdlOptions>
 
 
-<!--								<wsdlOption>-->
-<!--									<wsdl>${basedir}/src/main/resources/wsdl/DecisionAppeal.wsdl</wsdl>-->
-<!--									<extraargs>-->
-<!--										<extraarg>-impl</extraarg> &lt;!&ndash; Ima i drugih dodatniha<extraarg>-client</extraarg> &ndash;&gt;-->
-<!--										<extraarg>-verbose</extraarg>-->
-<!--									</extraargs>-->
-<!--									<wsdlLocation>classpath:wsdl/DecisionAppeal.wsdl</wsdlLocation>-->
-<!--								</wsdlOption>-->
-
-<!--								<wsdlOption>-->
-<!--									<wsdl>${basedir}/src/main/resources/wsdl/SilenceAppeal.wsdl</wsdl>-->
-<!--									<extraargs>-->
-<!--										<extraarg>-impl</extraarg> &lt;!&ndash; Ima i drugih dodatniha<extraarg>-client</extraarg> &ndash;&gt;-->
-<!--										<extraarg>-verbose</extraarg>-->
-<!--									</extraargs>-->
-<!--									<wsdlLocation>classpath:wsdl/SilenceAppeal.wsdl</wsdlLocation>-->
-<!--								</wsdlOption>-->
-
-<!--								<wsdlOption>-->
-<!--									<wsdl>${basedir}/src/main/resources/wsdl/Rescript.wsdl</wsdl>-->
-<!--									<extraargs>-->
-<!--										<extraarg>-impl</extraarg> &lt;!&ndash; Ima i drugih dodatniha<extraarg>-client</extraarg> &ndash;&gt;-->
-<!--										<extraarg>-verbose</extraarg>-->
-<!--									</extraargs>-->
-<!--									<wsdlLocation>classpath:wsdl/Rescript.wsdl</wsdlLocation>-->
-<!--								</wsdlOption>-->
-
 								<wsdlOption>
-									<wsdl>${basedir}/src/main/resources/wsdl/Report.wsdl</wsdl>
+									<wsdl>${basedir}/src/main/resources/wsdl/DecisionAppeal.wsdl</wsdl>
 									<extraargs>
 										<extraarg>-impl</extraarg> <!-- Ima i drugih dodatniha<extraarg>-client</extraarg> -->
 										<extraarg>-verbose</extraarg>
 									</extraargs>
-									<wsdlLocation>classpath:wsdl/Report.wsdl</wsdlLocation>
+									<wsdlLocation>classpath:wsdl/DecisionAppeal.wsdl</wsdlLocation>
 								</wsdlOption>
+
+								<wsdlOption>
+									<wsdl>${basedir}/src/main/resources/wsdl/SilenceAppeal.wsdl</wsdl>
+									<extraargs>
+										<extraarg>-impl</extraarg> <!-- Ima i drugih dodatniha<extraarg>-client</extraarg> -->
+										<extraarg>-verbose</extraarg>
+									</extraargs>
+									<wsdlLocation>classpath:wsdl/SilenceAppeal.wsdl</wsdlLocation>
+								</wsdlOption>
+
+								<wsdlOption>
+									<wsdl>${basedir}/src/main/resources/wsdl/Rescript.wsdl</wsdl>
+									<extraargs>
+										<extraarg>-impl</extraarg> <!-- Ima i drugih dodatniha<extraarg>-client</extraarg> -->
+										<extraarg>-verbose</extraarg>
+									</extraargs>
+									<wsdlLocation>classpath:wsdl/Rescript.wsdl</wsdlLocation>
+								</wsdlOption>
+
+
 
 							</wsdlOptions>
 						</configuration>
