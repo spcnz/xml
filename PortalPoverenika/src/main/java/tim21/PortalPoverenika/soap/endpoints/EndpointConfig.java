@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import tim21.PortalPoverenika.soap.service.decisionAppeal.DecisionAppealServiceSoapBindingImpl;
+import tim21.PortalPoverenika.soap.service.report.ReportServiceSoapBindingImpl;
 import tim21.PortalPoverenika.soap.service.rescript.RescriptServiceSoapBindingImpl;
 import tim21.PortalPoverenika.soap.service.silenceAppeal.SilenceAppealServiceSoapBindingImpl;
 
@@ -26,6 +27,9 @@ public class EndpointConfig {
 
     @Autowired
     private RescriptServiceSoapBindingImpl rescriptServiceSoapBinding;
+
+    @Autowired
+    private ReportServiceSoapBindingImpl reportServiceSoapBinding;
 
     @Bean
     public Endpoint decisionAppealEndpoint() {
@@ -48,5 +52,10 @@ public class EndpointConfig {
         return endpoint;
     }
 
-
+    @Bean
+    public Endpoint reportEndpoint() {
+        EndpointImpl endpoint = new EndpointImpl(bus, reportServiceSoapBinding);
+        endpoint.publish("/report");
+        return endpoint;
+    }
 }
