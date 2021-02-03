@@ -24,11 +24,11 @@ public class RescriptService {
 	@Autowired
 	RescriptRepository rescriptRepository;
 
-	public boolean create(ResenjeRoot rescript) {
+	public ResenjeRoot create(ResenjeRoot rescript) {
 		if (Validator.validate(rescript.getClass(), rescript)){
 			return rescriptRepository.create(rescript);
 		}
-		return false;
+		return null;
 	}
 
 	public RescriptList getAll() throws XMLDBException, JAXBException {

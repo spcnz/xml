@@ -1,0 +1,42 @@
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:h="http://www.w3.org/1999/xhtml">
+  <rdf:Description rdf:about="http://zalbe/20210203182848">
+    <pred:appealForRequest xmlns:pred="http://www.tim21.com/predicate/" rdf:resource="http://zahtevi/1"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://zalbe/1">
+    <pred:recipient xmlns:pred="http://www.tim21.com/predicate/" rdf:resource="http://users/2"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://zalbe/1">
+    <pred:recipientCity xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">Beograd</pred:recipientCity>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://zalbe/1">
+    <pred:recipientStreet xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">Булевар краља Александрa</pred:recipientStreet>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://zalbe/1">
+    <pred:recipientStreetnum xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">15</pred:recipientStreetnum>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://zalbe/20210203182848">
+    <pred:requestDate xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">2020-09-13</pred:requestDate>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://zalbe/20210203182848">
+    <pred:appealBasis xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">
+            </pred:appealBasis>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://zalbe/1">
+    <pred:submitter xmlns:pred="http://www.tim21.com/predicate/" rdf:resource="http://users/1"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://zalbe/1">
+    <pred:submitterName xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">Milenaa</pred:submitterName>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://zalbe/1">
+    <pred:submitterLastname xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://zalbe/1">
+    <pred:submitterCity xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">Beograd</pred:submitterCity>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://zalbe/1">
+    <pred:submitterStreet xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://zalbe/1">
+    <pred:submitterStreetnum xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">1</pred:submitterStreetnum>
+  </rdf:Description>
+</rdf:RDF>
