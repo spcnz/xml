@@ -23,17 +23,20 @@ public class RescriptRepository {
     public ExistManager existManager;
 
 
-    public boolean create(ResenjeRoot rescript) {
+    public ResenjeRoot create(ResenjeRoot rescript) {
         try {
             String id = IdGenerator.generate();
             rescript.getResenje().setID(id);
             Map<QName, String> attrributes = rescript.getOtherAttributes();
             attrributes.put(new QName("id"), id);
 
-            return existManager.store(RESCRIPT_COLLECTION_URI, id, rescript, "resenja");
+            if(existManager.store(RESCRIPT_COLLECTION_URI, id, rescript, "resenja")) {
+                return rescript;
+            }
+            return null;
         } catch (Exception e) {
             e.printStackTrace();
-            return false;
+            return null;
         }
     }
 

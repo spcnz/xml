@@ -31,11 +31,11 @@ public class SilenceAppealService {
     @Autowired
     SilenceAppealRepository appealRepository;
 
-    public boolean create(ZalbaCutanjeRoot appeal) {
+    public ZalbaCutanjeRoot create(ZalbaCutanjeRoot appeal) {
         if (Validator.validate(appeal.getClass(), appeal)){
             return appealRepository.create(appeal);
         }
-        return false;
+        return null;
     }
 
     public SilenceAppealList getAll() throws XMLDBException, JAXBException {
