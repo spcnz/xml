@@ -32,8 +32,10 @@ public class RescriptApi {
 
     @RequestMapping( method = RequestMethod.POST, consumes = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<?> createRescript(@RequestBody ResenjeRoot rescript)  {
-        if (rescriptService.create(rescript)){
-            return new ResponseEntity<>(HttpStatus.CREATED);
+
+        rescript = rescriptService.create(rescript);
+        if (rescript != null){
+            return new ResponseEntity<>(rescript, HttpStatus.CREATED);
         }
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }

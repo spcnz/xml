@@ -1,0 +1,13 @@
+{
+  "@id" : "file:///C:/Users/MilenaVlada/xml/PortalPoverenika/src/main/resources/rdf/users/cit@gmail.com.rdf",
+  "email" : "cit@gmail.com",
+  "@context" : {
+    "email" : {
+      "@id" : "http://www.tim21.com/predicate/email",
+      "@type" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"
+    },
+    "rdf" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "pred" : "http://www.tim21.com/predicate/",
+    "h" : "http://www.w3.org/1999/xhtml"
+  }
+}

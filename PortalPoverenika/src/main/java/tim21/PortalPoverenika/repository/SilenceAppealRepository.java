@@ -12,6 +12,7 @@ import tim21.PortalPoverenika.util.IdGenerator;
 import javax.xml.namespace.QName;
 import java.util.Map;
 
+import static tim21.PortalPoverenika.util.constants.DBConstants.DECISIONAPPEAL_COLLECTION_URI;
 import static tim21.PortalPoverenika.util.constants.DBConstants.SILENCEAPPEAL_COLLECTION_URI;
 import static tim21.PortalPoverenika.util.constants.NamespaceConstants.*;
 
@@ -22,7 +23,7 @@ public class SilenceAppealRepository {
     public ExistManager existManager;
 
 
-    public boolean create(ZalbaCutanjeRoot appeal) {
+    public ZalbaCutanjeRoot create(ZalbaCutanjeRoot appeal) {
         try {
             String id = IdGenerator.generate();
             String aboutValue = "http://zalbeCutanje/" + id;
@@ -30,10 +31,13 @@ public class SilenceAppealRepository {
             attrributes.put(new QName("id"), id);
             attrributes.put(new QName("about"), aboutValue);
 
-            return existManager.store(SILENCEAPPEAL_COLLECTION_URI, id, appeal, "zalbeCutanje");
+            if(existManager.store(SILENCEAPPEAL_COLLECTION_URI, id, appeal, "zalbeCutanje")){
+                return appeal;
+            }
+            return null;
         } catch (Exception e) {
             e.printStackTrace();
-            return false;
+            return null;
         }
     }
 

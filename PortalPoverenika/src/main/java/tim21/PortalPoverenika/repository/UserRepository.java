@@ -29,6 +29,7 @@ public class UserRepository {
     }
 
     public XMLResource getOne(String email) {
+        email = email + ".xml";
         try {
             return existManager.getOne(USER_COLLECTION_URI, email);
         } catch (Exception e) {
