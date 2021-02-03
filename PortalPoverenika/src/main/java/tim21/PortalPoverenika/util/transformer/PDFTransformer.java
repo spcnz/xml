@@ -1,20 +1,35 @@
 package tim21.PortalPoverenika.util.transformer;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.TransformerFactoryConfigurationError;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+import javax.xml.transform.stream.StreamSource;
+
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.tool.xml.XMLWorkerHelper;
-import org.springframework.stereotype.Component;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.transform.*;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
-import javax.xml.transform.stream.StreamSource;
-import java.io.*;
 
-@Component
+/**
+ *
+ * Primer demonstrira koriscenje iText PDF programskog API-a za
+ * renderovanje PDF-a na osnovu XML dokumenta. Alternativa Apache FOP-u.
+ *
+ */
 public class PDFTransformer {
 
 	private static DocumentBuilderFactory documentFactory;
@@ -36,12 +51,11 @@ public class PDFTransformer {
 
 	/**
 	 * Creates a PDF using iText Java API
-	 *
 	 * @param filePath
 	 * @throws IOException
 	 * @throws DocumentException
 	 */
-	public static void generatePDF(String filePath, String htmlFile) throws IOException, DocumentException {
+	public void generatePDF(String filePath) throws IOException, DocumentException {
 
 		// Step 1
 		Document document = new Document();
@@ -53,14 +67,14 @@ public class PDFTransformer {
 		document.open();
 
 		// Step 4
-		XMLWorkerHelper.getInstance().parseXHtml(writer, document, new FileInputStream(htmlFile));
+		XMLWorkerHelper.getInstance().parseXHtml(writer, document, new FileInputStream("HTML_FILE"));
 
 		// Step 5
 		document.close();
 
 	}
 
-	public static org.w3c.dom.Document buildDocument(String filePath) {
+	public org.w3c.dom.Document buildDocument(String filePath) {
 
 		org.w3c.dom.Document document = null;
 		try {
@@ -81,8 +95,7 @@ public class PDFTransformer {
 		return document;
 	}
 
-	public static void generateHTML(String xmlPath, String xslPath, String htmlFile) throws FileNotFoundException {
-
+	public String generateHTML(String xmlPath, String outputFile, String xslPath) {
 		try {
 
 			// Initialize Transformer instance
@@ -96,7 +109,12 @@ public class PDFTransformer {
 
 			// Transform DOM to HTML
 			DOMSource source = new DOMSource(buildDocument(xmlPath));
-			StreamResult result = new StreamResult(new FileOutputStream(htmlFile));
+			StreamResult result = null;
+			try {
+				result = new StreamResult(new FileOutputStream(outputFile));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 			transformer.transform(source, result);
 
 		} catch (TransformerConfigurationException e) {
@@ -106,7 +124,6 @@ public class PDFTransformer {
 		} catch (TransformerException e) {
 			e.printStackTrace();
 		}
-
+		return outputFile;
 	}
-
 }

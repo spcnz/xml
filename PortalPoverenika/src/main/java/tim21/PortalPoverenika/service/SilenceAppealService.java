@@ -11,15 +11,22 @@ import tim21.PortalPoverenika.model.silenceAppeal.ZalbaCutanjeRoot;
 import tim21.PortalPoverenika.repository.SilenceAppealRepository;
 import tim21.PortalPoverenika.util.Validator;
 
+import javax.swing.plaf.synth.SynthTabbedPaneUI;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
+import tim21.PortalPoverenika.util.transformer.PDFTransformer;
 
 @Service
 public class SilenceAppealService {
+
+    public static final String XSL_FILE = "src/main/resources/xsl/silenceAppeal.xsl";
+
+    public static final String XSL_FO_FILE = "src/main/resources/xsl/silenceAppeal_fo.xsl";
 
     @Autowired
     SilenceAppealRepository appealRepository;
@@ -91,6 +98,32 @@ public class SilenceAppealService {
             appeals.add(appeal);
         }
         return new SilenceAppealList(appeals);
+    }
+
+    public String generatePdf(String ID) {
+        XMLResource xmlResource = appealRepository.getOne(ID);
+
+        if(xmlResource == null)
+            return null;
+        String pdfPath = "silence_appeal" + ID + ".pdf";
+
+        return pdfPath;
+    }
+
+    public String generateHtml(String ID) {
+        System.out.println(ID);
+        XMLResource appeal = appealRepository.getOne(ID);
+        PDFTransformer transformer = new PDFTransformer();
+
+        if(appeal == null)
+            return null;
+
+        System.out.println("lalala");
+        String htmlPath ="src/main/resources/static/silence_appeal_" + ID + ".html";
+        String uri = "silence_appeal_" + ID + ".html";
+        uri = transformer.generateHTML(appeal.toString(), htmlPath, XSL_FILE);
+
+        return uri;
     }
 
 }

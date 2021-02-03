@@ -14,6 +14,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
+import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
 import tim21.PortalPoverenika.security.TokenUtils;
 import tim21.PortalPoverenika.security.auth.RestAuthenticationEntryPoint;
 import tim21.PortalPoverenika.security.auth.TokenAuthenticationFilter;
@@ -56,6 +57,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     // Injektujemo implementaciju iz TokenUtils klase kako bismo mogli da koristimo njene metode za rad sa JWT u TokenAuthenticationFilteru
     @Autowired
     private TokenUtils tokenUtils;
+
 
     // Definisemo prava pristupa odredjenim URL-ovima
     @Override

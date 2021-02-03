@@ -6,6 +6,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
 import org.xmldb.api.base.XMLDBException;
 import tim21.PortalPoverenika.model.decisionAppeal.ZalbaRoot;
@@ -26,7 +27,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static tim21.PortalPoverenika.util.constants.RDFConstants.DECISIONAPPEAL_RDF_RESOURCES;
 import static tim21.PortalPoverenika.util.constants.RDFConstants.DECISIONSILENCE_RDF_RESOURCES;
 
 @RestController
@@ -136,5 +136,23 @@ public class SilenceAppealApi {
             return new   ResponseEntity(HttpStatus.BAD_REQUEST);
         }
     }
+
+
+    @RequestMapping(value= "/{ID}/generate", method=RequestMethod.GET)
+    public ResponseEntity<?> generate(@PathVariable String ID, @RequestParam("type") String fileType) {
+        String path = null;
+        if (fileType.equals("PDF")) {
+            path = appealService.generatePdf(ID);
+        } else if (fileType.equals("HTML")) {
+            path = appealService.generateHtml(ID);
+        }
+        if (path != null) {
+            return new ResponseEntity<>(path, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+
 
 }

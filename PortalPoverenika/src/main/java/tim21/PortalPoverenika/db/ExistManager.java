@@ -130,11 +130,12 @@ public class ExistManager {
 		createConnection();
 		Collection col = null;
 		XMLResource res = null;
+
 		try {
 			col = DatabaseManager.getCollection(authManager.getUri() + collectionUri, authManager.getUser(),
 					authManager.getPassword());
 			col.setProperty(OutputKeys.INDENT, "yes");
-			res = (XMLResource) col.getResource(documentId);
+			res = (XMLResource) col.getResource(documentId + ".xml");
 			return res;
 		} finally {
 			if (col != null) {
@@ -164,7 +165,6 @@ public class ExistManager {
 		}
 		return result;
 	}
-
 
 	public ResourceSet search(String collectionUri, String keyword, String targetNamespace, String rootElement) throws Exception  {
 		createConnection();
