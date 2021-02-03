@@ -52,7 +52,7 @@ public class PDFTransformer {
 	 * @throws IOException
 	 * @throws DocumentException
 	 */
-	public void generatePDF(String filePath) throws IOException, DocumentException {
+	public void generatePDF(String filePath, String htmlPath) throws IOException, DocumentException {
 
 		// Step 1
 		Document document = new Document();
@@ -64,7 +64,7 @@ public class PDFTransformer {
 		document.open();
 
 		// Step 4
-		XMLWorkerHelper.getInstance().parseXHtml(writer, document, new FileInputStream("HTML_FILE"));
+		XMLWorkerHelper.getInstance().parseXHtml(writer, document, new FileInputStream(htmlPath));
 
 		// Step 5
 		document.close();
