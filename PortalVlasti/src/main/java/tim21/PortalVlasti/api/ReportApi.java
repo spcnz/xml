@@ -2,11 +2,13 @@ package tim21.PortalVlasti.api;
 
 import org.apache.jena.reasoner.ValidityReport;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -42,6 +44,9 @@ public class ReportApi {
     MetaDataService metaDataService;
 
     @Autowired
+    private Environment env;
+
+    @Autowired
     ReportClient soapClient;
 
     @RequestMapping(method = RequestMethod.GET, consumes = MediaType.APPLICATION_XML_VALUE)
@@ -58,6 +63,15 @@ public class ReportApi {
 
     @RequestMapping(value = "/submit", method = RequestMethod.GET)
     public ResponseEntity<?> submitReport() {
+
+
+        Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
+        marshaller.setContextPath("tim21.PortalVlasti.model.report");
+
+        soapClient.setDefaultUri(env.getProperty("portal_poverenika"));
+        soapClient.setMarshaller(marshaller);
+        soapClient.setUnmarshaller(marshaller);
+
         TIzvestaj report = soapClient.getAppealStats();
         TResponse sus = soapClient.submitReport(report);
 

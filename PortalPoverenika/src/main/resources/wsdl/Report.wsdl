@@ -21,7 +21,7 @@
     <wsdl:message name="getAppealsStatsRequest">
     </wsdl:message>
     <wsdl:message name="getAppealsStatsResponse">
-        <wsdl:part name="response" type="tns:TIzvestaj" />
+        <wsdl:part name="IzvestajRoot" type="tns:TIzvestaj" />
     </wsdl:message>
 
     <wsdl:portType name="ReportServicePortType">

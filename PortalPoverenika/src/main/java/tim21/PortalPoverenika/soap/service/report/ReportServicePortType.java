@@ -23,7 +23,7 @@ import javax.xml.bind.annotation.XmlSeeAlso;
 public interface ReportServicePortType {
 
     @WebMethod(action = "http://www.izvestaj.com/ws/getAppealStats")
-    @WebResult(name = "response", targetNamespace = "", partName = "response")
+    @WebResult(name = "IzvestajRoot", targetNamespace = "http://www.izvestaj.com", partName = "IzvestajRoot")
     public TIzvestaj getAppealStats();
 
     @WebMethod(action = "http://www.izvestaj.com/ws/submitReport")

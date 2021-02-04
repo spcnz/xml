@@ -95,6 +95,7 @@ public class ReportServiceSoapBindingImpl implements ReportServicePortType {
      */
     public TResponse submitReport(TIzvestaj izvestaj) {
         LOG.info("Executing operation submitReport");
+        System.out.println("SAD SUBNIT");
         IzvestajRoot izvestajRoot = new IzvestajRoot();
         izvestajRoot.setIzvestaj(izvestaj);
         IzvestajRoot ret = reportRepository.create(izvestajRoot);

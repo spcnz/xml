@@ -57,7 +57,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "TIzvestaj", propOrder = {
     "fizickoLice",
     "pravnoLice"
-})
+}, namespace = "http://www.izvestaj.com")
 public class TIzvestaj {
 
     @XmlElement(name = "FizickoLice", required = true)

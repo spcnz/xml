@@ -1,10 +1,7 @@
 
 package tim21.PortalVlasti.model.report;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 
 
 /**
@@ -54,15 +51,15 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TIzvestaj", propOrder = {
+@XmlType(name = "response", propOrder = {
     "fizickoLice",
     "pravnoLice"
 })
 public class TIzvestaj {
 
-    @XmlElement(name = "FizickoLice", required = true)
+    @XmlElement(name = "FizickoLice", required = true,  namespace = "http://www.izvestaj.com")
     protected FizickoLice fizickoLice;
-    @XmlElement(name = "PravnoLice", required = true)
+    @XmlElement(name = "PravnoLice", required = true,  namespace = "http://www.izvestaj.com")
     protected PravnoLice pravnoLice;
 
     /**
