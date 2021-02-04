@@ -6,6 +6,8 @@ import org.xmldb.api.base.ResourceIterator;
 import org.xmldb.api.base.ResourceSet;
 import org.xmldb.api.base.XMLDBException;
 import org.xmldb.api.modules.XMLResource;
+import tim21.PortalPoverenika.model.decisionAppeal.ZalbaRoot;
+import tim21.PortalPoverenika.model.lists.DecisionAppealList;
 import tim21.PortalPoverenika.model.lists.RescriptList;
 import tim21.PortalPoverenika.model.rescript.ResenjeRoot;
 import tim21.PortalPoverenika.repository.RescriptRepository;
@@ -77,17 +79,20 @@ public class RescriptService {
 
 		ResourceSet resourceSet = null;
 		resourceSet = rescriptRepository.getAllByAppealId(appealId);
+
 		ResourceIterator resourceIterator = resourceSet.getIterator();
 
 		while (resourceIterator.hasMoreResources()){
 			XMLResource xmlResource = (XMLResource) resourceIterator.nextResource();
-			System.out.println(xmlResource);
+
 			if(xmlResource == null)
 				return null;
-			JAXBContext context = JAXBContext.newInstance(ResenjeRoot.class);
+			JAXBContext context = JAXBContext.newInstance(ZalbaRoot.class);
 			Unmarshaller unmarshaller = context.createUnmarshaller();
-			ResenjeRoot rescript = (ResenjeRoot) unmarshaller.unmarshal(xmlResource.getContentAsDOM());
-			rescripts.add(rescript);
+			ResenjeRoot appeal = (ResenjeRoot) unmarshaller.unmarshal(xmlResource.getContentAsDOM());
+			rescripts.add(appeal);
+
+
 		}
 		return new RescriptList(rescripts);
 	}
@@ -103,6 +108,28 @@ public class RescriptService {
 			XMLResource xmlResource = (XMLResource) resourceIterator.nextResource();
 			System.out.println(xmlResource);
 			if(xmlResource == null)
+				return null;
+			JAXBContext context = JAXBContext.newInstance(ResenjeRoot.class);
+			Unmarshaller unmarshaller = context.createUnmarshaller();
+			ResenjeRoot rescript = (ResenjeRoot) unmarshaller.unmarshal(xmlResource.getContentAsDOM());
+			rescripts.add(rescript);
+		}
+		return new RescriptList(rescripts);
+	}
+
+	public RescriptList search(String keyword) throws XMLDBException, JAXBException {
+		List<ResenjeRoot> rescripts = new ArrayList<>();
+
+		ResourceSet resourceSet = null;
+		resourceSet = rescriptRepository.search(keyword);
+
+		ResourceIterator resourceIterator = resourceSet.getIterator();
+
+		while (resourceIterator.hasMoreResources()) {
+			XMLResource xmlResource = (XMLResource) resourceIterator.nextResource();
+
+			System.out.println(xmlResource);
+			if (xmlResource == null)
 				return null;
 			JAXBContext context = JAXBContext.newInstance(ResenjeRoot.class);
 			Unmarshaller unmarshaller = context.createUnmarshaller();

@@ -95,7 +95,6 @@ public class DecisionAppealService {
 
         while (resourceIterator.hasMoreResources()){
             XMLResource xmlResource = (XMLResource) resourceIterator.nextResource();
-            System.out.println(xmlResource);
             if(xmlResource == null)
                 return null;
             JAXBContext context = JAXBContext.newInstance(ZalbaRoot.class);

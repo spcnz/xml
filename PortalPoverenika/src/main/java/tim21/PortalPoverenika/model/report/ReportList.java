@@ -3,11 +3,11 @@ package tim21.PortalPoverenika.model.report;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAnyElement;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
+
+import org.apache.jena.reasoner.ValidityReport;
 import org.w3c.dom.Element;
+import tim21.PortalPoverenika.model.decisionAppeal.ZalbaRoot;
 
 
 /**
@@ -29,15 +29,24 @@ import org.w3c.dom.Element;
  * 
  * 
  */
+
+
+@XmlRootElement
+@XmlSeeAlso({IzvestajRoot.class})
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ReportList", propOrder = {
-    "any"
+        "any"
 })
 public class ReportList {
 
     @XmlAnyElement
-    protected List<Element> any;
+    protected List<IzvestajRoot> any;
 
+    public ReportList(List<IzvestajRoot> reports){
+        this.any = reports;
+    }
+
+    public ReportList() {this.any = new ArrayList<>(); }
     /**
      * Gets the value of the any property.
      * 
@@ -60,9 +69,9 @@ public class ReportList {
      * 
      * 
      */
-    public List<Element> getAny() {
+    public List<IzvestajRoot> getAny() {
         if (any == null) {
-            any = new ArrayList<Element>();
+            any = new ArrayList<IzvestajRoot>();
         }
         return this.any;
     }

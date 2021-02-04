@@ -100,7 +100,7 @@ public class SilenceAppealApi {
             for (String key : res) {
                 System.out.println("KLJUC " + key);
                 String id = key.split("zalbeCutanje")[1].substring(1);    // format keya je http://zalbe/234213123
-                appeals.add(appealService.getOne(id + ".xml"));
+                appeals.add(appealService.getOne(id));
             }
             SilenceAppealList response = new SilenceAppealList(appeals);
             return new ResponseEntity(response, HttpStatus.OK);

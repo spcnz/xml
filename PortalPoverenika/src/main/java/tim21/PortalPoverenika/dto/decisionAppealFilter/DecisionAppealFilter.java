@@ -43,7 +43,9 @@ import javax.xml.bind.annotation.XmlType;
     "submitterLastname",
     "submitterCity",
     "submitterStreet",
-    "requestDate"
+    "requestDate",
+    "appealDate",
+    "submitterType",
 })
 @XmlRootElement(name = "DecisionAppealFilter", namespace = "http://www.shared.com")
 public class DecisionAppealFilter {

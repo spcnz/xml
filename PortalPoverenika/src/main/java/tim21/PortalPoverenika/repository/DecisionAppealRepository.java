@@ -15,7 +15,8 @@ import java.util.Map;
 
 import static tim21.PortalPoverenika.util.constants.DBConstants.DECISIONAPPEAL_COLLECTION_URI;
 import static tim21.PortalPoverenika.util.constants.NamespaceConstants.DECISIONAPPEAL_TARGET_NAMESPACE;
-import static tim21.PortalPoverenika.util.constants.NamespaceConstants.DECISIONAPPEAL_ROOT_EL;
+import static tim21.PortalPoverenika.util.constants.XSDConstants.DECISION_APPEAL;
+
 
 @Repository
 public class DecisionAppealRepository {
@@ -63,7 +64,7 @@ public class DecisionAppealRepository {
     }
     public ResourceSet search(String keyword) throws XMLDBException {
         try {
-            return existManager.search(DECISIONAPPEAL_COLLECTION_URI, keyword, DECISIONAPPEAL_TARGET_NAMESPACE, DECISIONAPPEAL_ROOT_EL);
+            return existManager.search(DECISIONAPPEAL_COLLECTION_URI, keyword, DECISIONAPPEAL_TARGET_NAMESPACE, DECISION_APPEAL);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
