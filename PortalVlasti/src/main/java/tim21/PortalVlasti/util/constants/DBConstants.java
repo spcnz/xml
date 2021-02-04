@@ -6,4 +6,6 @@ public class DBConstants {
     public static final String USER_COLLECTION_URI = "db/vlast/xml/users";
 
     public static final String INFORMATION_COLLECTION_URI = "db/vlast/xml/obavestenja";
+    public static final String REPORT_COLLECTION_URI = "db/proverenik/xml/izvestaji";
+
 }
