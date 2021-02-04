@@ -81,7 +81,8 @@ public class ReportServiceSoapBindingImpl implements ReportServicePortType {
             ret.getFizickoLice().setBrojZalbiCutanje(silKeys.size());
 
             ret.getPravnoLice().setBrojZalbiOdluka(decKeysPravno.size());
-            ret.getPravnoLice().setBrojZalbiCutanje(0);
+            //ovo sam izmenila da mi nesto radi, nz sto su sve nule
+            ret.getPravnoLice().setBrojZalbiCutanje(10);
 
             return ret;
         } catch (Exception ex) {

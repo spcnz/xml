@@ -73,10 +73,11 @@ public class ReportApi {
         soapClient.setUnmarshaller(marshaller);
 
         TIzvestaj report = soapClient.getAppealStats();
-        TResponse sus = soapClient.submitReport(report);
+        //ovo napraavi da radi :(
+        // TResponse sus = soapClient.submitReport(report);
 
 
-        return new ResponseEntity<>(sus, HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.OK);
 
     }
 

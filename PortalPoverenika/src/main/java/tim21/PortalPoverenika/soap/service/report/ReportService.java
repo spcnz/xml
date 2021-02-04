@@ -14,8 +14,8 @@ import javax.xml.ws.Service;
  * 
  */
 @WebServiceClient(name = "ReportService", 
-                  wsdlLocation = "classpath:wsdl/Report.wsdl",
-                  targetNamespace = "http://www.izvestaj.com") 
+            wsdlLocation = "classpath:wsdl/Report.wsdl",
+        targetNamespace = "http://www.izvestaj.com")
 public class ReportService extends Service {
 
     public final static URL WSDL_LOCATION;
@@ -26,10 +26,10 @@ public class ReportService extends Service {
         URL url = ReportService.class.getClassLoader().getResource("wsdl/Report.wsdl");
         if (url == null) {
             java.util.logging.Logger.getLogger(ReportService.class.getName())
-                .log(java.util.logging.Level.INFO, 
-                     "Can not initialize the default wsdl from {0}", "classpath:wsdl/Report.wsdl");
-        }       
-        WSDL_LOCATION = url;   
+                    .log(java.util.logging.Level.INFO,
+                            "Can not initialize the default wsdl from {0}", "classpath:wsdl/Report.wsdl");
+        }
+        WSDL_LOCATION = url;
     }
 
     public ReportService(URL wsdlLocation) {
@@ -43,7 +43,7 @@ public class ReportService extends Service {
     public ReportService() {
         super(WSDL_LOCATION, SERVICE);
     }
-    
+
     public ReportService(WebServiceFeature ... features) {
         super(WSDL_LOCATION, SERVICE, features);
     }
@@ -54,7 +54,7 @@ public class ReportService extends Service {
 
     public ReportService(URL wsdlLocation, QName serviceName, WebServiceFeature ... features) {
         super(wsdlLocation, serviceName, features);
-    }    
+    }
 
 
 
@@ -70,9 +70,9 @@ public class ReportService extends Service {
     }
 
     /**
-     * 
+     *
      * @param features
-     *     A list of {@link WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
+     *     A list of {@link javax.xml.ws.WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
      * @return
      *     returns ReportServicePortType
      */

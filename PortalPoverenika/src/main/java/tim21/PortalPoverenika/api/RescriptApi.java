@@ -102,7 +102,7 @@ public class RescriptApi {
 //            ovde ce se generisati pdf
 //            uzeti njegova putanja i pretvoriti u bajtove
 //            za sad cemo ovkako
-            Path pdfPath = Paths.get("C:/Users/bekim/Desktop/xml/PortalPoverenika/src/main/resources/pdf/bookstore.pdf");
+            Path pdfPath = Paths.get("C:/Users/bekim/Desktop/xml/PortalPoverenika/src/main/resources/static/da.pdf");
             try {
                 byte[] byteArr = Files.readAllBytes(pdfPath);
                 request.setFile(byteArr);
@@ -112,6 +112,7 @@ public class RescriptApi {
 
             Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
             marshaller.setContextPath("tim21.PortalPoverenika.soap.dto");
+
 
             MailClient mailClient = new MailClient();
             mailClient.setDefaultUri(env.getProperty("portal_vlasti"));

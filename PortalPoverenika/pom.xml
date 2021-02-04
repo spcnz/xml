@@ -191,6 +191,15 @@
 								</wsdlOption>
 
 
+								<wsdlOption>
+									<wsdl>${basedir}/src/main/resources/wsdl/Report.wsdl</wsdl>
+									<extraargs>
+										<extraarg>-impl</extraarg> <!-- Ima i drugih dodatniha<extraarg>-client</extraarg> -->
+										<extraarg>-verbose</extraarg>
+									</extraargs>
+									<wsdlLocation>classpath:wsdl/Report.wsdl</wsdlLocation>
+								</wsdlOption>
+
 
 							</wsdlOptions>
 						</configuration>

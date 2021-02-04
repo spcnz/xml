@@ -19,7 +19,7 @@ import javax.xml.bind.annotation.XmlSeeAlso;
  */
 @WebService(targetNamespace = "http://www.mail.com", name = "MailServicePortType")
 @XmlSeeAlso({ObjectFactory.class})
-@SOAPBinding(style = SOAPBinding.Style.RPC)
+@SOAPBinding(style = SOAPBinding.Style.DOCUMENT)
 public interface MailServicePortType {
 
     @WebMethod(action = "http://www.mail.com/ws/sendEmail")

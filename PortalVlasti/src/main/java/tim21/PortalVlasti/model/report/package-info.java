@@ -1,5 +1,5 @@
 @javax.xml.bind.annotation.XmlSchema(elementFormDefault = XmlNsForm.QUALIFIED,
-        namespace = "http://www.izvestaj.com",
+        namespace = "",
         xmlns={
                 @XmlNs(prefix="sh", namespaceURI="http://www.shared.com"),
                 @XmlNs(prefix="pred", namespaceURI="http://www.tim21.com/predicate/")})

@@ -19,17 +19,17 @@ import javax.xml.bind.annotation.XmlSeeAlso;
  */
 @WebService(targetNamespace = "http://www.izvestaj.com", name = "ReportServicePortType")
 @XmlSeeAlso({ObjectFactory.class})
-@SOAPBinding(parameterStyle = SOAPBinding.ParameterStyle.BARE)
+@SOAPBinding(style = SOAPBinding.Style.DOCUMENT)
 public interface ReportServicePortType {
 
     @WebMethod(action = "http://www.izvestaj.com/ws/getAppealStats")
-    @WebResult(name = "IzvestajRoot", targetNamespace = "http://www.izvestaj.com", partName = "IzvestajRoot")
+    @WebResult(name = "Izvestaj", targetNamespace = "", partName = "Izvestaj")
     public TIzvestaj getAppealStats();
 
     @WebMethod(action = "http://www.izvestaj.com/ws/submitReport")
     @WebResult(name = "response", targetNamespace = "", partName = "response")
     public TResponse submitReport(
-        @WebParam(partName = "izvestaj", name = "izvestaj", targetNamespace = "")
-        TIzvestaj izvestaj
+            @WebParam(partName = "izvestaj", name = "izvestaj", targetNamespace = "")
+                    TIzvestaj izvestaj
     );
 }

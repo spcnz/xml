@@ -21,7 +21,7 @@
     <wsdl:message name="getAppealsStatsRequest">
     </wsdl:message>
     <wsdl:message name="getAppealsStatsResponse">
-        <wsdl:part name="IzvestajRoot" type="tns:TIzvestaj" />
+        <wsdl:part name="Izvestaj" type="tns:TIzvestaj" />
     </wsdl:message>
 
     <wsdl:portType name="ReportServicePortType">
@@ -49,9 +49,9 @@
         </wsdl:operation>
 
         <wsdl:operation name="getAppealStats">
-            <soap:operation soapAction="http://www.izvestaj.com/ws/getAppealStats" />
+            <soap:operation style="document" soapAction="http://www.izvestaj.com/ws/getAppealStats" />
             <wsdl:input>
-                <soap:body use="literal"/>
+                <soap:body use="encoded"/>
             </wsdl:input>
             <wsdl:output>
                 <soap:body use="encoded"/>

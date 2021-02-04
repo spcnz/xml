@@ -17,8 +17,16 @@ public class ReportClient extends WebServiceGatewaySupport {
         TIzvestaj res = (TIzvestaj) getWebServiceTemplate()
                 .marshalSendAndReceive(uri, null,
                         new SoapActionCallback(
-                                "http://www.report.com/ws/getAppealStats"));
+                                "http://www.izvestaj.com/ws/getAppealStats"));
 
+        System.out.println(res.getPravnoLice().getBrojZalbiCutanje());
+
+        System.out.println(res.getFizickoLice().getBrojZalbiCutanje());
+
+        System.out.println(res.getFizickoLice().getBrojZahteva());
+
+        System.out.println(res.getPravnoLice().getBrojZalbiCutanje());
+        System.out.println(res.getPravnoLice().getBrojZahteva());
         return res;
     }
 
