@@ -22,4 +22,14 @@ public class XSDConstants {
         map.put(SILENCE_APPEAL, "classpath:xsd/zalbacutanje.xsd");
         xsdPathMap = Collections.unmodifiableMap(map);
     }
+
+    public static final Map<String, String> aboutAttrMap;
+    static {
+        Map<String, String> map = new HashMap<>();
+        map.put(USER, "users");
+        map.put(RESCRIPT, "resenja");
+        map.put(DECISION_APPEAL, "zalbe");
+        map.put(SILENCE_APPEAL, "zalbeCutanje");
+        aboutAttrMap = Collections.unmodifiableMap(map);
+    }
 }

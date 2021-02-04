@@ -60,7 +60,8 @@ public class RescriptRepository {
 
     public ResourceSet getAllByAppealId(String appealID) throws XMLDBException {
         try {
-            return existManager.getAll(RESCRIPT_COLLECTION_URI, "/ResenjeRoot[@href='http://zalbe/" + appealID + "']", RESCRIPT_TARGET_NAMESPACE);
+            String xpath = "/ResenjeRoot[@href='http://zalbe/" + appealID + "']|/ResenjeRoot[@href='http://zalbeCutanje/\" + appealID + \"']";
+            return existManager.getAll(RESCRIPT_COLLECTION_URI, xpath, RESCRIPT_TARGET_NAMESPACE);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
