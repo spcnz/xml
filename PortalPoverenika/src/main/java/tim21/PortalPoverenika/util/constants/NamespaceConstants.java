@@ -7,6 +7,8 @@ public class NamespaceConstants {
 
     public static final String SILENCEAPPEAL_TARGET_NAMESPACE = "http://www.zalbacutanje.com";
 
+    public static final String REPORT_TARGET_NAMESPACE = "http://www.izvestaj.com";
+
     public static final String SCHEMA_NAMESPACE = "http://www.w3.org/2001/XMLSchema";
 
     public static final String USER_TARGET_NAMESPACE = "http://user.com";
@@ -17,5 +19,6 @@ public class NamespaceConstants {
 
     public static final String RESCRIPT_ROOT_EL = "Resenje";
 
+    public static final String REPORT_ROOT_EL = "Izvestaj";
 
 }

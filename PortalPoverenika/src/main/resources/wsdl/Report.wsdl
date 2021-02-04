@@ -19,7 +19,6 @@
     </wsdl:message>
 
     <wsdl:message name="getAppealsStatsRequest">
-        <wsdl:part name="year" type="xsd:int" />
     </wsdl:message>
     <wsdl:message name="getAppealsStatsResponse">
         <wsdl:part name="response" type="tns:TIzvestaj" />
