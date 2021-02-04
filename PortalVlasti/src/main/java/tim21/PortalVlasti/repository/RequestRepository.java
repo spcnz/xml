@@ -43,6 +43,7 @@ public class RequestRepository {
             attrributes.put(new QName("id"), id);
             attrributes.put(new QName("about"), aboutValue);
             attrributes.put(new QName("href"), "http://users/" + submitterId);
+            attrributes.put(new QName("status"), REQUEST_STATUS.PROCESS.label);
 
             if(existManager.store(REQUEST_COLLECTION_URI, id, request, "zahtevi")){
                 return request;
@@ -71,5 +72,14 @@ public class RequestRepository {
             e.printStackTrace();
             return null;
         }
+    }
+
+    public boolean reject(ZahtevRoot request) throws Exception {
+        request.getOtherAttributes().put(new QName("status"), REQUEST_STATUS.REJECTED.label);
+        if(existManager.store(REQUEST_COLLECTION_URI, request.getOtherAttributes().get("id"), request, "zahtevi")){
+            return true;
+        }
+
+        return false;
     }
 }
