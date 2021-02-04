@@ -1,5 +1,6 @@
 package tim21.PortalVlasti.api;
 
+import org.apache.jena.reasoner.ValidityReport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpHeaders;
@@ -13,8 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 import org.xmldb.api.base.XMLDBException;
 import tim21.PortalVlasti.model.report.IzvestajRoot;
 import tim21.PortalVlasti.model.report.ReportList;
+import tim21.PortalVlasti.model.report.TIzvestaj;
+import tim21.PortalVlasti.model.report.TResponse;
 import tim21.PortalVlasti.service.MetaDataService;
 import tim21.PortalVlasti.service.ReportDataService;
+import tim21.PortalVlasti.soap.client.ReportClient;
 
 import javax.xml.bind.JAXBException;
 import java.io.ByteArrayInputStream;
@@ -37,6 +41,9 @@ public class ReportApi {
     @Autowired
     MetaDataService metaDataService;
 
+    @Autowired
+    ReportClient soapClient;
+
     @RequestMapping(method = RequestMethod.GET, consumes = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<ReportList> getAllReports() {
         ReportList reports = new ReportList();
@@ -47,6 +54,16 @@ public class ReportApi {
         } catch (XMLDBException | JAXBException e) {
             return new ResponseEntity(HttpStatus.BAD_REQUEST);
         }
+    }
+
+    @RequestMapping(value = "/submit", method = RequestMethod.GET)
+    public ResponseEntity<?> submitReport() {
+        TIzvestaj report = soapClient.getAppealStats();
+        TResponse sus = soapClient.submitReport(report);
+
+
+        return new ResponseEntity<>(sus, HttpStatus.OK);
+
     }
 
     @RequestMapping(value = "/{ID}", method = RequestMethod.GET, consumes = MediaType.APPLICATION_XML_VALUE)

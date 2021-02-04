@@ -4,6 +4,7 @@ import org.springframework.ws.soap.client.core.SoapActionCallback;
 import tim21.PortalPoverenika.soap.dto.MailRequest;
 import tim21.PortalPoverenika.soap.dto.TResponse;
 
+
 public class ReportClient {
 
     public boolean sendMail(MailRequest request) {

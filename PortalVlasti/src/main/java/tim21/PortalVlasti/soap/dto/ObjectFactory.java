@@ -35,33 +35,33 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link tim21.PortalPoverenika.soap.dto.MailRequest }
+     * Create an instance of {@link tim21.PortalVlasti.soap.dto.MailRequest }
      * 
      */
-    public tim21.PortalPoverenika.soap.dto.MailRequest createMailRequest() {
-        return new tim21.PortalPoverenika.soap.dto.MailRequest();
+    public tim21.PortalVlasti.soap.dto.MailRequest createMailRequest() {
+        return new tim21.PortalVlasti.soap.dto.MailRequest();
     }
 
     /**
-     * Create an instance of {@link tim21.PortalPoverenika.soap.dto.TResponse }
+     * Create an instance of {@link tim21.PortalVlasti.soap.dto.TResponse }
      * 
      */
-    public tim21.PortalPoverenika.soap.dto.TResponse createTResponse() {
-        return new tim21.PortalPoverenika.soap.dto.TResponse();
+    public tim21.PortalVlasti.soap.dto.TResponse createTResponse() {
+        return new tim21.PortalVlasti.soap.dto.TResponse();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link tim21.PortalPoverenika.soap.dto.MailRequest }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link tim21.PortalVlasti.soap.dto.MailRequest }{@code >}}
      * 
      */
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link tim21.PortalPoverenika.soap.dto.TResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link tim21.PortalVlasti.soap.dto.TResponse }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://www.mail.com", name = "response")
-    public JAXBElement<tim21.PortalPoverenika.soap.dto.TResponse> createResponse(tim21.PortalPoverenika.soap.dto.TResponse value) {
-        return new JAXBElement<tim21.PortalPoverenika.soap.dto.TResponse>(_Response_QNAME, tim21.PortalPoverenika.soap.dto.TResponse.class, null, value);
+    public JAXBElement<tim21.PortalVlasti.soap.dto.TResponse> createResponse(tim21.PortalVlasti.soap.dto.TResponse value) {
+        return new JAXBElement<tim21.PortalVlasti.soap.dto.TResponse>(_Response_QNAME, tim21.PortalVlasti.soap.dto.TResponse.class, null, value);
     }
 
 }

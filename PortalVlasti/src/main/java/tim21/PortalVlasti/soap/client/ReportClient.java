@@ -1,25 +1,38 @@
 package tim21.PortalVlasti.soap.client;
 
+import org.springframework.stereotype.Service;
+import org.springframework.ws.soap.client.core.SoapActionCallback;
 import tim21.PortalVlasti.model.report.TIzvestaj;
-import tim21.PortalVlasti.soap.dto.MailRequest;
+import org.springframework.ws.client.core.support.WebServiceGatewaySupport;
+import tim21.PortalVlasti.model.report.TResponse;
 
-public class ReportClient {
+@Service
+public class ReportClient extends WebServiceGatewaySupport {
 
     public TIzvestaj getAppealStats() {
 
         String uri = "http://localhost:8080/ws/report";
-        //TIzvestaj res = (TIzvestaj)
 
-//        TResponse response = (TResponse) getWebServiceTemplate()
-//                .marshalSendAndReceive(uri, request,
-//                        new SoapActionCallback(
-//                                "http://www.mail.com/ws/sendEmail"));
-//
-//        if (response.getStatus().equals("SUCCESS")) {
-//            return true;
-//        } else {
-//            return false;
-//        }
-        return null;
+
+        TIzvestaj res = (TIzvestaj) getWebServiceTemplate()
+                .marshalSendAndReceive(uri, null,
+                        new SoapActionCallback(
+                                "http://www.report.com/ws/getAppealStats"));
+
+        return res;
     }
+
+    public TResponse submitReport(TIzvestaj report){
+
+
+        TResponse res = (TResponse) getWebServiceTemplate()
+                .marshalSendAndReceive("http://localhost:8080/ws/report", report,
+                        new SoapActionCallback(
+                                "http://www.report.com/ws/submitReport"));
+
+        System.out.println("OVOOO VRACA " + res.getStatus());
+        return res;
+
+    }
+
 }
