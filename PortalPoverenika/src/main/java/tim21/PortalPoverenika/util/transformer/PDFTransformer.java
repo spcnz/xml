@@ -4,13 +4,9 @@ import java.io.*;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.transform.OutputKeys;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerConfigurationException;
-import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.TransformerFactoryConfigurationError;
+import javax.xml.transform.*;
 import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.sax.SAXResult;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
@@ -18,7 +14,12 @@ import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.tool.xml.XMLWorkerHelper;
+import org.apache.fop.apps.FOUserAgent;
+import org.apache.fop.apps.Fop;
+import org.apache.fop.apps.FopFactory;
+import org.apache.fop.apps.MimeConstants;
 import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
 
 
 /**
@@ -33,6 +34,8 @@ public class PDFTransformer {
 
 	private static TransformerFactory transformerFactory;
 
+	private static FopFactory fopFactory;
+
 	static {
 
 		/* Inicijalizacija DOM fabrike */
@@ -43,7 +46,13 @@ public class PDFTransformer {
 
 		/* Inicijalizacija Transformer fabrike */
 		transformerFactory = TransformerFactory.newInstance();
-
+		try {
+			fopFactory = FopFactory.newInstance(new File("src/main/java/fop.xconf"));
+		} catch (SAXException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -52,24 +61,53 @@ public class PDFTransformer {
 	 * @throws IOException
 	 * @throws DocumentException
 	 */
-	public void generatePDF(String filePath, String htmlPath) throws IOException, DocumentException {
 
-		// Step 1
-		Document document = new Document();
+	public String generatePDF(String xmlPath, String OUTPUT_FILE, String XSL_FO_FILE) throws Exception {
+		// Point to the XSL-FO file
+		File xslFile = new File(XSL_FO_FILE);
 
-		// Step 2
-		PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(filePath));
+		// Create transformation source
+		StreamSource transformSource = new StreamSource(xslFile);
 
-		// Step 3
-		document.open();
+		// Initialize the transformation subject
+		StreamSource source = new StreamSource(new StringReader(xmlPath));
 
-		// Step 4
-		XMLWorkerHelper.getInstance().parseXHtml(writer, document, new FileInputStream(htmlPath));
+		// Initialize user agent needed for the transformation
+		FOUserAgent userAgent = fopFactory.newFOUserAgent();
 
-		// Step 5
-		document.close();
+		// Create the output stream to store the results
+		ByteArrayOutputStream outStream = new ByteArrayOutputStream();
 
+		// Initialize the XSL-FO transformer object
+		Transformer xslFoTransformer = transformerFactory.newTransformer(transformSource);
+
+		// Construct FOP instance with desired output format
+		Fop fop = fopFactory.newFop(MimeConstants.MIME_PDF, userAgent, outStream);
+
+
+		// Resulting SAX events
+		Result res = new SAXResult(fop.getDefaultHandler());
+
+		// Start XSLT transformation and FOP processing
+		xslFoTransformer.transform(source, res);
+
+		// Generate PDF file
+		File pdfFile = new File(OUTPUT_FILE);
+		if (!pdfFile.getParentFile().exists()) {
+			System.out.println("[INFO] A new directory is created: " + pdfFile.getParentFile().getAbsolutePath() + ".");
+			pdfFile.getParentFile().mkdir();
+		}
+
+		OutputStream out = new BufferedOutputStream(new FileOutputStream(pdfFile));
+		out.write(outStream.toByteArray());
+
+		System.out.println("[INFO] File \"" + pdfFile.getCanonicalPath() + "\" generated successfully.");
+		out.close();
+
+		System.out.println("[INFO] End.");
+		return OUTPUT_FILE;
 	}
+
 
 	public org.w3c.dom.Document buildDocument(String filePath) {
 

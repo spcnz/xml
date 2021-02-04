@@ -40,18 +40,18 @@ public class SilenceAppealApi {
     MetaDataService metaDataService;
 
     //@PreAuthorize("hasRole('ROLE_CITIZEN')")
-    @RequestMapping( method = RequestMethod.POST, consumes = MediaType.APPLICATION_XML_VALUE)
-    public ResponseEntity<?> createAppeal(@RequestBody ZalbaCutanjeRoot appealReq)  {
+    @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_XML_VALUE)
+    public ResponseEntity<?> createAppeal(@RequestBody ZalbaCutanjeRoot appealReq) {
         ZalbaCutanjeRoot appeal = SilenceAppealMapper.addStaticText(appealReq);
         appeal = appealService.create(appeal);
-        if (appeal != null){
+        if (appeal != null) {
             return new ResponseEntity<>(appeal, HttpStatus.CREATED);
         }
 
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
-    @RequestMapping( method = RequestMethod.GET, consumes = MediaType.APPLICATION_XML_VALUE)
+    @RequestMapping(method = RequestMethod.GET, consumes = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<SilenceAppealList> getAllAppeals() {
         SilenceAppealList appeals = new SilenceAppealList();
         try {
@@ -63,17 +63,17 @@ public class SilenceAppealApi {
         }
     }
 
-    @RequestMapping(value="/{ID}", method = RequestMethod.GET, consumes = MediaType.APPLICATION_XML_VALUE)
+    @RequestMapping(value = "/{ID}", method = RequestMethod.GET, consumes = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<?> getAppeal(@PathVariable String ID) {
         ZalbaCutanjeRoot appeal = appealService.getOne(ID);
-        if(appeal != null)
+        if (appeal != null)
             return new ResponseEntity(appeal, HttpStatus.OK);
 
         return new ResponseEntity(HttpStatus.BAD_REQUEST);
     }
 
 
-    @RequestMapping(value="/search/{KW}", method = RequestMethod.GET, consumes = MediaType.APPLICATION_XML_VALUE)
+    @RequestMapping(value = "/search/{KW}", method = RequestMethod.GET, consumes = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<?> searchAppeals(@PathVariable String KW) {
         SilenceAppealList appeals = new SilenceAppealList();
         try {
@@ -84,29 +84,29 @@ public class SilenceAppealApi {
         }
     }
 
-    @RequestMapping(value="/meta/search/", method = RequestMethod.POST,  consumes = MediaType.APPLICATION_XML_VALUE)
+    @RequestMapping(value = "/meta/search/", method = RequestMethod.POST, consumes = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<?> metaSearchAppeals(@RequestBody SilenceAppealFilter filter) {
         List<ZalbaCutanjeRoot> appeals = new ArrayList<ZalbaCutanjeRoot>();
         List<String> res = new ArrayList<String>();
         List<String> filterVals = Arrays.asList(filter.getSubmitterStreet(), filter.getSubmitterCity(), filter.getSubmitterName(), filter.getSubmitterLastname(),
-                                    filter.getRequestId(), filter.getRequestDate(), filter.getRecipientStreet(), filter.getRecipientCity(), filter.getRequestDetails(), filter.getAuthorityName(), filter.getAppealDate());
+                filter.getRequestId(), filter.getRequestDate(), filter.getRecipientStreet(), filter.getRecipientCity(), filter.getRequestDetails(), filter.getAuthorityName(), filter.getAppealDate());
         try {
-            res =  metaDataService.filter("ZalbeCutanje", filterVals);
+            res = metaDataService.filter("ZalbeCutanje", filterVals);
             System.out.println("KLJUC  RES OVO ONO " + res.size());
-            for(String key : res){
+            for (String key : res) {
                 System.out.println("KLJUC " + key);
                 String id = key.split("zalbeCutanje")[1].substring(1);    // format keya je http://zalbe/234213123
                 appeals.add(appealService.getOne(id + ".xml"));
             }
             SilenceAppealList response = new SilenceAppealList(appeals);
-            return new ResponseEntity(response , HttpStatus.OK);
+            return new ResponseEntity(response, HttpStatus.OK);
         } catch (IOException e) {
             e.printStackTrace();
             return new ResponseEntity(HttpStatus.BAD_REQUEST);
         }
     }
 
-    @RequestMapping(value= "/meta/rdf/{ID}", method=RequestMethod.GET)
+    @RequestMapping(value = "/meta/rdf/{ID}", method = RequestMethod.GET)
     public ResponseEntity<InputStreamResource> metaExportRDF(@PathVariable Long ID) throws IOException {
         String path = DECISIONSILENCE_RDF_RESOURCES + ID + ".rdf";
         try {
@@ -116,12 +116,12 @@ public class SilenceAppealApi {
             headers.add("Content-Type", "application/xml; charset=utf-8");
             headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=" + ID + ".rdf");
             return ResponseEntity.ok().headers(headers).body(new InputStreamResource(bis));
-        }catch(Exception e){
-            return new   ResponseEntity(HttpStatus.BAD_REQUEST);
+        } catch (Exception e) {
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
         }
     }
 
-    @RequestMapping(value= "/meta/json/{ID}", method=RequestMethod.GET)
+    @RequestMapping(value = "/meta/json/{ID}", method = RequestMethod.GET)
     public ResponseEntity<?> metaExportJSON(@PathVariable Long ID) throws IOException {
 
         String path = DECISIONSILENCE_RDF_RESOURCES + ID + ".json";
@@ -132,27 +132,37 @@ public class SilenceAppealApi {
 
             headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=" + ID + ".json");
             return ResponseEntity.ok().headers(headers).body(new InputStreamResource(bis));
-        }catch(Exception e){
-            return new   ResponseEntity(HttpStatus.BAD_REQUEST);
+        } catch (Exception e) {
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
         }
     }
 
 
-    @RequestMapping(value= "/{ID}/generate", method=RequestMethod.GET)
+    @RequestMapping(value = "/{ID}/generate", method = RequestMethod.GET)
     public ResponseEntity<?> generate(@PathVariable String ID, @RequestParam("type") String fileType) {
         String path = null;
-        if (fileType.equals("PDF")) {
+        if (fileType.equals("pdf")) {
             path = appealService.generatePdf(ID);
-        } else if (fileType.equals("HTML")) {
+        } else if (fileType.equals("html")) {
             path = appealService.generateHtml(ID);
         }
-        if (path != null) {
-            return new ResponseEntity<>(path, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+
+
+        if (path == null) {
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
+        }
+
+        try {
+            ByteArrayInputStream bis = new ByteArrayInputStream(Files.readAllBytes(Paths.get(path)));
+
+            HttpHeaders headers = new HttpHeaders();
+
+            headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=" + ID + "." + fileType);
+            return ResponseEntity.ok().headers(headers).body(new InputStreamResource(bis));
+        } catch (IOException e) {
+            e.printStackTrace();
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
         }
     }
-
-
 
 }

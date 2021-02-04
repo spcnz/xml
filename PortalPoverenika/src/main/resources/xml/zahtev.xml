@@ -4,7 +4,7 @@
     xmlns:zh="http://www.zahtevcir.com"
     xmlns:sh="http://www.shared.com"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.zahtevcir.com ../xsd/zahtev.xsd"
+    xsi:schemaLocation="http://www.zahtev.com ../xsd/zahtev.xsd"
     xmlns:pred="http://www.tim21.com/predicate/"
 
     

@@ -12,7 +12,8 @@
             <head>
                 <title>ЖАЛБА</title>
                 <style>
-                    .ssdpage {position:relative; border:solid 1pt black; margin:10pt auto 10pt auto; overflow:hidden;}
+                    .ssdpage {position:relative; border:solid 1pt black; margin:10pt auto 10pt auto; overflow:hidden;  text-align: justify;
+                    text-justify: inter-word;}
                     .ssddiv {position:absolute;  letter-spacing:0.05pt }
                     .ssdspan {position:absolute; white-space:pre;}
                     .ssdimg {position:absolute;}
@@ -43,8 +44,8 @@
                     <div class="ssddiv" style="left:90pt; top:123.3pt;"><span class="ssdspan cs6" style="left:0pt; letter-spacing:-0.05pt">Адреса за пошту: <xsl:value-of select="za:ZalbaCutanjeRoot/za:zalbaCutanje//sh:Adresa/sh:Grad"/>, <xsl:value-of select="za:ZalbaCutanjeRoot/za:zalbaCutanje//sh:Adresa/sh:Ulica"/>, бр. <xsl:value-of select="za:ZalbaCutanjeRoot/za:zalbaCutanje//sh:Adresa/sh:Broj"/>, <xsl:value-of select="za:ZalbaCutanjeRoot/za:zalbaCutanje//sh:Adresa/sh:Postanski_broj"/></span></div>
                     <div class="ssddiv" style="left:25pt; top:140.3pt;">
                         <span class="ssdspan cs5" style="left:0pt; letter-spacing:-0.05pt">
-                            У складу са чланом 22. Закона о слободном приступу информацијама од јавног значаја
-                            подносим:
+                        У складу са чланом 22. Закона о слободном приступу информацијама од јавног значаја
+                        подносим:
 
                         </span>
                     </div>
@@ -66,11 +67,13 @@
                     </div>
 
                     <div class="ssddiv" style="left:25pt; top:290.3pt;">
+                        <xsl:variable name="date" select="//za:sadrzaj//za:datum"/>
+                        <xsl:variable name="d1" select="concat(substring($date,9,2),'.',substring($date,6,2),'.',substring($date,1,4),'.')"/>
                         <span class="ssdspan cs5" style="left:0pt; letter-spacing:-0.05pt; line-height: 1.6;">
-                            по мом захтеву за слободан приступ информацијама од јавног значаја који сам поднео том
-                            органу дана <u><xsl:value-of select="//za:sadrzaj//za:datum"/></u> године, а којим сам тражио/ла да ми се у складу са Законом о
-                            слободном приступу информацијама од јавног значаја омогући увид- копија документа који
-                            садржи информације о /у вези са :
+                        по мом захтеву за слободан приступ информацијама од јавног значаја који сам поднео том
+                        органу дана <u><xsl:value-of select="$d1"/></u> године, а којим сам тражио/ла да ми се у складу са Законом о
+                        слободном приступу информацијама од јавног значаја омогући увид- копија документа који
+                        садржи информације о /у вези са :
                         </span>
                     </div>
 
@@ -81,17 +84,19 @@
 
                     <div class="ssddiv" style="left:25pt; top:450.3pt;">
                         <span class="ssdspan cs5" style="left:0pt; letter-spacing:-0.05pt; line-height: 1.6;">
-                            На основу изнетог, предлажем да Повереник уважи моју жалбу и омогући ми приступ
-                            траженој/им информацији/ма
-                            Као доказ , уз жалбу достављам копију захтева са доказом о предаји органу власти.
-                            <b>Напомена:</b> Код жалбе због непоступању по захтеву у целости, треба приложити и
-                            добијени одговор органа власти.
+                                На основу изнетог, предлажем да Повереник уважи моју жалбу и омогући ми приступ
+                        траженој/им информацији/ма
+                                Као доказ , уз жалбу достављам копију захтева са доказом о предаји органу власти.
+                        <b>Напомена:</b> Код жалбе због непоступању по захтеву у целости, треба приложити и
+                        добијени одговор органа власти.
                         </span>
                     </div>
 
                     <div class="ssddiv" style="left:280pt; top:550.3pt; text-align: right;">
+                        <xsl:variable name="firstName" select="//za:sadrzaj//za:podnosilac_zalbe/sh:Ime"/>
+                        <xsl:variable name="lastName" select="//za:sadrzaj//za:podnosilac_zalbe/sh:Prezime"/>
                         <span class="ssdspan cs5" style="left:0pt; letter-spacing:-0.05pt; line-height: 1.6;">
-                            <u><xsl:value-of select="//za:sadrzaj//za:podnosilac_zalbe/sh:Ime"/>&#x0020;<xsl:value-of select="//za:sadrzaj//za:podnosilac_zalbe/sh:Prezime"/></u>
+                            <u><xsl:value-of select="concat($firstName, ' ', $lastName)"/></u>
                             Подносилац жалбе / Име и презиме
                             ............................
                             потпис
@@ -103,8 +108,10 @@
                     </div>
 
                     <div class="ssddiv" style="left:25pt; top:690.3pt;">
+                        <xsl:variable name="date" select="//za:sadrzaj//za:datum_vreme//sh:datum"/>
+                        <xsl:variable name="d1" select="concat(substring($date,9,2),'.',substring($date,6,2),'.',substring($date,1,4),'.')"/>
                         <span class="ssdspan cs5" style="left:0pt; letter-spacing:-0.05pt; line-height: 1.6;">
-                            У <u><xsl:value-of select="za:ZalbaCutanjeRoot/za:zalbaCutanje//sh:Adresa/sh:Grad"/></u>, дана <u><xsl:value-of select="//za:sadrzaj//za:datum_vreme//sh:datum"/></u> године
+                            У <u><xsl:value-of select="za:ZalbaCutanjeRoot/za:zalbaCutanje//sh:Adresa/sh:Grad"/></u>, дана <u><xsl:value-of select="$d1"/></u> године
                         </span>
                     </div>
 

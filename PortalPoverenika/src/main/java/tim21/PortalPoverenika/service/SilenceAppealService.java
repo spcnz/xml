@@ -1,5 +1,6 @@
 package tim21.PortalPoverenika.service;
 
+import com.itextpdf.text.DocumentException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.xmldb.api.base.ResourceIterator;
@@ -16,6 +17,7 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -101,17 +103,25 @@ public class SilenceAppealService {
     }
 
     public String generatePdf(String ID) {
-        XMLResource xmlResource = appealRepository.getOne(ID);
+        XMLResource appeal = appealRepository.getOne(ID);
+        PDFTransformer transformer = new PDFTransformer();
 
-        if(xmlResource == null)
+        if(appeal == null)
             return null;
-        String pdfPath = "silence_appeal" + ID + ".pdf";
+
+        System.out.println("lalala");
+        String pdfPath ="src/main/resources/static/silence_appeal_" + ID + ".pdf";
+        try {
+            transformer.generatePDF(appeal.getContent().toString(), pdfPath, XSL_FO_FILE);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
 
         return pdfPath;
     }
 
     public String generateHtml(String ID) {
-        System.out.println(ID);
         XMLResource appeal = appealRepository.getOne(ID);
         PDFTransformer transformer = new PDFTransformer();
 
@@ -120,15 +130,14 @@ public class SilenceAppealService {
 
         System.out.println("lalala");
         String htmlPath ="src/main/resources/static/silence_appeal_" + ID + ".html";
-        String uri = "silence_appeal_" + ID + ".html";
         try {
-            uri = transformer.generateHTML(appeal.getContent().toString(), htmlPath, XSL_FILE);
-        } catch (XMLDBException e) {
+            transformer.generateHTML(appeal.getContent().toString(), htmlPath, XSL_FILE);
+        } catch (XMLDBException  e) {
             e.printStackTrace();
             return null;
         }
 
-        return uri;
+        return htmlPath;
     }
 
 }

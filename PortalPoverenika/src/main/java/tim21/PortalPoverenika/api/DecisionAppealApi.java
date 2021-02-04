@@ -38,19 +38,19 @@ public class DecisionAppealApi {
     @Autowired
     private MetaDataService metaDataService;
 
-    @RequestMapping( method = RequestMethod.POST, consumes = MediaType.APPLICATION_XML_VALUE)
+    @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<?> createAppeal(@RequestBody ZalbaRoot appealReq) throws IOException, SAXException {
 
         ZalbaRoot appeal = DecisionAppealMapper.addStaticText(appealReq);
         appeal = appealService.create(appeal);
-        if (appeal != null){
+        if (appeal != null) {
             return new ResponseEntity<>(appeal, HttpStatus.CREATED);
         }
 
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-    }   
+    }
 
-    @RequestMapping( method = RequestMethod.GET, consumes = MediaType.APPLICATION_XML_VALUE)
+    @RequestMapping(method = RequestMethod.GET, consumes = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<DecisionAppealList> getAllAppeals() {
         DecisionAppealList appeals = new DecisionAppealList();
         try {
@@ -62,17 +62,17 @@ public class DecisionAppealApi {
         }
     }
 
-    @RequestMapping(value="/{ID}", method = RequestMethod.GET, consumes = MediaType.APPLICATION_XML_VALUE)
+    @RequestMapping(value = "/{ID}", method = RequestMethod.GET, consumes = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<?> getAppeal(@PathVariable String ID) {
         ZalbaRoot appeal = appealService.getOne(ID);
-        if(appeal != null)
+        if (appeal != null)
             return new ResponseEntity(appeal, HttpStatus.OK);
 
         return new ResponseEntity(HttpStatus.BAD_REQUEST);
     }
 
 
-    @RequestMapping(value="/search/{KW}", method = RequestMethod.GET, consumes = MediaType.APPLICATION_XML_VALUE)
+    @RequestMapping(value = "/search/{KW}", method = RequestMethod.GET, consumes = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<DecisionAppealList> searchAppeals(@PathVariable String KW) {
         DecisionAppealList appeals = new DecisionAppealList();
         try {
@@ -83,28 +83,28 @@ public class DecisionAppealApi {
         }
     }
 
-    @RequestMapping(value="/meta/search/", method = RequestMethod.POST,  consumes = MediaType.APPLICATION_XML_VALUE)
+    @RequestMapping(value = "/meta/search/", method = RequestMethod.POST, consumes = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<?> metaSearchAppeals(@RequestBody DecisionAppealFilter filter) {
         List<ZalbaRoot> appeals = new ArrayList<ZalbaRoot>();
         List<String> res = new ArrayList<String>();
         List<String> filterVals = Arrays.asList(filter.getSubmitterStreet(), filter.getSubmitterCity(), filter.getSubmitterName(), filter.getSubmitterLastname(), filter.getRequestId(), filter.getRequestDate(),
                 filter.getRecipientStreet(), filter.getRecipientCity());
         try {
-            res =  metaDataService.filter("Zalbe", filterVals);
-            for(String key : res){
+            res = metaDataService.filter("Zalbe", filterVals);
+            for (String key : res) {
                 String id = key.split("zalbe")[1].substring(1);    // format keya je http://zalbe/234213123
-                appeals.add(appealService.getOne( id + ".xml"));
+                appeals.add(appealService.getOne(id + ".xml"));
             }
 
             DecisionAppealList response = new DecisionAppealList(appeals);
-            return new ResponseEntity(response , HttpStatus.OK);
+            return new ResponseEntity(response, HttpStatus.OK);
         } catch (IOException e) {
             e.printStackTrace();
             return new ResponseEntity(HttpStatus.BAD_REQUEST);
         }
     }
 
-    @RequestMapping(value= "/meta/rdf/{ID}", method=RequestMethod.GET)
+    @RequestMapping(value = "/meta/rdf/{ID}", method = RequestMethod.GET)
     public ResponseEntity<InputStreamResource> metaExportRDF(@PathVariable Long ID) throws IOException {
         String path = DECISIONAPPEAL_RDF_RESOURCES + ID + ".rdf";
         try {
@@ -114,12 +114,12 @@ public class DecisionAppealApi {
             headers.add("Content-Type", "application/xml; charset=utf-8");
             headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=" + ID + ".rdf");
             return ResponseEntity.ok().headers(headers).body(new InputStreamResource(bis));
-        }catch(Exception e){
-            return new   ResponseEntity(HttpStatus.BAD_REQUEST);
+        } catch (Exception e) {
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
         }
     }
 
-    @RequestMapping(value= "/meta/json/{ID}", method=RequestMethod.GET)
+    @RequestMapping(value = "/meta/json/{ID}", method = RequestMethod.GET)
     public ResponseEntity<?> metaExportJSON(@PathVariable Long ID) throws IOException {
 
         String path = DECISIONAPPEAL_RDF_RESOURCES + ID + ".json";
@@ -130,37 +130,8 @@ public class DecisionAppealApi {
 
             headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=" + ID + ".json");
             return ResponseEntity.ok().headers(headers).body(new InputStreamResource(bis));
-        }catch(Exception e){
-            return new   ResponseEntity(HttpStatus.BAD_REQUEST);
+        } catch (Exception e) {
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
         }
     }
-
-
-
-//    @RequestMapping(value = "/pdf/{id}", method = RequestMethod.GET)
-//    public void getFile(
-//            @PathVariable("id") String fileName,
-//            HttpServletResponse response) {
-//        try {
-//            // get your file as InputStream
-//            InputStream in = getClass()
-//                    .getResourceAsStream("classpath:pdf/bookstore.pdf");
-//            // copy it to response's OutputStream
-//            org.apache.commons.io.IOUtils.copy(in, response.getOutputStream());
-//            response.flushBuffer();
-//        } catch (IOException ex) {
-//
-//            throw new RuntimeException("IOError writing file to output stream");
-//        }
-//
-//
-//        return new FileSystemResource(myService.getFileFor(fileName));
-//    }
-//
-//
-//    @RequestMapping(value = "/files/{file_name}", method = RequestMethod.GET)
-//    @ResponseBody
-//    public FileSystemResource getFile(@PathVariable("file_name") String fileName) {
-//        return new FileSystemResource();
-//    }
 }
