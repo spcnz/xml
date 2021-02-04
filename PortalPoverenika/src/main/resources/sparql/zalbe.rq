@@ -11,6 +11,8 @@ WHERE{
     ?appeal pred:requestDate ?requestDate .
     ?appeal pred:recipientStreet ?recipientStreet .
     ?appeal pred:recipientCity ?recipientCity .
+    ?appeal pred:appealDate ?appealDate .
+    ?appeal pred:submitterType ?submitterType .
 
     FILTER(CONTAINS(UCASE(str(?submitterStreet)), UCASE("%1$s"))
         && CONTAINS(UCASE(str(?submitterCity)), UCASE("%2$s"))
@@ -20,5 +22,7 @@ WHERE{
     	&& CONTAINS(UCASE(str(?requestDate)), UCASE("%6$s"))
     	&& CONTAINS(UCASE(str(?recipientStreet)), UCASE("%7$s"))
     	&& CONTAINS(UCASE(str(?recipientCity)), UCASE("%8$s"))
+    	&& CONTAINS(UCASE(str(?appealDate)), UCASE("%9$s"))
+    	&& CONTAINS(UCASE(str(?submitterType)), UCASE("%10$s"))
     ).
 }

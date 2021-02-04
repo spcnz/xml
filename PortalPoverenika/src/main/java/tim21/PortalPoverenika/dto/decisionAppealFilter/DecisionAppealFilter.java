@@ -64,6 +64,11 @@ public class DecisionAppealFilter {
     protected String submitterStreet;
     @XmlElement(name = "RequestDate", namespace = "", required = true)
     protected String requestDate;
+    @XmlElement(name = "AppealDate", namespace = "", required = true)
+    protected String appealDate;
+    @XmlElement(name = "SubmitterType", namespace = "", required = true)
+    protected String submitterType;
+
 
     /**
      * Gets the value of the recipientStreet property.
@@ -256,5 +261,23 @@ public class DecisionAppealFilter {
     public void setRequestDate(String value) {
         this.requestDate = value;
     }
+
+    public String getAppealDate() {
+        return requestDate;
+    }
+
+    public void setAppealDate(String value) {
+        this.requestDate = value;
+    }
+
+    public String getSubmitterType() {
+        return submitterType;
+    }
+
+    public void setSubmitterType(String value) {
+        this.submitterType = value;
+    }
+
+
 
 }
