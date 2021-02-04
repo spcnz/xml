@@ -11,6 +11,8 @@ public class XSDConstants {
 
     public static final String REQUEST = "ZahtevRoot";
 
+    public static final String REPORT = "IzvestajRoot";
+
 
     public static final Map<String, String> xsdPathMap;
     static {

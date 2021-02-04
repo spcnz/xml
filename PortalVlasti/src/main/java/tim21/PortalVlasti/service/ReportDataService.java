@@ -1,4 +1,4 @@
-package tim21.PortalPoverenika.service;
+package tim21.PortalVlasti.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -6,11 +6,9 @@ import org.xmldb.api.base.ResourceIterator;
 import org.xmldb.api.base.ResourceSet;
 import org.xmldb.api.base.XMLDBException;
 import org.xmldb.api.modules.XMLResource;
-import tim21.PortalPoverenika.model.decisionAppeal.ZalbaRoot;
-import tim21.PortalPoverenika.model.lists.DecisionAppealList;
-import tim21.PortalPoverenika.model.report.IzvestajRoot;
-import tim21.PortalPoverenika.model.report.ReportList;
-import tim21.PortalPoverenika.repository.ReportRepository;
+import tim21.PortalVlasti.model.report.IzvestajRoot;
+import tim21.PortalVlasti.model.report.ReportList;
+import tim21.PortalVlasti.repository.ReportRepository;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;

@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "a8644eac-7a9e-4fe6-9061-6daae34a0ce1",
+		"_postman_id": "e03d66dc-d065-43db-9ba6-97d2d725bd4b",
 		"name": "xml",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -48,7 +48,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<za:ZalbaRoot\r\n    xmlns:za=\"http://www.zalbanaodluku.com\"\r\n    xmlns:sh=\"http://www.shared.com\"\r\n    xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\r\n    xsi:schemaLocation=\"http://www.zalbanaodluku.com ../xsd/zalbanaodluku.xsd\"\r\n    xmlns:pred=\"http://www.tim21.com/predicate/\"\r\n    \r\n    about=\"http://zalbe/1\"\r\n    rel=\"pred:appealForRequest\"\r\n    href=\"http://zahtevi/1\">\r\n    <za:Zalba\r\n        \r\n        >\r\n        <za:Naslov>\r\n            \r\n        </za:Naslov>\r\n        <za:Primaoc\r\n            about=\"http://zalbe/1\"\r\n            rel=\"pred:recipient\"\r\n            href=\"http://users/2\"\r\n            >\r\n            <sh:Uloga>Поверенику за информације од јавног значаја и заштиту података о личности</sh:Uloga>\r\n            <sh:Adresa>\r\n                <sh:Grad property=\"pred:recipientCity\">Beograd</sh:Grad>\r\n                <sh:Ulica property=\"pred:recipientStreet\">Булевар краља Александрa</sh:Ulica>\r\n                <sh:Broj property=\"pred:recipientStreetnum\">15</sh:Broj>\r\n                <sh:Postanski_broj>11000</sh:Postanski_broj>\r\n            </sh:Adresa>\r\n        </za:Primaoc>\r\n        <za:Podnaslov>ZALBA</za:Podnaslov>\r\n        <za:Fizicko_lice>\r\n            <sh:Ime></sh:Ime>\r\n            <sh:Prezime></sh:Prezime>\r\n            <sh:Adresa>\r\n                <sh:Grad></sh:Grad>\r\n                <sh:Ulica></sh:Ulica>\r\n                <sh:Broj>1</sh:Broj>\r\n                <sh:Postanski_broj>11000</sh:Postanski_broj>\r\n            </sh:Adresa>\r\n        </za:Fizicko_lice>\r\n        <za:Tekst_zalbe>\r\n         \r\n            <za:Datum_podnosenja_zahteva property=\"pred:requestDate\">\r\n                2020-09-13\r\n            </za:Datum_podnosenja_zahteva>\r\n          \r\n            <za:Osnova_zalbe  property=\"pred:appealBasis\">\r\n            </za:Osnova_zalbe>\r\n                \r\n        </za:Tekst_zalbe>\r\n        <za:Grad></za:Grad>\r\n        <za:Datum> 2020-09-10</za:Datum>\r\n        <za:Podnosilac \r\n            about=\"http://zalbe/1\"\r\n            rel=\"pred:submitter\"\r\n            href=\"http://users/1\"\r\n            >\r\n            <sh:Ime property=\"pred:submitterName\">Milenaa</sh:Ime>\r\n            <sh:Prezime property=\"pred:submitterLastname\"></sh:Prezime>\r\n            <sh:Adresa>\r\n                <sh:Grad property=\"pred:submitterCity\">Beograd</sh:Grad>\r\n                <sh:Ulica property=\"pred:submitterStreet\"></sh:Ulica>\r\n                <sh:Broj property=\"pred:submitterStreetnum\">1</sh:Broj>\r\n                <sh:Postanski_broj>11000</sh:Postanski_broj>\r\n            </sh:Adresa>\r\n            <sh:drugi_podaci_za_kontakt></sh:drugi_podaci_za_kontakt>\r\n        </za:Podnosilac>\r\n        <za:Napomena>\r\n        </za:Napomena>\r\n    </za:Zalba>\r\n</za:ZalbaRoot>"
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<za:ZalbaRoot\r\n        xmlns:za=\"http://www.zalbanaodluku.com\"\r\n        xmlns:sh=\"http://www.shared.com\"\r\n        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\r\n        xsi:schemaLocation=\"http://www.zalbanaodluku.com ../xsd/zalbanaodluku.xsd\"\r\n        xmlns:pred=\"http://www.tim21.com/predicate/\"\r\n       \r\n       \r\n       rel=\"pred:appealForRequest\"\r\n       href=\"http://zahtevi/1\"\r\n>\r\n<za:Zalba>\r\n    <za:Naslov >\r\n        ЖАЛБА  ПРОТИВ  ОДЛУКЕ ОРГАНА  ВЛАСТИ КОЈОМ ЈЕ\r\n        ОДБИЈЕН ИЛИ ОДБАЧЕН ЗАХТЕВ ЗА ПРИСТУП ИНФОРМАЦИЈИ\r\n    </za:Naslov>\r\n    <za:Primaoc\r\n        rel=\"pred:recipient\"\r\n        href=\"http://users/2\"\r\n        >\r\n        <sh:Uloga>Поверенику за информације од јавног значаја и заштиту података о личности</sh:Uloga>\r\n        <sh:Adresa>\r\n            <sh:Grad property=\"pred:recipientCity\">Bundeva</sh:Grad>\r\n            <sh:Ulica property=\"pred:recipientStreet\">Булевар краља Александрa</sh:Ulica>\r\n            <sh:Broj property=\"pred:recipientStreetnum\">69</sh:Broj>\r\n            <sh:Postanski_broj>33302</sh:Postanski_broj>\r\n        </sh:Adresa>\r\n    </za:Primaoc>\r\n    <za:Podnaslov>ZALBA</za:Podnaslov>\r\n    <za:Fizicko_lice property=\"pred:submitterType\" content=\"FIZICKO_LICE\">\r\n        <sh:Ime></sh:Ime>\r\n        <sh:Prezime></sh:Prezime>\r\n        <sh:Adresa>\r\n            <sh:Grad></sh:Grad>\r\n            <sh:Ulica></sh:Ulica>\r\n            <sh:Broj>1</sh:Broj>\r\n            <sh:Postanski_broj>11000</sh:Postanski_broj>\r\n        </sh:Adresa>\r\n    </za:Fizicko_lice>\r\n    <za:Tekst_zalbe>\r\n        Наведеном одлуком органа власти (решењем, закључком, обавештењем у писаној форми са елементима одлуке) , супротно закону, одбијен-одбачен је мој захтев који сам\r\n        поднео/ла-упутио/ла дана\r\n        <za:Datum_podnosenja_zahteva property=\"pred:requestDate\">\r\n            2020-09-13\r\n        </za:Datum_podnosenja_zahteva>\r\n        године и тако ми ускраћено-онемогућено остваривање уставног и законског права на слободан приступ информацијама од јавног значаја.\r\n        Oдлуку побијам у целости, односно у делу којим\r\n        <za:Osnova_zalbe  property=\"pred:appealBasis\">\r\n            jер није заснована на Закону о слободном приступу информацијама од јавног значаја.\r\n            На основу изнетих разлога, предлажем да Повереник уважи моју жалбу,  поништи одлука првостепеног органа и омогући ми приступ траженој/им  информацији/ма.\r\n            Жалбу подносим благовремено, у законском року утврђеном у члану 22. ст. 1. Закона о слободном приступу информацијама од јавног значаја.\r\n        </za:Osnova_zalbe>\r\n    </za:Tekst_zalbe>\r\n    <za:Grad></za:Grad>\r\n    <za:Datum property=\"pred:appealDate\"> 2021-01-01</za:Datum>\r\n    <za:Podnosilac \r\n        rel=\"pred:submitter\"\r\n        href=\"http://users/1\"\r\n        >\r\n        <sh:Ime property=\"pred:submitterName\">Petar</sh:Ime>\r\n        <sh:Prezime property=\"pred:submitterLastname\"></sh:Prezime>\r\n        <sh:Adresa>\r\n            <sh:Grad property=\"pred:submitterCity\">Beograd</sh:Grad>\r\n            <sh:Ulica property=\"pred:submitterStreet\"></sh:Ulica>\r\n            <sh:Broj property=\"pred:submitterStreetnum\">1</sh:Broj>\r\n            <sh:Postanski_broj>11000</sh:Postanski_broj>\r\n        </sh:Adresa>\r\n        <sh:drugi_podaci_za_kontakt></sh:drugi_podaci_za_kontakt>\r\n    </za:Podnosilac>\r\n    <za:Napomena>\r\n        <za:Tacka broj=\"1\">\r\n            У жалби се мора навести одлука која се побија (решење, закључак, обавештење), назив органа који је одлуку донео, као и број и датум одлуке. Довољно је да жалилац наведе у жалби у ком погледу је незадовољан одлуком, с тим да жалбу не мора посебно образложити.\r\n        </za:Tacka>\r\n        <za:Tacka broj=\"2\">\r\n            Ако жалбу изјављује на овом обрасцу, додатно образложење може  посебно приложити.\r\n            Уз жалбу обавезно приложити копију поднетог захтева и доказ о његовој предаји-упућивању органу као и копију одлуке органа која се оспорава жалбом\r\n        </za:Tacka>\r\n    </za:Napomena>\r\n    </za:Zalba>\r\n</za:ZalbaRoot>"
 						},
 						"url": {
 							"raw": "http://localhost:8080/api/decisionappeal",
@@ -97,6 +97,178 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "post meta search",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<sh:DecisionAppealFilter xmlns:sh=\"http://www.shared.com\" >\r\n    <RequestId></RequestId>\r\n    <SubmitterName></SubmitterName>\r\n    <SubmitterLastname></SubmitterLastname>\r\n    <SubmitterCity></SubmitterCity>\r\n    <SubmitterStreet></SubmitterStreet>\r\n    <SubmitterType>FIZICKO_LICE</SubmitterType>\r\n    <RequestDate></RequestDate>\r\n    <AppealDate></AppealDate>\r\n    <RecipientCity></RecipientCity>\r\n    <RecipientStreet></RecipientStreet>\r\n    <AppealDate></AppealDate>\r\n    <SubmitterType>FIZICKO_LICE</SubmitterType>\r\n</sh:DecisionAppealFilter>"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/decisionappeal/meta/search/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"decisionappeal",
+								"meta",
+								"search",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get simple search",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/decisionappeal/search/bundeva",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"decisionappeal",
+								"search",
+								"bundeva"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Report",
+			"item": [
+				{
+					"name": "get all report",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/decisionappeal/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"decisionappeal",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get pdf",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/pdf",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/decisionappeal/files/ZalbaRoot20210201025328.xml",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"decisionappeal",
+								"files",
+								"ZalbaRoot20210201025328.xml"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get simple search",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/decisionappeal/search/bundeva",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"decisionappeal",
+								"search",
+								"bundeva"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post meta search",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/xml",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/report/meta/search/2021",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"report",
+								"meta",
+								"search",
+								"2021"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -126,7 +298,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<zal:ZalbaCutanjeRoot \r\n    xmlns:zal=\"http://www.zalbacutanje.com\"\r\n    xmlns:sh=\"http://www.shared.com\"\r\n    xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\r\n    xsi:schemaLocation=\"http://www.zalbacutanje.com ../xsd/zalbacutanje.xsd\"\r\n    \r\n    about=\"http://zalbe/2\"\r\n    rel=\"pred:appealForRequest\"\r\n    href=\"http://zahtevi/1\"\r\n    >\r\n    <zal:zalbaCutanje>\r\n        <zal:naziv>\r\n            ЖАЛБА КАДА ОРГАН ВЛАСТИ НИЈЕ ПОСТУПИО/ није поступио у целости/ ПО ЗАХТЕВУ ТРАЖИОЦА У ЗАКОНСКОМ  РОКУ  (ЋУТАЊЕ УПРАВЕ)\r\n        </zal:naziv>\r\n        \r\n        <zal:primaoc\r\n            about=\"http://zalbe/2\"\r\n            rel=\"pred:recipient\"\r\n            href=\"http://users/2\"\r\n            >\r\n            <sh:Uloga>Поверенику за информације од јавног значаја и заштиту података о личности</sh:Uloga>\r\n            <sh:Adresa>\r\n                <sh:Grad property=\"pred:recipientCity\">Beograd</sh:Grad>\r\n                <sh:Ulica property=\"pred:recipientStreet\">Булевар краља Александрa</sh:Ulica>\r\n                <sh:Broj property=\"pred:recipientStreetnum\">15</sh:Broj>\r\n                <sh:Postanski_broj>11000</sh:Postanski_broj>\r\n            </sh:Adresa>\r\n        </zal:primaoc>\r\n        \r\n        <zal:sadrzaj>\r\n            У складу са чланом 22. Закона о слободном приступу информацијама од јавног значаја подносим:\r\n            <zal:podnaslov>Ж А Л Б У</zal:podnaslov>\r\n            против\r\n            <zal:naziv_organa property=\"authorityName\">Naziv organa vlasti nekii</zal:naziv_organa>\r\n            због тога што орган власти: \r\n            <zal:razlozi>\r\n                <zal:opcija>није поступио</zal:opcija>\r\n                <zal:opcija>није поступио у целости</zal:opcija>\r\n                <zal:opcija>у законском року</zal:opcija>\r\n            </zal:razlozi>\r\n            (подвући  због чега се изјављује жалба)\r\n            \r\n            \r\n            по мом захтеву  за слободан приступ информацијама од јавног значаја који сам поднео  том органу  дана \r\n            <zal:datum property=\"pred:requestDate\">2020-09-10</zal:datum>\r\n            године, а којим сам тражио/ла да ми се у складу са Законом о слободном приступу информацијама од јавног значаја омогући увид- копија документа који садржи информације  о /у вези са :\r\n            <zal:podaci_o_zahtevu property=\"pred:requestDetails\">neki podaci o zahtevu</zal:podaci_o_zahtevu>\r\n            (навести податке о захтеву и информацији/ама)\r\n            \r\n            На основу изнетог, предлажем да Повереник уважи моју жалбу и омогући ми приступ траженој/им  информацији/ма.\r\n            Као доказ , уз жалбу достављам копију захтева са доказом о предаји органу власти.\r\n            <zal:istaknuto>Напомена:</zal:istaknuto> Код жалбе  због непоступању по захтеву у целости, треба приложити и добијени одговор органа власти\r\n            \r\n            <zal:podnosilac_zalbe\r\n                about=\"http://zalbe/2\"\r\n                rel=\"pred:submitter\"\r\n                href=\"http://users/1\"\r\n                >\r\n                <sh:Ime property=\"pred:submitterName\">Milenaa</sh:Ime>\r\n                <sh:Prezime property=\"pred:submitterLastname\"></sh:Prezime>\r\n                <sh:Adresa>\r\n                    <sh:Grad property=\"pred:submitterCity\">Beograd</sh:Grad>\r\n                    <sh:Ulica property=\"pred:submitterStreet\"></sh:Ulica>\r\n                    <sh:Broj property=\"pred:submitterStreetnum\">1</sh:Broj>\r\n                    <sh:Postanski_broj>11000</sh:Postanski_broj>\r\n                </sh:Adresa>\r\n                <sh:drugi_podaci_za_kontakt>skmwk</sh:drugi_podaci_za_kontakt>\r\n            </zal:podnosilac_zalbe>\r\n            \r\n            \r\n            \r\n            <zal:datum_vreme>\r\n                <sh:vreme property=\"appealTime\">09:15:00</sh:vreme>\r\n                <sh:datum property=\"appealDate\">2020-09-10</sh:datum>\r\n            </zal:datum_vreme>\r\n            \r\n        </zal:sadrzaj>\r\n        \r\n        \r\n        \r\n        \r\n    </zal:zalbaCutanje>\r\n</zal:ZalbaCutanjeRoot>"
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<zal:ZalbaCutanjeRoot\r\n    xmlns:zal=\"http://www.zalbacutanje.com\"\r\n    xmlns:sh=\"http://www.shared.com\"\r\n    xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\r\n    xsi:schemaLocation=\"http://www.zalbacutanje.com ../xsd/zalbacutanje.xsd\"\r\n    \r\n    rel=\"pred:appealForRequest\"\r\n    href=\"http://zahtevi/1\"\r\n    >\r\n    <zal:zalbaCutanje>\r\n    <zal:naziv>\r\n        ЖАЛБА КАДА ОРГАН ВЛАСТИ НИЈЕ ПОСТУПИО/ није поступио у целости/ ПО ЗАХТЕВУ ТРАЖИОЦА У ЗАКОНСКОМ  РОКУ  (ЋУТАЊЕ УПРАВЕ)\r\n    </zal:naziv>\r\n    \r\n    <zal:primaoc\r\n        rel=\"pred:recipient\"\r\n        href=\"http://users/poverenik@gmail.com\"\r\n        >\r\n        <sh:Uloga>Поверенику за информације од јавног значаја и заштиту података о личности</sh:Uloga>\r\n        <sh:Adresa>\r\n            <sh:Grad property=\"pred:recipientCity\">Zabjelo</sh:Grad>\r\n            <sh:Ulica property=\"pred:recipientStreet\">Булевар краља Александрa</sh:Ulica>\r\n            <sh:Broj property=\"pred:recipientStreetnum\">15</sh:Broj>\r\n            <sh:Postanski_broj>11000</sh:Postanski_broj>\r\n        </sh:Adresa>\r\n    </zal:primaoc>\r\n    \r\n    <zal:sadrzaj>\r\n        У складу са чланом 22. Закона о слободном приступу информацијама од јавног значаја подносим:\r\n        <zal:podnaslov>Ж А Л Б У</zal:podnaslov>\r\n        против\r\n        <zal:naziv_organa property=\"pred:authorityName\">Naziv organa vlasti nekii</zal:naziv_organa>\r\n        због тога што орган власти: \r\n        <zal:razlog>није поступио</zal:razlog> \r\n        (подвући  због чега се изјављује жалба)\r\n        \r\n        \r\n        по мом захтеву  за слободан приступ информацијама од јавног значаја који сам поднео  том органу  дана \r\n        <zal:datum property=\"pred:requestDate\">2020-09-10</zal:datum> \r\n        године, а којим сам тражио/ла да ми се у складу са Законом о слободном приступу информацијама од јавног значаја омогући увид- копија документа који садржи информације  о /у вези са :\r\n        <zal:podaci_o_zahtevu property=\"pred:requestDetails\">neki podaci o zahtevu</zal:podaci_o_zahtevu>\r\n        (навести податке о захтеву и информацији/ама)\r\n        \r\n        На основу изнетог, предлажем да Повереник уважи моју жалбу и омогући ми приступ траженој/им  информацији/ма.\r\n        Као доказ , уз жалбу достављам копију захтева са доказом о предаји органу власти.\r\n        <zal:istaknuto>Напомена:</zal:istaknuto> Код жалбе  због непоступању по захтеву у целости, треба приложити и добијени одговор органа власти\r\n        \r\n        <zal:podnosilac_zalbe \r\n            rel=\"pred:submitter\"\r\n            href=\"http://users/test@gmail.com\"\r\n            >\r\n            <sh:Ime property=\"pred:submitterName\">Milenaa</sh:Ime>\r\n            <sh:Prezime property=\"pred:submitterLastname\"></sh:Prezime>\r\n            <sh:Adresa>\r\n                <sh:Grad property=\"pred:submitterCity\">Beograd</sh:Grad>\r\n                <sh:Ulica property=\"pred:submitterStreet\"></sh:Ulica>\r\n                <sh:Broj property=\"pred:submitterStreetnum\">1</sh:Broj>\r\n                <sh:Postanski_broj>11000</sh:Postanski_broj>\r\n            </sh:Adresa>\r\n            <sh:drugi_podaci_za_kontakt>skmwk</sh:drugi_podaci_za_kontakt>\r\n        </zal:podnosilac_zalbe>\r\n        \r\n        \r\n        \r\n        <zal:datum_vreme>\r\n            <sh:vreme property=\"pred:appealTime\">09:15:00</sh:vreme>\r\n            <sh:datum property=\"pred:appealDate\">2021-01-01</sh:datum>\r\n        </zal:datum_vreme>\r\n        \r\n    </zal:sadrzaj>\r\n    \r\n    \r\n    </zal:zalbaCutanje>\r\n    \r\n</zal:ZalbaCutanjeRoot>\r\n"
 						},
 						"url": {
 							"raw": "http://localhost:8080/api/silenceappeal/",
@@ -194,7 +366,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<ResenjeRoot \r\n    xmlns=\"http://www.resenje.com\"\r\n    xmlns:sh=\"http://www.shared.com\"\r\n    xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\r\n    xmlns:pred=\"http://www.tim21.com/predicate/\"\r\n    xsi:schemaLocation=\"http://www.resenje.com ../xsd/resenje.xsd\"\r\n    dopustena_zalba=\"ne\"\r\n    \r\n    about=\"http://resenja/1\"\r\n    rel=\"pred:rescriptForAppeal\"\r\n    href=\"http://zalbe/1\"\r\n    >\r\n<Resenje\r\n   \r\n    >\r\n    <ID>071-01-1114/2020-03</ID>\r\n    <Datum property=\"pred:rescriptDate\">2020-09-08</Datum>\r\n    <Status_zalbe property=\"pred:appealStatus\">PRIHVACENA</Status_zalbe>\r\n    <Opis_resenja>\r\n        Повереник за информације од јавног значаја и заштиту података о личности, у поступку по алби\r\n        коју је изјавио AA, због непоступања Учитељског факултета у Призрену са привременим седиштем\r\n        у Лепосавићу, ул. Немањина бб, по његовом захтеву од 16.04.2020. године за приступ\r\n        информацијама од јавног значаја, на основу члана 35. став 1. тачка 5. Закона о слободном приступу\r\n        информацијама од јавног значаја („Сл. гласник РС“, бр. 120/04, 54/07, 104/09 и 36/10), а у вези са\r\n        чланом 4. тачка 22. Закона о заштити података о личности („Сл. гласник РС“, број 87/18), као и члана\r\n        23. и члана 24. став 4. Закона о слободном приступу информацијама од јавног значаја и члана 173.\r\n        став 2. Закона о општем управном поступку („Сл. гласник РС“, бр. 18/2016 и 95/2018-аутентично\r\n        тумачење), доноси Р Е Ш Е Њ Е\r\n    <Stavke_resenja>\r\n        <sh:Tacka broj=\"1\">\r\n            Налаже се Учитељском факултету у Призрену са привременим седиштем у Лепосавићу, да\r\n            без одлагања, а најкасније у року од пет дана од дана пријема овог решења, обавести АА, да ли\r\n            поседује тражене информације односно документ у коме су исте садржане, и то: Уговор о раду који\r\n            је као последњи потписан између тог Факултета и ББ, те да му, уколико такав документ поседује\r\n            достави копију истог електронском поштом на адресу … или поштом, с тим што ће пре достављања\r\n            заштитити и учинити недоступним податке о личности којима би се повредило право на приватност\r\n            лица на које се информације односе, као што су: адреса становања, лични матични број грађана, име\r\n            оца, радни стаж, просечна оцена студирања и сл. уколико су такви подаци садржани у траженом\r\n            документу. \r\n        </sh:Tacka>\r\n        <sh:Tacka broj=\"2\">\r\n            О извршењу решења Учитељски факултет у Призрену са привременим седиштем у\r\n            Лепосавићу, ће обавестити Повереника у року од седам дана од пријема овог решења\r\n        </sh:Tacka>\r\n    </Stavke_resenja>\r\n</Opis_resenja>\r\n\r\n<Obrazlozenje>\r\n    <Opis_zalbe>\r\n        АА, као тражилац информација, изјавио је дана 07.05.2020. године жалбу Поверенику, због\r\n        непоступања Учитељског факултета у Призрену са привременим седиштем у Лепосавићу по\r\n        његовом захтеву од 16.04.2020. године за приступ информацијама од јавног значаја и у прилогу\r\n        доставио копију истог\r\n    </Opis_zalbe>\r\n    <Postupak_poverenika>\r\n        Поступајући по жалби, Повереник је дана 11.05.2020. године упутио исту на изјашњење\r\n        Учитељском факултету у Призрену са привременим седиштем у Лепосавићу, као органу власти у\r\n        смислу члана 3. Закона о слободном приступу информацијама од јавног значаја и затражио да се\r\n        изјасни о наводима жалбе, посебно о разлозима непоступања у законском року по поднетом захтеву\r\n        у складу са одредбама члана 16. ст.1-9. или ст. 10. Закона, остављајући рок од осам дана, поводом\r\n        чега није добио одговор.\r\n    </Postupak_poverenika>\r\n    <Odgovor_na_zalbu>\r\n            По разматрању жалбе и осталих списа овог предмета, донета је одлука као у диспозитиву\r\n        решења из следећих разлога:\r\n        <Razlozi>\r\n            <sh:Tacka broj=\"1\">\r\n                Увидом у списе предмета утврђено је да је АА, дана 16.04.2020. године, поднео Учитељском\r\n                факултету у Призрену са привременим седиштем у Лепосавићу, захтев за приступ информацијама\r\n                од јавног значаја, електронском поштом, којим је тражио информације од јавног значаја, ближе\r\n                наведенe у ставу I диспозитива овог решења.\r\n            </sh:Tacka>\r\n            <sh:Tacka broj=\"1\">\r\n                Такође је увидом у списе предмета утврђено да по захтеву жалиоца од 16.04.2020. године,\r\n                орган власти није поступио, што је био дужан да учини без одлагања, а најкасније у року од 15 дана\r\n                од пријема захтева те да жалиоца, у смислу члана 16. став 1. Закона о слободном приступу информацијама од јавног значаја, обавести да ли поседује тражене информације и да му, уколико\r\n                исте поседује, стави на увид документ који исте садржи односно изда му или достави копију\r\n                документа у коме су тражене информације садржане, или да у супротном донесе решење о одбијању\r\n                захтева, у смислу става 10. истог члана.\r\n            </sh:Tacka>\r\n        </Razlozi>\r\n          \r\n            Имајући у виду да орган власти по захтеву жалиоца од 16.04.2020. године није поступио у\r\n        складу са наведеним одредбама Закона о слободном приступу информацијама од јавног значаја, а\r\n        да није оправдао разлоге непоступања по поднетом захтеву, Повереник је у поступку по жалби, на\r\n        основу члана 23. и члана 24. ст. 1. и 4. Закона о слободном приступу информацијама од јавног\r\n        значаја и члана 173. ст. 2. Закона о општем управном поступку, одлучио као у ставу I диспозитива\r\n        овог решења, нашавши да је жалба основана, односно да је неспорно право жалиоца на тражене\r\n        информације у смислу члана 5. Закона о слободном приступу информацијама од јавног значаја, по\r\n        коме свако има право да му буде саопштено да ли орган власти поседује или му је доступна одређена\r\n        информација од јавног значаја, као и да му се информација, уколико је у поседу органа, учини\r\n        доступном, на начин како је то наложено у ставу I диспозитива овог решења, што је у складу са\r\n        одредбом члана 12. Закона о слободном приступу информацијама од јавног значаја, која предвиђа\r\n        могућност издвајања тражене информације од јавног значаја од осталих информација садржаних у\r\n        документу у које орган власти није дужан да тражиоцу омогући увид, јер би се доступношћу тим\r\n        информацијама повредило право на приватност и заштиту података о личности лица на која се\r\n        тражене информације односе.\r\n            Учитељски факултет у Призрену са привременим седиштем у Лепосавићу, је дужан да о\r\n        извршењу решења из става I диспозитива, обавести Повереника у складу са чланом 24. став 3. Закона\r\n        о слободном приступу информацијама од јавног значаја. \r\n    </Odgovor_na_zalbu>\r\n    \r\n    <Uputstvo_o_pravnom_sredstvu >\r\n        Против овог решења није \r\n        допуштена жалба већ се, у складу са Законом о управним\r\n        споровима, може покренути управни спор тужбом Управном суду у Београду, у року од 30 дана од\r\n        дана пријема решења. Такса на тужбу износи \r\n        <Taksa>390.2</Taksa>\r\n        динара.\r\n    </Uputstvo_o_pravnom_sredstvu>\r\n    \r\n</Obrazlozenje>\r\n\r\n<Poverenik \r\n    about=\"http://resenja/1\"\r\n    rel=\"pred:commisioner\"\r\n    href=\"http://users/1\"\r\n    >\r\n    <sh:Ime property=\"pred:commisionerName\">Milan</sh:Ime>\r\n    <sh:Prezime property=\"pred:commisionerLastname\">Marinovic</sh:Prezime>\r\n</Poverenik>\r\n</Resenje>\r\n</ResenjeRoot>",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<ResenjeRoot \r\n    xmlns=\"http://www.resenje.com\"\r\n    xmlns:sh=\"http://www.shared.com\"\r\n    xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\r\n    xmlns:pred=\"http://www.tim21.com/predicate/\"\r\n    xsi:schemaLocation=\"http://www.resenje.com ../xsd/resenje.xsd\"\r\n    dopustena_zalba=\"ne\"\r\n    \r\n    rel=\"pred:rescriptForAppeal\"\r\n    href=\"http://zalbe/1\"\r\n\r\n    property=\"pred:submitter\"\r\n    content=\"http://users/promo@gmail.com\"\r\n    >\r\n<Resenje\r\n   \r\n    >\r\n    <ID>071-01-1114/2020-03</ID>\r\n    <Datum property=\"pred:rescriptDate\">2020-09-08</Datum>\r\n    <Status_zalbe property=\"pred:appealStatus\">PRIHVACENA</Status_zalbe>\r\n    <Opis_resenja>\r\n        Повереник за информације од јавног значаја и заштиту података о личности, у поступку по алби\r\n        коју је изјавио AA, због непоступања Учитељског факултета у Призрену са привременим седиштем\r\n        у Лепосавићу, ул. Немањина бб, по његовом захтеву од 16.04.2020. године за приступ\r\n        информацијама од јавног значаја, на основу члана 35. став 1. тачка 5. Закона о слободном приступу\r\n        информацијама од јавног значаја („Сл. гласник РС“, бр. 120/04, 54/07, 104/09 и 36/10), а у вези са\r\n        чланом 4. тачка 22. Закона о заштити података о личности („Сл. гласник РС“, број 87/18), као и члана\r\n        23. и члана 24. став 4. Закона о слободном приступу информацијама од јавног значаја и члана 173.\r\n        став 2. Закона о општем управном поступку („Сл. гласник РС“, бр. 18/2016 и 95/2018-аутентично\r\n        тумачење), доноси Р Е Ш Е Њ Е\r\n    <Stavke_resenja>\r\n        <sh:Tacka broj=\"1\">\r\n            Налаже се Учитељском факултету у Призрену са привременим седиштем у Лепосавићу, да\r\n            без одлагања, а најкасније у року од пет дана од дана пријема овог решења, обавести АА, да ли\r\n            поседује тражене информације односно документ у коме су исте садржане, и то: Уговор о раду који\r\n            је као последњи потписан између тог Факултета и ББ, те да му, уколико такав документ поседује\r\n            достави копију истог електронском поштом на адресу … или поштом, с тим што ће пре достављања\r\n            заштитити и учинити недоступним податке о личности којима би се повредило право на приватност\r\n            лица на које се информације односе, као што су: адреса становања, лични матични број грађана, име\r\n            оца, радни стаж, просечна оцена студирања и сл. уколико су такви подаци садржани у траженом\r\n            документу. \r\n        </sh:Tacka>\r\n        <sh:Tacka broj=\"2\">\r\n            О извршењу решења Учитељски факултет у Призрену са привременим седиштем у\r\n            Лепосавићу, ће обавестити Повереника у року од седам дана од пријема овог решења\r\n        </sh:Tacka>\r\n    </Stavke_resenja>\r\n</Opis_resenja>\r\n\r\n<Obrazlozenje>\r\n    <Opis_zalbe>\r\n        АА, као тражилац информација, изјавио је дана 07.05.2020. године жалбу Поверенику, због\r\n        непоступања Учитељског факултета у Призрену са привременим седиштем у Лепосавићу по\r\n        његовом захтеву од 16.04.2020. године за приступ информацијама од јавног значаја и у прилогу\r\n        доставио копију истог\r\n    </Opis_zalbe>\r\n    <Postupak_poverenika>\r\n        Поступајући по жалби, Повереник је дана 11.05.2020. године упутио исту на изјашњење\r\n        Учитељском факултету у Призрену са привременим седиштем у Лепосавићу, као органу власти у\r\n        смислу члана 3. Закона о слободном приступу информацијама од јавног значаја и затражио да се\r\n        изјасни о наводима жалбе, посебно о разлозима непоступања у законском року по поднетом захтеву\r\n        у складу са одредбама члана 16. ст.1-9. или ст. 10. Закона, остављајући рок од осам дана, поводом\r\n        чега није добио одговор.\r\n    </Postupak_poverenika>\r\n    <Odgovor_na_zalbu>\r\n            По разматрању жалбе и осталих списа овог предмета, донета је одлука као у диспозитиву\r\n        решења из следећих разлога:\r\n        <Razlozi>\r\n            <sh:Tacka broj=\"1\">\r\n                Увидом у списе предмета утврђено је да је АА, дана 16.04.2020. године, поднео Учитељском\r\n                факултету у Призрену са привременим седиштем у Лепосавићу, захтев за приступ информацијама\r\n                од јавног значаја, електронском поштом, којим је тражио информације од јавног значаја, ближе\r\n                наведенe у ставу I диспозитива овог решења.\r\n            </sh:Tacka>\r\n            <sh:Tacka broj=\"1\">\r\n                Такође је увидом у списе предмета утврђено да по захтеву жалиоца од 16.04.2020. године,\r\n                орган власти није поступио, што је био дужан да учини без одлагања, а најкасније у року од 15 дана\r\n                од пријема захтева те да жалиоца, у смислу члана 16. став 1. Закона о слободном приступу информацијама од јавног значаја, обавести да ли поседује тражене информације и да му, уколико\r\n                исте поседује, стави на увид документ који исте садржи односно изда му или достави копију\r\n                документа у коме су тражене информације садржане, или да у супротном донесе решење о одбијању\r\n                захтева, у смислу става 10. истог члана.\r\n            </sh:Tacka>\r\n        </Razlozi>\r\n          \r\n            Имајући у виду да орган власти по захтеву жалиоца од 16.04.2020. године није поступио у\r\n        складу са наведеним одредбама Закона о слободном приступу информацијама од јавног значаја, а\r\n        да није оправдао разлоге непоступања по поднетом захтеву, Повереник је у поступку по жалби, на\r\n        основу члана 23. и члана 24. ст. 1. и 4. Закона о слободном приступу информацијама од јавног\r\n        значаја и члана 173. ст. 2. Закона о општем управном поступку, одлучио као у ставу I диспозитива\r\n        овог решења, нашавши да је жалба основана, односно да је неспорно право жалиоца на тражене\r\n        информације у смислу члана 5. Закона о слободном приступу информацијама од јавног значаја, по\r\n        коме свако има право да му буде саопштено да ли орган власти поседује или му је доступна одређена\r\n        информација од јавног значаја, као и да му се информација, уколико је у поседу органа, учини\r\n        доступном, на начин како је то наложено у ставу I диспозитива овог решења, што је у складу са\r\n        одредбом члана 12. Закона о слободном приступу информацијама од јавног значаја, која предвиђа\r\n        могућност издвајања тражене информације од јавног значаја од осталих информација садржаних у\r\n        документу у које орган власти није дужан да тражиоцу омогући увид, јер би се доступношћу тим\r\n        информацијама повредило право на приватност и заштиту података о личности лица на која се\r\n        тражене информације односе.\r\n            Учитељски факултет у Призрену са привременим седиштем у Лепосавићу, је дужан да о\r\n        извршењу решења из става I диспозитива, обавести Повереника у складу са чланом 24. став 3. Закона\r\n        о слободном приступу информацијама од јавног значаја. \r\n    </Odgovor_na_zalbu>\r\n    \r\n    <Uputstvo_o_pravnom_sredstvu >\r\n        Против овог решења није \r\n        допуштена жалба већ се, у складу са Законом о управним\r\n        споровима, може покренути управни спор тужбом Управном суду у Београду, у року од 30 дана од\r\n        дана пријема решења. Такса на тужбу износи \r\n        <Taksa>390.2</Taksa>\r\n        динара.\r\n    </Uputstvo_o_pravnom_sredstvu>\r\n    \r\n</Obrazlozenje>\r\n\r\n<Poverenik\r\n    about=\"http://resenja/1\"\r\n    rel=\"pred:commisioner\"\r\n    href=\"http://users/1\"\r\n    >\r\n    <sh:Ime property=\"pred:commisionerName\">Milan</sh:Ime>\r\n    <sh:Prezime property=\"pred:commisionerLastname\">Marinovic</sh:Prezime>\r\n</Poverenik>\r\n</Resenje>\r\n</ResenjeRoot>",
 							"options": {
 								"raw": {
 									"language": "xml"
@@ -229,7 +401,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8080/api/rescript/071-01-11142020-03",
+							"raw": "http://localhost:8080/api/rescript/20210204160722",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -238,7 +410,7 @@
 							"path": [
 								"api",
 								"rescript",
-								"071-01-11142020-03"
+								"20210204160722"
 							]
 						}
 					},
@@ -297,6 +469,60 @@
 								"api",
 								"rescript",
 								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get basic search",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/rescript/search/milan",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"rescript",
+								"search",
+								"milan"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post meta search",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<sh:RescriptFilter xmlns:sh=\"http://www.shared.com\" >\r\n    <RescriptForAppeal></RescriptForAppeal>\r\n    <RescriptDate></RescriptDate>\r\n    <AppealStatus>PRIHVACENA</AppealStatus>\r\n    <CommisionerName></CommisionerName>\r\n    <CommisionerLastname></CommisionerLastname>\r\n    <Submitter></Submitter>\r\n</sh:RescriptFilter>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/rescript/meta/search/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"rescript",
+								"meta",
+								"search",
+								""
 							]
 						}
 					},
@@ -669,7 +895,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n    <soap:Body>\r\n        <id>20210202153500.xml</id>\r\n    </soap:Body>\r\n</soap:Envelope>"
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n    <soap:Body>\r\n       <getDecisionAppealById xmlns=\"http://www.zalbanaodluku.com\">\r\n        <id>ZalbaRoot20210201025328.xml</id>\r\n       </getDecisionAppealById> \r\n    </soap:Body>\r\n</soap:Envelope>"
 						},
 						"url": {
 							"raw": "http://localhost:8080/ws/decision-appeal",
@@ -699,7 +925,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n    <soap:Body>\r\n        <id>20210202122404.xml</id>\r\n    </soap:Body>\r\n</soap:Envelope>"
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n    <soap:Body>\r\n        <id>ZalbaCutanjeRoot20210202122404.xml</id>\r\n    </soap:Body>\r\n</soap:Envelope>"
 						},
 						"url": {
 							"raw": "http://localhost:8080/ws/silence-appeal",
@@ -747,6 +973,36 @@
 					"response": []
 				},
 				{
+					"name": "get all silence",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n    <soap:Body>\r\n       <getAll xmlns=\"http://www.zalbanaodluku.com\"></getAll>\r\n    </soap:Body>\r\n</soap:Envelope>"
+						},
+						"url": {
+							"raw": "http://localhost:8080/ws/silence-appeal",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ws",
+								"silence-appeal"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "get all decision appeal",
 					"request": {
 						"method": "POST",
@@ -777,22 +1033,21 @@
 					"response": []
 				},
 				{
-					"name": "get all silence",
+					"name": "get appeal statistics",
 					"request": {
 						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"type": "text",
-								"value": "application/xml"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n    <soap:Body>\r\n       <getAll xmlns=\"http://www.zalbacutanje.com\"></getAll>\r\n    </soap:Body>\r\n</soap:Envelope>"
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n    <soap:Body>        \r\n    </soap:Body>\r\n</soap:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/ws/silence-appeal",
+							"raw": "http://localhost:8080/ws/report",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -800,29 +1055,28 @@
 							"port": "8080",
 							"path": [
 								"ws",
-								"silence-appeal"
+								"report"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "get rescript by id",
+					"name": "post report",
 					"request": {
 						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/xml",
-								"type": "text"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n    <soap:Body>\r\n        <id>20210202153258.xml</id>\r\n    </soap:Body>\r\n</soap:Envelope>"
+							"raw": "<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n    <soap:Body> \r\n        <izvestaj>\r\n            <FizickoLice xmlns=\"http://www.izvestaj.com\">\r\n                <BrojZahteva xmlns=\"http://www.izvestaj.com\">999</BrojZahteva>\r\n                <BrojOdbijenihZahteva xmlns=\"http://www.izvestaj.com\">230</BrojOdbijenihZahteva>\r\n                <BrojZalbiOdluka xmlns=\"http://www.izvestaj.com\">1</BrojZalbiOdluka>\r\n                <BrojZalbiCutanje xmlns=\"http://www.izvestaj.com\">1</BrojZalbiCutanje>\r\n            </FizickoLice>\r\n            <PravnoLice xmlns=\"http://www.izvestaj.com\">\r\n                <BrojZahteva xmlns=\"http://www.izvestaj.com\">0</BrojZahteva>\r\n                <BrojOdbijenihZahteva xmlns=\"http://www.izvestaj.com\">0</BrojOdbijenihZahteva>\r\n                <BrojZalbiOdluka xmlns=\"http://www.izvestaj.com\">1</BrojZalbiOdluka>\r\n                <BrojZalbiCutanje xmlns=\"http://www.izvestaj.com\">0</BrojZalbiCutanje>\r\n            </PravnoLice>\r\n        </izvestaj>\r\n    </soap:Body>\r\n</soap:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/ws/rescript",
+							"raw": "http://localhost:8080/ws/report",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -830,37 +1084,7 @@
 							"port": "8080",
 							"path": [
 								"ws",
-								"rescript"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get all rescripts",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/xml",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n    <soap:Body>\r\n       <getAll xmlns=\"http://www.resenje.com\"></getAll>\r\n    </soap:Body>\r\n</soap:Envelope>"
-						},
-						"url": {
-							"raw": "http://localhost:8080/ws/rescript",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"ws",
-								"rescript"
+								"report"
 							]
 						}
 					},

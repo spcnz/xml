@@ -43,7 +43,7 @@ public class InformationApi {
     }
 
     @RequestMapping(value="/{ID}", method = RequestMethod.GET, consumes = MediaType.APPLICATION_XML_VALUE)
-    public ResponseEntity<?> getinformation(@PathVariable String ID) {
+    public ResponseEntity<?> getInformation(@PathVariable String ID) {
         Obavestenje information = informationService.getOne(ID);
         if(information != null)
             return new ResponseEntity(information, HttpStatus.OK);
