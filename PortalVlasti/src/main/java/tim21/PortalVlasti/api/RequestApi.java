@@ -4,11 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import org.xml.sax.SAXException;
 import org.xmldb.api.base.XMLDBException;
 import tim21.PortalVlasti.model.lists.RequestList;
 import tim21.PortalVlasti.model.request.ZahtevRoot;
+import tim21.PortalVlasti.model.user.User;
 import tim21.PortalVlasti.service.RequestService;
 
 import javax.xml.bind.JAXBException;
@@ -21,9 +24,13 @@ public class RequestApi {
     @Autowired
     RequestService requestService;
 
+    @PreAuthorize("hasRole('ROLE_CITIZEN')")
     @RequestMapping( method = RequestMethod.POST, consumes = MediaType.APPLICATION_XML_VALUE)
-    public ResponseEntity<?> createRequest(@RequestBody ZahtevRoot request) throws IOException, SAXException {
-        if (requestService.create(request)){
+    public ResponseEntity<?> createRequest(@RequestBody ZahtevRoot requestReq) throws IOException, SAXException {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        ZahtevRoot request = requestService.create(requestReq, user.getEmail().getValue());
+
+        if (request != null) {
 
             return new ResponseEntity<>(HttpStatus.CREATED);
         }

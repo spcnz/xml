@@ -27,14 +27,14 @@ public class RequestService {
     RequestRepository requestRepository;
 
 
-    public boolean create(ZahtevRoot request) throws IOException, SAXException {
+    public ZahtevRoot create(ZahtevRoot request, String submitterId) throws IOException, SAXException {
 
 
         if (Validator.validate(request.getClass(), request)){
 
-            return requestRepository.create(request);
+            return requestRepository.create(request, submitterId);
         }
-        return false;
+        return null;
     }
 
 

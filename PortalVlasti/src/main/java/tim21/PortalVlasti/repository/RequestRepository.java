@@ -15,6 +15,7 @@ import java.util.Map;
 
 import static tim21.PortalVlasti.util.constants.DBConstants.REQUEST_COLLECTION_URI;
 import static tim21.PortalVlasti.util.constants.NamespaceConstants.REQUEST_TARGET_NAMESPACE;
+import static tim21.PortalVlasti.util.constants.XSDConstants.REQUEST;
 
 @Repository
 public class RequestRepository {
@@ -34,17 +35,22 @@ public class RequestRepository {
         }
     }
 
-    public boolean create(ZahtevRoot request) {
+    public ZahtevRoot create(ZahtevRoot request, String submitterId) {
         try {
-            String id = IdGenerator.generateDocumentID(IdGenerator.generate(XSDConstants.REQUEST), XSDConstants.REQUEST);
+            String id = IdGenerator.generate();
+            String aboutValue = "http://zahtevi/" + id;
             Map<QName, String> attrributes = request.getOtherAttributes();
             attrributes.put(new QName("id"), id);
-            attrributes.put(new QName("status"), REQUEST_STATUS.PROCESS.label);
+            attrributes.put(new QName("about"), aboutValue);
+            attrributes.put(new QName("href"), "http://users/" + submitterId);
 
-            return existManager.store(REQUEST_COLLECTION_URI, id, request, "zahtevi");
+            if(existManager.store(REQUEST_COLLECTION_URI, id, request, "zahtevi")){
+                return request;
+            }
+            return null;
         } catch (Exception e) {
             e.printStackTrace();
-            return false;
+            return null;
         }
     }
 
@@ -60,7 +66,7 @@ public class RequestRepository {
 
     public ResourceSet getAll() throws XMLDBException {
         try {
-            return existManager.getAll(REQUEST_COLLECTION_URI, "/zahtev_dokument", REQUEST_TARGET_NAMESPACE);
+            return existManager.getAll(REQUEST_COLLECTION_URI, "/" + REQUEST, REQUEST_TARGET_NAMESPACE);
         } catch (Exception e) {
             e.printStackTrace();
             return null;

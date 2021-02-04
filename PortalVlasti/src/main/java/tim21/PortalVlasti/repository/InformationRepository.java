@@ -15,6 +15,7 @@ import java.util.Map;
 
 import static tim21.PortalVlasti.util.constants.DBConstants.INFORMATION_COLLECTION_URI;
 import static tim21.PortalVlasti.util.constants.NamespaceConstants.INFORMATION_TARGET_NAMESPACE;
+import static tim21.PortalVlasti.util.constants.XSDConstants.INFORMATION;
 
 @Repository
 public class InformationRepository {
@@ -25,9 +26,11 @@ public class InformationRepository {
 
     public boolean create(Obavestenje inf) {
         try {
-            String id = IdGenerator.generateDocumentID(IdGenerator.generate(XSDConstants.INFORMATION), XSDConstants.INFORMATION);
+            String id = IdGenerator.generate();
+            String aboutValue = "http://obavestenja/" + id;
             Map<QName, String> attrributes = inf.getOtherAttributes();
             attrributes.put(new QName("id"), id);
+            attrributes.put(new QName("about"), aboutValue);
 
             return existManager.store(INFORMATION_COLLECTION_URI, id, inf, "obavestenja");
         } catch (Exception e) {
@@ -35,6 +38,7 @@ public class InformationRepository {
             return false;
         }
     }
+
 
 
     public XMLResource getOne(String ID) {
@@ -48,7 +52,7 @@ public class InformationRepository {
 
     public ResourceSet getAll() throws XMLDBException {
         try {
-            return existManager.getAll(INFORMATION_COLLECTION_URI, "/Obavestenje", INFORMATION_TARGET_NAMESPACE);
+            return existManager.getAll(INFORMATION_COLLECTION_URI, INFORMATION , INFORMATION_TARGET_NAMESPACE);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
