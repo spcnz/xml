@@ -8,7 +8,7 @@ import org.xmldb.api.base.ResourceSet;
 import org.xmldb.api.base.XMLDBException;
 import org.xmldb.api.modules.XMLResource;
 import tim21.PortalPoverenika.util.IdGenerator;
-import tim21.PortalPoverenika.util.constants.XSDConstants;
+
 
 import javax.xml.namespace.QName;
 import java.util.Map;
@@ -61,6 +61,17 @@ public class RescriptRepository {
     public ResourceSet getAllByAppealId(String appealID) throws XMLDBException {
         try {
             String xpath = "/ResenjeRoot[@href='http://zalbe/" + appealID + "']|/ResenjeRoot[@href='http://zalbeCutanje/\" + appealID + \"']";
+            return existManager.getAll(RESCRIPT_COLLECTION_URI, xpath, RESCRIPT_TARGET_NAMESPACE);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public ResourceSet getAllByUser(String email) throws XMLDBException {
+        try {
+            String xpath = "/ResenjeRoot[@submitter='http://users/" + email + "']";
+            System.out.println(xpath);
             return existManager.getAll(RESCRIPT_COLLECTION_URI, xpath, RESCRIPT_TARGET_NAMESPACE);
         } catch (Exception e) {
             e.printStackTrace();

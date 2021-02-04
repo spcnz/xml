@@ -91,4 +91,24 @@ public class RescriptService {
 		}
 		return new RescriptList(rescripts);
 	}
+
+	public RescriptList getAllByUser(String email) throws XMLDBException, JAXBException {
+		List<ResenjeRoot> rescripts = new ArrayList<>();
+
+		ResourceSet resourceSet = null;
+		resourceSet = rescriptRepository.getAllByUser(email);
+		ResourceIterator resourceIterator = resourceSet.getIterator();
+
+		while (resourceIterator.hasMoreResources()){
+			XMLResource xmlResource = (XMLResource) resourceIterator.nextResource();
+			System.out.println(xmlResource);
+			if(xmlResource == null)
+				return null;
+			JAXBContext context = JAXBContext.newInstance(ResenjeRoot.class);
+			Unmarshaller unmarshaller = context.createUnmarshaller();
+			ResenjeRoot rescript = (ResenjeRoot) unmarshaller.unmarshal(xmlResource.getContentAsDOM());
+			rescripts.add(rescript);
+		}
+		return new RescriptList(rescripts);
+	}
 }
