@@ -59,4 +59,15 @@ public class RequestApi {
         return new ResponseEntity(HttpStatus.BAD_REQUEST);
     }
 
+    @RequestMapping(value="/reject/{ID}", method = RequestMethod.GET, consumes = MediaType.APPLICATION_XML_VALUE)
+    public ResponseEntity<?> rejectRequest(@PathVariable String ID) {
+        boolean rejected = requestService.rejectRequest(ID);
+        if(rejected) {
+            //ovde jos treba da se posalje mejl
+            return new ResponseEntity(HttpStatus.OK);
+        }
+
+        return new ResponseEntity(HttpStatus.BAD_REQUEST);
+    }
+
 }

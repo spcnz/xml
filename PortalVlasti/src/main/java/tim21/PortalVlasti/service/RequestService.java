@@ -79,4 +79,22 @@ public class RequestService {
 
         return request;
     }
+
+    public boolean rejectRequest(String id) {
+        ZahtevRoot request = getOne(id);
+        if (request == null) {
+            return false;
+        }
+
+        try {
+            requestRepository.reject(request);
+
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+
+            return false;
+        }
+
+    }
 }
