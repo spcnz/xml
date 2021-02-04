@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import org.xmldb.api.base.XMLDBException;
 import tim21.PortalPoverenika.dto.decisionAppealFilter.DecisionAppealFilter;
@@ -17,6 +19,7 @@ import tim21.PortalPoverenika.model.lists.DecisionAppealList;
 import tim21.PortalPoverenika.model.lists.RescriptList;
 import tim21.PortalPoverenika.model.rescript.ResenjeRoot;
 import tim21.PortalPoverenika.service.MetaDataService;
+import tim21.PortalPoverenika.model.user.User;
 import tim21.PortalPoverenika.service.RescriptService;
 import tim21.PortalPoverenika.soap.client.MailClient;
 import tim21.PortalPoverenika.soap.dto.MailRequest;
@@ -55,6 +58,20 @@ public class RescriptApi {
             return new ResponseEntity<>(rescript, HttpStatus.CREATED);
         }
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+    }
+
+    @PreAuthorize("hasRole('ROLE_CITIZEN')")
+    @RequestMapping(value = "/all", method = RequestMethod.GET, consumes = MediaType.APPLICATION_XML_VALUE)
+    public ResponseEntity<RescriptList> getAllRescriptsByUser() {
+        RescriptList rescripts = new RescriptList();
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        try {
+            rescripts = rescriptService.getAllByUser(user.getEmail().getValue());
+
+            return new ResponseEntity(rescripts, HttpStatus.OK);
+        } catch (XMLDBException | JAXBException e) {
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
+        }
     }
 
     @RequestMapping( method = RequestMethod.GET, consumes = MediaType.APPLICATION_XML_VALUE)

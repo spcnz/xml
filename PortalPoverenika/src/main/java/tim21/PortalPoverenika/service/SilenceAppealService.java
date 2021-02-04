@@ -7,20 +7,19 @@ import org.xmldb.api.base.ResourceIterator;
 import org.xmldb.api.base.ResourceSet;
 import org.xmldb.api.base.XMLDBException;
 import org.xmldb.api.modules.XMLResource;
+import tim21.PortalPoverenika.model.lists.RescriptList;
 import tim21.PortalPoverenika.model.lists.SilenceAppealList;
 import tim21.PortalPoverenika.model.silenceAppeal.ZalbaCutanjeRoot;
 import tim21.PortalPoverenika.repository.SilenceAppealRepository;
 import tim21.PortalPoverenika.util.Validator;
 
-import javax.swing.plaf.synth.SynthTabbedPaneUI;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import tim21.PortalPoverenika.util.ViolationException;
 import tim21.PortalPoverenika.util.transformer.PDFTransformer;
 
 @Service
@@ -32,6 +31,9 @@ public class SilenceAppealService {
 
     @Autowired
     SilenceAppealRepository appealRepository;
+
+    @Autowired
+    RescriptService rescriptService;
 
     public ZalbaCutanjeRoot create(ZalbaCutanjeRoot appeal) {
         if (Validator.validate(appeal.getClass(), appeal)){
@@ -109,7 +111,6 @@ public class SilenceAppealService {
         if(appeal == null)
             return null;
 
-        System.out.println("lalala");
         String pdfPath ="src/main/resources/static/silence_appeal_" + ID + ".pdf";
         try {
             transformer.generatePDF(appeal.getContent().toString(), pdfPath, XSL_FO_FILE);
@@ -128,7 +129,6 @@ public class SilenceAppealService {
         if(appeal == null)
             return null;
 
-        System.out.println("lalala");
         String htmlPath ="src/main/resources/static/silence_appeal_" + ID + ".html";
         try {
             transformer.generateHTML(appeal.getContent().toString(), htmlPath, XSL_FILE);
@@ -138,6 +138,35 @@ public class SilenceAppealService {
         }
 
         return htmlPath;
+    }
+
+    public boolean dropAppeal(String ID) throws XMLDBException, JAXBException {
+        RescriptList rescript = rescriptService.getAllByAppealId(ID);
+        if (rescript.getAny().isEmpty()) {
+            return appealRepository.delete(ID);
+        } else {
+            throw new ViolationException("Rescript for appeal have been created.");
+        }
+    }
+
+    public SilenceAppealList getAllByUser(String email) throws XMLDBException, JAXBException {
+        List<ZalbaCutanjeRoot> appeals = new ArrayList<>();
+
+        ResourceSet resourceSet = null;
+        resourceSet = appealRepository.getAllByUser(email);
+        ResourceIterator resourceIterator = resourceSet.getIterator();
+
+        while (resourceIterator.hasMoreResources()){
+            XMLResource xmlResource = (XMLResource) resourceIterator.nextResource();
+            System.out.println(xmlResource);
+            if(xmlResource == null)
+                return null;
+            JAXBContext context = JAXBContext.newInstance(ZalbaCutanjeRoot.class);
+            Unmarshaller unmarshaller = context.createUnmarshaller();
+            ZalbaCutanjeRoot appeal = (ZalbaCutanjeRoot) unmarshaller.unmarshal(xmlResource.getContentAsDOM());
+            appeals.add(appeal);
+        }
+        return new SilenceAppealList(appeals);
     }
 
 }

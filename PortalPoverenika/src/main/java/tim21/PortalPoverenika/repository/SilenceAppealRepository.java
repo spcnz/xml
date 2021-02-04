@@ -70,4 +70,24 @@ public class SilenceAppealRepository {
         }
     }
 
+    public boolean delete(String id) {
+        try {
+            return existManager.delete(SILENCEAPPEAL_COLLECTION_URI, id, SILENCEAPPEAL_TARGET_NAMESPACE);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public ResourceSet getAllByUser(String email) throws XMLDBException {
+        try {
+            String xpath = "/ZalbaCutanjeRoot[descendant::podnosilac_zalbe[@href='http://users/" + email + "']]";
+            System.out.println(xpath);
+            return existManager.getAll(SILENCEAPPEAL_COLLECTION_URI, xpath, SILENCEAPPEAL_TARGET_NAMESPACE);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
 }

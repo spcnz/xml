@@ -74,21 +74,67 @@ public class RescriptService {
 		return rescript;
 	}
 
-	public RescriptList search(String keyword) throws XMLDBException, JAXBException {
+	public RescriptList getAllByAppealId(String appealId) throws XMLDBException, JAXBException {
 		List<ResenjeRoot> rescripts = new ArrayList<>();
 
 		ResourceSet resourceSet = null;
-		resourceSet = rescriptRepository.search(keyword);
+		resourceSet = rescriptRepository.getAllByAppealId(appealId);
+
 		ResourceIterator resourceIterator = resourceSet.getIterator();
 
 		while (resourceIterator.hasMoreResources()){
 			XMLResource xmlResource = (XMLResource) resourceIterator.nextResource();
+
 			if(xmlResource == null)
 				return null;
 			JAXBContext context = JAXBContext.newInstance(ZalbaRoot.class);
 			Unmarshaller unmarshaller = context.createUnmarshaller();
 			ResenjeRoot appeal = (ResenjeRoot) unmarshaller.unmarshal(xmlResource.getContentAsDOM());
 			rescripts.add(appeal);
+
+
+		}
+		return new RescriptList(rescripts);
+	}
+
+	public RescriptList getAllByUser(String email) throws XMLDBException, JAXBException {
+		List<ResenjeRoot> rescripts = new ArrayList<>();
+
+		ResourceSet resourceSet = null;
+		resourceSet = rescriptRepository.getAllByUser(email);
+		ResourceIterator resourceIterator = resourceSet.getIterator();
+
+		while (resourceIterator.hasMoreResources()){
+			XMLResource xmlResource = (XMLResource) resourceIterator.nextResource();
+			System.out.println(xmlResource);
+			if(xmlResource == null)
+				return null;
+			JAXBContext context = JAXBContext.newInstance(ResenjeRoot.class);
+			Unmarshaller unmarshaller = context.createUnmarshaller();
+			ResenjeRoot rescript = (ResenjeRoot) unmarshaller.unmarshal(xmlResource.getContentAsDOM());
+			rescripts.add(rescript);
+		}
+		return new RescriptList(rescripts);
+	}
+
+	public RescriptList search(String keyword) throws XMLDBException, JAXBException {
+		List<ResenjeRoot> rescripts = new ArrayList<>();
+
+		ResourceSet resourceSet = null;
+		resourceSet = rescriptRepository.search(keyword);
+
+		ResourceIterator resourceIterator = resourceSet.getIterator();
+
+		while (resourceIterator.hasMoreResources()) {
+			XMLResource xmlResource = (XMLResource) resourceIterator.nextResource();
+
+			System.out.println(xmlResource);
+			if (xmlResource == null)
+				return null;
+			JAXBContext context = JAXBContext.newInstance(ResenjeRoot.class);
+			Unmarshaller unmarshaller = context.createUnmarshaller();
+			ResenjeRoot rescript = (ResenjeRoot) unmarshaller.unmarshal(xmlResource.getContentAsDOM());
+			rescripts.add(rescript);
 		}
 		return new RescriptList(rescripts);
 	}

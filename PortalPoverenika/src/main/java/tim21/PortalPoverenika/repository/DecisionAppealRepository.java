@@ -8,7 +8,6 @@ import org.xmldb.api.base.XMLDBException;
 import org.xmldb.api.modules.XMLResource;
 import tim21.PortalPoverenika.model.decisionAppeal.ZalbaRoot;
 import tim21.PortalPoverenika.util.IdGenerator;
-import tim21.PortalPoverenika.util.constants.XSDConstants;
 
 import javax.xml.namespace.QName;
 
@@ -17,6 +16,7 @@ import java.util.Map;
 import static tim21.PortalPoverenika.util.constants.DBConstants.DECISIONAPPEAL_COLLECTION_URI;
 import static tim21.PortalPoverenika.util.constants.NamespaceConstants.DECISIONAPPEAL_TARGET_NAMESPACE;
 import static tim21.PortalPoverenika.util.constants.XSDConstants.DECISION_APPEAL;
+
 
 @Repository
 public class DecisionAppealRepository {
@@ -65,6 +65,26 @@ public class DecisionAppealRepository {
     public ResourceSet search(String keyword) throws XMLDBException {
         try {
             return existManager.search(DECISIONAPPEAL_COLLECTION_URI, keyword, DECISIONAPPEAL_TARGET_NAMESPACE, DECISION_APPEAL);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public boolean delete(String id) {
+        try {
+            return existManager.delete(DECISIONAPPEAL_COLLECTION_URI, id, DECISIONAPPEAL_TARGET_NAMESPACE);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public ResourceSet getAllByUser(String email) throws XMLDBException {
+        try {
+            String xpath = "/ZalbaRoot[descendant::Podnosilac[@href='http://users/" + email + "']]";
+            System.out.println(xpath);
+            return existManager.getAll(DECISIONAPPEAL_COLLECTION_URI, xpath, DECISIONAPPEAL_TARGET_NAMESPACE);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
