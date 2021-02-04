@@ -15,6 +15,7 @@ import tim21.PortalPoverenika.model.lists.DecisionAppealList;
 import tim21.PortalPoverenika.service.DecisionAppealService;
 import tim21.PortalPoverenika.service.MetaDataService;
 import tim21.PortalPoverenika.model.decisionAppeal.ZalbaRoot;
+import tim21.PortalPoverenika.util.ViolationException;
 import tim21.PortalPoverenika.util.mappers.DecisionAppealMapper;
 
 import javax.xml.bind.JAXBException;
@@ -132,6 +133,24 @@ public class DecisionAppealApi {
             return ResponseEntity.ok().headers(headers).body(new InputStreamResource(bis));
         } catch (Exception e) {
             return new ResponseEntity(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @RequestMapping(value = "/{ID}", method = RequestMethod.DELETE)
+    public ResponseEntity<?> dropAppeal(@PathVariable String ID) {
+        boolean removed = false;
+        try {
+            removed = appealService.dropAppeal(ID);
+            if (removed) {
+                return new ResponseEntity(HttpStatus.OK);
+            } else {
+                return new ResponseEntity(HttpStatus.BAD_REQUEST);
+            }
+        } catch (XMLDBException | JAXBException e) {
+            e.printStackTrace();
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
+        } catch (ViolationException e) {
+            return new ResponseEntity(e.getMessage(), HttpStatus.METHOD_NOT_ALLOWED);
         }
     }
 }

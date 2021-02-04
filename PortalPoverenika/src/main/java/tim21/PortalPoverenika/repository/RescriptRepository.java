@@ -57,4 +57,13 @@ public class RescriptRepository {
             return null;
         }
     }
+
+    public ResourceSet getAllByAppealId(String appealID) throws XMLDBException {
+        try {
+            return existManager.getAll(RESCRIPT_COLLECTION_URI, "/ResenjeRoot[@href='http://zalbe/" + appealID + "']", RESCRIPT_TARGET_NAMESPACE);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }

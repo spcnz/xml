@@ -69,4 +69,13 @@ public class SilenceAppealRepository {
         }
     }
 
+    public boolean delete(String id) {
+        try {
+            return existManager.delete(SILENCEAPPEAL_COLLECTION_URI, id, SILENCEAPPEAL_TARGET_NAMESPACE);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
 }

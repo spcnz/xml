@@ -109,7 +109,7 @@ public class ExistManager {
 			col.storeResource(res);
 
 			// Ovdje ekstrahujemo
-			metadataExtract.extract(os, collectionName, documentId);
+		//	metadataExtract.extract(os, collectionName, documentId);
 
 
 		} catch (Exception e) {
@@ -136,6 +136,7 @@ public class ExistManager {
 					authManager.getPassword());
 			col.setProperty(OutputKeys.INDENT, "yes");
 			res = (XMLResource) col.getResource(documentId + ".xml");
+
 			return res;
 		} finally {
 			if (col != null) {
@@ -185,6 +186,29 @@ public class ExistManager {
 			}
 		}
 		return result;
+	}
+
+	public boolean delete(String collectionUri, String documentId, String targetNamespace) throws Exception {
+		createConnection();
+		Collection col = null;
+		XMLResource res = null;
+
+		try {
+			col = DatabaseManager.getCollection(authManager.getUri() + collectionUri, authManager.getUser(),
+					authManager.getPassword());
+			col.setProperty(OutputKeys.INDENT, "yes");
+			res = (XMLResource) col.getResource(documentId + ".xml");
+
+			col.removeResource(res);
+
+			return true;
+		} finally {
+			if (col != null) {
+				col.close();
+				res = null;
+				col = null;
+			}
+		}
 	}
 
 }

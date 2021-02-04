@@ -15,6 +15,7 @@ import tim21.PortalPoverenika.dto.silenceAppealFilter.SilenceAppealFilter;
 import tim21.PortalPoverenika.model.lists.SilenceAppealList;
 import tim21.PortalPoverenika.service.MetaDataService;
 import tim21.PortalPoverenika.service.SilenceAppealService;
+import tim21.PortalPoverenika.util.ViolationException;
 import tim21.PortalPoverenika.util.mappers.DecisionAppealMapper;
 import tim21.PortalPoverenika.util.mappers.SilenceAppealMapper;
 
@@ -162,6 +163,24 @@ public class SilenceAppealApi {
         } catch (IOException e) {
             e.printStackTrace();
             return new ResponseEntity(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @RequestMapping(value = "/{ID}", method = RequestMethod.DELETE)
+    public ResponseEntity<?> dropAppeal(@PathVariable String ID) {
+        boolean removed = false;
+        try {
+            removed = appealService.dropAppeal(ID);
+            if (removed) {
+                return new ResponseEntity(HttpStatus.OK);
+            } else {
+                return new ResponseEntity(HttpStatus.BAD_REQUEST);
+            }
+        } catch (XMLDBException | JAXBException e) {
+            e.printStackTrace();
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
+        } catch (ViolationException e) {
+            return new ResponseEntity(e.getMessage(), HttpStatus.METHOD_NOT_ALLOWED);
         }
     }
 

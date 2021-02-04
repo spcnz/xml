@@ -1,5 +1,7 @@
 package tim21.PortalPoverenika.service;
 
+import com.sun.xml.internal.ws.protocol.xml.XMLMessageException;
+import org.codehaus.stax2.validation.XMLValidationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.xml.sax.SAXException;
@@ -9,8 +11,10 @@ import org.xmldb.api.base.XMLDBException;
 import org.xmldb.api.modules.XMLResource;
 import tim21.PortalPoverenika.model.decisionAppeal.ZalbaRoot;
 import tim21.PortalPoverenika.model.lists.DecisionAppealList;
+import tim21.PortalPoverenika.model.lists.RescriptList;
 import tim21.PortalPoverenika.repository.DecisionAppealRepository;
 import tim21.PortalPoverenika.util.Validator;
+import tim21.PortalPoverenika.util.ViolationException;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -26,6 +30,8 @@ public class DecisionAppealService {
     @Autowired
     DecisionAppealRepository appealRepository;
 
+    @Autowired
+    RescriptService rescriptService;
 
 
     public ZalbaRoot create(ZalbaRoot appeal) throws IOException, SAXException {
@@ -98,5 +104,14 @@ public class DecisionAppealService {
             appeals.add(appeal);
         }
         return new DecisionAppealList(appeals);
+    }
+
+    public boolean dropAppeal(String ID) throws XMLDBException, JAXBException {
+        RescriptList rescript = rescriptService.getAllByAppealId(ID);
+        if (rescript.getAny().isEmpty()) {
+            return appealRepository.delete(ID);
+        } else {
+            throw new ViolationException("Rescript for appeal have been created.");
+        }
     }
 }

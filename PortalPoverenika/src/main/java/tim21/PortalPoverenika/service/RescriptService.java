@@ -71,4 +71,24 @@ public class RescriptService {
 
 		return rescript;
 	}
+
+	public RescriptList getAllByAppealId(String appealId) throws XMLDBException, JAXBException {
+		List<ResenjeRoot> rescripts = new ArrayList<>();
+
+		ResourceSet resourceSet = null;
+		resourceSet = rescriptRepository.getAllByAppealId(appealId);
+		ResourceIterator resourceIterator = resourceSet.getIterator();
+
+		while (resourceIterator.hasMoreResources()){
+			XMLResource xmlResource = (XMLResource) resourceIterator.nextResource();
+			System.out.println(xmlResource);
+			if(xmlResource == null)
+				return null;
+			JAXBContext context = JAXBContext.newInstance(ResenjeRoot.class);
+			Unmarshaller unmarshaller = context.createUnmarshaller();
+			ResenjeRoot rescript = (ResenjeRoot) unmarshaller.unmarshal(xmlResource.getContentAsDOM());
+			rescripts.add(rescript);
+		}
+		return new RescriptList(rescripts);
+	}
 }
