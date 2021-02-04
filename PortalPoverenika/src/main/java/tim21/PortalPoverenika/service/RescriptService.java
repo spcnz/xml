@@ -6,6 +6,8 @@ import org.xmldb.api.base.ResourceIterator;
 import org.xmldb.api.base.ResourceSet;
 import org.xmldb.api.base.XMLDBException;
 import org.xmldb.api.modules.XMLResource;
+import tim21.PortalPoverenika.model.decisionAppeal.ZalbaRoot;
+import tim21.PortalPoverenika.model.lists.DecisionAppealList;
 import tim21.PortalPoverenika.model.lists.RescriptList;
 import tim21.PortalPoverenika.model.rescript.ResenjeRoot;
 import tim21.PortalPoverenika.repository.RescriptRepository;
@@ -70,5 +72,24 @@ public class RescriptService {
 		}
 
 		return rescript;
+	}
+
+	public RescriptList search(String keyword) throws XMLDBException, JAXBException {
+		List<ResenjeRoot> rescripts = new ArrayList<>();
+
+		ResourceSet resourceSet = null;
+		resourceSet = rescriptRepository.search(keyword);
+		ResourceIterator resourceIterator = resourceSet.getIterator();
+
+		while (resourceIterator.hasMoreResources()){
+			XMLResource xmlResource = (XMLResource) resourceIterator.nextResource();
+			if(xmlResource == null)
+				return null;
+			JAXBContext context = JAXBContext.newInstance(ZalbaRoot.class);
+			Unmarshaller unmarshaller = context.createUnmarshaller();
+			ResenjeRoot appeal = (ResenjeRoot) unmarshaller.unmarshal(xmlResource.getContentAsDOM());
+			rescripts.add(appeal);
+		}
+		return new RescriptList(rescripts);
 	}
 }

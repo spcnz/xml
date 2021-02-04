@@ -72,7 +72,7 @@ public class DecisionAppealApi {
     }
 
 
-    @RequestMapping(value = "/search/{KW}", method = RequestMethod.GET, consumes = MediaType.APPLICATION_XML_VALUE)
+    @RequestMapping(value = "/search/{KW}", method = RequestMethod.GET)
     public ResponseEntity<DecisionAppealList> searchAppeals(@PathVariable String KW) {
         DecisionAppealList appeals = new DecisionAppealList();
         try {
@@ -88,12 +88,12 @@ public class DecisionAppealApi {
         List<ZalbaRoot> appeals = new ArrayList<ZalbaRoot>();
         List<String> res = new ArrayList<String>();
         List<String> filterVals = Arrays.asList(filter.getSubmitterStreet(), filter.getSubmitterCity(), filter.getSubmitterName(), filter.getSubmitterLastname(), filter.getRequestId(), filter.getRequestDate(),
-                filter.getRecipientStreet(), filter.getRecipientCity());
+                filter.getRecipientStreet(), filter.getRecipientCity(), filter.getAppealDate(), filter.getSubmitterType());
         try {
             res = metaDataService.filter("Zalbe", filterVals);
             for (String key : res) {
                 String id = key.split("zalbe")[1].substring(1);    // format keya je http://zalbe/234213123
-                appeals.add(appealService.getOne(id + ".xml"));
+                appeals.add(appealService.getOne(id));
             }
 
             DecisionAppealList response = new DecisionAppealList(appeals);

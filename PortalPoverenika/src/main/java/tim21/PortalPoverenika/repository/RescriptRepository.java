@@ -8,13 +8,11 @@ import org.xmldb.api.base.ResourceSet;
 import org.xmldb.api.base.XMLDBException;
 import org.xmldb.api.modules.XMLResource;
 import tim21.PortalPoverenika.util.IdGenerator;
-import tim21.PortalPoverenika.util.constants.XSDConstants;
-
 import javax.xml.namespace.QName;
 import java.util.Map;
-
-import static tim21.PortalPoverenika.util.constants.DBConstants.RESCRIPT_COLLECTION_URI;
+import static tim21.PortalPoverenika.util.constants.DBConstants.*;
 import static tim21.PortalPoverenika.util.constants.NamespaceConstants.RESCRIPT_TARGET_NAMESPACE;
+import static tim21.PortalPoverenika.util.constants.XSDConstants.RESCRIPT;
 
 @Repository
 public class RescriptRepository {
@@ -26,10 +24,11 @@ public class RescriptRepository {
     public ResenjeRoot create(ResenjeRoot rescript) {
         try {
             String id = IdGenerator.generate();
+            String aboutValue = "http://resenja/" + id;
             rescript.getResenje().setID(id);
             Map<QName, String> attrributes = rescript.getOtherAttributes();
             attrributes.put(new QName("id"), id);
-
+            attrributes.put(new QName("about"), aboutValue);
             if(existManager.store(RESCRIPT_COLLECTION_URI, id, rescript, "resenja")) {
                 return rescript;
             }
@@ -52,6 +51,15 @@ public class RescriptRepository {
     public ResourceSet getAll() throws XMLDBException {
         try {
             return existManager.getAll(RESCRIPT_COLLECTION_URI, "/ResenjeRoot", RESCRIPT_TARGET_NAMESPACE);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public ResourceSet search(String keyword) throws XMLDBException {
+        try {
+            return existManager.search(RESCRIPT_COLLECTION_URI, keyword, RESCRIPT_TARGET_NAMESPACE, RESCRIPT);
         } catch (Exception e) {
             e.printStackTrace();
             return null;

@@ -15,6 +15,7 @@ import java.util.Map;
 import static tim21.PortalPoverenika.util.constants.DBConstants.DECISIONAPPEAL_COLLECTION_URI;
 import static tim21.PortalPoverenika.util.constants.DBConstants.SILENCEAPPEAL_COLLECTION_URI;
 import static tim21.PortalPoverenika.util.constants.NamespaceConstants.*;
+import static tim21.PortalPoverenika.util.constants.XSDConstants.SILENCE_APPEAL;
 
 @Repository
 public class SilenceAppealRepository {
@@ -62,7 +63,7 @@ public class SilenceAppealRepository {
 
     public ResourceSet search(String keyword) throws XMLDBException {
         try {
-            return existManager.search(SILENCEAPPEAL_COLLECTION_URI, keyword, SILENCEAPPEAL_TARGET_NAMESPACE, SILENCEAPPEAL_ROOT_EL);
+            return existManager.search(SILENCEAPPEAL_COLLECTION_URI, keyword, SILENCEAPPEAL_TARGET_NAMESPACE, SILENCE_APPEAL);
         } catch (Exception e) {
             e.printStackTrace();
             return null;

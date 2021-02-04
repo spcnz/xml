@@ -13,12 +13,5 @@ public class NamespaceConstants {
 
     public static final String USER_TARGET_NAMESPACE = "http://user.com";
 
-    public static final String SILENCEAPPEAL_ROOT_EL = "ZalbaCutanje";
-
-    public static final String DECISIONAPPEAL_ROOT_EL = "Zalba";
-
-    public static final String RESCRIPT_ROOT_EL = "Resenje";
-
-    public static final String REPORT_ROOT_EL = "Izvestaj";
 
 }

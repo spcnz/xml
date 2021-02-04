@@ -13,6 +13,9 @@ public class XSDConstants {
 
     public static final String SILENCE_APPEAL = "ZalbaCutanjeRoot";
 
+    public static final String REPORT = "IzvestajRoot";
+
+
     public static final Map<String, String> xsdPathMap;
     static {
         Map<String, String> map = new HashMap<>();
