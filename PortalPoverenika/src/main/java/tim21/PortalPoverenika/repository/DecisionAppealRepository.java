@@ -14,7 +14,8 @@ import javax.xml.namespace.QName;
 import java.util.Map;
 
 import static tim21.PortalPoverenika.util.constants.DBConstants.DECISIONAPPEAL_COLLECTION_URI;
-import static tim21.PortalPoverenika.util.constants.NamespaceConstants.*;
+import static tim21.PortalPoverenika.util.constants.NamespaceConstants.DECISIONAPPEAL_TARGET_NAMESPACE;
+import static tim21.PortalPoverenika.util.constants.NamespaceConstants.DECISIONAPPEAL_ROOT_EL;
 
 @Repository
 public class DecisionAppealRepository {
@@ -75,6 +76,17 @@ public class DecisionAppealRepository {
         } catch (Exception e) {
             e.printStackTrace();
             return false;
+        }
+    }
+
+    public ResourceSet getAllByUser(String email) throws XMLDBException {
+        try {
+            String xpath = "/ZalbaRoot[descendant::Podnosilac[@href='http://users/" + email + "']]";
+            System.out.println(xpath);
+            return existManager.getAll(DECISIONAPPEAL_COLLECTION_URI, xpath, DECISIONAPPEAL_TARGET_NAMESPACE);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
         }
     }
 

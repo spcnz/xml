@@ -114,4 +114,26 @@ public class DecisionAppealService {
             throw new ViolationException("Rescript for appeal have been created.");
         }
     }
+
+    public DecisionAppealList getAllByUser(String email) throws XMLDBException, JAXBException {
+        List<ZalbaRoot> appeals = new ArrayList<>();
+
+        ResourceSet resourceSet = null;
+        resourceSet = appealRepository.getAllByUser(email);
+        ResourceIterator resourceIterator = resourceSet.getIterator();
+
+        while (resourceIterator.hasMoreResources()){
+            XMLResource xmlResource = (XMLResource) resourceIterator.nextResource();
+            System.out.println(xmlResource);
+            if(xmlResource == null)
+                return null;
+            JAXBContext context = JAXBContext.newInstance(ZalbaRoot.class);
+            Unmarshaller unmarshaller = context.createUnmarshaller();
+            ZalbaRoot appeal = (ZalbaRoot) unmarshaller.unmarshal(xmlResource.getContentAsDOM());
+            appeals.add(appeal);
+        }
+        return new DecisionAppealList(appeals);
+    }
+
+
 }

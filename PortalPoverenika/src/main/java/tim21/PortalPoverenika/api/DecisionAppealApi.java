@@ -7,11 +7,15 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import org.xml.sax.SAXException;
 import org.xmldb.api.base.XMLDBException;
 import tim21.PortalPoverenika.dto.decisionAppealFilter.DecisionAppealFilter;
 import tim21.PortalPoverenika.model.lists.DecisionAppealList;
+import tim21.PortalPoverenika.model.lists.SilenceAppealList;
+import tim21.PortalPoverenika.model.user.User;
 import tim21.PortalPoverenika.service.DecisionAppealService;
 import tim21.PortalPoverenika.service.MetaDataService;
 import tim21.PortalPoverenika.model.decisionAppeal.ZalbaRoot;
@@ -151,6 +155,22 @@ public class DecisionAppealApi {
             return new ResponseEntity(HttpStatus.BAD_REQUEST);
         } catch (ViolationException e) {
             return new ResponseEntity(e.getMessage(), HttpStatus.METHOD_NOT_ALLOWED);
+        }
+    }
+
+    @PreAuthorize("hasRole('ROLE_CITIZEN')")
+    @RequestMapping(value = "/all",method = RequestMethod.GET, consumes = MediaType.APPLICATION_XML_VALUE)
+    public ResponseEntity<SilenceAppealList> getAllAppealsByUser() {
+        DecisionAppealList appeals = new DecisionAppealList();
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        try {
+            appeals = appealService.getAllByUser(user.getEmail().getValue());
+
+            return new ResponseEntity(appeals, HttpStatus.OK);
+        } catch (XMLDBException | JAXBException e) {
+            e.printStackTrace();
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
         }
     }
 }

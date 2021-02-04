@@ -149,4 +149,24 @@ public class SilenceAppealService {
         }
     }
 
+    public SilenceAppealList getAllByUser(String email) throws XMLDBException, JAXBException {
+        List<ZalbaCutanjeRoot> appeals = new ArrayList<>();
+
+        ResourceSet resourceSet = null;
+        resourceSet = appealRepository.getAllByUser(email);
+        ResourceIterator resourceIterator = resourceSet.getIterator();
+
+        while (resourceIterator.hasMoreResources()){
+            XMLResource xmlResource = (XMLResource) resourceIterator.nextResource();
+            System.out.println(xmlResource);
+            if(xmlResource == null)
+                return null;
+            JAXBContext context = JAXBContext.newInstance(ZalbaCutanjeRoot.class);
+            Unmarshaller unmarshaller = context.createUnmarshaller();
+            ZalbaCutanjeRoot appeal = (ZalbaCutanjeRoot) unmarshaller.unmarshal(xmlResource.getContentAsDOM());
+            appeals.add(appeal);
+        }
+        return new SilenceAppealList(appeals);
+    }
+
 }

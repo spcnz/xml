@@ -78,4 +78,15 @@ public class SilenceAppealRepository {
         }
     }
 
+    public ResourceSet getAllByUser(String email) throws XMLDBException {
+        try {
+            String xpath = "/ZalbaCutanjeRoot[descendant::podnosilac_zalbe[@href='http://users/" + email + "']]";
+            System.out.println(xpath);
+            return existManager.getAll(SILENCEAPPEAL_COLLECTION_URI, xpath, SILENCEAPPEAL_TARGET_NAMESPACE);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
 }
