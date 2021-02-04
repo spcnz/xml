@@ -7,8 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.xml.sax.SAXException;
 import org.xmldb.api.base.XMLDBException;
-import tim21.PortalVlasti.model.request.ZahtevDokument;
 import tim21.PortalVlasti.model.lists.RequestList;
+import tim21.PortalVlasti.model.request.ZahtevRoot;
 import tim21.PortalVlasti.service.RequestService;
 
 import javax.xml.bind.JAXBException;
@@ -22,7 +22,7 @@ public class RequestApi {
     RequestService requestService;
 
     @RequestMapping( method = RequestMethod.POST, consumes = MediaType.APPLICATION_XML_VALUE)
-    public ResponseEntity<?> createRequest(@RequestBody ZahtevDokument request) throws IOException, SAXException {
+    public ResponseEntity<?> createRequest(@RequestBody ZahtevRoot request) throws IOException, SAXException {
         if (requestService.create(request)){
 
             return new ResponseEntity<>(HttpStatus.CREATED);
@@ -38,13 +38,14 @@ public class RequestApi {
 
             return new ResponseEntity(requests, HttpStatus.OK);
         } catch (XMLDBException | JAXBException e) {
+            e.printStackTrace();
             return new ResponseEntity(HttpStatus.BAD_REQUEST);
         }
     }
 
     @RequestMapping(value="/{ID}", method = RequestMethod.GET, consumes = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<?> getRequest(@PathVariable String ID) {
-        ZahtevDokument request = requestService.getOne(ID);
+        ZahtevRoot request = requestService.getOne(ID);
         if(request != null)
             return new ResponseEntity(request, HttpStatus.OK);
 

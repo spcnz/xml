@@ -9,7 +9,7 @@ public class XSDConstants {
 
     public static final String INFORMATION = "Obavestenje";
 
-    public static final String REQUEST = "ZahtevDokument";
+    public static final String REQUEST = "ZahtevRoot";
 
 
     public static final Map<String, String> xsdPathMap;

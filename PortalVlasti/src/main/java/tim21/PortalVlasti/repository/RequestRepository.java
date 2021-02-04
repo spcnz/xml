@@ -6,7 +6,7 @@ import org.xmldb.api.base.ResourceSet;
 import org.xmldb.api.base.XMLDBException;
 import org.xmldb.api.modules.XMLResource;
 import tim21.PortalVlasti.db.ExistManager;
-import tim21.PortalVlasti.model.request.ZahtevDokument;
+import tim21.PortalVlasti.model.request.ZahtevRoot;
 import tim21.PortalVlasti.util.IdGenerator;
 import tim21.PortalVlasti.util.constants.XSDConstants;
 
@@ -34,7 +34,7 @@ public class RequestRepository {
         }
     }
 
-    public boolean create(ZahtevDokument request) {
+    public boolean create(ZahtevRoot request) {
         try {
             String id = IdGenerator.generateDocumentID(IdGenerator.generate(XSDConstants.REQUEST), XSDConstants.REQUEST);
             Map<QName, String> attrributes = request.getOtherAttributes();
