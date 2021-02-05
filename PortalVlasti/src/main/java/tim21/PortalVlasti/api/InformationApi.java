@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import org.xml.sax.SAXException;
 import org.xmldb.api.base.XMLDBException;
 import tim21.PortalVlasti.model.information.Obavestenje;
+import tim21.PortalVlasti.model.information.ObavestenjeRoot;
 import tim21.PortalVlasti.model.lists.InformationList;
 import tim21.PortalVlasti.service.InformationService;
 
@@ -22,7 +23,7 @@ public class InformationApi {
     InformationService informationService;
 
     @RequestMapping( method = RequestMethod.POST, consumes = MediaType.APPLICATION_XML_VALUE)
-    public ResponseEntity<?> createInformation(@RequestBody Obavestenje information) throws IOException, SAXException {
+    public ResponseEntity<?> createInformation(@RequestBody ObavestenjeRoot information) throws IOException, SAXException {
         if (informationService.create(information)){
 
             return new ResponseEntity<>(HttpStatus.CREATED);
