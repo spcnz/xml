@@ -179,6 +179,16 @@
 									<wsdlLocation>classpath:wsdl/ObavestenjeZalba.wsdl</wsdlLocation>
 								</wsdlOption>
 
+								<wsdlOption>
+									<wsdl>${basedir}/src/main/resources/wsdl/Request.wsdl</wsdl>
+									<extraargs>
+										<extraarg>-impl</extraarg> <!-- Ima i drugih dodatniha<extraarg>-client</extraarg> -->
+										<extraarg>-verbose</extraarg>
+									</extraargs>
+									<wsdlLocation>classpath:wsdl/Request.wsdl</wsdlLocation>
+								</wsdlOption>
+
+
 
 							</wsdlOptions>
 						</configuration>

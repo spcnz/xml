@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import tim21.PortalVlasti.soap.service.appealAnnouncement.AppealAnnoucServiceSoapBindingImpl;
+import tim21.PortalVlasti.soap.service.request.RequestServiceSoapBindingImpl;
 import tim21.PortalVlasti.soap.service.rescript.RescriptServiceSoapBindingImpl;
 
 import javax.xml.ws.Endpoint;
@@ -22,6 +23,9 @@ public class EndpointConfig {
     @Autowired
     private AppealAnnoucServiceSoapBindingImpl appealAnnouncement;
 
+    @Autowired
+    private RequestServiceSoapBindingImpl requestServiceSoapBinding;
+
 
     @Bean
     public Endpoint rescriptEndpoint() {
@@ -37,6 +41,13 @@ public class EndpointConfig {
         return endpoint;
     }
 
+    @Bean
+    public Endpoint requestEndpoint() {
+        EndpointImpl endpoint = new EndpointImpl(bus, requestServiceSoapBinding);
+        endpoint.publish("/request");
+        return endpoint;
+    }
 
-   
+
+
 }
