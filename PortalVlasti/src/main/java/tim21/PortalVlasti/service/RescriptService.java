@@ -36,6 +36,28 @@ public class RescriptService {
 		return null;
 	}
 
+	public ResenjeRoot getOne(String ID) {
+		XMLResource xmlResource = rescriptRepository.getOne(ID);
+
+		if(xmlResource == null)
+			return null;
+
+		ResenjeRoot rescript = null;
+		JAXBContext context = null;
+
+		try {
+			context = JAXBContext.newInstance(ResenjeRoot.class);
+			Unmarshaller unmarshaller = context.createUnmarshaller();
+
+			rescript = (ResenjeRoot) unmarshaller.unmarshal(xmlResource.getContentAsDOM());
+		} catch (JAXBException | XMLDBException e) {
+			return null;
+		}
+
+		return rescript;
+	}
+
+
 	public RescriptList getAll() throws XMLDBException, JAXBException {
 		List<ResenjeRoot> rescripts = new ArrayList<>();
 

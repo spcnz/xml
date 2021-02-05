@@ -15,6 +15,7 @@ import tim21.PortalVlasti.util.Validator;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
+import javax.xml.namespace.QName;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +37,22 @@ public class RequestService {
         return null;
     }
 
+    public ZahtevRoot acceptRequest(String id) {
+        ZahtevRoot request = getOne(id);
+        if (request == null) {
+            return null;
+        }
+
+        try {
+            requestRepository.accept(request);
+
+            return request;
+        } catch (Exception e) {
+            e.printStackTrace();
+
+            return null;
+        }
+    }
 
     public RequestList getAll() throws XMLDBException, JAXBException {
         List<ZahtevRoot> requests = new ArrayList<>();
@@ -55,6 +72,26 @@ public class RequestService {
             requests.add(request);
         }
 
+        return new RequestList(requests);
+    }
+
+
+    public RequestList search(String keyword) throws XMLDBException, JAXBException {
+        List<ZahtevRoot> requests = new ArrayList<>();
+
+        ResourceSet resourceSet = null;
+        resourceSet = requestRepository.search(keyword);
+        ResourceIterator resourceIterator = resourceSet.getIterator();
+
+        while (resourceIterator.hasMoreResources()){
+            XMLResource xmlResource = (XMLResource) resourceIterator.nextResource();
+            if(xmlResource == null)
+                return null;
+            JAXBContext context = JAXBContext.newInstance(ZahtevRoot.class);
+            Unmarshaller unmarshaller = context.createUnmarshaller();
+            ZahtevRoot request = (ZahtevRoot) unmarshaller.unmarshal(xmlResource.getContentAsDOM());
+            requests.add(request);
+        }
         return new RequestList(requests);
     }
 

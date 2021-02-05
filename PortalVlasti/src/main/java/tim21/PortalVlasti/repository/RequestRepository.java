@@ -56,6 +56,15 @@ public class RequestRepository {
     }
 
 
+    public ResourceSet search(String keyword) throws XMLDBException {
+        try {
+            return existManager.search(REQUEST_COLLECTION_URI, keyword, REQUEST_TARGET_NAMESPACE, REQUEST);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     public XMLResource getOne(String ID) {
         try {
             return existManager.getOne(REQUEST_COLLECTION_URI, ID);
@@ -83,6 +92,16 @@ public class RequestRepository {
             return 0;
         }
     }
+
+    public boolean accept(ZahtevRoot request) throws Exception {
+        request.getOtherAttributes().put(new QName("status"), REQUEST_STATUS.ACCEPTED.label);
+        if(existManager.store(REQUEST_COLLECTION_URI, request.getOtherAttributes().get(new QName("id")), request, "zahtevi")){
+            return true;
+        }
+
+        return false;
+    }
+
 
     public boolean reject(ZahtevRoot request) throws Exception {
         request.getOtherAttributes().put(new QName("status"), REQUEST_STATUS.REJECTED.label);

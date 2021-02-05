@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.xmldb.api.base.ResourceSet;
 import org.xmldb.api.base.XMLDBException;
+import org.xmldb.api.modules.XMLResource;
 import tim21.PortalVlasti.db.ExistManager;
 import tim21.PortalVlasti.soap.dto.rescript.ResenjeRoot;
 import tim21.PortalVlasti.util.IdGenerator;
@@ -36,6 +37,15 @@ public class RescriptRepository {
                 return rescript;
             }
             return null;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public XMLResource getOne(String ID) {
+        try {
+            return existManager.getOne(RESCRIPT_COLLECTION_URI, ID);
         } catch (Exception e) {
             e.printStackTrace();
             return null;

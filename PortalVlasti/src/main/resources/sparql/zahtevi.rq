@@ -1,0 +1,25 @@
+PREFIX pred: <http://www.tim21.com/predicate/>
+prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?request FROM <http://localhost:8089/fusekiVlast/Tim21DatasetVlast/data/zahtevi>
+WHERE{
+    
+    ?request pred:institutionName ?instName .
+    ?request pred:institutionOffice ?instOffice .
+    ?request pred:requestType ?requestType .
+    ?request pred:delivery ?delivery .
+    ?request pred:submitter ?submitterEmail .
+    ?request pred:submitterName ?submitterName
+    ?request pred:submitterLastname ?submitterLastname .
+    ?request pred:appealDate ?appealDate .
+
+    FILTER(CONTAINS(UCASE(str(?instName)), UCASE("%1$s"))
+        && CONTAINS(UCASE(str(?instOffice)), UCASE("%2$s"))
+        && CONTAINS(UCASE(str(?requestType)), UCASE("%3$s"))
+        && CONTAINS(UCASE(str(?delivery)), UCASE("%4$s"))
+        && CONTAINS(UCASE(str(?submitterEmail)), UCASE("%5$s"))
+    	&& CONTAINS(UCASE(str(?submitterName)), UCASE("%6$s"))
+    	&& CONTAINS(UCASE(str(?submitterLastname)), UCASE("%7$s"))
+    	&& CONTAINS(UCASE(str(?appealDate)), UCASE("%8$s"))
+    ).
+}

@@ -13,6 +13,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import org.xmldb.api.base.XMLDBException;
 //import tim21.PortalVlasti.dto.rescriptFilter.RescriptFilter;
+import tim21.PortalVlasti.dto.rescriptFilter.RescriptFilter;
 import tim21.PortalVlasti.model.lists.RescriptList;
 import tim21.PortalVlasti.soap.dto.rescript.ResenjeRoot;
 import tim21.PortalVlasti.model.user.User;
@@ -71,26 +72,26 @@ public class RescriptApi {
         }
     }
 
-//    @RequestMapping(value = "/meta/search/", method = RequestMethod.POST, consumes = MediaType.APPLICATION_XML_VALUE)
-//    public ResponseEntity<?> metaSearchAppeals(@RequestBody RescriptFilter filter) {
-//        List<ResenjeRoot> rescripts = new ArrayList<ResenjeRoot>();
-//        List<String> res = new ArrayList<String>();
-//        List<String> filterVals = Arrays.asList(filter.getRescriptForAppeal(), filter.getRescriptDate(),
-//                                filter.getAppealStatus(), filter.getCommisionerName(), filter.getCommisionerLastname(), filter.getSubmitter());
-//        try {
-//            res = metaDataService.filter("Resenja", filterVals);
-//            for (String key : res) {
-//                String id = key.split("resenja")[1].substring(1);    // format keya je http://zalbe/234213123
-//                rescripts.add(rescriptService.getOne(id));
-//            }
-//
-//            RescriptList response = new RescriptList(rescripts);
-//            return new ResponseEntity(response, HttpStatus.OK);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//            return new ResponseEntity(HttpStatus.BAD_REQUEST);
-//        }
-//    }
+    @RequestMapping(value = "/meta/search/", method = RequestMethod.POST, consumes = MediaType.APPLICATION_XML_VALUE)
+    public ResponseEntity<?> metaSearchAppeals(@RequestBody RescriptFilter filter) {
+        List<ResenjeRoot> rescripts = new ArrayList<ResenjeRoot>();
+        List<String> res = new ArrayList<String>();
+        List<String> filterVals = Arrays.asList(filter.getRescriptForAppeal(), filter.getRescriptDate(),
+                                filter.getAppealStatus(), filter.getCommisionerName(), filter.getCommisionerLastname(), filter.getSubmitter());
+        try {
+            res = metaDataService.filter("Resenja", filterVals);
+            for (String key : res) {
+                String id = key.split("resenja")[1].substring(1);    // format keya je http://zalbe/234213123
+                rescripts.add(rescriptService.getOne(id));
+            }
+
+            RescriptList response = new RescriptList(rescripts);
+            return new ResponseEntity(response, HttpStatus.OK);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
+        }
+    }
 
     @RequestMapping(value = "/meta/rdf/{ID}", method = RequestMethod.GET)
     public ResponseEntity<InputStreamResource> metaExportRDF(@PathVariable Long ID) throws IOException {

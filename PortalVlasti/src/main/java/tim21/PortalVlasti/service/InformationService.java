@@ -9,6 +9,7 @@ import org.xmldb.api.base.XMLDBException;
 import org.xmldb.api.modules.XMLResource;
 import tim21.PortalVlasti.model.information.Obavestenje;
 import tim21.PortalVlasti.model.lists.InformationList;
+import tim21.PortalVlasti.model.request.ZahtevRoot;
 import tim21.PortalVlasti.repository.InformationRepository;
 import tim21.PortalVlasti.util.Validator;
 import tim21.PortalVlasti.repository.InformationRepository;
@@ -16,6 +17,7 @@ import tim21.PortalVlasti.repository.InformationRepository;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
+import javax.xml.namespace.QName;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,16 +29,26 @@ public class InformationService {
     @Autowired
     InformationRepository informationRepository;
 
+    @Autowired
+    RequestService requestService;
 
-    public boolean create(Obavestenje appeal) throws IOException, SAXException {
+    public boolean create(Obavestenje information) throws IOException, SAXException {
 
 
-        if (Validator.validate(appeal.getClass(), appeal)){
+        if (Validator.validate(information.getClass(), information)){
 
-            return informationRepository.create(appeal);
+            String requestID = information.getOtherAttributes().get("href").split("zahtevi")[1].substring(1);
+            ZahtevRoot req = requestService.acceptRequest(requestID);
+            if(req == null){
+                return false;
+            }
+
+            return informationRepository.create(information);
         }
         return false;
     }
+
+
 
 
     public InformationList getAll() throws XMLDBException, JAXBException {

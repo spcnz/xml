@@ -8,5 +8,4 @@ public class RDFConstants {
     public static final String RESCRIPT_RDF_RESOURCES = "src/main/resources/rdf/resenja/";
 
 
-
 }
