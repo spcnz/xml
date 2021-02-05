@@ -1,0 +1,13 @@
+{
+  "@id" : "http://izvestaji/20210205214327",
+  "submitDate" : "2021-02-05",
+  "@context" : {
+    "submitDate" : {
+      "@id" : "http://www.tim21.com/predicate/submitDate",
+      "@type" : "http://www.w3.org/2000/01/rdf-schema#Literal"
+    },
+    "rdf" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "pred" : "http://www.tim21.com/predicate/",
+    "h" : "http://www.w3.org/1999/xhtml"
+  }
+}

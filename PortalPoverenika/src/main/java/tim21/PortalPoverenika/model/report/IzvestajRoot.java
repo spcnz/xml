@@ -39,7 +39,7 @@ import javax.xml.namespace.QName;
 @XmlRootElement(name = "IzvestajRoot")
 public class IzvestajRoot {
 
-    @XmlElement(name = "Izvestaj", required = true)
+    @XmlElement(name = "Izvestaj", required = true, namespace = "http://www.izvestaj.com")
     protected TIzvestaj izvestaj;
     @XmlAnyAttribute
     private Map<QName, String> otherAttributes = new HashMap<QName, String>();

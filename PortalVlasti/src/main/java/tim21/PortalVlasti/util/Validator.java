@@ -30,6 +30,7 @@ public class Validator {
             Unmarshaller unmarshaller = context.createUnmarshaller();
             unmarshaller.setSchema(schema);
 
+            System.out.println("OVO JE STRING "   + objectValidateString);
             unmarshaller.unmarshal(new StringReader(objectValidateString));
 
         }catch (Exception e){

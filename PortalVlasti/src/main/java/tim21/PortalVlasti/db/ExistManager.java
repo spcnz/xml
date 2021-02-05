@@ -1,5 +1,6 @@
 package tim21.PortalVlasti.db;
 
+import com.sun.xml.bind.marshaller.NamespacePrefixMapper;
 import org.exist.xmldb.EXistResource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -101,6 +102,7 @@ public class ExistManager {
 					" <?xml version=\"1.0\" encoding=\"UTF-8\"?>");
 			marshaller.setProperty("com.sun.xml.bind.xmlHeaders",
 					"<?xml-stylesheet type=\"text/xsl\" href=\"../xsl/grddl.xsl\"?>");
+
 
 
 			marshaller.marshal(xml, os);

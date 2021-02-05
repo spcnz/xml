@@ -9,6 +9,7 @@ import org.xmldb.api.base.XMLDBException;
 import org.xmldb.api.modules.XMLResource;
 import tim21.PortalVlasti.model.report.IzvestajRoot;
 import tim21.PortalVlasti.model.report.ReportList;
+import tim21.PortalVlasti.model.report.TIzvestaj;
 import tim21.PortalVlasti.repository.ReportRepository;
 import tim21.PortalVlasti.util.Validator;
 
@@ -27,12 +28,31 @@ public class ReportDataService {
 
 
     public IzvestajRoot create(IzvestajRoot report) throws IOException, SAXException {
-
+        System.out.println("SAD VALIDIRA  " );
         if (Validator.validate(report.getClass(), report)){
-
             return reportRepository.create(report);
         }
         return null;
+    }
+
+    public IzvestajRoot createFromOld(TIzvestaj old) {
+        IzvestajRoot root = new IzvestajRoot();
+        TIzvestaj izvestaj = new TIzvestaj();
+        izvestaj.setFizickoLice(new TIzvestaj.FizickoLice());
+        izvestaj.setPravnoLice(new TIzvestaj.PravnoLice());
+
+        izvestaj.getFizickoLice().setBrojZahteva(old.getFizickoLice().getBrojZahteva());
+        izvestaj.getFizickoLice().setBrojOdbijenihZahteva(old.getFizickoLice().getBrojOdbijenihZahteva());
+        izvestaj.getFizickoLice().setBrojZalbiCutanje(old.getFizickoLice().getBrojZalbiCutanje());
+        izvestaj.getFizickoLice().setBrojZalbiOdluka(old.getFizickoLice().getBrojZalbiOdluka());
+
+        izvestaj.getPravnoLice().setBrojZahteva(old.getPravnoLice().getBrojZahteva());
+        izvestaj.getPravnoLice().setBrojOdbijenihZahteva(old.getPravnoLice().getBrojOdbijenihZahteva());
+        izvestaj.getPravnoLice().setBrojZalbiCutanje(old.getPravnoLice().getBrojZalbiCutanje());
+        izvestaj.getPravnoLice().setBrojZalbiOdluka(old.getPravnoLice().getBrojZalbiOdluka());
+        root.setIzvestaj(old);
+        return reportRepository.create(root);
+
     }
 
     public ReportList getAll() throws XMLDBException, JAXBException {

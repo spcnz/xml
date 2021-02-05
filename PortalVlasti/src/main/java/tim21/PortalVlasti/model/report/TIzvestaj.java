@@ -51,37 +51,41 @@ import javax.xml.bind.annotation.*;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType( propOrder = {
+@XmlType(name = "TIzvestaj", propOrder = {
     "fizickoLice",
     "pravnoLice"
 })
 @XmlRootElement(name="Izvestaj")
 public class TIzvestaj {
 
-    @XmlElement(name = "FizickoLice", required = true,  namespace = "http://www.izvestaj.com")
+    @XmlElement(name = "FizickoLice", required = true, namespace = "http://www.izvestaj.com")
     protected FizickoLice fizickoLice;
-    @XmlElement(name = "PravnoLice", required = true,  namespace = "http://www.izvestaj.com")
+    @XmlElement(name = "PravnoLice", required = true, namespace = "http://www.izvestaj.com")
     protected PravnoLice pravnoLice;
 
     /**
      * Gets the value of the fizickoLice property.
-     *
+     * 
      * @return
      *     possible object is
      *     {@link FizickoLice }
-     *
+     *     
      */
+//    public static TIzvestaj makeCopy(TIzvestaj old){
+//
+//    }
+
     public FizickoLice getFizickoLice() {
         return fizickoLice;
     }
 
     /**
      * Sets the value of the fizickoLice property.
-     *
+     * 
      * @param value
      *     allowed object is
      *     {@link FizickoLice }
-     *
+     *     
      */
     public void setFizickoLice(FizickoLice value) {
         this.fizickoLice = value;
@@ -89,11 +93,11 @@ public class TIzvestaj {
 
     /**
      * Gets the value of the pravnoLice property.
-     *
+     * 
      * @return
      *     possible object is
      *     {@link PravnoLice }
-     *
+     *     
      */
     public PravnoLice getPravnoLice() {
         return pravnoLice;
@@ -101,11 +105,11 @@ public class TIzvestaj {
 
     /**
      * Sets the value of the pravnoLice property.
-     *
+     * 
      * @param value
      *     allowed object is
      *     {@link PravnoLice }
-     *
+     *     
      */
     public void setPravnoLice(PravnoLice value) {
         this.pravnoLice = value;
@@ -135,7 +139,8 @@ public class TIzvestaj {
      * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
-    @XmlType(name = "", propOrder = {
+    @XmlType(name = "",
+            propOrder = {
         "brojZahteva",
         "brojOdbijenihZahteva",
         "brojZalbiOdluka",
@@ -143,7 +148,7 @@ public class TIzvestaj {
     })
     public static class FizickoLice {
 
-        @XmlElement(name = "BrojZahteva",namespace = "http://www.izvestaj.com")
+        @XmlElement(name = "BrojZahteva", namespace = "http://www.izvestaj.com")
         protected int brojZahteva;
         @XmlElement(name = "BrojOdbijenihZahteva", namespace = "http://www.izvestaj.com")
         protected int brojOdbijenihZahteva;
@@ -254,7 +259,7 @@ public class TIzvestaj {
         protected int brojZahteva;
         @XmlElement(name = "BrojOdbijenihZahteva", namespace = "http://www.izvestaj.com")
         protected int brojOdbijenihZahteva;
-        @XmlElement(name = "BrojZalbiOdluka",namespace = "http://www.izvestaj.com")
+        @XmlElement(name = "BrojZalbiOdluka", namespace = "http://www.izvestaj.com")
         protected int brojZalbiOdluka;
         @XmlElement(name = "BrojZalbiCutanje", namespace = "http://www.izvestaj.com")
         protected int brojZalbiCutanje;

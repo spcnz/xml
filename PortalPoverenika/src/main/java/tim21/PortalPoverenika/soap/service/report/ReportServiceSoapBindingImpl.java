@@ -78,6 +78,7 @@ public class ReportServiceSoapBindingImpl implements ReportServicePortType {
             List<String> silKeys = metaDataService.filter("zalbeCutanje", filterSil);
 
             TIzvestaj ret = new TIzvestaj();
+
             ret.setFizickoLice(new TIzvestaj.FizickoLice());
             ret.setPravnoLice(new TIzvestaj.PravnoLice());
             ret.getFizickoLice().setBrojZalbiOdluka(decKeysFizicko.size());

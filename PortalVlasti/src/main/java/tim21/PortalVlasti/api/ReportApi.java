@@ -24,6 +24,7 @@ import tim21.PortalVlasti.service.RequestService;
 import tim21.PortalVlasti.soap.client.ReportClient;
 
 import javax.xml.bind.JAXBException;
+import javax.xml.namespace.QName;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -31,6 +32,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 import static tim21.PortalVlasti.util.constants.RDFConstants.REPORT_RDF_RESOURCES;
 
@@ -75,22 +77,28 @@ public class ReportApi {
         soapClient.setMarshaller(marshaller);
         soapClient.setUnmarshaller(marshaller);
 
+        System.out.println("SAD POSTAVLJ PRIJE STATS ");
+
         TIzvestaj report = soapClient.getAppealStats();
+
+        report.getFizickoLice().setBrojZahteva(requestService.getAll().getRequests().size());
+        report.getFizickoLice().setBrojOdbijenihZahteva((int) requestService.getRejectedNumber());
+        TResponse sus = soapClient.submitReport(report);
+
+        IzvestajRoot reportRoot = new IzvestajRoot();
+        Map<QName, String> attrs = reportRoot.getOtherAttributes();
+
+        reportRoot.setIzvestaj(report);
         try {
-            report.getFizickoLice().setBrojZahteva(requestService.getAll().getRequests().size());
-            report.getFizickoLice().setBrojOdbijenihZahteva((int) requestService.getRejectedNumber());
-
-            TResponse sus = soapClient.submitReport(report);
-
-            IzvestajRoot reportRoot = new IzvestajRoot();
-            reportRoot.setIzvestaj(report);
-            reportService.create(reportRoot);
-
-            return new ResponseEntity<>(HttpStatus.CREATED);
-        }catch (Exception e){
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            reportService.createFromOld(report);
+        } catch (Exception e) {
+            System.out.println("PUKLO");
         }
+
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
+
+
 
     @RequestMapping(value = "/{ID}", method = RequestMethod.GET, consumes = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<?> getReport(@PathVariable String ID) {

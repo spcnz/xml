@@ -30,27 +30,27 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link TIzvestaj }
+     * Create an instance of {@link tim21.PortalVlasti.model.report.TIzvestaj }
      * 
      */
-    public TIzvestaj createTIzvestaj() {
-        return new TIzvestaj();
+    public tim21.PortalVlasti.model.report.TIzvestaj createTIzvestaj() {
+        return new tim21.PortalVlasti.model.report.TIzvestaj();
     }
 
     /**
-     * Create an instance of {@link IzvestajRoot }
+     * Create an instance of {@link tim21.PortalVlasti.model.report.IzvestajRoot }
      * 
      */
-    public IzvestajRoot createIzvestajRoot() {
-        return new IzvestajRoot();
+    public tim21.PortalVlasti.model.report.IzvestajRoot createIzvestajRoot() {
+        return new tim21.PortalVlasti.model.report.IzvestajRoot();
     }
 
     /**
-     * Create an instance of {@link ReportList }
+     * Create an instance of {@link tim21.PortalVlasti.model.report.ReportList }
      * 
      */
-    public ReportList createReportList() {
-        return new ReportList();
+    public tim21.PortalVlasti.model.report.ReportList createReportList() {
+        return new tim21.PortalVlasti.model.report.ReportList();
     }
 
     /**
@@ -62,19 +62,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link TIzvestaj.FizickoLice }
+     * Create an instance of {@link tim21.PortalVlasti.model.report.TIzvestaj.FizickoLice }
      * 
      */
-    public TIzvestaj.FizickoLice createTIzvestajFizickoLice() {
-        return new TIzvestaj.FizickoLice();
+    public tim21.PortalVlasti.model.report.TIzvestaj.FizickoLice createTIzvestajFizickoLice() {
+        return new tim21.PortalVlasti.model.report.TIzvestaj.FizickoLice();
     }
 
     /**
-     * Create an instance of {@link TIzvestaj.PravnoLice }
+     * Create an instance of {@link tim21.PortalVlasti.model.report.TIzvestaj.PravnoLice }
      * 
      */
-    public TIzvestaj.PravnoLice createTIzvestajPravnoLice() {
-        return new TIzvestaj.PravnoLice();
+    public tim21.PortalVlasti.model.report.TIzvestaj.PravnoLice createTIzvestajPravnoLice() {
+        return new tim21.PortalVlasti.model.report.TIzvestaj.PravnoLice();
     }
 
 }
