@@ -67,6 +67,7 @@ public class ReportDataService {
         report.getFizickoLice().setBrojZahteva(requestService.getAll().getRequests().size());
         report.getFizickoLice().setBrojOdbijenihZahteva((int) requestService.getRejectedNumber());
 
+        soapClient.submitReport(report);
         try {
             this.createFromOld(report);
         } catch (Exception e) {
