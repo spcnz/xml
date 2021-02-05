@@ -7,6 +7,7 @@ import org.xmldb.api.base.XMLDBException;
 import org.xmldb.api.modules.XMLResource;
 import tim21.PortalVlasti.db.ExistManager;
 import tim21.PortalVlasti.model.information.Obavestenje;
+import tim21.PortalVlasti.model.information.ObavestenjeRoot;
 import tim21.PortalVlasti.util.IdGenerator;
 import tim21.PortalVlasti.util.constants.XSDConstants;
 
@@ -24,7 +25,7 @@ public class InformationRepository {
     public ExistManager existManager;
 
 
-    public boolean create(Obavestenje inf) {
+    public boolean create(ObavestenjeRoot inf) {
         try {
             String id = IdGenerator.generate();
             String aboutValue = "http://obavestenja/" + id;

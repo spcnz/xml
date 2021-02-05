@@ -52,7 +52,8 @@ public class ReportApi {
     @Autowired
     private Environment env;
 
-
+    @Autowired
+    ReportClient soapClient;
 
     @RequestMapping(method = RequestMethod.GET, consumes = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<ReportList> getAllReports() {
@@ -69,11 +70,13 @@ public class ReportApi {
     @RequestMapping(value = "/submit", method = RequestMethod.GET)
     public ResponseEntity<?> submitReport() throws XMLDBException, JAXBException {
 
-        if(reportService.submitReport()) {
+        if(reportService.submitReport()){
             return new ResponseEntity<>(HttpStatus.CREATED);
         }
 
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+
+
     }
 
 

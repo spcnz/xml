@@ -8,6 +8,7 @@ import org.xmldb.api.base.ResourceSet;
 import org.xmldb.api.base.XMLDBException;
 import org.xmldb.api.modules.XMLResource;
 import tim21.PortalVlasti.model.information.Obavestenje;
+import tim21.PortalVlasti.model.information.ObavestenjeRoot;
 import tim21.PortalVlasti.model.lists.InformationList;
 import tim21.PortalVlasti.model.request.ZahtevRoot;
 import tim21.PortalVlasti.repository.InformationRepository;
@@ -32,7 +33,7 @@ public class InformationService {
     @Autowired
     RequestService requestService;
 
-    public boolean create(Obavestenje information) throws IOException, SAXException {
+    public boolean create(ObavestenjeRoot information) throws IOException, SAXException {
 
 
         if (Validator.validate(information.getClass(), information)){
