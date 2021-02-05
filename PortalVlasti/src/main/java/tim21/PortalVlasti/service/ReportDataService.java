@@ -37,19 +37,6 @@ public class ReportDataService {
 
     public IzvestajRoot createFromOld(TIzvestaj old) {
         IzvestajRoot root = new IzvestajRoot();
-        TIzvestaj izvestaj = new TIzvestaj();
-        izvestaj.setFizickoLice(new TIzvestaj.FizickoLice());
-        izvestaj.setPravnoLice(new TIzvestaj.PravnoLice());
-
-        izvestaj.getFizickoLice().setBrojZahteva(old.getFizickoLice().getBrojZahteva());
-        izvestaj.getFizickoLice().setBrojOdbijenihZahteva(old.getFizickoLice().getBrojOdbijenihZahteva());
-        izvestaj.getFizickoLice().setBrojZalbiCutanje(old.getFizickoLice().getBrojZalbiCutanje());
-        izvestaj.getFizickoLice().setBrojZalbiOdluka(old.getFizickoLice().getBrojZalbiOdluka());
-
-        izvestaj.getPravnoLice().setBrojZahteva(old.getPravnoLice().getBrojZahteva());
-        izvestaj.getPravnoLice().setBrojOdbijenihZahteva(old.getPravnoLice().getBrojOdbijenihZahteva());
-        izvestaj.getPravnoLice().setBrojZalbiCutanje(old.getPravnoLice().getBrojZalbiCutanje());
-        izvestaj.getPravnoLice().setBrojZalbiOdluka(old.getPravnoLice().getBrojZalbiOdluka());
         root.setIzvestaj(old);
         return reportRepository.create(root);
 
