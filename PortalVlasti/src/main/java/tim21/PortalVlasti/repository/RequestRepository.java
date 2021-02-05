@@ -82,4 +82,16 @@ public class RequestRepository {
 
         return false;
     }
+
+    public ResourceSet getAllByUser(String email) throws XMLDBException {
+        try {
+            String xpath = "/ZahtevRoot[@href='http://users/" + email + "']]";
+            System.out.println(xpath);
+            return existManager.getAll(REQUEST_COLLECTION_URI, xpath, REQUEST_TARGET_NAMESPACE);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
 }

@@ -95,6 +95,25 @@ public class RequestService {
 
             return null;
         }
-        
+    }
+
+    public RequestList getAllByUser(String email) throws XMLDBException, JAXBException {
+        List<ZahtevRoot> appeals = new ArrayList<>();
+
+        ResourceSet resourceSet = null;
+        resourceSet = requestRepository.getAllByUser(email);
+        ResourceIterator resourceIterator = resourceSet.getIterator();
+
+        while (resourceIterator.hasMoreResources()){
+            XMLResource xmlResource = (XMLResource) resourceIterator.nextResource();
+            System.out.println(xmlResource);
+            if(xmlResource == null)
+                return null;
+            JAXBContext context = JAXBContext.newInstance(ZahtevRoot.class);
+            Unmarshaller unmarshaller = context.createUnmarshaller();
+            ZahtevRoot req = (ZahtevRoot) unmarshaller.unmarshal(xmlResource.getContentAsDOM());
+            appeals.add(req);
+        }
+        return new RequestList(appeals);
     }
 }

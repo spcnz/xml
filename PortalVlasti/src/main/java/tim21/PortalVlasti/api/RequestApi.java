@@ -119,4 +119,22 @@ public class RequestApi {
 
         return date;
     }
+
+    @PreAuthorize("hasRole('ROLE_CITIZEN')")
+    @RequestMapping(value = "/all",method = RequestMethod.GET, consumes = MediaType.APPLICATION_XML_VALUE)
+    public ResponseEntity<RequestList> getAllRequestsByUser() {
+        RequestList requests = new RequestList();
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        try {
+            requests = requestService.getAllByUser(user.getEmail().getValue());
+
+            return new ResponseEntity(requests, HttpStatus.OK);
+        } catch (XMLDBException | JAXBException e) {
+            e.printStackTrace();
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+
 }
