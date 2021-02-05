@@ -15,6 +15,7 @@ public class XSDConstants {
 
     public static final String REPORT = "IzvestajRoot";
 
+    public static final String APPEAL_DECLARATION = "IzjasnjavanjeZalba";
 
     public static final Map<String, String> xsdPathMap;
     static {
@@ -24,6 +25,7 @@ public class XSDConstants {
         map.put(DECISION_APPEAL, "classpath:xsd/zalbanaodluku.xsd");
         map.put(SILENCE_APPEAL, "classpath:xsd/zalbacutanje.xsd");
         map.put(REPORT, "classpath:xsd/izvestaj.xsd");
+        map.put(APPEAL_DECLARATION, "classpath:xsd/IzjasnjavanjeZalba.xsd");
         xsdPathMap = Collections.unmodifiableMap(map);
     }
 

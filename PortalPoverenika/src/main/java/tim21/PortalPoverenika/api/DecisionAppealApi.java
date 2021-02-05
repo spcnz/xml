@@ -186,8 +186,8 @@ public class DecisionAppealApi {
         } else {
             appeal.getOtherAttributes().put(new QName("obavestio"), "true");
             try {
-                appealService.create(appeal);
-            } catch (IOException | SAXException e) {
+                appealService.save(appeal, ID);
+            } catch (Exception e) {
                 e.printStackTrace();
                 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
             }

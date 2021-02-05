@@ -42,6 +42,18 @@ public class SilenceAppealRepository {
             return null;
         }
     }
+    public ZalbaCutanjeRoot save(ZalbaCutanjeRoot appeal, String ID) {
+        try {
+
+            if (existManager.store(SILENCEAPPEAL_COLLECTION_URI, ID, appeal, "zalbeCutanje")) {
+                return appeal;
+            }
+            return null;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 
     public XMLResource getOne(String ID) {
         try {

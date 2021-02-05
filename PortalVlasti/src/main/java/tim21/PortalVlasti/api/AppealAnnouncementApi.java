@@ -19,6 +19,7 @@ import tim21.PortalVlasti.service.AppealAnnouncementService;
 import tim21.PortalVlasti.service.RequestService;
 import tim21.PortalVlasti.soap.client.MailClient;
 import tim21.PortalVlasti.soap.dto.MailRequest;
+import tim21.PortalVlasti.soap.dto.appealDeclaration.IzjasnjavanjeZalba;
 
 import javax.xml.bind.JAXBException;
 import javax.xml.namespace.QName;
@@ -46,6 +47,18 @@ public class AppealAnnouncementApi {
             return new ResponseEntity(list, HttpStatus.OK);
         } catch (XMLDBException | JAXBException e) {
             e.printStackTrace();
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @RequestMapping(value = "/declare",  method = RequestMethod.POST, consumes = MediaType.APPLICATION_XML_VALUE)
+    public ResponseEntity<?> sendDeclaration(@RequestBody IzjasnjavanjeZalba declaration) {
+
+        boolean sent = announcementService.sendDeclaration(declaration);
+
+        if (sent) {
+            return new ResponseEntity(HttpStatus.OK);
+        } else {
             return new ResponseEntity(HttpStatus.BAD_REQUEST);
         }
     }
