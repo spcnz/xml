@@ -7,6 +7,7 @@ import javax.xml.bind.annotation.XmlRegistry;
 import javax.xml.namespace.QName;
 
 
+import tim21.PortalVlasti.model.shared.*;
 /**
  * This object contains factory methods for each 
  * Java content interface and Java element interface 

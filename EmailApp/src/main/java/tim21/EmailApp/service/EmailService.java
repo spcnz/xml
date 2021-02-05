@@ -43,7 +43,7 @@ public class EmailService {
             }
 
             if (request.getHtml() != null) {
-                ByteArrayDataSource bds = new ByteArrayDataSource((byte[]) request.getHtml(), "text/html");
+                ByteArrayDataSource bds = new ByteArrayDataSource((byte[]) request.getHtml(), "application/xhtml+xml");
                 System.out.println(bds);
                 helper.addAttachment("attachment.html", bds);
             }

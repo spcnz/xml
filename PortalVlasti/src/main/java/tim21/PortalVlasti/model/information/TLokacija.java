@@ -11,6 +11,7 @@ import javax.xml.bind.annotation.XmlElementRefs;
 import javax.xml.bind.annotation.XmlMixed;
 import javax.xml.bind.annotation.XmlType;
 
+import tim21.PortalVlasti.model.shared.*;
 
 /**
  * <p>Java class for TLokacija complex type.
