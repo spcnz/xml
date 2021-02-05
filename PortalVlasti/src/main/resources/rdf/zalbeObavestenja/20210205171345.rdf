@@ -1,0 +1,5 @@
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:h="http://www.w3.org/1999/xhtml">
+<rdf:Description rdf:about="http://zalbeObavestenja/20210205171345">
+<ns0:annoncementForAppeal xmlns:ns0="http://www.zalbaobavestenje.com" rdf:resource="50"/>
+</rdf:Description>
+</rdf:RDF>

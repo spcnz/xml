@@ -2,6 +2,8 @@ package tim21.PortalPoverenika.service;
 
 import com.itextpdf.text.DocumentException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
+import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 import org.springframework.stereotype.Service;
 import org.xmldb.api.base.ResourceIterator;
 import org.xmldb.api.base.ResourceSet;
@@ -11,11 +13,15 @@ import tim21.PortalPoverenika.model.lists.RescriptList;
 import tim21.PortalPoverenika.model.lists.SilenceAppealList;
 import tim21.PortalPoverenika.model.silenceAppeal.ZalbaCutanjeRoot;
 import tim21.PortalPoverenika.repository.SilenceAppealRepository;
+import tim21.PortalPoverenika.soap.client.AppealAnnouncementClient;
+import tim21.PortalPoverenika.soap.dto.appealAnnouncement.ObavestenjeZalba;
+import tim21.PortalPoverenika.soap.dto.appealAnnouncement.TObZalbaDokument;
 import tim21.PortalPoverenika.util.Validator;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,10 +36,16 @@ public class SilenceAppealService {
     public static final String XSL_FO_FILE = "src/main/resources/xsl/silenceAppeal_fo.xsl";
 
     @Autowired
+    AppealAnnouncementClient announcementClient;
+
+    @Autowired
     SilenceAppealRepository appealRepository;
 
     @Autowired
     RescriptService rescriptService;
+
+    @Autowired
+    private Environment env;
 
     public ZalbaCutanjeRoot create(ZalbaCutanjeRoot appeal) {
         if (Validator.validate(appeal.getClass(), appeal)){
@@ -168,5 +180,27 @@ public class SilenceAppealService {
         }
         return new SilenceAppealList(appeals);
     }
+
+    public boolean notifyOffical(String appealID) {
+        Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
+        marshaller.setContextPath("tim21.PortalPoverenika.soap.dto.appealAnnouncement");
+
+        announcementClient.setDefaultUri(env.getProperty("portal_vlasti"));
+        announcementClient.setMarshaller(marshaller);
+
+        Jaxb2Marshaller unmarshaller = new Jaxb2Marshaller();
+        unmarshaller.setContextPath("tim21.PortalPoverenika.soap.dto");
+        announcementClient.setUnmarshaller(unmarshaller);
+
+        ObavestenjeZalba announce = new ObavestenjeZalba();
+        TObZalbaDokument announceBody = new TObZalbaDokument();
+        announceBody.setIDZalbe(new BigInteger(appealID));
+        announceBody.setOpis("Pristigla je zalba na cutanje." );
+        announceBody.setTip("ZALBA NA CUTANJE");
+        announce.setObZalbaDokument(announceBody);
+
+        return announcementClient.announceAboutAppeal(announce.getObZalbaDokument());
+    }
+
 
 }

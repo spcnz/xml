@@ -15,6 +15,7 @@ import org.xmldb.api.base.XMLDBException;
 import tim21.PortalPoverenika.dto.decisionAppealFilter.DecisionAppealFilter;
 import tim21.PortalPoverenika.model.lists.DecisionAppealList;
 import tim21.PortalPoverenika.model.lists.SilenceAppealList;
+import tim21.PortalPoverenika.model.silenceAppeal.ZalbaCutanjeRoot;
 import tim21.PortalPoverenika.model.user.User;
 import tim21.PortalPoverenika.service.DecisionAppealService;
 import tim21.PortalPoverenika.service.MetaDataService;
@@ -23,6 +24,7 @@ import tim21.PortalPoverenika.util.ViolationException;
 import tim21.PortalPoverenika.util.mappers.DecisionAppealMapper;
 
 import javax.xml.bind.JAXBException;
+import javax.xml.namespace.QName;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -172,4 +174,32 @@ public class DecisionAppealApi {
             return new ResponseEntity(HttpStatus.BAD_REQUEST);
         }
     }
+
+    @RequestMapping( value="/notify/{ID}",method = RequestMethod.GET, consumes = MediaType.APPLICATION_XML_VALUE)
+    public ResponseEntity<?> informOfficial(@PathVariable String ID)  {
+
+        //proveri jel postoji zalba
+        ZalbaRoot appeal = appealService.getOne(ID);
+
+        if (appeal == null) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        } else {
+            appeal.getOtherAttributes().put(new QName("obavestio"), "true");
+            try {
+                appealService.create(appeal);
+            } catch (IOException | SAXException e) {
+                e.printStackTrace();
+                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            }
+        }
+
+        boolean notified = appealService.notifyOffical(ID);
+
+        if (notified) {
+            return new ResponseEntity<>(HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
 }
