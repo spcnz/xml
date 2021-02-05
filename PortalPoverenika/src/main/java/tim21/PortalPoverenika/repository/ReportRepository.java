@@ -31,12 +31,13 @@ public class ReportRepository {
             String id = IdGenerator.generate();
 
             Map<QName, String> attrributes = report.getOtherAttributes();
-            attrributes.put(new QName("xsmlns"), "http://www.izvestaj.com");
+
             attrributes.put(new QName("id"), id);
             attrributes.put(new QName("about"), "http://izvestaji/" + id);
             attrributes.put(new QName("property"), "pred:submitDate");
 
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+            SimpleDateFormat sdf =  new SimpleDateFormat("yyyy-MM-dd");
             String datum = sdf.format(new Date());
             attrributes.put(new QName("content"), datum);
             if(existManager.store(REPORT_COLLECTION_URI, id, report, "izvestaji")) {

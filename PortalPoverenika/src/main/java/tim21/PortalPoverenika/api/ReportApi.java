@@ -62,6 +62,7 @@ public class ReportApi {
         List<String> filterVals = Arrays.asList(submitDate);
         try {
             res = metaDataService.filter("izvestaji", filterVals);
+
             for (String key : res) {
                 String id = key.split("izvestaji")[1].substring(1);    // format keya je http://zalbe/234213123
                 reports.add(reportService.getOne(id ));

@@ -39,7 +39,7 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class TResponse {
 
-    @XmlElement(required = true)
+    @XmlElement(required = true, namespace = "http://www.izvestaj.com")
     protected String status;
 
     /**

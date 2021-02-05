@@ -1,10 +1,7 @@
 
 package tim21.PortalVlasti.model.report;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 
 
 /**
@@ -37,9 +34,10 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "TResponse", propOrder = {
     "status"
 })
+@XmlRootElement(name = "response")
 public class TResponse {
 
-    @XmlElement(required = true)
+    @XmlElement(required = true, namespace = "http://www.izvestaj.com")
     protected String status;
 
     /**

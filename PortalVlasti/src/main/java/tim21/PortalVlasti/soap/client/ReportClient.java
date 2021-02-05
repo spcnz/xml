@@ -19,28 +19,18 @@ public class ReportClient extends WebServiceGatewaySupport {
                         new SoapActionCallback(
                                 "http://www.izvestaj.com/ws/getAppealStats"));
 
-        System.out.println(res.getPravnoLice().getBrojZalbiCutanje());
-
-        System.out.println(res.getFizickoLice().getBrojZalbiCutanje());
-
-        System.out.println(res.getFizickoLice().getBrojZahteva());
-
-        System.out.println(res.getPravnoLice().getBrojZalbiCutanje());
-        System.out.println(res.getPravnoLice().getBrojZahteva());
         return res;
     }
 
     public TResponse submitReport(TIzvestaj report){
 
-
         TResponse res = (TResponse) getWebServiceTemplate()
                 .marshalSendAndReceive("http://localhost:8080/ws/report", report,
                         new SoapActionCallback(
-                                "http://www.report.com/ws/submitReport"));
+                                "http://www.izvestaj.com/ws/submitReport"));
 
         System.out.println("OVOOO VRACA " + res.getStatus());
         return res;
-
     }
 
 }

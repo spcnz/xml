@@ -12,7 +12,7 @@
     </wsdl:types>
 
     <wsdl:message name="postReportRequest">
-        <wsdl:part name="izvestaj" type="tns:TIzvestaj" />
+        <wsdl:part name="Izvestaj" type="tns:TIzvestaj" />
     </wsdl:message>
     <wsdl:message name="postReportResponse">
         <wsdl:part name="response" type="tns:TResponse" />

@@ -23,6 +23,7 @@ public class XSDConstants {
         map.put(RESCRIPT, "classpath:xsd/resenje.xsd");
         map.put(DECISION_APPEAL, "classpath:xsd/zalbanaodluku.xsd");
         map.put(SILENCE_APPEAL, "classpath:xsd/zalbacutanje.xsd");
+        map.put(REPORT, "classpath:xsd/izvestaj.xsd");
         xsdPathMap = Collections.unmodifiableMap(map);
     }
 

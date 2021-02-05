@@ -1,8 +1,8 @@
 package tim21.PortalVlasti.util.rdf;
 
-import com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl;
-import org.xml.sax.SAXException;
 
+import org.apache.xalan.xsltc.trax.TransformerFactoryImpl;
+import org.xml.sax.SAXException;
 import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerException;
