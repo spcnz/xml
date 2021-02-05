@@ -22,6 +22,7 @@ import tim21.PortalPoverenika.service.MetaDataService;
 import tim21.PortalPoverenika.model.user.User;
 import tim21.PortalPoverenika.service.RescriptService;
 import tim21.PortalPoverenika.soap.client.MailClient;
+import tim21.PortalPoverenika.soap.client.RescriptClient;
 import tim21.PortalPoverenika.soap.dto.MailRequest;
 
 import javax.xml.bind.JAXBException;
@@ -50,20 +51,38 @@ public class RescriptApi {
     @Autowired
     MetaDataService metaDataService;
 
+    @Autowired
+    RescriptClient rescriptClient;
+
     @RequestMapping( method = RequestMethod.POST, consumes = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<?> createRescript(@RequestBody ResenjeRoot rescript)  {
         //proveri da li postoji zalba
         //proveri da li postoji odgovor na zalbu tj da li zahtev ima neki status izmenjenn
-        //kreiraj resenje
-        //prebaci u pdf
-        //posalji na mejl
-        //posalji preko soap
+
+
 
 
         rescript = rescriptService.create(rescript);
-        if (rescript != null){
-            return new ResponseEntity<>(rescript, HttpStatus.CREATED);
+        if (rescript == null){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
+
+        Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
+        marshaller.setContextPath("tim21.PortalPoverenika.model.rescript");
+
+        rescriptClient.setDefaultUri(env.getProperty("portal_vlasti"));
+        rescriptClient.setMarshaller(marshaller);
+
+        Jaxb2Marshaller unmarshaller = new Jaxb2Marshaller();
+        unmarshaller.setContextPath("tim21.PortalPoverenika.soap.dto");
+        rescriptClient.setUnmarshaller(unmarshaller);
+        boolean submited = rescriptClient.submitRescript(rescript.getResenje());
+
+        if (submited) {
+            return new ResponseEntity<>(rescript, HttpStatus.CREATED);
+
+        }
+
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 

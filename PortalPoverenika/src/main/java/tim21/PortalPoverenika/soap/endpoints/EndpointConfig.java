@@ -45,12 +45,6 @@ public class EndpointConfig {
         return endpoint;
     }
 
-    @Bean
-    public Endpoint rescriptEndpoint() {
-        EndpointImpl endpoint = new EndpointImpl(bus, rescriptServiceSoapBinding);
-        endpoint.publish("/rescript");
-        return endpoint;
-    }
 
     @Bean
     public Endpoint reportEndpoint() {

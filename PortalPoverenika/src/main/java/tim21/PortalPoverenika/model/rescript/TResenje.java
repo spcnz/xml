@@ -3,13 +3,7 @@ package tim21.PortalPoverenika.model.rescript;
 
 import java.util.HashMap;
 import java.util.Map;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAnyAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.XmlValue;
+import javax.xml.bind.annotation.*;
 import javax.xml.datatype.XMLGregorianCalendar;
 import javax.xml.namespace.QName;
 import tim21.PortalPoverenika.model.shared.TOsoba;
@@ -84,6 +78,7 @@ import tim21.PortalPoverenika.model.shared.TOsoba;
     "obrazlozenje",
     "poverenik"
 })
+@XmlRootElement(name="Resenje")
 public class TResenje {
 
     @XmlElement(name = "ID", required = true)

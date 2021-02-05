@@ -44,13 +44,7 @@
     </xs:simpleType>
     <xs:complexType name="TResenje">
         <xs:sequence>
-            <xs:element name="ID">
-                <xs:simpleType>
-                    <xs:restriction base="xs:string">
-                        <xs:pattern value="\d{3}-\d{2}-\d{4}/\d{4}-\d{2}"/>
-                    </xs:restriction>
-                </xs:simpleType>
-            </xs:element>
+            <xs:element name="ID" type="xs:string"> </xs:element>
             <xs:element name="Datum">
                 <xs:complexType>
                     <xs:simpleContent>

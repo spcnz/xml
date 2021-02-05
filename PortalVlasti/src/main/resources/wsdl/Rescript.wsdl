@@ -34,7 +34,7 @@
     <wsdl:binding name="RescriptServiceSoapBinding" type="tns:RescriptServicePortType">
         <soap:binding style="document"  transport="http://schemas.xmlsoap.org/soap/http" />
         <wsdl:operation name="submitRescript">
-            <soap:operation soapAction="http://www.resenje.com/ws/getRescriptById" />
+            <soap:operation soapAction="http://www.resenje.com/ws/submitRescript" />
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>

@@ -20,7 +20,7 @@ import javax.xml.bind.annotation.XmlSeeAlso;
 @SOAPBinding(parameterStyle = SOAPBinding.ParameterStyle.BARE)
 public interface RescriptServicePortType {
 
-    @WebMethod(action = "http://www.resenje.com/ws/getRescriptById")
+    @WebMethod(action = "http://www.resenje.com/ws/submitRescript")
     @WebResult(name = "response", targetNamespace = "", partName = "response")
     public tim21.PortalVlasti.soap.dto.TResponse submitRescript(
         @WebParam(partName = "Resenje", name = "Resenje", targetNamespace = "")

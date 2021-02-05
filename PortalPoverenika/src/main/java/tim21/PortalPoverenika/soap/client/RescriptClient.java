@@ -1,21 +1,24 @@
 package tim21.PortalPoverenika.soap.client;
 
 
+import org.springframework.stereotype.Service;
 import org.springframework.ws.client.core.support.WebServiceGatewaySupport;
 import org.springframework.ws.soap.client.core.SoapActionCallback;
-import tim21.PortalPoverenika.soap.dto.MailRequest;
+import tim21.PortalPoverenika.model.rescript.ResenjeRoot;
+import tim21.PortalPoverenika.model.rescript.TResenje;
 import tim21.PortalPoverenika.soap.dto.TResponse;
 
 
-public class MailClient extends WebServiceGatewaySupport {
+@Service
+public class RescriptClient extends WebServiceGatewaySupport {
 
-    public boolean sendMail(MailRequest request) {
+    public boolean submitRescript(TResenje rescript) {
 
-        String uri = "http://localhost:8094/ws/mail";
+        String uri = "http://localhost:8083/ws/rescript";
         TResponse response = (TResponse) getWebServiceTemplate()
-                .marshalSendAndReceive(uri, request,
+                .marshalSendAndReceive(uri, rescript,
                         new SoapActionCallback(
-                                "http://www.mail.com/ws/sendEmail"));
+                                "http://www.resenje.com/ws/submitRescript"));
 
         if (response.getStatus().equals("SUCCESS")) {
             return true;
