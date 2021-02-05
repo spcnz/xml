@@ -30,7 +30,7 @@ public class RequestService {
     public ZahtevRoot create(ZahtevRoot request, String submitterId) throws IOException, SAXException {
 
 
-        if (Validator.validate(request.getClass(), request)){
+        if (Validator.validate(request.getClass(), request)) {
 
             return requestRepository.create(request, submitterId);
         }
@@ -80,21 +80,21 @@ public class RequestService {
         return request;
     }
 
-    public boolean rejectRequest(String id) {
+    public ZahtevRoot rejectRequest(String id) {
         ZahtevRoot request = getOne(id);
         if (request == null) {
-            return false;
+            return null;
         }
 
         try {
             requestRepository.reject(request);
 
-            return true;
+            return request;
         } catch (Exception e) {
             e.printStackTrace();
 
-            return false;
+            return null;
         }
-
+        
     }
 }

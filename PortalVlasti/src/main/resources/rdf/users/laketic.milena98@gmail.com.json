@@ -1,0 +1,13 @@
+{
+  "@id" : "file:///C:/Users/bekim/Desktop/xml/PortalVlasti/src/main/resources/rdf/users/laketic.milena98@gmail.com.rdf",
+  "email" : "laketic.milena98@gmail.com",
+  "@context" : {
+    "email" : {
+      "@id" : "http://www.tim21.com/predicate/email",
+      "@type" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"
+    },
+    "rdf" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "pred" : "http://www.tim21.com/predicate/",
+    "h" : "http://www.w3.org/1999/xhtml"
+  }
+}

@@ -24,9 +24,6 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _Mail_QNAME = new QName("http://www.mail.com", "mail");
-    private final static QName _Response_QNAME = new QName("http://www.mail.com", "Response");
-
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.mail
      * 
@@ -54,14 +51,5 @@ public class ObjectFactory {
      * Create an instance of {@link JAXBElement }{@code <}{@link tim21.PortalVlasti.soap.dto.MailRequest }{@code >}}
      * 
      */
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link tim21.PortalVlasti.soap.dto.TResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://www.mail.com", name = "response")
-    public JAXBElement<tim21.PortalVlasti.soap.dto.TResponse> createResponse(tim21.PortalVlasti.soap.dto.TResponse value) {
-        return new JAXBElement<tim21.PortalVlasti.soap.dto.TResponse>(_Response_QNAME, tim21.PortalVlasti.soap.dto.TResponse.class, null, value);
-    }
 
 }
