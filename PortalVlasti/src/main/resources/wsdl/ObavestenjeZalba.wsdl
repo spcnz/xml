@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  targetNamespace="http://www.zalbaobavestenje.com"
+                  xmlns:tns="http://www.zalbaobavestenje.com"
+                  xmlns:ma="http://www.mail.com"
+                  name="AppealAnnouncementService">
+    <wsdl:types>
+        <xsd:schema>
+            <xsd:import namespace="http://www.zalbaobavestenje.com" schemaLocation="../xsd/ObavestenjeZalba.xsd"/>
+            <xsd:import namespace="http://www.mail.com" schemaLocation="../xsd/mailReq.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+
+    <wsdl:message name="submitAppealAnnouncementRequest">
+        <wsdl:part name="ObZalbaDokument" type="tns:TObZalbaDokument" />
+    </wsdl:message>
+    <wsdl:message name="submitAppealAnnouncementResponse">
+        <wsdl:part name="response" type="ma:TResponse" />
+    </wsdl:message>
+
+
+    <wsdl:portType name="AppealAnnouncementServicePortType">
+        <wsdl:operation name="submitAppealAnnouncemenet">
+            <wsdl:input message="tns:submitAppealAnnouncementRequest" />
+            <wsdl:output message="tns:submitAppealAnnouncementResponse" />
+        </wsdl:operation>
+
+    </wsdl:portType>
+
+    <wsdl:binding name="AppealAnnoucServiceSoapBinding" type="tns:AppealAnnouncementServicePortType">
+        <soap:binding style="document"  transport="http://schemas.xmlsoap.org/soap/http" />
+        <wsdl:operation name="submitAppealAnnouncemenet">
+            <soap:operation soapAction="http://www.zalbaobavestenje.com/ws/submitAppealAnnouncemenet" />
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+
+    </wsdl:binding>
+    <wsdl:service name="AppealAnnouncementService">
+        <wsdl:port name="AppealAnnoucServiceSoapBinding" binding="tns:AppealAnnoucServiceSoapBinding">
+            <soap:address location="http://localhost:8083/AppealAnnouncementPort" />
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

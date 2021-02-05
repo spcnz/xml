@@ -11,4 +11,7 @@ public class DBConstants {
     //soap
     public static final String RESCRIPT_COLLECTION_URI = "db/vlast/xml/resenja";
 
+    //soap
+    public static final String APPEAL_ANNOUNCEMENT_COLLECTION_URI = "db/vlast/xml/zalbeObavestenja";
+
 }

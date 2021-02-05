@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObavestenjeZalba xmlns="http://www.zalbaobavestenje.com"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.zalbaobavestenje.com file:/C:/Users/bekim/Desktop/xml/PortalVlasti/src/main/resources/xsd/ObavestenjeZalba.xsd">
+    <ObZalbaDokument>
+        <ID_Zalbe>50</ID_Zalbe>
+        <Tip>ZALBA NA CUTANJE</Tip>
+        <Opis>Opis0</Opis>
+    </ObZalbaDokument>
+</ObavestenjeZalba>
