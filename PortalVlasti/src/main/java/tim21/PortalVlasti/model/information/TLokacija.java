@@ -1,8 +1,6 @@
 
 package tim21.PortalVlasti.model.information;
 
-import tim21.PortalVlasti.model.shared.*;
-
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.JAXBElement;
@@ -41,8 +39,8 @@ import javax.xml.bind.annotation.XmlType;
 public class TLokacija {
 
     @XmlElementRefs({
-        @XmlElementRef(name = "Broj_kancelarije", namespace = "http://www.obavestenje.com", type = JAXBElement.class),
-        @XmlElementRef(name = "Adresa", namespace = "http://www.shared.com", type = Adresa.class)
+        @XmlElementRef(name = "Adresa", namespace = "http://www.shared.com", type = Adresa.class),
+        @XmlElementRef(name = "Broj_kancelarije", namespace = "http://www.obavestenje.com", type = JAXBElement.class)
     })
     @XmlMixed
     protected List<Object> content;

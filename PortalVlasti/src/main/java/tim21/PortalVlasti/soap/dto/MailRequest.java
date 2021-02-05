@@ -1,7 +1,10 @@
 
 package tim21.PortalVlasti.soap.dto;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
 
 
 /**
@@ -35,19 +38,20 @@ import javax.xml.bind.annotation.*;
     "content",
     "file"
 })
-@XmlRootElement(name="mail")
 public class MailRequest {
 
-    @XmlElement(name = "From", required = true, namespace = "http://www.mail.com")
+    @XmlElement(name = "From", required = true)
     protected String from;
-    @XmlElement(name = "To", required = true,  namespace = "http://www.mail.com")
+    @XmlElement(name = "To", required = true)
     protected String to;
-    @XmlElement(name = "Subject", required = true,  namespace = "http://www.mail.com")
+    @XmlElement(name = "Subject", required = true)
     protected String subject;
-    @XmlElement(name = "Content", required = true,  namespace = "http://www.mail.com")
+    @XmlElement(name = "Content", required = true)
     protected String content;
-    @XmlElement(name = "File", required = true,  namespace = "http://www.mail.com")
+    @XmlElement(name = "File", required = true)
     protected Object file;
+    @XmlElement(name = "Html", required = true)
+    protected Object html;
 
     /**
      * Gets the value of the from property.
@@ -168,5 +172,22 @@ public class MailRequest {
     public void setFile(Object value) {
         this.file = value;
     }
+
+    public Object getHtml() {
+        return html;
+    }
+
+    /**
+     * Sets the value of the file property.
+     *
+     * @param value
+     *     allowed object is
+     *     {@link Object }
+     *
+     */
+    public void setHtml(Object value) {
+        this.html = value;
+    }
+
 
 }

@@ -1,8 +1,6 @@
 
 package tim21.PortalVlasti.model.information;
 
-import tim21.PortalVlasti.model.shared.*;
-
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;
 import javax.xml.bind.annotation.XmlRegistry;
@@ -26,15 +24,6 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _ObavestenjeOrgan_QNAME = new QName("http://www.obavestenje.com", "Organ");
-    private final static QName _ObavestenjePodnaslov_QNAME = new QName("http://www.obavestenje.com", "Podnaslov");
-    private final static QName _ObavestenjeDostavljeno_QNAME = new QName("http://www.obavestenje.com", "Dostavljeno");
-    private final static QName _ObavestenjeOdgovor_QNAME = new QName("http://www.obavestenje.com", "Odgovor");
-    private final static QName _ObavestenjeBrojPredmeta_QNAME = new QName("http://www.obavestenje.com", "Broj_predmeta");
-    private final static QName _ObavestenjeNaslov_QNAME = new QName("http://www.obavestenje.com", "Naslov");
-    private final static QName _ObavestenjeDatum_QNAME = new QName("http://www.obavestenje.com", "Datum");
-    private final static QName _ObavestenjePodaciOPlacanju_QNAME = new QName("http://www.obavestenje.com", "Podaci_o_placanju");
-    private final static QName _ObavestenjePodnosilac_QNAME = new QName("http://www.obavestenje.com", "Podnosilac");
     private final static QName _TLokacijaBrojKancelarije_QNAME = new QName("http://www.obavestenje.com", "Broj_kancelarije");
 
     /**
@@ -42,14 +31,6 @@ public class ObjectFactory {
      * 
      */
     public ObjectFactory() {
-    }
-
-    /**
-     * Create an instance of {@link Obavestenje }
-     * 
-     */
-    public Obavestenje createObavestenje() {
-        return new Obavestenje();
     }
 
     /**
@@ -93,67 +74,43 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Obavestenje.PodaciOPlacanju }
+     * Create an instance of {@link TObavestenje }
      * 
      */
-    public Obavestenje.PodaciOPlacanju createObavestenjePodaciOPlacanju() {
-        return new Obavestenje.PodaciOPlacanju();
+    public TObavestenje createTObavestenje() {
+        return new TObavestenje();
     }
 
     /**
-     * Create an instance of {@link Obavestenje.PodaciOPlacanju.PojedinacniTroskovi }
+     * Create an instance of {@link TObavestenje.PodaciOPlacanju }
      * 
      */
-    public Obavestenje.PodaciOPlacanju.PojedinacniTroskovi createObavestenjePodaciOPlacanjuPojedinacniTroskovi() {
-        return new Obavestenje.PodaciOPlacanju.PojedinacniTroskovi();
+    public TObavestenje.PodaciOPlacanju createTObavestenjePodaciOPlacanju() {
+        return new TObavestenje.PodaciOPlacanju();
     }
 
     /**
-     * Create an instance of {@link Obavestenje.Odgovor }
+     * Create an instance of {@link TObavestenje.PodaciOPlacanju.PojedinacniTroskovi }
      * 
      */
-    public Obavestenje.Odgovor createObavestenjeOdgovor() {
-        return new Obavestenje.Odgovor();
+    public TObavestenje.PodaciOPlacanju.PojedinacniTroskovi createTObavestenjePodaciOPlacanjuPojedinacniTroskovi() {
+        return new TObavestenje.PodaciOPlacanju.PojedinacniTroskovi();
     }
 
     /**
-     * Create an instance of {@link Obavestenje.Organ }
+     * Create an instance of {@link TObavestenje.Odgovor }
      * 
      */
-    public Obavestenje.Organ createObavestenjeOrgan() {
-        return new Obavestenje.Organ();
+    public TObavestenje.Odgovor createTObavestenjeOdgovor() {
+        return new TObavestenje.Odgovor();
     }
 
     /**
-     * Create an instance of {@link Obavestenje.BrojPredmeta }
+     * Create an instance of {@link ObavestenjeRoot }
      * 
      */
-    public Obavestenje.BrojPredmeta createObavestenjeBrojPredmeta() {
-        return new Obavestenje.BrojPredmeta();
-    }
-
-    /**
-     * Create an instance of {@link Obavestenje.Datum }
-     * 
-     */
-    public Obavestenje.Datum createObavestenjeDatum() {
-        return new Obavestenje.Datum();
-    }
-
-    /**
-     * Create an instance of {@link Obavestenje.Podnosilac }
-     * 
-     */
-    public Obavestenje.Podnosilac createObavestenjePodnosilac() {
-        return new Obavestenje.Podnosilac();
-    }
-
-    /**
-     * Create an instance of {@link Obavestenje.Dostavljeno }
-     * 
-     */
-    public Obavestenje.Dostavljeno createObavestenjeDostavljeno() {
-        return new Obavestenje.Dostavljeno();
+    public ObavestenjeRoot createObavestenjeRoot() {
+        return new ObavestenjeRoot();
     }
 
     /**
@@ -269,132 +226,91 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Obavestenje.PodaciOPlacanju.UkupniTroskovi }
+     * Create an instance of {@link TObavestenje.Organ }
      * 
      */
-    public Obavestenje.PodaciOPlacanju.UkupniTroskovi createObavestenjePodaciOPlacanjuUkupniTroskovi() {
-        return new Obavestenje.PodaciOPlacanju.UkupniTroskovi();
+    public TObavestenje.Organ createTObavestenjeOrgan() {
+        return new TObavestenje.Organ();
     }
 
     /**
-     * Create an instance of {@link Obavestenje.PodaciOPlacanju.BrojRacuna }
+     * Create an instance of {@link TObavestenje.BrojPredmeta }
      * 
      */
-    public Obavestenje.PodaciOPlacanju.BrojRacuna createObavestenjePodaciOPlacanjuBrojRacuna() {
-        return new Obavestenje.PodaciOPlacanju.BrojRacuna();
+    public TObavestenje.BrojPredmeta createTObavestenjeBrojPredmeta() {
+        return new TObavestenje.BrojPredmeta();
     }
 
     /**
-     * Create an instance of {@link Obavestenje.PodaciOPlacanju.PozivNaBroj }
+     * Create an instance of {@link TObavestenje.Datum }
      * 
      */
-    public Obavestenje.PodaciOPlacanju.PozivNaBroj createObavestenjePodaciOPlacanjuPozivNaBroj() {
-        return new Obavestenje.PodaciOPlacanju.PozivNaBroj();
+    public TObavestenje.Datum createTObavestenjeDatum() {
+        return new TObavestenje.Datum();
     }
 
     /**
-     * Create an instance of {@link Obavestenje.PodaciOPlacanju.PojedinacniTroskovi.Trosak }
+     * Create an instance of {@link TObavestenje.Podnosilac }
      * 
      */
-    public Obavestenje.PodaciOPlacanju.PojedinacniTroskovi.Trosak createObavestenjePodaciOPlacanjuPojedinacniTroskoviTrosak() {
-        return new Obavestenje.PodaciOPlacanju.PojedinacniTroskovi.Trosak();
+    public TObavestenje.Podnosilac createTObavestenjePodnosilac() {
+        return new TObavestenje.Podnosilac();
     }
 
     /**
-     * Create an instance of {@link Obavestenje.Odgovor.GodinaZahteva }
+     * Create an instance of {@link TObavestenje.Dostavljeno }
      * 
      */
-    public Obavestenje.Odgovor.GodinaZahteva createObavestenjeOdgovorGodinaZahteva() {
-        return new Obavestenje.Odgovor.GodinaZahteva();
+    public TObavestenje.Dostavljeno createTObavestenjeDostavljeno() {
+        return new TObavestenje.Dostavljeno();
     }
 
     /**
-     * Create an instance of {@link Obavestenje.Odgovor.Datum }
+     * Create an instance of {@link TObavestenje.PodaciOPlacanju.UkupniTroskovi }
      * 
      */
-    public Obavestenje.Odgovor.Datum createObavestenjeOdgovorDatum() {
-        return new Obavestenje.Odgovor.Datum();
+    public TObavestenje.PodaciOPlacanju.UkupniTroskovi createTObavestenjePodaciOPlacanjuUkupniTroskovi() {
+        return new TObavestenje.PodaciOPlacanju.UkupniTroskovi();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Obavestenje.Organ }{@code >}}
+     * Create an instance of {@link TObavestenje.PodaciOPlacanju.BrojRacuna }
      * 
      */
-    @XmlElementDecl(namespace = "http://www.obavestenje.com", name = "Organ", scope = Obavestenje.class)
-    public JAXBElement<Obavestenje.Organ> createObavestenjeOrgan(Obavestenje.Organ value) {
-        return new JAXBElement<Obavestenje.Organ>(_ObavestenjeOrgan_QNAME, Obavestenje.Organ.class, Obavestenje.class, value);
+    public TObavestenje.PodaciOPlacanju.BrojRacuna createTObavestenjePodaciOPlacanjuBrojRacuna() {
+        return new TObavestenje.PodaciOPlacanju.BrojRacuna();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * Create an instance of {@link TObavestenje.PodaciOPlacanju.PozivNaBroj }
      * 
      */
-    @XmlElementDecl(namespace = "http://www.obavestenje.com", name = "Podnaslov", scope = Obavestenje.class)
-    public JAXBElement<String> createObavestenjePodnaslov(String value) {
-        return new JAXBElement<String>(_ObavestenjePodnaslov_QNAME, String.class, Obavestenje.class, value);
+    public TObavestenje.PodaciOPlacanju.PozivNaBroj createTObavestenjePodaciOPlacanjuPozivNaBroj() {
+        return new TObavestenje.PodaciOPlacanju.PozivNaBroj();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Obavestenje.Dostavljeno }{@code >}}
+     * Create an instance of {@link TObavestenje.PodaciOPlacanju.PojedinacniTroskovi.Trosak }
      * 
      */
-    @XmlElementDecl(namespace = "http://www.obavestenje.com", name = "Dostavljeno", scope = Obavestenje.class)
-    public JAXBElement<Obavestenje.Dostavljeno> createObavestenjeDostavljeno(Obavestenje.Dostavljeno value) {
-        return new JAXBElement<Obavestenje.Dostavljeno>(_ObavestenjeDostavljeno_QNAME, Obavestenje.Dostavljeno.class, Obavestenje.class, value);
+    public TObavestenje.PodaciOPlacanju.PojedinacniTroskovi.Trosak createTObavestenjePodaciOPlacanjuPojedinacniTroskoviTrosak() {
+        return new TObavestenje.PodaciOPlacanju.PojedinacniTroskovi.Trosak();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Obavestenje.Odgovor }{@code >}}
+     * Create an instance of {@link TObavestenje.Odgovor.GodinaZahteva }
      * 
      */
-    @XmlElementDecl(namespace = "http://www.obavestenje.com", name = "Odgovor", scope = Obavestenje.class)
-    public JAXBElement<Obavestenje.Odgovor> createObavestenjeOdgovor(Obavestenje.Odgovor value) {
-        return new JAXBElement<Obavestenje.Odgovor>(_ObavestenjeOdgovor_QNAME, Obavestenje.Odgovor.class, Obavestenje.class, value);
+    public TObavestenje.Odgovor.GodinaZahteva createTObavestenjeOdgovorGodinaZahteva() {
+        return new TObavestenje.Odgovor.GodinaZahteva();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Obavestenje.BrojPredmeta }{@code >}}
+     * Create an instance of {@link TObavestenje.Odgovor.Datum }
      * 
      */
-    @XmlElementDecl(namespace = "http://www.obavestenje.com", name = "Broj_predmeta", scope = Obavestenje.class)
-    public JAXBElement<Obavestenje.BrojPredmeta> createObavestenjeBrojPredmeta(Obavestenje.BrojPredmeta value) {
-        return new JAXBElement<Obavestenje.BrojPredmeta>(_ObavestenjeBrojPredmeta_QNAME, Obavestenje.BrojPredmeta.class, Obavestenje.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://www.obavestenje.com", name = "Naslov", scope = Obavestenje.class)
-    public JAXBElement<String> createObavestenjeNaslov(String value) {
-        return new JAXBElement<String>(_ObavestenjeNaslov_QNAME, String.class, Obavestenje.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Obavestenje.Datum }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://www.obavestenje.com", name = "Datum", scope = Obavestenje.class)
-    public JAXBElement<Obavestenje.Datum> createObavestenjeDatum(Obavestenje.Datum value) {
-        return new JAXBElement<Obavestenje.Datum>(_ObavestenjeDatum_QNAME, Obavestenje.Datum.class, Obavestenje.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Obavestenje.PodaciOPlacanju }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://www.obavestenje.com", name = "Podaci_o_placanju", scope = Obavestenje.class)
-    public JAXBElement<Obavestenje.PodaciOPlacanju> createObavestenjePodaciOPlacanju(Obavestenje.PodaciOPlacanju value) {
-        return new JAXBElement<Obavestenje.PodaciOPlacanju>(_ObavestenjePodaciOPlacanju_QNAME, Obavestenje.PodaciOPlacanju.class, Obavestenje.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Obavestenje.Podnosilac }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://www.obavestenje.com", name = "Podnosilac", scope = Obavestenje.class)
-    public JAXBElement<Obavestenje.Podnosilac> createObavestenjePodnosilac(Obavestenje.Podnosilac value) {
-        return new JAXBElement<Obavestenje.Podnosilac>(_ObavestenjePodnosilac_QNAME, Obavestenje.Podnosilac.class, Obavestenje.class, value);
+    public TObavestenje.Odgovor.Datum createTObavestenjeOdgovorDatum() {
+        return new TObavestenje.Odgovor.Datum();
     }
 
     /**
