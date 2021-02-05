@@ -1,0 +1,13 @@
+{
+  "@id" : "http://zalbeObavestenja/20210205171345",
+  "www.zalbaobavestenje.comannoncementForAppeal" : "file:///C:/Users/bekim/Desktop/xml/PortalVlasti/src/main/resources/rdf/zalbeObavestenja/50",
+  "@context" : {
+    "www.zalbaobavestenje.comannoncementForAppeal" : {
+      "@id" : "http://www.zalbaobavestenje.comannoncementForAppeal",
+      "@type" : "@id"
+    },
+    "rdf" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "h" : "http://www.w3.org/1999/xhtml",
+    "ns0" : "http://www.zalbaobavestenje.com"
+  }
+}

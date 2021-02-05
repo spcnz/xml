@@ -3,6 +3,8 @@ package tim21.PortalPoverenika.service;
 import com.sun.xml.internal.ws.protocol.xml.XMLMessageException;
 import org.codehaus.stax2.validation.XMLValidationException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
+import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 import org.springframework.stereotype.Service;
 import org.xml.sax.SAXException;
 import org.xmldb.api.base.ResourceIterator;
@@ -13,6 +15,9 @@ import tim21.PortalPoverenika.model.decisionAppeal.ZalbaRoot;
 import tim21.PortalPoverenika.model.lists.DecisionAppealList;
 import tim21.PortalPoverenika.model.lists.RescriptList;
 import tim21.PortalPoverenika.repository.DecisionAppealRepository;
+import tim21.PortalPoverenika.soap.client.AppealAnnouncementClient;
+import tim21.PortalPoverenika.soap.dto.appealAnnouncement.ObavestenjeZalba;
+import tim21.PortalPoverenika.soap.dto.appealAnnouncement.TObZalbaDokument;
 import tim21.PortalPoverenika.util.Validator;
 import tim21.PortalPoverenika.util.ViolationException;
 
@@ -20,6 +25,7 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import java.io.IOException;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,6 +39,13 @@ public class DecisionAppealService {
     @Autowired
     RescriptService rescriptService;
 
+
+    @Autowired
+    AppealAnnouncementClient announcementClient;
+
+
+    @Autowired
+    private Environment env;
 
     public ZalbaRoot create(ZalbaRoot appeal) throws IOException, SAXException {
 
@@ -133,6 +146,28 @@ public class DecisionAppealService {
         }
         return new DecisionAppealList(appeals);
     }
+
+    public boolean notifyOffical(String appealID) {
+        Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
+        marshaller.setContextPath("tim21.PortalPoverenika.soap.dto.appealAnnouncement");
+
+        announcementClient.setDefaultUri(env.getProperty("portal_vlasti"));
+        announcementClient.setMarshaller(marshaller);
+
+        Jaxb2Marshaller unmarshaller = new Jaxb2Marshaller();
+        unmarshaller.setContextPath("tim21.PortalPoverenika.soap.dto");
+        announcementClient.setUnmarshaller(unmarshaller);
+
+        ObavestenjeZalba announce = new ObavestenjeZalba();
+        TObZalbaDokument announceBody = new TObZalbaDokument();
+        announceBody.setIDZalbe(new BigInteger(appealID));
+        announceBody.setOpis("Pristigla je zalba na odluku." );
+        announceBody.setTip("ZALBA NA ODLUKU");
+        announce.setObZalbaDokument(announceBody);
+
+        return announcementClient.announceAboutAppeal(announce.getObZalbaDokument());
+    }
+
 
 
 }

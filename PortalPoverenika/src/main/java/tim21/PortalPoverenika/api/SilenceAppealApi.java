@@ -1,15 +1,18 @@
 package tim21.PortalPoverenika.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
+import org.xml.sax.SAXException;
 import org.xmldb.api.base.XMLDBException;
 import tim21.PortalPoverenika.model.decisionAppeal.ZalbaRoot;
 import tim21.PortalPoverenika.model.silenceAppeal.ZalbaCutanjeRoot;
@@ -18,13 +21,18 @@ import tim21.PortalPoverenika.model.lists.SilenceAppealList;
 import tim21.PortalPoverenika.model.user.User;
 import tim21.PortalPoverenika.service.MetaDataService;
 import tim21.PortalPoverenika.service.SilenceAppealService;
+import tim21.PortalPoverenika.soap.client.AppealAnnouncementClient;
+import tim21.PortalPoverenika.soap.dto.appealAnnouncement.ObavestenjeZalba;
+import tim21.PortalPoverenika.soap.dto.appealAnnouncement.TObZalbaDokument;
 import tim21.PortalPoverenika.util.ViolationException;
 import tim21.PortalPoverenika.util.mappers.DecisionAppealMapper;
 import tim21.PortalPoverenika.util.mappers.SilenceAppealMapper;
 
 import javax.xml.bind.JAXBException;
+import javax.xml.namespace.QName;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.math.BigInteger;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -200,6 +208,28 @@ public class SilenceAppealApi {
         } catch (XMLDBException | JAXBException e) {
             e.printStackTrace();
             return new ResponseEntity(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @RequestMapping( value="/notify/{ID}",method = RequestMethod.GET, consumes = MediaType.APPLICATION_XML_VALUE)
+    public ResponseEntity<?> informOfficial(@PathVariable String ID)  {
+
+        //proveri jel postoji zalba
+        ZalbaCutanjeRoot appealSilence = appealService.getOne(ID);
+
+        if (appealSilence == null) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        } else {
+            appealSilence.getOtherAttributes().put(new QName("obavestio"), "true");
+            appealService.create(appealSilence);
+        }
+
+        boolean notified = appealService.notifyOffical(ID);
+
+        if (notified) {
+            return new ResponseEntity<>(HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
 
