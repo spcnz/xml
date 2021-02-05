@@ -6,8 +6,10 @@
 
 package tim21.PortalPoverenika.soap.service.report;
 
+import org.apache.xmlrpc.webserver.ServletWebServer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.xml.sax.SAXException;
 import tim21.PortalPoverenika.model.report.IzvestajRoot;
 import tim21.PortalPoverenika.model.report.TIzvestaj;
 import tim21.PortalPoverenika.model.report.TResponse;
@@ -17,6 +19,7 @@ import tim21.PortalPoverenika.service.MetaDataService;
 import tim21.PortalPoverenika.service.SilenceAppealService;
 import tim21.PortalPoverenika.service.ReportDataService;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
@@ -57,7 +60,7 @@ public class ReportServiceSoapBindingImpl implements ReportServicePortType {
     SilenceAppealService silenceAppealService;
 
     @Autowired
-    ReportRepository reportRepository;
+    ReportDataService reportService;
 
     /* (non-Javadoc)
      * @see com.izvestaj.ReportServicePortType#getAppealStats(javax.xml.datatype.XMLGregorianCalendar year)*
@@ -81,8 +84,7 @@ public class ReportServiceSoapBindingImpl implements ReportServicePortType {
             ret.getFizickoLice().setBrojZalbiCutanje(silKeys.size());
 
             ret.getPravnoLice().setBrojZalbiOdluka(decKeysPravno.size());
-            //ovo sam izmenila da mi nesto radi, nz sto su sve nule
-            ret.getPravnoLice().setBrojZalbiCutanje(10);
+            ret.getPravnoLice().setBrojZalbiCutanje(0);
 
             return ret;
         } catch (Exception ex) {
@@ -96,10 +98,15 @@ public class ReportServiceSoapBindingImpl implements ReportServicePortType {
      */
     public TResponse submitReport(TIzvestaj izvestaj) {
         LOG.info("Executing operation submitReport");
-        System.out.println("SAD SUBNIT");
+
         IzvestajRoot izvestajRoot = new IzvestajRoot();
         izvestajRoot.setIzvestaj(izvestaj);
-        IzvestajRoot ret = reportRepository.create(izvestajRoot);
+
+        try {
+            IzvestajRoot ret = reportService.create(izvestajRoot);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         TResponse _return = new TResponse();
         try {

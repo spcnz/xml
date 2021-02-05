@@ -60,9 +60,9 @@ import javax.xml.bind.annotation.XmlType;
 }, namespace = "http://www.izvestaj.com")
 public class TIzvestaj {
 
-    @XmlElement(name = "FizickoLice", required = true)
+    @XmlElement(name = "FizickoLice", required = true, namespace = "http://www.izvestaj.com")
     protected TIzvestaj.FizickoLice fizickoLice;
-    @XmlElement(name = "PravnoLice", required = true)
+    @XmlElement(name = "PravnoLice", required = true, namespace = "http://www.izvestaj.com")
     protected TIzvestaj.PravnoLice pravnoLice;
 
     /**
@@ -145,13 +145,13 @@ public class TIzvestaj {
     })
     public static class FizickoLice {
 
-        @XmlElement(name = "BrojZahteva")
+        @XmlElement(name = "BrojZahteva", namespace = "http://www.izvestaj.com")
         protected int brojZahteva;
-        @XmlElement(name = "BrojOdbijenihZahteva")
+        @XmlElement(name = "BrojOdbijenihZahteva", namespace = "http://www.izvestaj.com")
         protected int brojOdbijenihZahteva;
-        @XmlElement(name = "BrojZalbiOdluka")
+        @XmlElement(name = "BrojZalbiOdluka", namespace = "http://www.izvestaj.com")
         protected int brojZalbiOdluka;
-        @XmlElement(name = "BrojZalbiCutanje")
+        @XmlElement(name = "BrojZalbiCutanje", namespace = "http://www.izvestaj.com")
         protected int brojZalbiCutanje;
 
         /**

@@ -100,7 +100,6 @@ public class DecisionAppealApi {
                 String id = key.split("zalbe")[1].substring(1);    // format keya je http://zalbe/234213123
                 appeals.add(appealService.getOne(id));
             }
-
             DecisionAppealList response = new DecisionAppealList(appeals);
             return new ResponseEntity(response, HttpStatus.OK);
         } catch (IOException e) {

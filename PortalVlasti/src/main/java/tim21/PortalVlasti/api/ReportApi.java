@@ -20,6 +20,7 @@ import tim21.PortalVlasti.model.report.TIzvestaj;
 import tim21.PortalVlasti.model.report.TResponse;
 import tim21.PortalVlasti.service.MetaDataService;
 import tim21.PortalVlasti.service.ReportDataService;
+import tim21.PortalVlasti.service.RequestService;
 import tim21.PortalVlasti.soap.client.ReportClient;
 
 import javax.xml.bind.JAXBException;
@@ -39,6 +40,9 @@ public class ReportApi {
 
     @Autowired
     ReportDataService reportService;
+
+    @Autowired
+    RequestService requestService;
 
     @Autowired
     MetaDataService metaDataService;
@@ -62,7 +66,7 @@ public class ReportApi {
     }
 
     @RequestMapping(value = "/submit", method = RequestMethod.GET)
-    public ResponseEntity<?> submitReport() {
+    public ResponseEntity<?> submitReport() throws XMLDBException, JAXBException {
 
 
         Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
@@ -73,11 +77,14 @@ public class ReportApi {
         soapClient.setUnmarshaller(marshaller);
 
         TIzvestaj report = soapClient.getAppealStats();
-        //ovo napraavi da radi :(
-        // TResponse sus = soapClient.submitReport(report);
+        //report.getFizickoLice().setBrojZahteva(requestService.getAll().getRequests().size());
+        report.getFizickoLice().setBrojZahteva(13);
 
+        System.out.println("BROJ ZAH " + report.getFizickoLice().getBrojZahteva());
 
-        return new ResponseEntity<>(HttpStatus.OK);
+        TResponse sus = soapClient.submitReport(report);
+
+        return new ResponseEntity<>(sus.getStatus(), HttpStatus.OK);
 
     }
 
