@@ -93,6 +93,16 @@ public class RequestRepository {
         }
     }
 
+    public boolean accept(ZahtevRoot request) throws Exception {
+        request.getOtherAttributes().put(new QName("status"), REQUEST_STATUS.ACCEPTED.label);
+        if(existManager.store(REQUEST_COLLECTION_URI, request.getOtherAttributes().get(new QName("id")), request, "zahtevi")){
+            return true;
+        }
+
+        return false;
+    }
+
+
     public boolean reject(ZahtevRoot request) throws Exception {
         request.getOtherAttributes().put(new QName("status"), REQUEST_STATUS.REJECTED.label);
         if(existManager.store(REQUEST_COLLECTION_URI, request.getOtherAttributes().get(new QName("id")), request, "zahtevi")){
