@@ -1,6 +1,10 @@
 package tim21.PortalVlasti.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 import org.springframework.stereotype.Service;
 import org.xml.sax.SAXException;
 import org.xmldb.api.base.ResourceIterator;
@@ -11,6 +15,7 @@ import tim21.PortalVlasti.model.report.IzvestajRoot;
 import tim21.PortalVlasti.model.report.ReportList;
 import tim21.PortalVlasti.model.report.TIzvestaj;
 import tim21.PortalVlasti.repository.ReportRepository;
+import tim21.PortalVlasti.soap.client.ReportClient;
 import tim21.PortalVlasti.util.Validator;
 
 import javax.xml.bind.JAXBContext;
@@ -26,6 +31,14 @@ public class ReportDataService {
     @Autowired
     ReportRepository reportRepository;
 
+    @Autowired
+    ReportClient soapClient;
+
+    @Autowired
+    RequestService requestService;
+
+    @Autowired
+    private Environment env;
 
     public IzvestajRoot create(IzvestajRoot report) throws IOException, SAXException {
         System.out.println("SAD VALIDIRA  " );
@@ -40,6 +53,26 @@ public class ReportDataService {
         root.setIzvestaj(old);
         return reportRepository.create(root);
 
+    }
+
+    public boolean submitReport() throws XMLDBException, JAXBException {
+        Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
+        marshaller.setContextPath("tim21.PortalVlasti.model.report");
+
+        soapClient.setDefaultUri(env.getProperty("portal_poverenika"));
+        soapClient.setMarshaller(marshaller);
+        soapClient.setUnmarshaller(marshaller);
+        TIzvestaj report = soapClient.getAppealStats();
+
+        report.getFizickoLice().setBrojZahteva(requestService.getAll().getRequests().size());
+        report.getFizickoLice().setBrojOdbijenihZahteva((int) requestService.getRejectedNumber());
+
+        try {
+            this.createFromOld(report);
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
     }
 
     public ReportList getAll() throws XMLDBException, JAXBException {

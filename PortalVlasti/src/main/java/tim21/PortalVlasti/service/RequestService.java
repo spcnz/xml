@@ -58,6 +58,26 @@ public class RequestService {
         return new RequestList(requests);
     }
 
+
+    public RequestList search(String keyword) throws XMLDBException, JAXBException {
+        List<ZahtevRoot> requests = new ArrayList<>();
+
+        ResourceSet resourceSet = null;
+        resourceSet = requestRepository.search(keyword);
+        ResourceIterator resourceIterator = resourceSet.getIterator();
+
+        while (resourceIterator.hasMoreResources()){
+            XMLResource xmlResource = (XMLResource) resourceIterator.nextResource();
+            if(xmlResource == null)
+                return null;
+            JAXBContext context = JAXBContext.newInstance(ZahtevRoot.class);
+            Unmarshaller unmarshaller = context.createUnmarshaller();
+            ZahtevRoot request = (ZahtevRoot) unmarshaller.unmarshal(xmlResource.getContentAsDOM());
+            requests.add(request);
+        }
+        return new RequestList(requests);
+    }
+
     public long getRejectedNumber() throws XMLDBException, JAXBException {
         return requestRepository.getRejectedNumber();
     }

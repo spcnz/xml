@@ -56,6 +56,15 @@ public class RequestRepository {
     }
 
 
+    public ResourceSet search(String keyword) throws XMLDBException {
+        try {
+            return existManager.search(REQUEST_COLLECTION_URI, keyword, REQUEST_TARGET_NAMESPACE, REQUEST);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     public XMLResource getOne(String ID) {
         try {
             return existManager.getOne(REQUEST_COLLECTION_URI, ID);
