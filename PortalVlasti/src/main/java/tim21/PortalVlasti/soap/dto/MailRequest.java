@@ -1,17 +1,14 @@
 
-package tim21.PortalVlasti.soap.dto;
+package tim21.PortalPoverenika.soap.dto;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 
 
 /**
  * <p>Java class for MailRequest complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="MailRequest"&gt;
  *   &lt;complexContent&gt;
@@ -27,39 +24,41 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "MailRequest", propOrder = {
-    "from",
-    "to",
-    "subject",
-    "content",
-    "file"
+        "from",
+        "to",
+        "subject",
+        "content",
+        "file",
+        "html"
 })
+@XmlRootElement(name="mail")
 public class MailRequest {
 
-    @XmlElement(name = "From", required = true)
+    @XmlElement(name = "From", required = true, namespace = "http://www.mail.com")
     protected String from;
-    @XmlElement(name = "To", required = true)
+    @XmlElement(name = "To", required = true,  namespace = "http://www.mail.com")
     protected String to;
-    @XmlElement(name = "Subject", required = true)
+    @XmlElement(name = "Subject", required = true,  namespace = "http://www.mail.com")
     protected String subject;
-    @XmlElement(name = "Content", required = true)
+    @XmlElement(name = "Content", required = true,  namespace = "http://www.mail.com")
     protected String content;
-    @XmlElement(name = "File", required = true)
+    @XmlElement(name = "File", required = true,  namespace = "http://www.mail.com")
     protected Object file;
-    @XmlElement(name = "Html", required = true)
+    @XmlElement(name = "Html", required = true,  namespace = "http://www.mail.com")
     protected Object html;
 
     /**
      * Gets the value of the from property.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link String }
-     *     
+     *
      */
     public String getFrom() {
         return from;
@@ -67,11 +66,11 @@ public class MailRequest {
 
     /**
      * Sets the value of the from property.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link String }
-     *     
+     *
      */
     public void setFrom(String value) {
         this.from = value;
@@ -79,11 +78,11 @@ public class MailRequest {
 
     /**
      * Gets the value of the to property.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link String }
-     *     
+     *
      */
     public String getTo() {
         return to;
@@ -91,11 +90,11 @@ public class MailRequest {
 
     /**
      * Sets the value of the to property.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link String }
-     *     
+     *
      */
     public void setTo(String value) {
         this.to = value;
@@ -103,11 +102,11 @@ public class MailRequest {
 
     /**
      * Gets the value of the subject property.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link String }
-     *     
+     *
      */
     public String getSubject() {
         return subject;
@@ -115,11 +114,11 @@ public class MailRequest {
 
     /**
      * Sets the value of the subject property.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link String }
-     *     
+     *
      */
     public void setSubject(String value) {
         this.subject = value;
@@ -127,11 +126,11 @@ public class MailRequest {
 
     /**
      * Gets the value of the content property.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link String }
-     *     
+     *
      */
     public String getContent() {
         return content;
@@ -139,11 +138,11 @@ public class MailRequest {
 
     /**
      * Sets the value of the content property.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link String }
-     *     
+     *
      */
     public void setContent(String value) {
         this.content = value;
@@ -151,11 +150,11 @@ public class MailRequest {
 
     /**
      * Gets the value of the file property.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link Object }
-     *     
+     *
      */
     public Object getFile() {
         return file;
@@ -163,11 +162,11 @@ public class MailRequest {
 
     /**
      * Sets the value of the file property.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link Object }
-     *     
+     *
      */
     public void setFile(Object value) {
         this.file = value;
@@ -188,6 +187,5 @@ public class MailRequest {
     public void setHtml(Object value) {
         this.html = value;
     }
-
 
 }

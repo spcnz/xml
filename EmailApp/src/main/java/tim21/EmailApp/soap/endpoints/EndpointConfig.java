@@ -20,7 +20,7 @@ public class EndpointConfig {
 
 
     @Bean
-    public Endpoint decisionAppealEndpoint() {
+    public Endpoint mailEndpoint() {
         EndpointImpl endpoint = new EndpointImpl(bus, mailServiceSoapBinding);
         endpoint.publish("/mail");
         return endpoint;

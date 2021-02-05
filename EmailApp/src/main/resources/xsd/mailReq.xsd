@@ -9,6 +9,7 @@
             <xs:element name="Subject" type="xs:string"/>
             <xs:element name="Content" type="xs:string"/>
             <xs:element name="File"/>
+            <xs:element name="Html"/>
         </xs:sequence>
     </xs:complexType>
     <xs:simpleType name="TEmail">

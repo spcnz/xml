@@ -42,6 +42,12 @@ public class EmailService {
                 helper.addAttachment("attachment.pdf", bds);
             }
 
+            if (request.getHtml() != null) {
+                ByteArrayDataSource bds = new ByteArrayDataSource((byte[]) request.getHtml(), "text/html");
+                System.out.println(bds);
+                helper.addAttachment("attachment.html", bds);
+            }
+
 
             mailSender.send(message);
             response.setStatus("SUCCESS");

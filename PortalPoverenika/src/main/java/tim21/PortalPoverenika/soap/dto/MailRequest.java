@@ -33,7 +33,8 @@ import javax.xml.bind.annotation.*;
     "to",
     "subject",
     "content",
-    "file"
+    "file",
+        "html"
 })
 @XmlRootElement(name="mail")
 public class MailRequest {
@@ -48,6 +49,8 @@ public class MailRequest {
     protected String content;
     @XmlElement(name = "File", required = true,  namespace = "http://www.mail.com")
     protected Object file;
+    @XmlElement(name = "Html", required = true,  namespace = "http://www.mail.com")
+    protected Object html;
 
     /**
      * Gets the value of the from property.
@@ -167,6 +170,22 @@ public class MailRequest {
      */
     public void setFile(Object value) {
         this.file = value;
+    }
+
+    public Object getHtml() {
+        return html;
+    }
+
+    /**
+     * Sets the value of the file property.
+     *
+     * @param value
+     *     allowed object is
+     *     {@link Object }
+     *
+     */
+    public void setHtml(Object value) {
+        this.html = value;
     }
 
 }
