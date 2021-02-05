@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import tim21.PortalPoverenika.soap.service.appealDeclaration.DeclareAppealServiceSoapBindingImpl;
 import tim21.PortalPoverenika.soap.service.decisionAppeal.DecisionAppealServiceSoapBindingImpl;
 import tim21.PortalPoverenika.soap.service.report.ReportServiceSoapBindingImpl;
 import tim21.PortalPoverenika.soap.service.rescript.RescriptServiceSoapBindingImpl;
@@ -31,6 +32,10 @@ public class EndpointConfig {
     @Autowired
     private ReportServiceSoapBindingImpl reportServiceSoapBinding;
 
+
+    @Autowired
+    private DeclareAppealServiceSoapBindingImpl declareAppealServiceSoapBinding;
+
     @Bean
     public Endpoint decisionAppealEndpoint() {
         EndpointImpl endpoint = new EndpointImpl(bus, decisionAppealServiceSoapBinding);
@@ -50,6 +55,13 @@ public class EndpointConfig {
     public Endpoint reportEndpoint() {
         EndpointImpl endpoint = new EndpointImpl(bus, reportServiceSoapBinding);
         endpoint.publish("/report");
+        return endpoint;
+    }
+
+    @Bean
+    public Endpoint appealDeclarationEndpoint() {
+        EndpointImpl endpoint = new EndpointImpl(bus, declareAppealServiceSoapBinding);
+        endpoint.publish("/declare");
         return endpoint;
     }
 }

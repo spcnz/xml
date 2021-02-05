@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<IzjasnjavanjeZalba xmlns="http://www.izjasnjavanjezalba.com"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.izjasnjavanjezalba.com file:/C:/Users/bekim/Desktop/xml/PortalPoverenika/src/main/resources/xsd/IzjasnjavanjeZalba.xsd">
+    <IzjasnjavanjeZalbaDokument>
+        <ID_Zalbe>50</ID_Zalbe>
+        <Odgovor>Odgovor0</Odgovor>
+    </IzjasnjavanjeZalbaDokument>
+</IzjasnjavanjeZalba>

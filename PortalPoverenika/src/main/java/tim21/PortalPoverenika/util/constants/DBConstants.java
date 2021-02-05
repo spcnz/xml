@@ -11,4 +11,7 @@ public class DBConstants {
 
     public static final String REPORT_COLLECTION_URI = "db/proverenik/xml/izvestaji";
 
+    //soap
+    public static final String APPEAL_DECLARATION_COLLECTION_URI = "db/proverenik/xml/izjasnjavanja";
+
 }

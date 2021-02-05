@@ -14,4 +14,6 @@ public class NamespaceConstants {
     public static final String USER_TARGET_NAMESPACE = "http://user.com";
 
 
+    //soap
+    public static final String APPEAL_DECLARATION_NAMESPACE = "http://www.izjasnjavanjezalba.com";
 }

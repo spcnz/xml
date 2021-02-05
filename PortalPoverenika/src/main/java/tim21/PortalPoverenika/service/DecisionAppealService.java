@@ -1,6 +1,5 @@
 package tim21.PortalPoverenika.service;
 
-import com.sun.xml.internal.ws.protocol.xml.XMLMessageException;
 import org.codehaus.stax2.validation.XMLValidationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;

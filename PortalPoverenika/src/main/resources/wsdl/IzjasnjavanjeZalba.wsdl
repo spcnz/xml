@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  targetNamespace="http://www.izjasnjavanjezalba.com"
+                  xmlns:tns="http://www.izjasnjavanjezalba.com"
+                  xmlns:ma="http://www.mail.com"
+                  name="DeclareAppealService">
+    <wsdl:types>
+        <xsd:schema>
+            <xsd:import namespace="http://www.izjasnjavanjezalba.com" schemaLocation="../xsd/IzjasnjavanjeZalba.xsd"/>
+            <xsd:import namespace="http://www.mail.com" schemaLocation="../xsd/mailReq.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+
+    <wsdl:message name="declareAboutAppealRequest">
+        <wsdl:part name="IzjasnjavanjeZalbaDokument" type="tns:TIzjasnjavanjeZalbaDok" />
+    </wsdl:message>
+    <wsdl:message name="declareAboutAppealResponse">
+        <wsdl:part name="response" type="ma:TResponse" />
+    </wsdl:message>
+
+
+    <wsdl:portType name="DeclareAppealServicePortType">
+        <wsdl:operation name="declareAboutAppeal">
+            <wsdl:input message="tns:declareAboutAppealRequest" />
+            <wsdl:output message="tns:declareAboutAppealResponse" />
+        </wsdl:operation>
+
+    </wsdl:portType>
+
+    <wsdl:binding name="DeclareAppealServiceSoapBinding" type="tns:DeclareAppealServicePortType">
+        <soap:binding style="document"  transport="http://schemas.xmlsoap.org/soap/http" />
+        <wsdl:operation name="declareAboutAppeal">
+            <soap:operation soapAction="http://www.izjasnjavanjezalba.com/ws/declareAppealService" />
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+
+    </wsdl:binding>
+    <wsdl:service name="DeclareAppealService">
+        <wsdl:port name="DeclareAppealServiceSoapBinding" binding="tns:DeclareAppealServiceSoapBinding">
+            <soap:address location="http://localhost:8083/DeclareAppealPort" />
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
