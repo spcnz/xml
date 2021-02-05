@@ -12,4 +12,7 @@ public class NamespaceConstants {
     public static final String REPORT_TARGET_NAMESPACE = "http://www.izvestaj.com";
 
 
+    public static final String RESCRIPT_TARGET_NAMESPACE = "http://www.resenje.com";
+
+
 }

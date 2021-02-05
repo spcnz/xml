@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://www.zalbaobavestenje.com" xmlns="http://www.zalbaobavestenje.com">
+
+    <xs:element name="ObavestenjeZalba">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="ObZalbaDokument" type="TObZalbaDokument"/>
+            </xs:sequence>
+            <xs:anyAttribute namespace="##any" processContents="lax"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="TObZalbaDokument">
+        <xs:sequence>
+            <xs:element name="ID_Zalbe" type="xs:positiveInteger"/>
+            <xs:element name="Tip">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="ZALBA NA CUTANJE"/>
+                        <xs:enumeration value="ZALBA NA ODLUKU"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Opis" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ObavestenjeZalbaList">
+        <xs:sequence>
+            <xs:any maxOccurs="unbounded" minOccurs="0" processContents="skip"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

@@ -4,40 +4,36 @@
                   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                   targetNamespace="http://www.resenje.com"
                   xmlns:tns="http://www.resenje.com"
+                  xmlns:ma="http://www.mail.com"
+                  xmlns:sh="http://www.shared.com"
                   name="RescriptService">
     <wsdl:types>
         <xsd:schema>
             <xsd:import namespace="http://www.resenje.com" schemaLocation="../xsd/resenje.xsd"/>
+            <xsd:import namespace="http://www.mail.com" schemaLocation="../xsd/mailReq.xsd"/>
+            <xsd:import namespace="http://www.shared.com" schemaLocation="../xsd/shared.xsd"/>
         </xsd:schema>
     </wsdl:types>
 
-    <wsdl:message name="getRescriptRequest">
-        <wsdl:part name="id" type="xsd:string" />
+    <wsdl:message name="submitRescriptRequest">
+        <wsdl:part name="Resenje" type="tns:TResenje" />
     </wsdl:message>
-    <wsdl:message name="getRescriptResponse">
-        <wsdl:part name="resenje" type="tns:TResenje" />
+    <wsdl:message name="submitRescriptResponse">
+        <wsdl:part name="response" type="ma:TResponse" />
     </wsdl:message>
 
-    <wsdl:message name="getAllRequest"/>
-    <wsdl:message name="getAllResponse">
-        <wsdl:part name="response" type="tns:RescriptList" />
-    </wsdl:message>
 
     <wsdl:portType name="RescriptServicePortType">
-        <wsdl:operation name="getRescriptById">
-            <wsdl:input message="tns:getRescriptRequest" />
-            <wsdl:output message="tns:getRescriptResponse" />
+        <wsdl:operation name="submitRescript">
+            <wsdl:input message="tns:submitRescriptRequest" />
+            <wsdl:output message="tns:submitRescriptResponse" />
         </wsdl:operation>
 
-        <wsdl:operation name="getAll">
-            <wsdl:input message="tns:getAllRequest" />
-            <wsdl:output message="tns:getAllResponse" />
-        </wsdl:operation>
     </wsdl:portType>
 
     <wsdl:binding name="RescriptServiceSoapBinding" type="tns:RescriptServicePortType">
         <soap:binding style="document"  transport="http://schemas.xmlsoap.org/soap/http" />
-        <wsdl:operation name="getRescriptById">
+        <wsdl:operation name="submitRescript">
             <soap:operation soapAction="http://www.resenje.com/ws/getRescriptById" />
             <wsdl:input>
                 <soap:body use="literal"/>
@@ -47,20 +43,10 @@
             </wsdl:output>
         </wsdl:operation>
 
-        <wsdl:operation name="getAll">
-            <soap:operation soapAction="http://www.resenje.com/ws/getAll" />
-            <wsdl:input>
-                <soap:body use="literal"/>
-            </wsdl:input>
-            <wsdl:output>
-                <soap:body use="encoded"/>
-            </wsdl:output>
-        </wsdl:operation>
-
     </wsdl:binding>
     <wsdl:service name="RescriptService">
         <wsdl:port name="RescriptServiceSoapBinding" binding="tns:RescriptServiceSoapBinding">
-            <soap:address location="http://localhost:8080/RescriptPort" />
+            <soap:address location="http://localhost:8083/RescriptPort" />
         </wsdl:port>
     </wsdl:service>
 </wsdl:definitions>

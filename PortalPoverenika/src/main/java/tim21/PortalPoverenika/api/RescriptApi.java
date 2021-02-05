@@ -52,6 +52,13 @@ public class RescriptApi {
 
     @RequestMapping( method = RequestMethod.POST, consumes = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<?> createRescript(@RequestBody ResenjeRoot rescript)  {
+        //proveri da li postoji zalba
+        //proveri da li postoji odgovor na zalbu tj da li zahtev ima neki status izmenjenn
+        //kreiraj resenje
+        //prebaci u pdf
+        //posalji na mejl
+        //posalji preko soap
+
 
         rescript = rescriptService.create(rescript);
         if (rescript != null){
@@ -95,7 +102,8 @@ public class RescriptApi {
         return new ResponseEntity(HttpStatus.BAD_REQUEST);
     }
 
-    @RequestMapping(value="/{ID}", method = RequestMethod.POST, consumes = MediaType.APPLICATION_XML_VALUE)
+
+        @RequestMapping(value="/{ID}", method = RequestMethod.POST, consumes = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<?> sendToApplicant(@PathVariable String ID, @RequestBody MailRequest request) {
 //        ResenjeRoot rescript = rescriptService.getOne(ID);
 //        if(rescript != null) {

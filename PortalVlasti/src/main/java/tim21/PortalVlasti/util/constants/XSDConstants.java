@@ -13,6 +13,9 @@ public class XSDConstants {
 
     public static final String REPORT = "IzvestajRoot";
 
+    public static final String RESCRIPT = "ResenjeRoot";
+
+
 
     public static final Map<String, String> xsdPathMap;
     static {
@@ -20,6 +23,7 @@ public class XSDConstants {
         map.put(USER, "classpath:xsd/user.xsd");
         map.put(INFORMATION, "classpath:xsd/Obavestenje.xsd");
         map.put(REQUEST, "classpath:xsd/zahtev.xsd");
+        map.put(RESCRIPT, "classpath:xsd/resenje.xsd");
         xsdPathMap = Collections.unmodifiableMap(map);
     }
 }

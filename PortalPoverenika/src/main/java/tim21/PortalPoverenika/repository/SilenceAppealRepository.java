@@ -31,6 +31,7 @@ public class SilenceAppealRepository {
             Map<QName, String> attrributes = appeal.getOtherAttributes();
             attrributes.put(new QName("id"), id);
             attrributes.put(new QName("about"), aboutValue);
+            attrributes.put(new QName("obavestio"), "false");
 
             if(existManager.store(SILENCEAPPEAL_COLLECTION_URI, id, appeal, "zalbeCutanje")){
                 return appeal;
