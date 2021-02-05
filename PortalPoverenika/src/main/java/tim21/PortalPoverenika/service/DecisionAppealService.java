@@ -55,6 +55,10 @@ public class DecisionAppealService {
         return null;
     }
 
+    public ZalbaRoot save(ZalbaRoot appeal, String ID) throws Exception {
+
+       return appealRepository.save(appeal, ID);
+    }
 
     public DecisionAppealList getAll() throws XMLDBException, JAXBException {
         List<ZalbaRoot> appeals = new ArrayList<>();

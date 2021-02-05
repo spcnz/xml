@@ -44,6 +44,16 @@ public class DecisionAppealRepository {
             return null;
         }
     }
+    public ZalbaRoot save(ZalbaRoot appeal, String ID) throws Exception {
+
+        if(existManager.store(DECISIONAPPEAL_COLLECTION_URI, ID , appeal, "zalbe")){
+            return appeal;
+        }
+        return null;
+    }
+
+
+
 
 
     public XMLResource getOne(String ID) {

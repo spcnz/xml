@@ -54,6 +54,10 @@ public class SilenceAppealService {
         return null;
     }
 
+    public ZalbaCutanjeRoot save(ZalbaCutanjeRoot appeal, String ID) {
+        return appealRepository.save(appeal, ID);
+    }
+
     public SilenceAppealList getAll() throws XMLDBException, JAXBException {
         List<ZalbaCutanjeRoot> appeals = new ArrayList<>();
 

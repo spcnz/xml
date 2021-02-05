@@ -220,8 +220,9 @@ public class SilenceAppealApi {
         if (appealSilence == null) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         } else {
+
             appealSilence.getOtherAttributes().put(new QName("obavestio"), "true");
-            appealService.create(appealSilence);
+            appealService.save(appealSilence, ID);
         }
 
         boolean notified = appealService.notifyOffical(ID);
