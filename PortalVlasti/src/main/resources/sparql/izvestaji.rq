@@ -1,0 +1,10 @@
+PREFIX pred: <http://www.tim21.com/predicate/>
+prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?report FROM <http://localhost:8089/fusekiVlast/Tim21DatasetVlast/data/izvestaji>
+WHERE{
+    ?report pred:submitDate ?submitDate .
+
+    FILTER(CONTAINS(UCASE(str(?submitDate)), UCASE("%1$s"))
+    ).
+}

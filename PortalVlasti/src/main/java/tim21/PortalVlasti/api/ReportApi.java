@@ -68,7 +68,6 @@ public class ReportApi {
     @RequestMapping(value = "/submit", method = RequestMethod.GET)
     public ResponseEntity<?> submitReport() throws XMLDBException, JAXBException {
 
-
         Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
         marshaller.setContextPath("tim21.PortalVlasti.model.report");
 
@@ -77,15 +76,20 @@ public class ReportApi {
         soapClient.setUnmarshaller(marshaller);
 
         TIzvestaj report = soapClient.getAppealStats();
-        //report.getFizickoLice().setBrojZahteva(requestService.getAll().getRequests().size());
-        report.getFizickoLice().setBrojZahteva(13);
+        try {
+            report.getFizickoLice().setBrojZahteva(requestService.getAll().getRequests().size());
+            report.getFizickoLice().setBrojOdbijenihZahteva((int) requestService.getRejectedNumber());
 
-        System.out.println("BROJ ZAH " + report.getFizickoLice().getBrojZahteva());
+            TResponse sus = soapClient.submitReport(report);
 
-        TResponse sus = soapClient.submitReport(report);
+            IzvestajRoot reportRoot = new IzvestajRoot();
+            reportRoot.setIzvestaj(report);
+            reportService.create(reportRoot);
 
-        return new ResponseEntity<>(sus.getStatus(), HttpStatus.OK);
-
+            return new ResponseEntity<>(HttpStatus.CREATED);
+        }catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
     }
 
     @RequestMapping(value = "/{ID}", method = RequestMethod.GET, consumes = MediaType.APPLICATION_XML_VALUE)

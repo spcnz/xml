@@ -1,5 +1,5 @@
 {
-  "@id" : "file:///C:/Users/bekim/Desktop/xml/PortalVlasti/src/main/resources/rdf/users/user@gmail.com.rdf",
+  "@id" : "http://users/user@gmail.com",
   "email" : "user@gmail.com",
   "@context" : {
     "email" : {

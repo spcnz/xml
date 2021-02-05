@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://www.izvestaj.com" xmlns="http://www.izvestaj.com">
+    <xs:element name="IzvestajRoot">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Izvestaj" type="TIzvestaj"> </xs:element>
+            </xs:sequence>
+            <xs:anyAttribute namespace="##any" processContents="lax"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="TIzvestaj">
+        <xs:sequence>
+            <xs:element name="FizickoLice">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="BrojZahteva" type="xs:int"/>
+                        <xs:element name="BrojOdbijenihZahteva" type="xs:int"/>
+                        <xs:element name="BrojZalbiOdluka" type="xs:int"/>
+                        <xs:element name="BrojZalbiCutanje" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="PravnoLice">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="BrojZahteva" type="xs:int"/>
+                        <xs:element name="BrojOdbijenihZahteva" type="xs:int"/>
+                        <xs:element name="BrojZalbiOdluka" type="xs:int"/>
+                        <xs:element name="BrojZalbiCutanje" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ReportList">
+        <xs:sequence>
+            <xs:any maxOccurs="unbounded" minOccurs="0" processContents="skip"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="TResponse">
+        <xs:sequence>
+            <xs:element name="status">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="SUCCESS"/>
+                        <xs:enumeration value="FAILED"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

@@ -30,7 +30,6 @@ public class ReportRepository {
             String id = IdGenerator.generate();
 
             Map<QName, String> attrributes = report.getOtherAttributes();
-            attrributes.put(new QName("xsmlns"), "http://www.izvestaj.com");
             attrributes.put(new QName("id"), id);
             attrributes.put(new QName("about"), "http://izvestaji/" + id);
             attrributes.put(new QName("property"), "pred:submitDate");

@@ -8,7 +8,7 @@
     "submitterStreet" : "",
     "submitterStreetnum" : "1"
   }, {
-    "@id" : "http://zahtevi/20210205165903",
+    "@id" : "http://zahtevi/20210205161722",
     "delivery" : "POSTA",
     "institutionName" : "Neko ime",
     "institutionOffice" : "Grad u kom se nalazi",
@@ -16,26 +16,6 @@
     "submitter" : "http://users/user@gmail.com"
   } ],
   "@context" : {
-    "delivery" : {
-      "@id" : "http://www.tim21.com/predicate/delivery",
-      "@type" : "http://www.w3.org/2000/01/rdf-schema#Literal"
-    },
-    "requestType" : {
-      "@id" : "http://www.tim21.com/predicate/requestType",
-      "@type" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"
-    },
-    "institutionOffice" : {
-      "@id" : "http://www.tim21.com/predicate/institutionOffice",
-      "@type" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"
-    },
-    "institutionName" : {
-      "@id" : "http://www.tim21.com/predicate/institutionName",
-      "@type" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"
-    },
-    "submitter" : {
-      "@id" : "http://www.tim21.com/predicate/submitter",
-      "@type" : "@id"
-    },
     "submitterStreetnum" : {
       "@id" : "http://www.tim21.com/predicate/submitterStreetnum",
       "@type" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"
@@ -54,6 +34,26 @@
     },
     "submitterName" : {
       "@id" : "http://www.tim21.com/predicate/submitterName",
+      "@type" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"
+    },
+    "submitter" : {
+      "@id" : "http://www.tim21.com/predicate/submitter",
+      "@type" : "@id"
+    },
+    "delivery" : {
+      "@id" : "http://www.tim21.com/predicate/delivery",
+      "@type" : "http://www.w3.org/2000/01/rdf-schema#Literal"
+    },
+    "requestType" : {
+      "@id" : "http://www.tim21.com/predicate/requestType",
+      "@type" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"
+    },
+    "institutionOffice" : {
+      "@id" : "http://www.tim21.com/predicate/institutionOffice",
+      "@type" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"
+    },
+    "institutionName" : {
+      "@id" : "http://www.tim21.com/predicate/institutionName",
       "@type" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"
     },
     "rdf" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
