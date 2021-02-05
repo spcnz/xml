@@ -1,5 +1,5 @@
 
-package tim21.PortalPoverenika.soap.dto;
+package tim21.PortalVlasti.soap.dto;
 
 import javax.xml.bind.annotation.*;
 

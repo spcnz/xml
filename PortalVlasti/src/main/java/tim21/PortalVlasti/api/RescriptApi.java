@@ -20,7 +20,7 @@ import tim21.PortalVlasti.model.user.User;
 import tim21.PortalVlasti.service.MetaDataService;
 import tim21.PortalVlasti.service.RescriptService;
 import tim21.PortalVlasti.soap.client.MailClient;
-import tim21.PortalVlasti.soap.dto.MailRequest;
+import tim21.PortalVlasti.soap.dto.*;
 
 import javax.xml.bind.JAXBException;
 import java.io.ByteArrayInputStream;
