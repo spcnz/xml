@@ -51,7 +51,6 @@ public class ReportDataService {
 
         while (resourceIterator.hasMoreResources()){
             XMLResource xmlResource = (XMLResource) resourceIterator.nextResource();
-            System.out.println(xmlResource);
             if(xmlResource == null)
                 return null;
             JAXBContext context = JAXBContext.newInstance(IzvestajRoot.class);

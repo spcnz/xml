@@ -76,23 +76,15 @@ public class ReportApi {
         soapClient.setDefaultUri(env.getProperty("portal_poverenika"));
         soapClient.setMarshaller(marshaller);
         soapClient.setUnmarshaller(marshaller);
-
-        System.out.println("SAD POSTAVLJ PRIJE STATS ");
-
         TIzvestaj report = soapClient.getAppealStats();
 
         report.getFizickoLice().setBrojZahteva(requestService.getAll().getRequests().size());
         report.getFizickoLice().setBrojOdbijenihZahteva((int) requestService.getRejectedNumber());
-        TResponse sus = soapClient.submitReport(report);
 
-        IzvestajRoot reportRoot = new IzvestajRoot();
-        Map<QName, String> attrs = reportRoot.getOtherAttributes();
-
-        reportRoot.setIzvestaj(report);
         try {
             reportService.createFromOld(report);
         } catch (Exception e) {
-            System.out.println("PUKLO");
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
 
         return new ResponseEntity<>(HttpStatus.CREATED);
