@@ -15,4 +15,5 @@ public class NamespaceConstants {
     public static final String RESCRIPT_TARGET_NAMESPACE = "http://www.resenje.com";
 
 
+    public static final String APPEAL_ANNOUNCEMENT_TARGET_NAMESPACE = "http://www.zalbaobavestenje.com";
 }

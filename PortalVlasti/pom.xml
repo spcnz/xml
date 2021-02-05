@@ -170,6 +170,15 @@
 									<wsdlLocation>classpath:wsdl/Rescript.wsdl</wsdlLocation>
 								</wsdlOption>
 
+								<wsdlOption>
+									<wsdl>${basedir}/src/main/resources/wsdl/ObavestenjeZalba.wsdl</wsdl>
+									<extraargs>
+										<extraarg>-impl</extraarg> <!-- Ima i drugih dodatniha<extraarg>-client</extraarg> -->
+										<extraarg>-verbose</extraarg>
+									</extraargs>
+									<wsdlLocation>classpath:wsdl/ObavestenjeZalba.wsdl</wsdlLocation>
+								</wsdlOption>
+
 
 							</wsdlOptions>
 						</configuration>

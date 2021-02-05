@@ -1,6 +1,8 @@
 package tim21.PortalPoverenika.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
+import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 import org.springframework.stereotype.Service;
 import org.xmldb.api.base.ResourceIterator;
 import org.xmldb.api.base.ResourceSet;
@@ -11,6 +13,7 @@ import tim21.PortalPoverenika.model.lists.DecisionAppealList;
 import tim21.PortalPoverenika.model.lists.RescriptList;
 import tim21.PortalPoverenika.model.rescript.ResenjeRoot;
 import tim21.PortalPoverenika.repository.RescriptRepository;
+import tim21.PortalPoverenika.soap.client.RescriptClient;
 import tim21.PortalPoverenika.util.Validator;
 
 import javax.xml.bind.JAXBContext;
@@ -25,6 +28,12 @@ public class RescriptService {
 
 	@Autowired
 	RescriptRepository rescriptRepository;
+
+	@Autowired
+	RescriptClient rescriptClient;
+
+	@Autowired
+	private Environment env;
 
 	public ResenjeRoot create(ResenjeRoot rescript) {
 		if (Validator.validate(rescript.getClass(), rescript)){
@@ -137,5 +146,20 @@ public class RescriptService {
 			rescripts.add(rescript);
 		}
 		return new RescriptList(rescripts);
+	}
+
+	public boolean sendToOffical(ResenjeRoot rescript) {
+
+		Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
+		marshaller.setContextPath("tim21.PortalPoverenika.model.rescript");
+
+		rescriptClient.setDefaultUri(env.getProperty("portal_vlasti"));
+		rescriptClient.setMarshaller(marshaller);
+
+		Jaxb2Marshaller unmarshaller = new Jaxb2Marshaller();
+		unmarshaller.setContextPath("tim21.PortalPoverenika.soap.dto");
+		rescriptClient.setUnmarshaller(unmarshaller);
+
+		return rescriptClient.submitRescript(rescript.getResenje());
 	}
 }

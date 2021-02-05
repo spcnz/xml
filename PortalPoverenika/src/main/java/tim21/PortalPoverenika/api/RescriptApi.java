@@ -11,6 +11,7 @@ import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
+import org.xml.sax.SAXException;
 import org.xmldb.api.base.XMLDBException;
 import tim21.PortalPoverenika.dto.decisionAppealFilter.DecisionAppealFilter;
 import tim21.PortalPoverenika.dto.rescriptFilter.RescriptFilter;
@@ -18,16 +19,24 @@ import tim21.PortalPoverenika.model.decisionAppeal.ZalbaRoot;
 import tim21.PortalPoverenika.model.lists.DecisionAppealList;
 import tim21.PortalPoverenika.model.lists.RescriptList;
 import tim21.PortalPoverenika.model.rescript.ResenjeRoot;
+import tim21.PortalPoverenika.model.silenceAppeal.ZalbaCutanjeRoot;
+import tim21.PortalPoverenika.service.DecisionAppealService;
 import tim21.PortalPoverenika.service.MetaDataService;
 import tim21.PortalPoverenika.model.user.User;
 import tim21.PortalPoverenika.service.RescriptService;
+import tim21.PortalPoverenika.service.SilenceAppealService;
+import tim21.PortalPoverenika.soap.client.AppealAnnouncementClient;
 import tim21.PortalPoverenika.soap.client.MailClient;
 import tim21.PortalPoverenika.soap.client.RescriptClient;
 import tim21.PortalPoverenika.soap.dto.MailRequest;
+import tim21.PortalPoverenika.soap.dto.appealAnnouncement.ObavestenjeZalba;
+import tim21.PortalPoverenika.soap.dto.appealAnnouncement.TObZalbaDokument;
 
 import javax.xml.bind.JAXBException;
+import javax.xml.namespace.QName;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.math.BigInteger;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -54,12 +63,16 @@ public class RescriptApi {
     @Autowired
     RescriptClient rescriptClient;
 
+    @Autowired
+    DecisionAppealService decisionAppealService;
+
+    @Autowired
+    SilenceAppealService silenceAppealService;
+
     @RequestMapping( method = RequestMethod.POST, consumes = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<?> createRescript(@RequestBody ResenjeRoot rescript)  {
         //proveri da li postoji zalba
         //proveri da li postoji odgovor na zalbu tj da li zahtev ima neki status izmenjenn
-
-
 
 
         rescript = rescriptService.create(rescript);
@@ -67,21 +80,12 @@ public class RescriptApi {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
 
-        Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
-        marshaller.setContextPath("tim21.PortalPoverenika.model.rescript");
+        Boolean sent = rescriptService.sendToOffical(rescript);
 
-        rescriptClient.setDefaultUri(env.getProperty("portal_vlasti"));
-        rescriptClient.setMarshaller(marshaller);
-
-        Jaxb2Marshaller unmarshaller = new Jaxb2Marshaller();
-        unmarshaller.setContextPath("tim21.PortalPoverenika.soap.dto");
-        rescriptClient.setUnmarshaller(unmarshaller);
-        boolean submited = rescriptClient.submitRescript(rescript.getResenje());
-
-        if (submited) {
+        if (sent) {
             return new ResponseEntity<>(rescript, HttpStatus.CREATED);
-
         }
+        //posalji na mejl traziocu hehe
 
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }

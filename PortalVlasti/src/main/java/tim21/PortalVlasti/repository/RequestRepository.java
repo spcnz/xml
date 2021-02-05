@@ -86,10 +86,22 @@ public class RequestRepository {
 
     public boolean reject(ZahtevRoot request) throws Exception {
         request.getOtherAttributes().put(new QName("status"), REQUEST_STATUS.REJECTED.label);
-        if(existManager.store(REQUEST_COLLECTION_URI, request.getOtherAttributes().get("id"), request, "zahtevi")){
+        if(existManager.store(REQUEST_COLLECTION_URI, request.getOtherAttributes().get(new QName("id")), request, "zahtevi")){
             return true;
         }
 
         return false;
     }
+
+    public ResourceSet getAllByUser(String email) throws XMLDBException {
+        try {
+            String xpath = "/ZahtevRoot[@href='http://users/" + email + "']";
+            System.out.println(xpath);
+            return existManager.getAll(REQUEST_COLLECTION_URI, xpath, REQUEST_TARGET_NAMESPACE);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
 }
