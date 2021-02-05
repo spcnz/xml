@@ -24,6 +24,7 @@ import tim21.PortalVlasti.service.RequestService;
 import tim21.PortalVlasti.soap.client.ReportClient;
 
 import javax.xml.bind.JAXBException;
+import javax.xml.namespace.QName;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -31,6 +32,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 import static tim21.PortalVlasti.util.constants.RDFConstants.REPORT_RDF_RESOURCES;
 
@@ -68,25 +70,27 @@ public class ReportApi {
     @RequestMapping(value = "/submit", method = RequestMethod.GET)
     public ResponseEntity<?> submitReport() throws XMLDBException, JAXBException {
 
-
         Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
         marshaller.setContextPath("tim21.PortalVlasti.model.report");
 
         soapClient.setDefaultUri(env.getProperty("portal_poverenika"));
         soapClient.setMarshaller(marshaller);
         soapClient.setUnmarshaller(marshaller);
-
         TIzvestaj report = soapClient.getAppealStats();
-        //report.getFizickoLice().setBrojZahteva(requestService.getAll().getRequests().size());
-        report.getFizickoLice().setBrojZahteva(13);
 
-        System.out.println("BROJ ZAH " + report.getFizickoLice().getBrojZahteva());
+        report.getFizickoLice().setBrojZahteva(requestService.getAll().getRequests().size());
+        report.getFizickoLice().setBrojOdbijenihZahteva((int) requestService.getRejectedNumber());
 
-        TResponse sus = soapClient.submitReport(report);
+        try {
+            reportService.createFromOld(report);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
 
-        return new ResponseEntity<>(sus.getStatus(), HttpStatus.OK);
-
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
+
+
 
     @RequestMapping(value = "/{ID}", method = RequestMethod.GET, consumes = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<?> getReport(@PathVariable String ID) {

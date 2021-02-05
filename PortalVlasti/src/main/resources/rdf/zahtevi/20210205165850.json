@@ -1,21 +1,41 @@
 {
   "@graph" : [ {
     "@id" : "http://zahtevi/1",
-    "submitter" : "http://users/laketic.milena98@gmail.com",
+    "submitter" : "http://users/1",
     "submitterCity" : "Beograd",
     "submitterLastname" : "",
     "submitterName" : "Milenaa",
     "submitterStreet" : "",
     "submitterStreetnum" : "1"
   }, {
-    "@id" : "http://zahtevi/20210205013200",
+    "@id" : "http://zahtevi/20210205165850",
     "delivery" : "POSTA",
     "institutionName" : "Neko ime",
     "institutionOffice" : "Grad u kom se nalazi",
     "requestType" : "UVID U DOKUMENT",
-    "submitter" : "http://users/laketic.milena98@gmail.com"
+    "submitter" : "http://users/user@gmail.com"
   } ],
   "@context" : {
+    "delivery" : {
+      "@id" : "http://www.tim21.com/predicate/delivery",
+      "@type" : "http://www.w3.org/2000/01/rdf-schema#Literal"
+    },
+    "requestType" : {
+      "@id" : "http://www.tim21.com/predicate/requestType",
+      "@type" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"
+    },
+    "institutionOffice" : {
+      "@id" : "http://www.tim21.com/predicate/institutionOffice",
+      "@type" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"
+    },
+    "institutionName" : {
+      "@id" : "http://www.tim21.com/predicate/institutionName",
+      "@type" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"
+    },
+    "submitter" : {
+      "@id" : "http://www.tim21.com/predicate/submitter",
+      "@type" : "@id"
+    },
     "submitterStreetnum" : {
       "@id" : "http://www.tim21.com/predicate/submitterStreetnum",
       "@type" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"
@@ -34,26 +54,6 @@
     },
     "submitterName" : {
       "@id" : "http://www.tim21.com/predicate/submitterName",
-      "@type" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"
-    },
-    "submitter" : {
-      "@id" : "http://www.tim21.com/predicate/submitter",
-      "@type" : "@id"
-    },
-    "delivery" : {
-      "@id" : "http://www.tim21.com/predicate/delivery",
-      "@type" : "http://www.w3.org/2000/01/rdf-schema#Literal"
-    },
-    "requestType" : {
-      "@id" : "http://www.tim21.com/predicate/requestType",
-      "@type" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"
-    },
-    "institutionOffice" : {
-      "@id" : "http://www.tim21.com/predicate/institutionOffice",
-      "@type" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"
-    },
-    "institutionName" : {
-      "@id" : "http://www.tim21.com/predicate/institutionName",
       "@type" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"
     },
     "rdf" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#",

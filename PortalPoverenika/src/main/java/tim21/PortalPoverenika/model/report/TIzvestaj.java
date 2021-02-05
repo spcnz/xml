@@ -57,7 +57,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "TIzvestaj", propOrder = {
     "fizickoLice",
     "pravnoLice"
-}, namespace = "http://www.izvestaj.com")
+})
 public class TIzvestaj {
 
     @XmlElement(name = "FizickoLice", required = true, namespace = "http://www.izvestaj.com")
@@ -137,7 +137,8 @@ public class TIzvestaj {
      * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
-    @XmlType(name = "", propOrder = {
+    @XmlType(name = "",
+            propOrder = {
         "brojZahteva",
         "brojOdbijenihZahteva",
         "brojZalbiOdluka",
@@ -252,13 +253,13 @@ public class TIzvestaj {
     })
     public static class PravnoLice {
 
-        @XmlElement(name = "BrojZahteva")
+        @XmlElement(name = "BrojZahteva", namespace = "http://www.izvestaj.com")
         protected int brojZahteva;
-        @XmlElement(name = "BrojOdbijenihZahteva")
+        @XmlElement(name = "BrojOdbijenihZahteva", namespace = "http://www.izvestaj.com")
         protected int brojOdbijenihZahteva;
-        @XmlElement(name = "BrojZalbiOdluka")
+        @XmlElement(name = "BrojZalbiOdluka", namespace = "http://www.izvestaj.com")
         protected int brojZalbiOdluka;
-        @XmlElement(name = "BrojZalbiCutanje")
+        @XmlElement(name = "BrojZalbiCutanje", namespace = "http://www.izvestaj.com")
         protected int brojZalbiCutanje;
 
         /**

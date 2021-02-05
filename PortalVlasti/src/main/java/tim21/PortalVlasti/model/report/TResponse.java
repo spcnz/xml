@@ -34,7 +34,7 @@ import javax.xml.bind.annotation.*;
 @XmlType(name = "TResponse", propOrder = {
     "status"
 })
-@XmlRootElement(name = "response")
+@XmlRootElement(name="response")
 public class TResponse {
 
     @XmlElement(required = true, namespace = "http://www.izvestaj.com")

@@ -26,7 +26,6 @@ public class RequestService {
     @Autowired
     RequestRepository requestRepository;
 
-
     public ZahtevRoot create(ZahtevRoot request, String submitterId) throws IOException, SAXException {
 
 
@@ -57,6 +56,10 @@ public class RequestService {
         }
 
         return new RequestList(requests);
+    }
+
+    public long getRejectedNumber() throws XMLDBException, JAXBException {
+        return requestRepository.getRejectedNumber();
     }
 
     public ZahtevRoot getOne(String ID) {

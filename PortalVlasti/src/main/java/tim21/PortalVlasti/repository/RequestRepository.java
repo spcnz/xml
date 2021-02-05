@@ -74,6 +74,16 @@ public class RequestRepository {
         }
     }
 
+    public long getRejectedNumber(){
+        try{
+            String xpath = "/ZahtevRoot[@status='" + REQUEST_STATUS.REJECTED.label + "']";
+            return existManager.getAll(REQUEST_COLLECTION_URI, xpath, REQUEST_TARGET_NAMESPACE).getSize();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
+
     public boolean reject(ZahtevRoot request) throws Exception {
         request.getOtherAttributes().put(new QName("status"), REQUEST_STATUS.REJECTED.label);
         if(existManager.store(REQUEST_COLLECTION_URI, request.getOtherAttributes().get(new QName("id")), request, "zahtevi")){
