@@ -20,6 +20,7 @@ import tim21.PortalPoverenika.soap.dto.appealAnnouncement.ObavestenjeZalba;
 import tim21.PortalPoverenika.soap.dto.appealAnnouncement.TObZalbaDokument;
 import tim21.PortalPoverenika.util.Validator;
 import tim21.PortalPoverenika.util.ViolationException;
+import tim21.PortalPoverenika.util.transformer.PDFTransformer;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -49,6 +50,10 @@ public class DecisionAppealService {
 
     @Autowired
     private RequestClient requestClient;
+
+    public static final String XSL_FILE = "src/main/resources/xsl/decisionAppeal.xsl";
+
+    public static final String XSL_FO_FILE = "src/main/resources/xsl/decisionAppeal_fo.xsl";
 
     public boolean checkRequestId(String requestID) {
         Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
@@ -203,6 +208,42 @@ public class DecisionAppealService {
         announce.setObZalbaDokument(announceBody);
 
         return announcementClient.announceAboutAppeal(announce.getObZalbaDokument());
+    }
+
+    public String generatePdf(String ID) {
+        XMLResource appeal = appealRepository.getOne(ID);
+        PDFTransformer transformer = new PDFTransformer();
+
+        if(appeal == null)
+            return null;
+
+        String pdfPath ="src/main/resources/static/decisionAppeal/decision_appeal_" + ID + ".pdf";
+        try {
+            transformer.generatePDF(appeal.getContent().toString(), pdfPath, XSL_FO_FILE);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+
+        return pdfPath;
+    }
+
+    public String generateHtml(String ID) {
+        XMLResource appeal = appealRepository.getOne(ID);
+        PDFTransformer transformer = new PDFTransformer();
+
+        if(appeal == null)
+            return null;
+
+        String htmlPath ="src/main/resources/static/decisionAppeal/decision_appeal_" + ID + ".html";
+        try {
+            transformer.generateHTML(appeal.getContent().toString(), htmlPath, XSL_FILE);
+        } catch (XMLDBException  e) {
+            e.printStackTrace();
+            return null;
+        }
+
+        return htmlPath;
     }
 
 

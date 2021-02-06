@@ -44,7 +44,7 @@ import javax.xml.bind.annotation.*;
     "submitterLastname",
     "appealDate"
 })
-@XmlRootElement(name = "RescriptFilter", namespace = "http://www.shared.com")
+@XmlRootElement(name = "RequestFilter", namespace = "http://www.shared.com")
 public class RequestFilter {
 
     @XmlElement(name = "Submitter", namespace = "", required = true)
