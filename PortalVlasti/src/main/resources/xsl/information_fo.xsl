@@ -4,7 +4,7 @@
                 xmlns:fo="http://www.w3.org/1999/XSL/Format"
                 exclude-result-prefixes="xs"
                 version="2.0"
-                xmlns:za="http://www.zalbanaodluku.com"
+                xmlns:ob="http://www.obavestenje.com"
                 xmlns:sh="http://www.shared.com"
                 xmlns:xalan="http://xml.apache.org/xalan">
 
@@ -12,8 +12,9 @@
 
     <xsl:template match="/">
         <xsl:variable name="space" select="'&#xA0;'"/>
-        <xsl:variable name="date" select="/za:ZalbaRoot/za:Zalba//za:Datum_podnosenja_zahteva"/>
+        <xsl:variable name="date" select="/ob:ObavestenjeRoot/ob:Obavestenje/ob:Datum"/>
         <xsl:variable name="d1" select="concat(substring($date,9,2),'.',substring($date,6,2),'.',substring($date,1,4),'.')"/>
+
         <fo:root>
             <fo:layout-master-set>
                 <fo:simple-page-master master-name="page" page-height="792pt" page-width="612pt"  margin-top="50px">
@@ -23,135 +24,145 @@
 
             <fo:page-sequence master-reference="page">
                 <fo:flow flow-name="xsl-region-body" font-family="Times New Roman" font-size="0.95em" letter-spacing="0.05pt" margin-left="80px" margin-right="40px">
-                    <fo:block font-weight="bold" text-align="center">
-                        ЖАЛБА  ПРОТИВ  ОДЛУКЕ ОРГАНА  ВЛАСТИ КОЈОМ ЈЕ
+                    <fo:block font-family="Times New Roman" font-size="13px" >
+                        <fo:inline text-decoration="underline">
+                        <xsl:value-of select="/ob:ObavestenjeRoot/ob:Obavestenje/ob:Organ/ob:Naziv"/>
+                        </fo:inline>
                     </fo:block>
-                    <fo:block font-weight="bold" margin-bottom="20px" text-align="center"><fo:inline text-decoration="underline">ОДБИЈЕН ИЛИ ОДБАЧЕН ЗАХТЕВ</fo:inline> ЗА ПРИСТУП ИНФОРМАЦИЈИ</fo:block>
-                    <fo:block font-weight="bold"><xsl:value-of select="za:ZalbaRoot/za:Zalba/za:Primaoc/sh:Uloga" /></fo:block>
-                    <fo:block>
-                        Адреса за пошту:  <xsl:value-of select="za:ZalbaRoot/za:Zalba//sh:Adresa/sh:Grad"/>,  <xsl:value-of select="za:ZalbaRoot/za:Zalba//sh:Adresa/sh:Ulica"/>, бр. <xsl:value-of select="za:ZalbaRoot/za:Zalba//sh:Adresa/sh:Broj"/>, <xsl:value-of select="za:ZalbaRoot/za:Zalba//sh:Adresa/sh:Postanski_broj"/>
-                    </fo:block>
-                    <fo:block text-align="center" margin-top="20px" margin-bottom="20px" font-weight="bold">
-                        Ж А Л Б A
+                    <fo:block font-family="Times New Roman" font-size="13px" >
+                        <fo:inline text-decoration="underline">
+                        <xsl:value-of select="/ob:ObavestenjeRoot/ob:Obavestenje/ob:Organ/sh:Adresa/sh:Ulica"/>, <xsl:value-of select="/ob:ObavestenjeRoot/ob:Obavestenje/ob:Organ/sh:Adresa/sh:Broj"/>, <xsl:value-of select="/ob:ObavestenjeRoot/ob:Obavestenje/ob:Organ/sh:Adresa/sh:Grad"/>, <xsl:value-of select="/ob:ObavestenjeRoot/ob:Obavestenje/ob:Organ/sh:Adresa/sh:Postanski_broj"/>
+                        </fo:inline>
+                        <fo:block>
+                            (назив и седиште органа)
+                        </fo:block>
                     </fo:block>
 
-                    <fo:block text-align="center" margin-bottom="15px">
+                    <fo:block font-family="Times New Roman" font-size="13px"  margin-top="10px">
+                        Број предмета:  <fo:inline text-decoration="underline"><xsl:value-of select="/ob:ObavestenjeRoot/ob:Obavestenje/ob:Broj_predmeta"/></fo:inline>
+                    </fo:block>
+                    <fo:block font-family="Times New Roman" font-size="13px" padding-bottom="16px" >
+                        Датум:  <fo:inline text-decoration="underline"><xsl:value-of select="$d1"/></fo:inline>
+                    </fo:block>
+                    <fo:block font-family="Times New Roman" font-size="13px" >
                         <xsl:choose>
-                            <xsl:when test="boolean(za:ZalbaRoot/za:Zalba/za:Fizicko_lice)">
-                                <fo:inline text-decoration="underline" text-align="center">
-                                    <xsl:variable name="name" select="za:ZalbaRoot/za:Zalba/za:Fizicko_lice/sh:Ime"/>
-                                    <xsl:variable name="lastName" select="za:ZalbaRoot/za:Zalba/za:Fizicko_lice/sh:Prezime"/>
-                                    (<xsl:value-of select="concat($name, ' ', $lastName)"/>
-                                </fo:inline>
-                                <fo:inline text-decoration="underline" text-align="center">
-                                    <xsl:variable name="city" select="za:ZalbaRoot/za:Zalba/za:Fizicko_lice/sh:Adresa/sh:Grad"/>
-                                    <xsl:variable name="street" select="za:ZalbaRoot/za:Zalba/za:Fizicko_lice/sh:Adresa/sh:Ulica"/>
-                                    <xsl:variable name="streetNum" select="za:ZalbaRoot/za:Zalba/za:Fizicko_lice/sh:Adresa/sh:Broj"/>
-                                    <xsl:variable name="postCode" select="za:ZalbaRoot/za:Zalba/za:Fizicko_lice/sh:Adresa/sh:Postanski_broj"/>
+                            <xsl:when test="boolean(ob:ObavestenjeRoot/ob:Obavestenje/ob:Podnosilac/ob:Fizicko_lice)">
+                                <fo:block class="underline" style="padding-bottom:10px">
+                                    <xsl:variable name="name" select="ob:ObavestenjeRoot/ob:Obavestenje/ob:Podnosilac/ob:Fizicko_lice/sh:Ime"/>
+                                    <xsl:variable name="lastName"  select="ob:ObavestenjeRoot/ob:Obavestenje/ob:Podnosilac/ob:Fizicko_lice/sh:Prezime"/>
+                                    <xsl:value-of select="concat($name, ' ', $lastName)"/>
+                                </fo:block>
+                                <fo:block class="underline" style="padding-bottom:10px">
+                                    <xsl:variable name="city" select="ob:ObavestenjeRoot/ob:Obavestenje/ob:Podnosilac/ob:Fizicko_lice/sh:Adresa/sh:Grad"/>
+                                    <xsl:variable name="street" select="ob:ObavestenjeRoot/ob:Obavestenje/ob:Podnosilac/ob:Fizicko_lice/sh:Adresa/sh:Ulica"/>
+                                    <xsl:variable name="streetNum" select="ob:ObavestenjeRoot/ob:Obavestenje/ob:Podnosilac/ob:Fizicko_lice/sh:Adresa/sh:Broj"/>
+                                    <xsl:variable name="postCode" select="ob:ObavestenjeRoot/ob:Obavestenje/ob:Podnosilac/ob:Fizicko_lice/sh:Adresa/sh:Postanski_broj"/>
 
-                                    <xsl:value-of select="concat($street, ' ', $streetNum, ', ', $city, ', ', $postCode)"/>)
-                                </fo:inline>
-                                <fo:block text-align="center">
-                                    (Име, презиме, односно назив,седиште жалиоца и адреса)
+                                    <xsl:value-of select="concat($street, ' ', $streetNum, ', ', $city, ', ', $postCode)"/>
                                 </fo:block>
                             </xsl:when>
                             <xsl:otherwise>
-                                <fo:block text-decoration="underline" text-align="center">
-                                    (<u><xsl:value-of select="za:ZalbaRoot/za:Zalba/za:Pravno_lice/sh:Naziv"/></u>)
+                                <fo:block class="underline" style="padding-bottom:10px">
+                                    (<u><xsl:value-of select="ob:ObavestenjeRoot/ob:Obavestenje/ob:Podnosilac/ob:Pravno_lice/sh:Naziv"/></u>)
                                 </fo:block>
-                                <fo:block text-align="center">
-                                    (Име, презиме, односно назив,седиште жалиоца и адреса)
-                                </fo:block>
+                                <fo:block class="underline" style="padding-bottom:10px">
+                                    <xsl:variable name="city" select="ob:ObavestenjeRoot/ob:Obavestenje/ob:Podnosilac/ob:Pravno_lice/sh:Adresa/sh:Grad"/>
+                                    <xsl:variable name="street" select="ob:ObavestenjeRoot/ob:Obavestenje/ob:Podnosilac/ob:Pravno_lice/sh:Adresa/sh:Ulica"/>
+                                    <xsl:variable name="streetNum" select="ob:ObavestenjeRoot/ob:Obavestenje/ob:Podnosilac/ob:Pravno_lice/sh:Adresa/sh:Broj"/>
+                                    <xsl:variable name="postCode" select="ob:ObavestenjeRoot/ob:Obavestenje/ob:Podnosilac/ob:Pravno_lice/sh:Adresa/sh:Postanski_broj"/>
 
+                                    <xsl:value-of select="concat($street, ' ', $streetNum, ', ', $city, ', ', $postCode)"/>)
+                                </fo:block>
                             </xsl:otherwise>
                         </xsl:choose>
+                        (Име и презиме / назив / и адреса подносиоца захтева)
+                    </fo:block>
+                    <fo:block font-family="Times New Roman" text-align="center" padding-top="30px" font-size="20px" font-weight="bold" >
+                        О Б А В Е Ш Т Е Њ Е
                     </fo:block>
 
-                    <fo:block text-align="center" margin-bottom="15px">
-                        против решења-закључка
-                    </fo:block>
-                    <fo:block text-align="center" text-decoration="underline">
-                        Naziv organa vlasti
-                    </fo:block>
-                    <fo:block text-align="center" margin-bottom="30px">( навести назив органа)</fo:block>
-
-
-                    <fo:block margin-top="20px" margin-bottom="20px">
-                        Број
-                        <xsl:variable name="requestID" select="za:ZalbaRoot/@href"/>
-                        <fo:inline text-decoration="underline"> <xsl:value-of select="substring($requestID, 16)" /></fo:inline>
-                        од
-                        <xsl:value-of select="$d1"/>
-                        године.
-                    </fo:block>
-
-                    <fo:block margin-left="20px">
-                        Наведеном одлуком органа власти (решењем, закључком, обавештењем у писаној форми са
-                    </fo:block>
-                    <fo:block>
-                        елементима одлуке) , супротно закону, одбијен-одбачен је мој захтев који сам поднео/ла-упутио/ла дана
-                        <fo:inline text-decoration="underline"> <xsl:value-of select="$d1"/></fo:inline>
-                        године и тако ми ускраћено-онемогућено остваривање уставног и законског права на слободан
-                        приступ информацијама од јавног значаја. Oдлуку побијам у целости, односно у делу којим.
-
-                        <fo:block text-decoration="underline" margin-bottom="10px" margin-top="10px"><xsl:value-of select="/za:ZalbaRoot//za:Osnova_zalbe"/></fo:block>
-                        јер није заснована на Закону о слободном приступу информацијама од јавног значаја.
-                    </fo:block>
-                    <fo:block margin-left="20px">
-                        На основу изнетих разлога, предлажем да Повереник уважи моју жалбу,  поништи
-                    </fo:block>
-                    <fo:block>
-                        одлука првостепеног органа и омогући ми приступ траженој/им  информацији/ма.
-                    </fo:block>
-                    <fo:block margin-left="20px">
-                        Жалбу подносим благовремено, у законском року утврђеном у члану 22. ст. 1. Закона о
-                    </fo:block>
-                    <fo:block>
-                        слободном приступу информацијама од јавног значаја.
-                    </fo:block>
-                    <fo:block text-align="left" margin-top="10px">
-                        <xsl:variable name="date" select="/za:ZalbaRoot//za:Datum"/>
-                        <xsl:variable name="d2" select="concat(substring($date,9,2),'.',substring($date,6,2),'.',substring($date,1,4),'.')"/>
-                        У <fo:inline text-decoration="underline"><xsl:value-of select="/za:ZalbaRoot//za:Grad"/></fo:inline>
-                        дана   <fo:inline text-decoration="underline"><xsl:value-of select="$d2"/></fo:inline>
+                    <fo:block font-family="Times New Roman" text-align="center" font-size="14px" font-weight="bold" padding-top="10px">
+                        о стављању на увид документа који садржи тражену информацију и о изради копије
                     </fo:block>
 
 
-                    <fo:block text-align="right">
-                        <xsl:variable name="firstName" select="/za:ZalbaRoot//za:Podnosilac/sh:Ime"/>
-                        <xsl:variable name="lastName" select="/za:ZalbaRoot//za:Podnosilac/sh:Prezime"/>
-                        <fo:inline text-decoration="underline"><xsl:value-of select="concat($firstName, ' ', $lastName)"/></fo:inline>
-                        <fo:block margin-bottom="10px">Подносилац жалбе / Име и презиме</fo:block>
-                        <fo:block text-decoration="underline">
-                            <xsl:value-of select="/za:ZalbaRoot//za:Podnosilac/sh:Adresa/sh:Ulica"/>,
-                            <xsl:value-of select="/za:ZalbaRoot//za:Podnosilac/sh:Adresa/sh:Broj"/>,
-                            <xsl:value-of select="/za:ZalbaRoot//za:Podnosilac/sh:Adresa/sh:Grad"/>,
-                            <xsl:value-of select="/za:ZalbaRoot//za:Podnosilac/sh:Adresa/sh:Postanski_broj"/>
-                        </fo:block>
-                        <fo:block margin-bottom="10px">адресa</fo:block>
-
-                        <fo:block>
-                            <fo:inline text-decoration="underline">
-                                <xsl:value-of select="/za:ZalbaRoot//za:Podnosilac/sh:drugi_podaci_za_kontakt"/>
-                            </fo:inline>
-                        </fo:block>
-                        <fo:block margin-bottom="10px">други подаци за контакт</fo:block>
-                        <fo:block>................</fo:block>
-                        <fo:block>потпис</fo:block>
+                    <fo:block font-family="Times New Roman" text-align="justify" font-size="13px"  padding-top="25px">
+                        На основу члана 16. ст. 1 Закона о слободном приступу информацијама од јавног значаја, поступајући по вашем захтеву за слободан приступ информацијама од
+                        <fo:inline text-decoration="underline"> <xsl:value-of select="/ob:ObavestenjeRoot/ob:Obavestenje/ob:Odgovor/ob:Godina_zahteva"/>
+                        </fo:inline>
+                        год., којим сте тражили увид у документ/е са информацијама о/у вези са:
                     </fo:block>
 
-                    <fo:block text-align="left" >
-                        <fo:inline font-weight="bold" margin-bottom="10px">Напомена:</fo:inline>
-                        <fo:block margin-bottom="10px" margin-left="20px">
-                            •	У жалби се мора навести одлука која се побија (решење, закључак, обавештење),
-                        назив органа који је одлуку донео, као и број и датум одлуке. Довољно је да жалилац
-                        наведе у жалби у ком погледу је незадовољан одлуком, с тим да жалбу не мора посебно образложити.
-                        Ако жалбу изјављује на овом обрасцу, додатно образложење може  посебно приложити.
-                        </fo:block>
-                        <fo:block margin-bottom="10px" margin-left="20px">
-                        •	Уз жалбу обавезно приложити копију поднетог захтева и доказ о његовој предаји-упућивању
-                        органу као и копију одлуке органа која се оспорава жалбом.
+                    <fo:block font-family="Times New Roman" padding-top="10px" text-align="justify" font-size="13px"  >
+                        <fo:inline text-decoration="underline">
+
+                        <xsl:apply-templates select="/ob:ObavestenjeRoot/ob:Obavestenje/ob:Odgovor/ob:Opis_trazene_informacije"/>
+                        </fo:inline>
                     </fo:block>
+
+                    <fo:block font-family="Times New Roman" text-align="center" font-size="13px" >
+                        (oпис тражене информације)
+                    </fo:block>
+
+                    <xsl:variable name="datum" select="/ob:ObavestenjeRoot/ob:Obavestenje//ob:Odgovor/ob:Datum"/>
+                    <xsl:variable name="d2" select="concat(substring($datum,9,2),'.',substring($datum,6,2),'.',substring($datum,1,4),'.')"/>
+
+
+                    <fo:block font-family="Times New Roman" text-align="justify" font-size="13px" padding-top="30px" >
+                        обавештавамо вас да дана
+                        <xsl:value-of select="$d2"/>
+                        , у
+                        <xsl:value-of select="/ob:ObavestenjeRoot/ob:Obavestenje//ob:Odgovor/ob:Sati"/>
+                        часова, односно у времену од
+                        <xsl:value-of select="/ob:ObavestenjeRoot/ob:Obavestenje//ob:Odgovor/ob:Sati_od"/>
+                        до
+                        <xsl:value-of select="/ob:ObavestenjeRoot/ob:Obavestenje//ob:Odgovor/ob:Sati_do"/>
+                        часова, у просторијама органа у
+                        <xsl:value-of select="/ob:ObavestenjeRoot/ob:Obavestenje//ob:Odgovor/ob:Lokacija//ob:Grad"/>
+                        ул.
+                        <xsl:value-of select="/ob:ObavestenjeRoot/ob:Obavestenje//ob:Odgovor/ob:Lokacija//ob:Ulica"/>
+                        бр.
+                        <xsl:value-of select="/ob:ObavestenjeRoot/ob:Obavestenje//ob:Odgovor/ob:Lokacija//ob:Broj"/>
+                        , канцеларија бр.
+                        <xsl:value-of select="/ob:ObavestenjeRoot/ob:Obavestenje//ob:Odgovor/ob:Lokacija/ob:Broj_kancelarije"/>
+                        можете извршити увид у документ/е у коме је садржана тражена информација.
+                    </fo:block>
+                    <fo:block font-family="Times New Roman" text-align="justify"  font-size="13px" padding-top="20px">
+                        Том приликом, на ваш захтев, може вам се издати и копија документа са траженом информацијом.
+                    </fo:block>
+                    <fo:block font-family="Times New Roman" text-align="justify"  font-size="13x" padding-top="10px">
+                        Трошкови су утврђени Уредбом Владе Републике Србије („Сл. гласник РС“, бр. 8/06), и то: копија стране А4
+                        формата износи 3 динара, А3 формата 6 динара, CD 35 динара, дискете 20 динара, DVD 40 динара, аудио-касета
+                        – 150 динара, видео-касета 300 динара, претварање једне стране документа из физичког у електронски облик – 30 динара.
+                    </fo:block>
+                    <fo:block font-family="Times New Roman" text-align="justify"  font-size="13px" padding-top="10px">
+                        Износ укупних трошкова израде копије документа по вашем захтеву износи
+                        <xsl:value-of select="/ob:ObavestenjeRoot/ob:Obavestenje//ob:Podaci_o_placanju//ob:Ukupni_troskovi"/>
+                        динара и уплаћује се на жиро-рачун Буџета Републике Србије бр.  <xsl:value-of select="/ob:ObavestenjeRoot/ob:Obavestenje//ob:Podaci_o_placanju//ob:Broj_racuna"/>, с позивом на број 97 – ознака
+                        шифре општине/града где се налази орган власти (из Правилника о условима и начину вођења рачуна – „Сл. гласник РС“, 20/07... 40/10).
+                    </fo:block>
+
+                    <fo:block padding-top="50px">
+                        <fo:inline-container inline-progression-dimension="24%">
+                            <fo:block font-family="Times New Roman" text-align="left" margin-left="0" font-size="13px" padding-top="10px">
+                                Достављено:     <xsl:value-of select="/ob:ObavestenjeRoot/ob:Obavestenje//ob:Dostavljeno"/>
+
+                            </fo:block>
+                        </fo:inline-container>
+                        <fo:inline-container font-family="Times New Roman" text-align="center" inline-progression-dimension="15%">
+                            <fo:block>
+                                (М.П)
+                            </fo:block>
+
+                        </fo:inline-container>
+                        <fo:inline-container font-family="Times New Roman" text-align="center" inline-progression-dimension="75%">
+                            <fo:block>
+                                _________________________
+                            </fo:block>
+                            <fo:block>
+                                (Потпис овлашћеног лица, односно руководиоца органа)
+                            </fo:block>
+                        </fo:inline-container>
                     </fo:block>
                 </fo:flow>
             </fo:page-sequence>

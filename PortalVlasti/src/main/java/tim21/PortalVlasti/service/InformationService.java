@@ -67,6 +67,10 @@ public class InformationService {
 
             ObavestenjeRoot created = informationRepository.create(information);
 
+            String ID = information.getOtherAttributes().get(new QName("about")).split("/")[3];
+
+            generateHtml(ID);
+            generatePdf(ID);
 
             MailRequest request = new MailRequest();
             request.setTo(information.getOtherAttributes().get(new QName("sendTo")).split("users")[1].substring(1));
@@ -74,25 +78,23 @@ public class InformationService {
             request.setContent("Obavestavamo vas da je zahtevu " + requestID + " promenjen status u 'ODOBRENO'. \n\n" +
                     "Admin tim eUprave");
 
-            Path pdfPath = Paths.get("src/main/resources/pdf/da.pdf");
+
+            Path pdfPath = Paths.get("src/main/resources/static/information/information_" + ID + ".pdf");
+            Path htmlPath = Paths.get("src/main/resources/static/information/information_" + ID + ".html");
             try {
                 byte[] byteArr = Files.readAllBytes(pdfPath);
                 request.setFile(byteArr);
-            } catch (IOException e) {
-                return null;
-            }
 
-            pdfPath = Paths.get("src/main/resources/html/ne.html");
-            try {
-                byte[] byteArr = Files.readAllBytes(pdfPath);
+                byteArr = Files.readAllBytes(htmlPath);
                 request.setHtml(byteArr);
+
             } catch (IOException e) {
+                e.printStackTrace();
                 return null;
             }
 
             Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
             marshaller.setContextPath("tim21.PortalVlasti.soap.dto");
-            MailClient mailClient = new MailClient();
             mailClient.setMarshaller(marshaller);
             mailClient.setUnmarshaller(marshaller);
 
