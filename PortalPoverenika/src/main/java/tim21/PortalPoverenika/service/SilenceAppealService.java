@@ -164,7 +164,7 @@ public class SilenceAppealService {
         if(appeal == null)
             return null;
 
-        String pdfPath ="src/main/resources/static/silence_appeal_" + ID + ".pdf";
+        String pdfPath ="src/main/resources/static/silenceAppeal/silence_appeal_" + ID + ".pdf";
         try {
             transformer.generatePDF(appeal.getContent().toString(), pdfPath, XSL_FO_FILE);
         } catch (Exception e) {
@@ -182,7 +182,7 @@ public class SilenceAppealService {
         if(appeal == null)
             return null;
 
-        String htmlPath ="src/main/resources/static/silence_appeal_" + ID + ".html";
+        String htmlPath ="src/main/resources/static/silenceAppeal/silence_appeal_" + ID + ".html";
         try {
             transformer.generateHTML(appeal.getContent().toString(), htmlPath, XSL_FILE);
         } catch (XMLDBException  e) {
