@@ -1,5 +1,5 @@
 {
-  "@id" : "file:///C:/Users/bekim/Desktop/xml/PortalPoverenika/src/main/resources/rdf/users/user@gmail.com.rdf",
+  "@id" : "file:///C:/Personal/Faks/XML%20i%20Web%20Servisi/projekat-github/PortalPoverenika/src/main/resources/rdf/users/user@gmail.com.rdf",
   "email" : "user@gmail.com",
   "@context" : {
     "email" : {
