@@ -1,27 +1,25 @@
 package tim21.PortalVlasti.model.lists;
 
-import tim21.PortalVlasti.model.information.Obavestenje;
+import tim21.PortalVlasti.model.information.ObavestenjeRoot;
 
-import javax.xml.bind.annotation.XmlAnyElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlSeeAlso;
+import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @XmlRootElement
-@XmlSeeAlso({Obavestenje.class})
+@XmlSeeAlso({ObavestenjeRoot.class})
 public class InformationList {
 
-    private List<Obavestenje> informations = new ArrayList<>();
+    private List<ObavestenjeRoot> informations = new ArrayList<>();
 
-    public InformationList(List<Obavestenje> informations){
+    public InformationList(List<ObavestenjeRoot> informations){
         this.informations = informations;
     }
 
     public InformationList(){}
 
     @XmlAnyElement
-    public List<Obavestenje> getInformations() {
+    public List<ObavestenjeRoot> getInformations() {
         return informations;
     }
 }

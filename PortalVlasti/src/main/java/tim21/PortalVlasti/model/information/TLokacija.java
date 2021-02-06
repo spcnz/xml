@@ -1,6 +1,8 @@
 
 package tim21.PortalVlasti.model.information;
 
+import tim21.PortalVlasti.model.shared.Adresa;
+
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.JAXBElement;
@@ -11,7 +13,6 @@ import javax.xml.bind.annotation.XmlElementRefs;
 import javax.xml.bind.annotation.XmlMixed;
 import javax.xml.bind.annotation.XmlType;
 
-import tim21.PortalVlasti.model.shared.*;
 
 /**
  * <p>Java class for TLokacija complex type.
@@ -64,9 +65,9 @@ public class TLokacija {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link JAXBElement }{@code <}{@link Object }{@code >}
-     * {@link String }
      * {@link Adresa }
+     * {@link String }
+     * {@link JAXBElement }{@code <}{@link Object }{@code >}
      * 
      * 
      */

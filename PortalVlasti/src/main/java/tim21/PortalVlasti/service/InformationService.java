@@ -12,7 +12,6 @@ import org.xmldb.api.base.ResourceSet;
 import org.xmldb.api.base.XMLDBException;
 import org.xmldb.api.modules.XMLResource;
 
-import tim21.PortalVlasti.model.information.Obavestenje;
 import tim21.PortalVlasti.model.information.ObavestenjeRoot;
 import tim21.PortalVlasti.model.lists.InformationList;
 import tim21.PortalVlasti.model.request.ZahtevRoot;
@@ -49,19 +48,18 @@ public class InformationService {
     @Autowired
     private Environment env;
 
-    public boolean create(ObavestenjeRoot information) throws IOException, SAXException {
+    public ObavestenjeRoot create(ObavestenjeRoot information) throws IOException, SAXException {
 
 
-        if (Validator.validate(information.getClass(), information)){
+        if (Validator.validate(information.getClass(), information)) {
 
             String requestID = information.getOtherAttributes().get(new QName("href")).split("zahtevi")[1].substring(1);
-            System.out.println("NASAO SAM ID JEBENI " + requestID);
             ZahtevRoot req = requestService.acceptRequest(requestID);
             if(req == null){
-                return false;
+                return null;
             }
 
-            informationRepository.create(information);
+            ObavestenjeRoot created = informationRepository.create(information);
 
 
             MailRequest request = new MailRequest();
@@ -75,7 +73,7 @@ public class InformationService {
                 byte[] byteArr = Files.readAllBytes(pdfPath);
                 request.setFile(byteArr);
             } catch (IOException e) {
-                return false;
+                return null;
             }
 
             pdfPath = Paths.get("src/main/resources/html/ne.html");
@@ -83,7 +81,7 @@ public class InformationService {
                 byte[] byteArr = Files.readAllBytes(pdfPath);
                 request.setHtml(byteArr);
             } catch (IOException e) {
-                return false;
+                return null;
             }
 
             Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
@@ -93,17 +91,19 @@ public class InformationService {
             mailClient.setUnmarshaller(marshaller);
 
             boolean sent = mailClient.sendMail(request);
-            return sent;
+            if (sent) {
+                return created;
+            }
 
         }
-        return false;
+        return null;
     }
 
 
 
 
     public InformationList getAll() throws XMLDBException, JAXBException {
-        List<Obavestenje> appeals = new ArrayList<>();
+        List<ObavestenjeRoot> appeals = new ArrayList<>();
 
         ResourceSet resourceSet = null;
         resourceSet = informationRepository.getAll();
@@ -114,16 +114,16 @@ public class InformationService {
             System.out.println(xmlResource);
             if(xmlResource == null)
                 return null;
-            JAXBContext context = JAXBContext.newInstance(Obavestenje.class);
+            JAXBContext context = JAXBContext.newInstance(ObavestenjeRoot.class);
             Unmarshaller unmarshaller = context.createUnmarshaller();
-            Obavestenje appeal = (Obavestenje) unmarshaller.unmarshal(xmlResource.getContentAsDOM());
+            ObavestenjeRoot appeal = (ObavestenjeRoot) unmarshaller.unmarshal(xmlResource.getContentAsDOM());
             appeals.add(appeal);
         }
         return new InformationList(appeals);
     }
 
     public InformationList getAllByUser(String email) throws XMLDBException, JAXBException {
-        List<Obavestenje> appeals = new ArrayList<>();
+        List<ObavestenjeRoot> appeals = new ArrayList<>();
 
         ResourceSet resourceSet = null;
         resourceSet = informationRepository.getAllByUser(email);
@@ -134,28 +134,28 @@ public class InformationService {
             System.out.println(xmlResource);
             if(xmlResource == null)
                 return null;
-            JAXBContext context = JAXBContext.newInstance(Obavestenje.class);
+            JAXBContext context = JAXBContext.newInstance(ObavestenjeRoot.class);
             Unmarshaller unmarshaller = context.createUnmarshaller();
-            Obavestenje appeal = (Obavestenje) unmarshaller.unmarshal(xmlResource.getContentAsDOM());
+            ObavestenjeRoot appeal = (ObavestenjeRoot) unmarshaller.unmarshal(xmlResource.getContentAsDOM());
             appeals.add(appeal);
         }
         return new InformationList(appeals);
     }
 
-    public Obavestenje getOne(String ID) {
+    public ObavestenjeRoot getOne(String ID) {
         XMLResource xmlResource = informationRepository.getOne(ID);
 
         if(xmlResource == null)
             return null;
 
-        Obavestenje appeal = null;
+        ObavestenjeRoot appeal = null;
         JAXBContext context = null;
 
         try {
-            context = JAXBContext.newInstance(Obavestenje.class);
+            context = JAXBContext.newInstance(ObavestenjeRoot.class);
             Unmarshaller unmarshaller = context.createUnmarshaller();
 
-            appeal = (Obavestenje) unmarshaller.unmarshal(xmlResource.getContentAsDOM());
+            appeal = (ObavestenjeRoot) unmarshaller.unmarshal(xmlResource.getContentAsDOM());
         } catch (JAXBException | XMLDBException e) {
             return null;
         }
