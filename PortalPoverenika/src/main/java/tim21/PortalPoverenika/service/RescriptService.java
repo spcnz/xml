@@ -2,6 +2,8 @@ package tim21.PortalPoverenika.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 import org.springframework.stereotype.Service;
 import org.xmldb.api.base.ResourceIterator;
@@ -12,13 +14,16 @@ import tim21.PortalPoverenika.model.decisionAppeal.ZalbaRoot;
 import tim21.PortalPoverenika.model.lists.DecisionAppealList;
 import tim21.PortalPoverenika.model.lists.RescriptList;
 import tim21.PortalPoverenika.model.rescript.ResenjeRoot;
+import tim21.PortalPoverenika.model.silenceAppeal.ZalbaCutanjeRoot;
 import tim21.PortalPoverenika.repository.RescriptRepository;
+import tim21.PortalPoverenika.soap.client.RequestClient;
 import tim21.PortalPoverenika.soap.client.RescriptClient;
 import tim21.PortalPoverenika.util.Validator;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
+import javax.xml.namespace.QName;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,6 +39,72 @@ public class RescriptService {
 
 	@Autowired
 	private Environment env;
+
+	@Autowired
+	private RequestClient requestClient;
+
+	@Autowired
+	private SilenceAppealService silenceAppealService;
+
+	@Autowired
+	private DecisionAppealService decisionAppealService;
+
+	public boolean checkAppealId(String appealID) {
+
+		ZalbaCutanjeRoot silenceAppeal = silenceAppealService.getOne(appealID);
+		ZalbaRoot decisionAppeal = decisionAppealService.getOne(appealID);
+
+		//apeal doesnt exist
+		if (silenceAppeal == null && decisionAppeal == null) {
+			return false;
+		}
+
+		String requestID;
+		if (silenceAppeal != null) {
+			try {
+				requestID = silenceAppeal.getOtherAttributes().get(new QName("href")).split("/")[3];
+			} catch (Exception e) {
+				e.printStackTrace();
+				return false;
+			}
+		} else {
+			try {
+				requestID = decisionAppeal.getOtherAttributes().get(new QName("href")).split("/")[3];
+			} catch (Exception e) {
+				e.printStackTrace();
+				return false;
+			}
+		}
+
+		//check request status, can not create rescript if request is approved
+		Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
+		marshaller.setContextPath("tim21.PortalPoverenika.soap.dto.request");
+		requestClient.setDefaultUri(env.getProperty("portal_vlasti"));
+		requestClient.setMarshaller(marshaller);
+		requestClient.setUnmarshaller(marshaller);
+
+
+		Boolean requestExists = requestClient.getRequest(requestID);
+
+		System.out.println(requestExists);
+
+		if (!requestExists) {
+			return false;
+		}
+
+		//check request status
+		String status = requestClient.getRequestStatus(requestID);
+		System.out.println(status);
+		if (status == null) {
+			return false;
+		}
+		//rescript can be created only if request has been rejected or is in process
+		if (status.equals("ACCEPTED")) {
+			return false;
+		}
+
+		return true;
+	}
 
 	public ResenjeRoot create(ResenjeRoot rescript) {
 		if (Validator.validate(rescript.getClass(), rescript)){
