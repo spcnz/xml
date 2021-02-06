@@ -1,0 +1,37 @@
+{
+  "@graph" : [ {
+    "@id" : "http://resenja/1",
+    "commisioner" : "http://users/poverenik@gmail.com",
+    "commisionerLastname" : "Marinovic",
+    "commisionerName" : "Milan"
+  }, {
+    "@id" : "http://resenja/20210206192454",
+    "appealStatus" : "PRIHVACENA",
+    "rescriptDate" : "2020-09-08"
+  } ],
+  "@context" : {
+    "appealStatus" : {
+      "@id" : "http://www.tim21.com/predicate/appealStatus",
+      "@type" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"
+    },
+    "rescriptDate" : {
+      "@id" : "http://www.tim21.com/predicate/rescriptDate",
+      "@type" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"
+    },
+    "commisionerLastname" : {
+      "@id" : "http://www.tim21.com/predicate/commisionerLastname",
+      "@type" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"
+    },
+    "commisionerName" : {
+      "@id" : "http://www.tim21.com/predicate/commisionerName",
+      "@type" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"
+    },
+    "commisioner" : {
+      "@id" : "http://www.tim21.com/predicate/commisioner",
+      "@type" : "@id"
+    },
+    "rdf" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "pred" : "http://www.tim21.com/predicate/",
+    "h" : "http://www.w3.org/1999/xhtml"
+  }
+}

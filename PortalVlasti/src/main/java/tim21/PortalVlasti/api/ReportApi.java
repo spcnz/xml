@@ -9,10 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.xmldb.api.base.XMLDBException;
 import tim21.PortalVlasti.model.report.IzvestajRoot;
 import tim21.PortalVlasti.model.report.ReportList;
@@ -77,6 +74,33 @@ public class ReportApi {
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 
 
+    }
+
+
+    @RequestMapping(value = "/{ID}/generate", method = RequestMethod.GET)
+    public ResponseEntity<?> generate(@PathVariable String ID, @RequestParam("type") String fileType) {
+        String path = null;
+        if (fileType.equals("pdf")) {
+            path = reportService.generatePdf(ID);
+        } else if (fileType.equals("html")) {
+            path = reportService.generateHtml(ID);
+        }
+
+        if (path == null) {
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
+        }
+
+        try {
+            ByteArrayInputStream bis = new ByteArrayInputStream(Files.readAllBytes(Paths.get(path)));
+
+            HttpHeaders headers = new HttpHeaders();
+
+            headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=" + ID + "." + fileType);
+            return ResponseEntity.ok().headers(headers).body(new InputStreamResource(bis));
+        } catch (IOException e) {
+            e.printStackTrace();
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
+        }
     }
 
 
