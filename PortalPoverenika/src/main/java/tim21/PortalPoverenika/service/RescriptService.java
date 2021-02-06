@@ -19,6 +19,7 @@ import tim21.PortalPoverenika.repository.RescriptRepository;
 import tim21.PortalPoverenika.soap.client.RequestClient;
 import tim21.PortalPoverenika.soap.client.RescriptClient;
 import tim21.PortalPoverenika.util.Validator;
+import tim21.PortalPoverenika.util.transformer.PDFTransformer;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -48,6 +49,10 @@ public class RescriptService {
 
 	@Autowired
 	private DecisionAppealService decisionAppealService;
+
+	public static final String XSL_FILE = "src/main/resources/xsl/rescript.xsl";
+
+	public static final String XSL_FO_FILE = "src/main/resources/xsl/rescript_fo.xsl";
 
 	public boolean checkAppealId(String appealID) {
 
@@ -232,5 +237,41 @@ public class RescriptService {
 		rescriptClient.setUnmarshaller(unmarshaller);
 
 		return rescriptClient.submitRescript(rescript.getResenje());
+	}
+
+	public String generatePdf(String ID) {
+		XMLResource rescript = rescriptRepository.getOne(ID);
+		PDFTransformer transformer = new PDFTransformer();
+
+		if(rescript == null)
+			return null;
+
+		String pdfPath ="src/main/resources/static/rescript/rescript_" + ID + ".pdf";
+		try {
+			transformer.generatePDF(rescript.getContent().toString(), pdfPath, XSL_FO_FILE);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+
+		return pdfPath;
+	}
+
+	public String generateHtml(String ID) {
+		XMLResource rescript = rescriptRepository.getOne(ID);
+		PDFTransformer transformer = new PDFTransformer();
+
+		if(rescript == null)
+			return null;
+
+		String htmlPath ="src/main/resources/static/rescript/rescript_" + ID + ".html";
+		try {
+			transformer.generateHTML(rescript.getContent().toString(), htmlPath, XSL_FILE);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+
+		return htmlPath;
 	}
 }
