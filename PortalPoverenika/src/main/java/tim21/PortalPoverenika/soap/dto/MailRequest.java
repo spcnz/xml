@@ -6,9 +6,9 @@ import javax.xml.bind.annotation.*;
 
 /**
  * <p>Java class for MailRequest complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="MailRequest"&gt;
  *   &lt;complexContent&gt;
@@ -24,16 +24,16 @@ import javax.xml.bind.annotation.*;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "MailRequest", propOrder = {
-    "from",
-    "to",
-    "subject",
-    "content",
-    "file",
+        "from",
+        "to",
+        "subject",
+        "content",
+        "file",
         "html"
 })
 @XmlRootElement(name="mail")
@@ -54,11 +54,11 @@ public class MailRequest {
 
     /**
      * Gets the value of the from property.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link String }
-     *     
+     *
      */
     public String getFrom() {
         return from;
@@ -66,11 +66,11 @@ public class MailRequest {
 
     /**
      * Sets the value of the from property.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link String }
-     *     
+     *
      */
     public void setFrom(String value) {
         this.from = value;
@@ -78,11 +78,11 @@ public class MailRequest {
 
     /**
      * Gets the value of the to property.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link String }
-     *     
+     *
      */
     public String getTo() {
         return to;
@@ -90,11 +90,11 @@ public class MailRequest {
 
     /**
      * Sets the value of the to property.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link String }
-     *     
+     *
      */
     public void setTo(String value) {
         this.to = value;
@@ -102,11 +102,11 @@ public class MailRequest {
 
     /**
      * Gets the value of the subject property.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link String }
-     *     
+     *
      */
     public String getSubject() {
         return subject;
@@ -114,11 +114,11 @@ public class MailRequest {
 
     /**
      * Sets the value of the subject property.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link String }
-     *     
+     *
      */
     public void setSubject(String value) {
         this.subject = value;
@@ -126,11 +126,11 @@ public class MailRequest {
 
     /**
      * Gets the value of the content property.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link String }
-     *     
+     *
      */
     public String getContent() {
         return content;
@@ -138,11 +138,11 @@ public class MailRequest {
 
     /**
      * Sets the value of the content property.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link String }
-     *     
+     *
      */
     public void setContent(String value) {
         this.content = value;
@@ -150,11 +150,11 @@ public class MailRequest {
 
     /**
      * Gets the value of the file property.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link Object }
-     *     
+     *
      */
     public Object getFile() {
         return file;
@@ -162,11 +162,11 @@ public class MailRequest {
 
     /**
      * Sets the value of the file property.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link Object }
-     *     
+     *
      */
     public void setFile(Object value) {
         this.file = value;
