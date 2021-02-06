@@ -14,8 +14,12 @@ import tim21.PortalPoverenika.model.lists.SilenceAppealList;
 import tim21.PortalPoverenika.model.silenceAppeal.ZalbaCutanjeRoot;
 import tim21.PortalPoverenika.repository.SilenceAppealRepository;
 import tim21.PortalPoverenika.soap.client.AppealAnnouncementClient;
+import tim21.PortalPoverenika.soap.client.MailClient;
+import tim21.PortalPoverenika.soap.client.RequestClient;
 import tim21.PortalPoverenika.soap.dto.appealAnnouncement.ObavestenjeZalba;
 import tim21.PortalPoverenika.soap.dto.appealAnnouncement.TObZalbaDokument;
+import tim21.PortalPoverenika.soap.dto.request.TZahtev;
+import tim21.PortalPoverenika.soap.dto.request.ZahtevRoot;
 import tim21.PortalPoverenika.util.Validator;
 
 import javax.xml.bind.JAXBContext;
@@ -47,7 +51,40 @@ public class SilenceAppealService {
     @Autowired
     private Environment env;
 
+    @Autowired
+    private RequestClient requestClient;
+
+    public boolean checkRequestId(String requestID) {
+        Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
+        marshaller.setContextPath("tim21.PortalPoverenika.soap.dto.request");
+        requestClient.setDefaultUri(env.getProperty("portal_vlasti"));
+        requestClient.setMarshaller(marshaller);
+        requestClient.setUnmarshaller(marshaller);
+
+
+        Boolean requestExists = requestClient.getRequest(requestID);
+
+        System.out.println(requestExists);
+
+        if (!requestExists) {
+            return false;
+        }
+
+        //check request status
+        String status = requestClient.getRequestStatus(requestID);
+        System.out.println(status);
+        if (status == null) {
+            return false;
+        }
+        if (!status.equals("PROCESS")) {
+            return false;
+        }
+
+        return true;
+    }
+
     public ZalbaCutanjeRoot create(ZalbaCutanjeRoot appeal) {
+
         if (Validator.validate(appeal.getClass(), appeal)){
             return appealRepository.create(appeal);
         }

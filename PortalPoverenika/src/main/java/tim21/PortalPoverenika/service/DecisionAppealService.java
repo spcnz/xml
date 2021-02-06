@@ -15,6 +15,7 @@ import tim21.PortalPoverenika.model.lists.DecisionAppealList;
 import tim21.PortalPoverenika.model.lists.RescriptList;
 import tim21.PortalPoverenika.repository.DecisionAppealRepository;
 import tim21.PortalPoverenika.soap.client.AppealAnnouncementClient;
+import tim21.PortalPoverenika.soap.client.RequestClient;
 import tim21.PortalPoverenika.soap.dto.appealAnnouncement.ObavestenjeZalba;
 import tim21.PortalPoverenika.soap.dto.appealAnnouncement.TObZalbaDokument;
 import tim21.PortalPoverenika.util.Validator;
@@ -45,6 +46,39 @@ public class DecisionAppealService {
 
     @Autowired
     private Environment env;
+
+    @Autowired
+    private RequestClient requestClient;
+
+    public boolean checkRequestId(String requestID) {
+        Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
+        marshaller.setContextPath("tim21.PortalPoverenika.soap.dto.request");
+        requestClient.setDefaultUri(env.getProperty("portal_vlasti"));
+        requestClient.setMarshaller(marshaller);
+        requestClient.setUnmarshaller(marshaller);
+
+
+        Boolean requestExists = requestClient.getRequest(requestID);
+
+        System.out.println(requestExists);
+
+        if (!requestExists) {
+            return false;
+        }
+
+        //check request status
+        String status = requestClient.getRequestStatus(requestID);
+        System.out.println(status);
+        if (status == null) {
+            return false;
+        }
+        //decision appeal is valid only if request has been rejected
+        if (!status.equals("REJECTED")) {
+            return false;
+        }
+
+        return true;
+    }
 
     public ZalbaRoot create(ZalbaRoot appeal) throws IOException, SAXException {
 

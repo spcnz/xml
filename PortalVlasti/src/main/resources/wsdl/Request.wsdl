@@ -12,10 +12,17 @@
     </wsdl:types>
 
     <wsdl:message name="getByIdRequest">
-        <wsdl:part name="id" type="xsd:string" />
+        <wsdl:part name="value" type="xsd:string" />
     </wsdl:message>
     <wsdl:message name="getByIdResponse">
-        <wsdl:part name="zahtev_dokument" type="tns:TZahtev" />
+        <wsdl:part name="value" type="xsd:boolean" />
+    </wsdl:message>
+
+    <wsdl:message name="getStatusByIdRequest">
+        <wsdl:part name="value" type="xsd:string" />
+    </wsdl:message>
+    <wsdl:message name="getStatusByIdResponse">
+        <wsdl:part name="value" type="xsd:string" />
     </wsdl:message>
 
 
@@ -24,12 +31,27 @@
             <wsdl:input message="tns:getByIdRequest" />
             <wsdl:output message="tns:getByIdResponse" />
         </wsdl:operation>
+
+        <wsdl:operation name="getStatusById">
+            <wsdl:input message="tns:getStatusByIdRequest" />
+            <wsdl:output message="tns:getStatusByIdResponse" />
+        </wsdl:operation>
     </wsdl:portType>
 
     <wsdl:binding name="RequestServiceSoapBinding" type="tns:RequestServicePortType">
         <soap:binding style="document"  transport="http://schemas.xmlsoap.org/soap/http" />
         <wsdl:operation name="getById">
             <soap:operation soapAction="http://www.zahtev.com/ws/getById" />
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+
+        <wsdl:operation name="getStatusById">
+            <soap:operation soapAction="http://www.zahtev.com/ws/getStatusById" />
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>

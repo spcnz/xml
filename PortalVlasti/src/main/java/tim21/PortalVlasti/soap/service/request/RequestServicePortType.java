@@ -18,13 +18,20 @@ import javax.xml.bind.annotation.XmlSeeAlso;
  */
 @WebService(targetNamespace = "http://www.zahtev.com", name = "RequestServicePortType")
 @XmlSeeAlso({tim21.PortalVlasti.model.shared.ObjectFactory.class, ObjectFactory.class})
-@SOAPBinding(parameterStyle = SOAPBinding.ParameterStyle.BARE)
+@SOAPBinding(style = SOAPBinding.Style.DOCUMENT, parameterStyle = SOAPBinding.ParameterStyle.BARE)
 public interface RequestServicePortType {
 
+    @WebMethod(action = "http://www.zahtev.com/ws/getStatusById")
+    @WebResult(name = "value", targetNamespace = "", partName = "value")
+    public String getStatusById(
+            @WebParam(partName = "value", name = "value", targetNamespace = "")
+                    java.lang.String value
+    );
+
     @WebMethod(action = "http://www.zahtev.com/ws/getById")
-    @WebResult(name = "zahtev_dokument", targetNamespace = "", partName = "zahtev_dokument")
-    public TZahtev getById(
-        @WebParam(partName = "id", name = "id", targetNamespace = "")
-        String id
+    @WebResult(name = "value", targetNamespace = "", partName = "value")
+    public Boolean getById(
+            @WebParam(partName = "value", name = "value", targetNamespace = "")
+                    java.lang.String value
     );
 }

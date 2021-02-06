@@ -55,6 +55,18 @@ public class SilenceAppealApi {
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<?> createAppeal(@RequestBody ZalbaCutanjeRoot appealReq) {
         ZalbaCutanjeRoot appeal = SilenceAppealMapper.addStaticText(appealReq);
+
+        try {
+            String requestID = appeal.getOtherAttributes().get(new QName("href")).split("/")[3];
+            boolean requestValid = appealService.checkRequestId(requestID);
+            if (!requestValid) {
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
         appeal = appealService.create(appeal);
         if (appeal != null) {
             return new ResponseEntity<>(appeal, HttpStatus.CREATED);
