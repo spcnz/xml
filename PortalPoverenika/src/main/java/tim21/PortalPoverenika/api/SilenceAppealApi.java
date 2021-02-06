@@ -97,7 +97,7 @@ public class SilenceAppealApi {
     }
 
 
-    @RequestMapping(value = "/search/{KW}", method = RequestMethod.GET, consumes = MediaType.APPLICATION_XML_VALUE)
+    @RequestMapping(value = "/search/{KW}", method = RequestMethod.GET, produces=MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<?> searchAppeals(@PathVariable String KW) {
         SilenceAppealList appeals = new SilenceAppealList();
         try {
