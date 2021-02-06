@@ -13,6 +13,7 @@ import tim21.PortalPoverenika.model.report.IzvestajRoot;
 import tim21.PortalPoverenika.model.report.ReportList;
 import tim21.PortalPoverenika.repository.ReportRepository;
 import tim21.PortalPoverenika.util.Validator;
+import tim21.PortalPoverenika.util.transformer.PDFTransformer;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -26,6 +27,10 @@ public class ReportDataService {
     
     @Autowired
     ReportRepository reportRepository;
+
+    public static final String XSL_FILE = "src/main/resources/xsl/report.xsl";
+
+    public static final String XSL_FO_FILE = "src/main/resources/xsl/report_fo.xsl";
 
 
     public IzvestajRoot create(IzvestajRoot report) throws IOException, SAXException {
@@ -81,7 +86,43 @@ public class ReportDataService {
     }
 
 
-    public ReportList search(String keyword) throws XMLDBException, JAXBException {
+    public String generatePdf(String ID) {
+        XMLResource inf = reportRepository.getOne(ID);
+        PDFTransformer transformer = new PDFTransformer();
+
+        if(inf == null)
+            return null;
+
+        String pdfPath ="src/main/resources/static/information/information_" + ID + ".pdf";
+        try {
+            transformer.generatePDF(inf.getContent().toString(), pdfPath, XSL_FO_FILE);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+
+        return pdfPath;
+    }
+
+    public String generateHtml(String ID) {
+        XMLResource inf = reportRepository.getOne(ID);
+        PDFTransformer transformer = new PDFTransformer();
+
+        if (inf == null)
+            return null;
+
+        String htmlPath = "src/main/resources/static/information/information_" + ID + ".html";
+        try {
+            transformer.generateHTML(inf.getContent().toString(), htmlPath, XSL_FILE);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+        return htmlPath;
+    }
+
+
+        public ReportList search(String keyword) throws XMLDBException, JAXBException {
         List<IzvestajRoot> reports = new ArrayList<>();
 
         ResourceSet resourceSet = null;
