@@ -6,10 +6,8 @@ import org.xmldb.api.base.ResourceSet;
 import org.xmldb.api.base.XMLDBException;
 import org.xmldb.api.modules.XMLResource;
 import tim21.PortalVlasti.db.ExistManager;
-import tim21.PortalVlasti.model.information.Obavestenje;
 import tim21.PortalVlasti.model.information.ObavestenjeRoot;
 import tim21.PortalVlasti.util.IdGenerator;
-import tim21.PortalVlasti.util.constants.XSDConstants;
 
 import javax.xml.namespace.QName;
 import java.util.Map;
@@ -25,7 +23,7 @@ public class InformationRepository {
     public ExistManager existManager;
 
 
-    public boolean create(ObavestenjeRoot inf) {
+    public ObavestenjeRoot create(ObavestenjeRoot inf) {
         try {
             String id = IdGenerator.generate();
             String aboutValue = "http://obavestenja/" + id;
@@ -33,10 +31,14 @@ public class InformationRepository {
             attrributes.put(new QName("id"), id);
             attrributes.put(new QName("about"), aboutValue);
 
-            return existManager.store(INFORMATION_COLLECTION_URI, id, inf, "obavestenja");
+            if (existManager.store(INFORMATION_COLLECTION_URI, id, inf, "obavestenja")) {
+                return inf;
+            } else {
+                return null;
+            }
         } catch (Exception e) {
             e.printStackTrace();
-            return false;
+            return null;
         }
     }
 
@@ -53,7 +55,7 @@ public class InformationRepository {
 
     public ResourceSet getAll() throws XMLDBException {
         try {
-            return existManager.getAll(INFORMATION_COLLECTION_URI, INFORMATION , INFORMATION_TARGET_NAMESPACE);
+            return existManager.getAll(INFORMATION_COLLECTION_URI, "/" + INFORMATION , INFORMATION_TARGET_NAMESPACE);
         } catch (Exception e) {
             e.printStackTrace();
             return null;

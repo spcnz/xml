@@ -1,6 +1,8 @@
 
 package tim21.PortalVlasti.model.information;
 
+import tim21.PortalVlasti.model.shared.*;
+
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,7 +18,7 @@ import javax.xml.bind.annotation.XmlValue;
 import javax.xml.datatype.XMLGregorianCalendar;
 import javax.xml.namespace.QName;
 
-import tim21.PortalVlasti.model.shared.*;
+
 /**
  * <p>Java class for TObavestenje complex type.
  * 

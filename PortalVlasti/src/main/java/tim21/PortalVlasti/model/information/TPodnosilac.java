@@ -1,13 +1,14 @@
 
 package tim21.PortalVlasti.model.information;
 
+import tim21.PortalVlasti.model.shared.*;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
 
-import tim21.PortalVlasti.model.shared.*;
+
 /**
  * <p>Java class for TPodnosilac complex type.
  * 
@@ -34,7 +35,7 @@ import tim21.PortalVlasti.model.shared.*;
     "fizickoLice"
 })
 @XmlSeeAlso({
-    tim21.PortalVlasti.model.information.TObavestenje.Podnosilac.class
+    TObavestenje.Podnosilac.class
 })
 public class TPodnosilac {
 

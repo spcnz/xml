@@ -9,7 +9,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import org.xml.sax.SAXException;
 import org.xmldb.api.base.XMLDBException;
-import tim21.PortalVlasti.model.information.Obavestenje;
 import tim21.PortalVlasti.model.information.ObavestenjeRoot;
 import tim21.PortalVlasti.model.lists.InformationList;
 import tim21.PortalVlasti.model.user.User;
@@ -27,9 +26,10 @@ public class InformationApi {
 
     @RequestMapping( method = RequestMethod.POST, consumes = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<?> createInformation(@RequestBody ObavestenjeRoot information) throws IOException, SAXException {
-        if (informationService.create(information)){
+        ObavestenjeRoot inf = informationService.create(information);
+        if (inf != null){
 
-            return new ResponseEntity<>(HttpStatus.CREATED);
+            return new ResponseEntity<>(inf, HttpStatus.CREATED);
         }
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
@@ -63,7 +63,7 @@ public class InformationApi {
 
     @RequestMapping(value="/{ID}", method = RequestMethod.GET, consumes = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<?> getInformation(@PathVariable String ID) {
-        Obavestenje information = informationService.getOne(ID);
+        ObavestenjeRoot information = informationService.getOne(ID);
         if(information != null)
             return new ResponseEntity(information, HttpStatus.OK);
 
