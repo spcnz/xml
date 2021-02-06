@@ -71,8 +71,18 @@ public class RescriptApi {
 
     @RequestMapping( method = RequestMethod.POST, consumes = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<?> createRescript(@RequestBody ResenjeRoot rescript)  {
-        //proveri da li postoji zalba
-        //proveri da li postoji odgovor na zalbu tj da li zahtev ima neki status izmenjenn
+
+
+        try {
+            String appealID = rescript.getOtherAttributes().get(new QName("href")).split("/")[3];
+            boolean appealValid = rescriptService.checkAppealId(appealID);
+            if (!appealValid) {
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
 
 
         rescript = rescriptService.create(rescript);

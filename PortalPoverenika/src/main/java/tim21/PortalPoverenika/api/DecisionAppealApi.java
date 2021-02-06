@@ -48,6 +48,17 @@ public class DecisionAppealApi {
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<?> createAppeal(@RequestBody ZalbaRoot appealReq) throws IOException, SAXException {
 
+        try {
+            String requestID = appealReq.getOtherAttributes().get(new QName("href")).split("/")[3];
+            boolean requestValid = appealService.checkRequestId(requestID);
+            if (!requestValid) {
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
         ZalbaRoot appeal = DecisionAppealMapper.addStaticText(appealReq);
         appeal = appealService.create(appeal);
         if (appeal != null) {
