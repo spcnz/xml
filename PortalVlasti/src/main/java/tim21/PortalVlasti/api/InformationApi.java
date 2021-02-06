@@ -1,6 +1,8 @@
 package tim21.PortalVlasti.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +17,11 @@ import tim21.PortalVlasti.model.user.User;
 import tim21.PortalVlasti.service.InformationService;
 
 import javax.xml.bind.JAXBException;
+import javax.xml.namespace.QName;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 @RestController
 @RequestMapping(value = "/api/information", produces = MediaType.APPLICATION_XML_VALUE)
@@ -70,4 +76,31 @@ public class InformationApi {
         return new ResponseEntity(HttpStatus.BAD_REQUEST);
     }
 
+
+
+    @RequestMapping(value = "/{ID}/generate", method = RequestMethod.GET)
+    public ResponseEntity<?> generate(@PathVariable String ID, @RequestParam("type") String fileType) {
+        String path = null;
+        if (fileType.equals("pdf")) {
+            path = informationService.generatePdf(ID);
+        } else if (fileType.equals("html")) {
+            path = informationService.generateHtml(ID);
+        }
+
+        if (path == null) {
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
+        }
+
+        try {
+            ByteArrayInputStream bis = new ByteArrayInputStream(Files.readAllBytes(Paths.get(path)));
+
+            HttpHeaders headers = new HttpHeaders();
+
+            headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=" + ID + "." + fileType);
+            return ResponseEntity.ok().headers(headers).body(new InputStreamResource(bis));
+        } catch (IOException e) {
+            e.printStackTrace();
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
+        }
+    }
 }
