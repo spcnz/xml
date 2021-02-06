@@ -59,4 +59,14 @@ public class InformationRepository {
             return null;
         }
     }
+
+    public ResourceSet getAllByUser(String email) throws XMLDBException {
+        String xPath = "/ObavestenjeRoot[@sendTo='%s']".format(email);
+        try {
+            return existManager.getAll(INFORMATION_COLLECTION_URI, xPath , INFORMATION_TARGET_NAMESPACE);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }

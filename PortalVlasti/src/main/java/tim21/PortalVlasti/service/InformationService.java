@@ -122,6 +122,26 @@ public class InformationService {
         return new InformationList(appeals);
     }
 
+    public InformationList getAllByUser(String email) throws XMLDBException, JAXBException {
+        List<Obavestenje> appeals = new ArrayList<>();
+
+        ResourceSet resourceSet = null;
+        resourceSet = informationRepository.getAllByUser(email);
+        ResourceIterator resourceIterator = resourceSet.getIterator();
+
+        while (resourceIterator.hasMoreResources()){
+            XMLResource xmlResource = (XMLResource) resourceIterator.nextResource();
+            System.out.println(xmlResource);
+            if(xmlResource == null)
+                return null;
+            JAXBContext context = JAXBContext.newInstance(Obavestenje.class);
+            Unmarshaller unmarshaller = context.createUnmarshaller();
+            Obavestenje appeal = (Obavestenje) unmarshaller.unmarshal(xmlResource.getContentAsDOM());
+            appeals.add(appeal);
+        }
+        return new InformationList(appeals);
+    }
+
     public Obavestenje getOne(String ID) {
         XMLResource xmlResource = informationRepository.getOne(ID);
 
