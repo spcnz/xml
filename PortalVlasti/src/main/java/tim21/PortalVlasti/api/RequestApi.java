@@ -218,5 +218,31 @@ public class RequestApi {
         }
     }
 
+    @RequestMapping(value = "/{ID}/generate", method = RequestMethod.GET)
+    public ResponseEntity<?> generate(@PathVariable String ID, @RequestParam("type") String fileType) {
+        String path = null;
+        if (fileType.equals("pdf")) {
+            path = requestService.generatePdf(ID);
+        } else if (fileType.equals("html")) {
+            path = requestService.generateHtml(ID);
+        }
+
+        if (path == null) {
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
+        }
+
+        try {
+            ByteArrayInputStream bis = new ByteArrayInputStream(Files.readAllBytes(Paths.get(path)));
+
+            HttpHeaders headers = new HttpHeaders();
+
+            headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=" + ID + "." + fileType);
+            return ResponseEntity.ok().headers(headers).body(new InputStreamResource(bis));
+        } catch (IOException e) {
+            e.printStackTrace();
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
+        }
+    }
+
 
 }

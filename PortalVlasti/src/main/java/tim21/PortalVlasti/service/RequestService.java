@@ -11,6 +11,7 @@ import tim21.PortalVlasti.model.request.ZahtevRoot;
 import tim21.PortalVlasti.model.lists.RequestList;
 import tim21.PortalVlasti.repository.RequestRepository;
 import tim21.PortalVlasti.util.Validator;
+import tim21.PortalVlasti.util.transformer.PDFTransformer;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -26,6 +27,10 @@ public class RequestService {
 
     @Autowired
     RequestRepository requestRepository;
+
+    public static final String XSL_FILE = "src/main/resources/xsl/request.xsl";
+
+    public static final String XSL_FO_FILE = "src/main/resources/xsl/request_fo.xsl";
 
     public ZahtevRoot create(ZahtevRoot request, String submitterId) throws IOException, SAXException {
 
@@ -155,5 +160,41 @@ public class RequestService {
             appeals.add(req);
         }
         return new RequestList(appeals);
+    }
+
+    public String generatePdf(String ID) {
+        XMLResource inf = requestRepository.getOne(ID);
+        PDFTransformer transformer = new PDFTransformer();
+
+        if(inf == null)
+            return null;
+
+        String pdfPath ="src/main/resources/static/request/request_" + ID + ".pdf";
+        try {
+            transformer.generatePDF(inf.getContent().toString(), pdfPath, XSL_FO_FILE);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+
+        return pdfPath;
+    }
+
+    public String generateHtml(String ID) {
+        XMLResource inf = requestRepository.getOne(ID);
+        PDFTransformer transformer = new PDFTransformer();
+
+        if(inf == null)
+            return null;
+
+        String htmlPath ="src/main/resources/static/request/request_" + ID + ".html";
+        try {
+            transformer.generateHTML(inf.getContent().toString(), htmlPath, XSL_FILE);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+
+        return htmlPath;
     }
 }
