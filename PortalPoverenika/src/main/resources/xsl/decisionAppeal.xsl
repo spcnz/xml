@@ -9,6 +9,8 @@
             <style type="text/css">
                 html {
                 font-family: Times New Roman;
+                letter-spacing:0.05pt;
+                font: 12pt;
                 }
                 p {
                 margin: 0%

@@ -16,14 +16,21 @@ import tim21.PortalPoverenika.model.lists.RescriptList;
 import tim21.PortalPoverenika.model.rescript.ResenjeRoot;
 import tim21.PortalPoverenika.model.silenceAppeal.ZalbaCutanjeRoot;
 import tim21.PortalPoverenika.repository.RescriptRepository;
+import tim21.PortalPoverenika.soap.client.MailClient;
 import tim21.PortalPoverenika.soap.client.RequestClient;
 import tim21.PortalPoverenika.soap.client.RescriptClient;
+import tim21.PortalPoverenika.soap.dto.MailRequest;
 import tim21.PortalPoverenika.util.Validator;
+import tim21.PortalPoverenika.util.transformer.PDFTransformer;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import javax.xml.namespace.QName;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,6 +55,13 @@ public class RescriptService {
 
 	@Autowired
 	private DecisionAppealService decisionAppealService;
+
+	@Autowired
+	MailClient mailClient;
+
+	public static final String XSL_FILE = "src/main/resources/xsl/rescript.xsl";
+
+	public static final String XSL_FO_FILE = "src/main/resources/xsl/rescript_fo.xsl";
 
 	public boolean checkAppealId(String appealID) {
 
@@ -232,5 +246,88 @@ public class RescriptService {
 		rescriptClient.setUnmarshaller(unmarshaller);
 
 		return rescriptClient.submitRescript(rescript.getResenje());
+	}
+
+	public boolean sendEmail(ResenjeRoot rescript) {
+
+		String ID = rescript.getOtherAttributes().get(new QName("about")).split("/")[3];
+		String userEmail =  rescript.getOtherAttributes().get(new QName("submitter")).split("/")[3];
+
+		generateHtml(ID);
+		generatePdf(ID);
+
+		System.out.println("daa");
+		System.out.println(ID);
+		System.out.println(userEmail);
+
+		Path pdfPath = Paths.get("src/main/resources/static/rescript/rescript_" + ID + ".pdf");
+		Path htmlPath = Paths.get("src/main/resources/static/rescript/rescript_" + ID + ".html");
+
+		MailRequest request = new MailRequest();
+		request.setTo(userEmail);
+		request.setFrom("com.@gmail.com");
+		request.setSubject("[RESENJE]");
+		request.setContent("Postani,\nU prilogu se nalazi resenje koje je kreirano za podnetu zalbu.\nSrdacan pozdrav,\n");
+		try {
+			byte[] byteArr = Files.readAllBytes(pdfPath);
+			request.setFile(byteArr);
+
+			byteArr = Files.readAllBytes(htmlPath);
+			request.setHtml(byteArr);
+
+		} catch (IOException e) {
+			e.printStackTrace();
+			return false;
+		}
+
+
+		Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
+		marshaller.setContextPath("tim21.PortalPoverenika.soap.dto");
+		MailClient mailClient = new MailClient();
+		mailClient.setMarshaller(marshaller);
+		mailClient.setUnmarshaller(marshaller);
+
+		boolean sent = mailClient.sendMail(request);
+		if(sent){
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public String generatePdf(String ID) {
+		XMLResource rescript = rescriptRepository.getOne(ID);
+		PDFTransformer transformer = new PDFTransformer();
+
+		if(rescript == null)
+			return null;
+
+		String pdfPath ="src/main/resources/static/rescript/rescript_" + ID + ".pdf";
+		try {
+			transformer.generatePDF(rescript.getContent().toString(), pdfPath, XSL_FO_FILE);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+
+		return pdfPath;
+	}
+
+	public String generateHtml(String ID) {
+		XMLResource rescript = rescriptRepository.getOne(ID);
+		PDFTransformer transformer = new PDFTransformer();
+
+		if(rescript == null)
+			return null;
+
+		String htmlPath ="src/main/resources/static/rescript/rescript_" + ID + ".html";
+		try {
+			transformer.generateHTML(rescript.getContent().toString(), htmlPath, XSL_FILE);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+
+		return htmlPath;
 	}
 }
