@@ -1,0 +1,11 @@
+# xml
+
+## setup
+### Tomcat + ExistDB + Jena Fuseki
+Potrebno je pokrenuti jedan tomcat server na portu 8089, dodati exist.war i existVlast.war fajlove u webapps folder u tomcat direktorijumu.
+Isto tako, dodati i fuseki.war i kreirati dataset koji se zove *Tim21Dataset*.
+Skinuti fuseki jena server i pokrenuti komandom `fuseki-server --port "8093" --mem /Tim21DatasetVlast`
+
+Linkovi do front-end aplikacije
+[Portal organa vlasti](https://github.com/dovlaper/xml-fe-react-offical-)
+[Portal poverenika](https://github.com/dovlaper/xml-fe-react)
