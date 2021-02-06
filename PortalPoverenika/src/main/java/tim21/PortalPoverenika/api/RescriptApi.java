@@ -69,6 +69,7 @@ public class RescriptApi {
     @Autowired
     SilenceAppealService silenceAppealService;
 
+
     @RequestMapping( method = RequestMethod.POST, consumes = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<?> createRescript(@RequestBody ResenjeRoot rescript)  {
 
@@ -91,11 +92,12 @@ public class RescriptApi {
         }
 
         Boolean sent = rescriptService.sendToOffical(rescript);
+        Boolean sendEmail = rescriptService.sendEmail(rescript);
 
-        if (sent) {
+        if (sent && sendEmail) {
             return new ResponseEntity<>(rescript, HttpStatus.CREATED);
         }
-        //posalji na mejl traziocu hehe
+
 
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
@@ -133,53 +135,6 @@ public class RescriptApi {
             return new ResponseEntity(rescript, HttpStatus.OK);
 
         return new ResponseEntity(HttpStatus.BAD_REQUEST);
-    }
-
-
-        @RequestMapping(value="/{ID}", method = RequestMethod.POST, consumes = MediaType.APPLICATION_XML_VALUE)
-    public ResponseEntity<?> sendToApplicant(@PathVariable String ID, @RequestBody MailRequest request) {
-//        ResenjeRoot rescript = rescriptService.getOne(ID);
-//        if(rescript != null) {
-//            ovde ce se generisati pdf
-//            uzeti njegova putanja i pretvoriti u bajtove
-//            za sad cemo ovkako
-            Path pdfPath = Paths.get("C:/Users/bekim/Desktop/xml/PortalPoverenika/src/main/resources/static/da.pdf");
-            try {
-                byte[] byteArr = Files.readAllBytes(pdfPath);
-                request.setFile(byteArr);
-            } catch (IOException e) {
-                return new ResponseEntity(HttpStatus.BAD_REQUEST);
-            }
-
-            pdfPath = Paths.get("C:/Users/bekim/Desktop/xml/PortalPoverenika/src/main/resources/static/ne.html");
-            try {
-                byte[] byteArr = Files.readAllBytes(pdfPath);
-                request.setHtml(byteArr);
-            } catch (IOException e) {
-                return new ResponseEntity(HttpStatus.BAD_REQUEST);
-            }
-
-
-
-            Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
-            marshaller.setContextPath("tim21.PortalPoverenika.soap.dto");
-
-
-            MailClient mailClient = new MailClient();
-            mailClient.setDefaultUri(env.getProperty("portal_vlasti"));
-            mailClient.setMarshaller(marshaller);
-            mailClient.setUnmarshaller(marshaller);
-
-            boolean sent = mailClient.sendMail(request);
-            if(sent){
-                return new ResponseEntity(HttpStatus.OK);
-            } else {
-                return new ResponseEntity(HttpStatus.BAD_REQUEST);
-            }
-
-
-//        }
-//        return new ResponseEntity(HttpStatus.BAD_REQUEST);
     }
 
 
