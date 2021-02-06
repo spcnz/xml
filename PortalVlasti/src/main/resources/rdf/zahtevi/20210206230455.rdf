@@ -1,0 +1,37 @@
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:h="http://www.w3.org/1999/xhtml">
+<rdf:Description rdf:about="http://zahtevi/20210206230455">
+<pred:submitter xmlns:pred="http://www.tim21.com/predicate/" rdf:resource="http://users/perovicmitar@gmail.com"/>
+</rdf:Description>
+<rdf:Description rdf:about="http://zahtevi/20210206230455">
+<pred:institutionName xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">Neko ime</pred:institutionName>
+</rdf:Description>
+<rdf:Description rdf:about="http://zahtevi/20210206230455">
+<pred:institutionOffice xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">Grad u kom se nalazi</pred:institutionOffice>
+</rdf:Description>
+<rdf:Description rdf:about="http://zahtevi/20210206230455">
+<pred:requestType xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">UVID U DOKUMENT</pred:requestType>
+</rdf:Description>
+<rdf:Description rdf:about="http://zahtevi/20210206230455">
+<pred:delivery xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal">POSTA</pred:delivery>
+</rdf:Description>
+<rdf:Description rdf:about="http://zahtevi/20210206230455">
+<pred:submitter xmlns:pred="http://www.tim21.com/predicate/" rdf:resource="http://users/perovicmitar@gmail.com"/>
+</rdf:Description>
+<rdf:Description rdf:about="http://zahtevi/20210206230455">
+<pred:submitterName xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">UVID U DOKUMENT</pred:submitterName>
+</rdf:Description>
+<rdf:Description rdf:about="http://zahtevi/20210206230455">
+<pred:submitterLastname xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"/>
+</rdf:Description>
+<rdf:Description rdf:about="http://zahtevi/20210206230455">
+<pred:submitterCity xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">Podgorica</pred:submitterCity>
+</rdf:Description>
+<rdf:Description rdf:about="http://zahtevi/20210206230455">
+<pred:submitterStreet xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"/>
+</rdf:Description>
+<rdf:Description rdf:about="http://zahtevi/20210206230455">
+<pred:submitterStreetnum xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">1</pred:submitterStreetnum>
+</rdf:Description>
+<!--Could not produce the triple for: http://zahtevi/20210206230455 - appealTime - 09:15:00-->
+<!--Could not produce the triple for: http://zahtevi/20210206230455 - appealDate - 2021-02-06-->
+</rdf:RDF>

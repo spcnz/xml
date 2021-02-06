@@ -1,0 +1,58 @@
+{
+  "@id" : "http://zahtevi/20210206230129",
+  "delivery" : "POSTA",
+  "institutionName" : "Neko ime",
+  "institutionOffice" : "Grad u kom se nalazi",
+  "requestType" : "UVID U DOKUMENT",
+  "submitter" : "http://users/perovicmitar@gmail.com",
+  "submitterCity" : "Podgorica",
+  "submitterLastname" : "",
+  "submitterName" : "Milenaa",
+  "submitterStreet" : "",
+  "submitterStreetnum" : "1",
+  "@context" : {
+    "submitter" : {
+      "@id" : "http://www.tim21.com/predicate/submitter",
+      "@type" : "@id"
+    },
+    "institutionName" : {
+      "@id" : "http://www.tim21.com/predicate/institutionName",
+      "@type" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"
+    },
+    "submitterLastname" : {
+      "@id" : "http://www.tim21.com/predicate/submitterLastname",
+      "@type" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"
+    },
+    "submitterCity" : {
+      "@id" : "http://www.tim21.com/predicate/submitterCity",
+      "@type" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"
+    },
+    "delivery" : {
+      "@id" : "http://www.tim21.com/predicate/delivery",
+      "@type" : "http://www.w3.org/2000/01/rdf-schema#Literal"
+    },
+    "institutionOffice" : {
+      "@id" : "http://www.tim21.com/predicate/institutionOffice",
+      "@type" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"
+    },
+    "submitterStreet" : {
+      "@id" : "http://www.tim21.com/predicate/submitterStreet",
+      "@type" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"
+    },
+    "submitterName" : {
+      "@id" : "http://www.tim21.com/predicate/submitterName",
+      "@type" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"
+    },
+    "requestType" : {
+      "@id" : "http://www.tim21.com/predicate/requestType",
+      "@type" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"
+    },
+    "submitterStreetnum" : {
+      "@id" : "http://www.tim21.com/predicate/submitterStreetnum",
+      "@type" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"
+    },
+    "rdf" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "pred" : "http://www.tim21.com/predicate/",
+    "h" : "http://www.w3.org/1999/xhtml"
+  }
+}

@@ -1,0 +1,13 @@
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:h="http://www.w3.org/1999/xhtml">
+<!--Could not produce the triple for: http://obavestenja/20210206231952 - pred:informationForRequest - http://zahtevi/20210206231052-->
+<!--Could not produce the triple for: http://obavestenja/20210206231952 - pred:submitterCity - Beograd-->
+<!--Could not produce the triple for: http://obavestenja/20210206231952 - pred:submitterStreet - -->
+<!--Could not produce the triple for: http://obavestenja/20210206231952 - pred:submitterStreetnum - 1-->
+<!--Could not produce the triple for: http://zahtevi/20210206231052 - pred:submitterOfRequest - http://users/perovicmitar@gmail.com-->
+<!--Could not produce the triple for: http://zahtevi/20210206231052 - pred:submitterCity - Beograd-->
+<!--Could not produce the triple for: http://zahtevi/20210206231052 - pred:submitterStreet - -->
+<!--Could not produce the triple for: http://zahtevi/20210206231052 - pred:submitterStreetnum - 1-->
+<!--Could not produce the triple for: http://obavestenja/20210206231952 - pred:submitterCity - Beograd-->
+<!--Could not produce the triple for: http://obavestenja/20210206231952 - pred:submitterStreet - -->
+<!--Could not produce the triple for: http://obavestenja/20210206231952 - pred:submitterStreetnum - 1-->
+</rdf:RDF>
