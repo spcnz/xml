@@ -1,7 +1,7 @@
 PREFIX pred: <http://www.tim21.com/predicate/>
 prefix xsd: <http://www.w3.org/2001/XMLSchema#>
 
-SELECT ?request FROM <http://localhost:8089/fusekiVlast/Tim21DatasetVlast/data/zahtevi>
+SELECT ?request FROM <http://localhost:8093/Tim21DatasetVlast/data/zahtevi>
 WHERE{
     
     ?request pred:institutionName ?instName .
@@ -9,7 +9,7 @@ WHERE{
     ?request pred:requestType ?requestType .
     ?request pred:delivery ?delivery .
     ?request pred:submitter ?submitterEmail .
-    ?request pred:submitterName ?submitterName
+    ?request pred:submitterName ?submitterName .
     ?request pred:submitterLastname ?submitterLastname .
     ?request pred:appealDate ?appealDate .
 

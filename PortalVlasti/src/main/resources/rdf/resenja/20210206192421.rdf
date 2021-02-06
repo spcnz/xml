@@ -1,0 +1,17 @@
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:h="http://www.w3.org/1999/xhtml">
+<rdf:Description rdf:about="http://resenja/20210206192421">
+<pred:rescriptDate xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">2020-09-08</pred:rescriptDate>
+</rdf:Description>
+<rdf:Description rdf:about="http://resenja/20210206192421">
+<pred:appealStatus xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">PRIHVACENA</pred:appealStatus>
+</rdf:Description>
+<rdf:Description rdf:about="http://resenja/1">
+<pred:commisioner xmlns:pred="http://www.tim21.com/predicate/" rdf:resource="http://users/poverenik@gmail.com"/>
+</rdf:Description>
+<rdf:Description rdf:about="http://resenja/1">
+<pred:commisionerName xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">Milan</pred:commisionerName>
+</rdf:Description>
+<rdf:Description rdf:about="http://resenja/1">
+<pred:commisionerLastname xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">Marinovic</pred:commisionerLastname>
+</rdf:Description>
+</rdf:RDF>

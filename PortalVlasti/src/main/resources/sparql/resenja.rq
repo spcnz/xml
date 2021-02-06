@@ -1,14 +1,14 @@
 PREFIX pred: <http://www.tim21.com/predicate/>
 prefix xsd: <http://www.w3.org/2001/XMLSchema#>
 
-SELECT ?rescript FROM <http://localhost:8089/fusekiVlast/Tim21DatasetVlast/data/resenja>
+SELECT ?rescript FROM <http://localhost:8093/Tim21DatasetVlast/data/resenja>
 WHERE{
     ?rescript pred:rescriptForAppeal ?rescriptForAppeal .
     ?rescript pred:rescriptDate ?rescriptDate .
     ?rescript pred:appealStatus ?appealStatus .
     ?rescript pred:commisionerName ?commisionerName .
     ?rescript pred:commisionerLastname ?commisionerLastname .
-    ?rescript pred:submitter ?submitter
+    ?rescript pred:submitter ?submitter .
 
     FILTER(CONTAINS(UCASE(str(?rescriptForAppeal)), UCASE("%1$s"))
         && CONTAINS(UCASE(str(?rescriptDate)), UCASE("%2$s"))

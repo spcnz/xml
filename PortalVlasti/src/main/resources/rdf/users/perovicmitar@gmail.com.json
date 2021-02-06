@@ -1,6 +1,6 @@
 {
-  "@id" : "file:///C:/Personal/Faks/XML%20i%20Web%20Servisi/projekat-github/PortalPoverenika/src/main/resources/rdf/users/user@gmail.com.rdf",
-  "email" : "user@gmail.com",
+  "@id" : "http://users/perovicmitar@gmail.com",
+  "email" : "perovicmitar@gmail.com",
   "@context" : {
     "email" : {
       "@id" : "http://www.tim21.com/predicate/email",

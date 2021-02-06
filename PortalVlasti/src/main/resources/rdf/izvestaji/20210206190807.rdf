@@ -1,0 +1,5 @@
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:h="http://www.w3.org/1999/xhtml">
+<rdf:Description rdf:about="http://izvestaji/20210206190807">
+<pred:submitDate xmlns:pred="http://www.tim21.com/predicate/" rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal">2021-02-06</pred:submitDate>
+</rdf:Description>
+</rdf:RDF>

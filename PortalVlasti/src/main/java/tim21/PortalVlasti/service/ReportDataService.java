@@ -17,6 +17,7 @@ import tim21.PortalVlasti.model.report.TIzvestaj;
 import tim21.PortalVlasti.repository.ReportRepository;
 import tim21.PortalVlasti.soap.client.ReportClient;
 import tim21.PortalVlasti.util.Validator;
+import tim21.PortalVlasti.util.transformer.PDFTransformer;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -39,6 +40,10 @@ public class ReportDataService {
 
     @Autowired
     private Environment env;
+
+    public static final String XSL_FILE = "src/main/resources/xsl/report.xsl";
+
+    public static final String XSL_FO_FILE = "src/main/resources/xsl/report_fo.xsl";
 
     public IzvestajRoot create(IzvestajRoot report) throws IOException, SAXException {
         System.out.println("SAD VALIDIRA  " );
@@ -113,6 +118,42 @@ public class ReportDataService {
         }
 
         return report;
+    }
+
+    public String generatePdf(String ID) {
+        XMLResource inf = reportRepository.getOne(ID);
+        PDFTransformer transformer = new PDFTransformer();
+
+        if(inf == null)
+            return null;
+
+        String pdfPath ="src/main/resources/static/information/information_" + ID + ".pdf";
+        try {
+            transformer.generatePDF(inf.getContent().toString(), pdfPath, XSL_FO_FILE);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+
+        return pdfPath;
+    }
+
+    public String generateHtml(String ID) {
+        XMLResource inf = reportRepository.getOne(ID);
+        PDFTransformer transformer = new PDFTransformer();
+
+        if(inf == null)
+            return null;
+
+        String htmlPath ="src/main/resources/static/information/information_" + ID + ".html";
+        try {
+            transformer.generateHTML(inf.getContent().toString(), htmlPath, XSL_FILE);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+
+        return htmlPath;
     }
 
 
