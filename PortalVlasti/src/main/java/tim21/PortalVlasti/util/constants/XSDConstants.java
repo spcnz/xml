@@ -7,7 +7,7 @@ import java.util.Map;
 public class XSDConstants {
     public static final String USER = "User";
 
-    public static final String INFORMATION = "Obavestenje";
+    public static final String INFORMATION = "ObavestenjeRoot";
 
     public static final String REQUEST = "ZahtevRoot";
 
