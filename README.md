@@ -11,7 +11,7 @@ Linkovi do front-end aplikacije
 [Portal poverenika](https://github.com/dovlaper/xml-fe-react)
 
 
-Kreirati korisnike na portalu poverenika iz postmana slanjem requesta create user (iz exportovane postman kolekcije) sa role ROLE_CITIZEN za obicnog korisnika, ROLE_COMMISSIONE za poverenika.
+Kreirati korisnike na portalu poverenika iz postmana slanjem requesta create user (iz exportovane postman kolekcije) sa role ROLE_CITIZEN za obicnog korisnika, ROLE_COMMISSIONER za poverenika.
 
 
 Kreirati korisnike na portalu poverenika iz postmana slanjem requesta create user vlast (iz exportovane postman kolekcije, port je 8083) sa role ROLE_CITIZEN za obicnog korisnika, ROLE_OFFICIAL za sluzbenilka.
